@@ -1,27 +1,8 @@
-Creature Combat Domains
-
-# Inspiration
-
-Inspired by several ideas I’ve had, and these videos:
-
-<https://www.youtube.com/watch?v=XDd4u2xnRtE>
-
-<https://www.youtube.com/watch?v=YPHsQLHKVfE>
-
-<https://www.youtube.com/watch?v=loErVGIPjqk>
-
-<https://www.youtube.com/watch?v=5zr69jEp3jY>
-
-So this is like version 5 or so of Creature Combat. I want to take the core idea of the card game I made for the other students on my 7th grade school bus, plus use creatures ive designed already and other creatures not yet designed. I’m also taking heavy inspiration from a dice game Jen and I played with lego men.
-
-The lego men dice game went as follows:  
-You had 10 lego men, and 5 dice. You lined up 5 of your lego men, facing 5 of your opponent’s lego men that they lined up. Then you roll 5 dice and assign each dice to your lego men. Then, you reveal the die values to each other. If a lego men’s die roll was higher than the lego men facing them, then they win. Otherwise they lose, and are defeated and removed from the game. Last player left with lego men wins the game.
-
-I’m taking heavy inspiration from that, but without using dice.
+Creature Combat Territory
 
 # Concept
 
-Instead of dice, there will be 5 lands cards drawn from a deck of about 50 or so land cards. You place any number of your creature cards face down in front of the land cards. Then when each player is ready, you flip up your creature cards for each land card and tally the total power of the creatures at that land card. If your total power is higher than the opponent’s, you win that land card. Then repeat for the other land cards. Afterwards, regardless if you won or lost, your creatures go to the recharge pile, and another land card is drawn to take its place. When all the land cards have been claimed, the player with the most land cards wins the game.
+There will be 5 lands cards drawn from a deck of about 50 or so land cards. You place any number of your creature cards face down in front of the land cards. Then when each player is ready, you flip up your creature cards for each land card and tally the total power of the creatures at that land card. If your total power is higher than the opponent’s, you win and claim that land card. Then repeat for the other land cards. Afterwards, regardless if you won or lost, your creatures go to the recharge pile, and another land card is drawn to take its place. When all the land cards have been claimed, the player with the most land cards wins the game.
 
 That’s the basic idea.
 
