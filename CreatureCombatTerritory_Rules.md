@@ -1,10 +1,10 @@
 Creature Combat Territory
 
-Creature Combat Territory is a card game about deploying your creatures to various lands to engage in battle so that you can claim the lands.
+Creature Combat Territory is a card game about deploying your Creatures to various Lands to engage in battle so that you can claim the Lands.
 
 # Win Condition
 
-You win by claiming the most lands by the end of the game. The game ends when there are no more lands left to claim.
+You win by claiming the most Lands by the end of the game. The game ends when there are no more Lands left to claim.
 
 # Contents & Materials
 
@@ -42,7 +42,7 @@ There’s two types of cards: Land cards, and Creature cards.
 
 ## Land cards
 
-Land cards are the battlegrounds where your creatures fight. Winning in a battleground lets you claim that Land for yourself, getting you closer to winning the game.
+Land cards are the battlegrounds where your Creatures fight. Winning in a battleground lets you claim that Land for yourself, getting you closer to winning the game.
 
 TODO: pic
 
@@ -79,7 +79,7 @@ There’s 4 phases to each round:
 
 ## Round Begin
 
-Deal 5 land cards into the space between players.
+Deal 5 Land cards into the space between players.
 
 ## Deploy Creatures
 
@@ -101,10 +101,10 @@ Do combat for each Land separately. For each Land:
 4.  If you have the highest total power, you claim that Land.
     1.  If two or more players are tied for highest total power, it’s a draw, and the Land does not get claimed.
 5.  If you claim the Land, put it in your Land pile.
-6.  Pull back your deployed creatures.
-    1.  If a creature has Base Power 0 or less, put 1 additional Rest counter on it.
-    2.  If a creature has at least 1 Rest counter on it, place it in a separate Resting pile based on how many Rest counters it has.
-    3.  If a creature has no Rest counters on it, then place it in your Returning pile.
+6.  Pull back your deployed Creatures.
+    1.  If a Creature has Base Power 0 or less, put 1 additional Rest counter on it.
+    2.  If a Creature has at least 1 Rest counter on it, place it in a separate Resting pile based on how many Rest counters it has.
+    3.  If a Creature has no Rest counters on it, then place it in your Returning pile.
 
 ## Round End
 
@@ -172,36 +172,36 @@ The Land’s biome is what Creatures use to determine their Biome Bonus.
 
 You can create your own custom Creatures. The rules for this are quite complex, so it’s recommended that you go to the following website and use the Creature Combat card creator to make your custom Creature card: TODO: website
 
-Here are the creature stats:
+Here are the Creature stats:
 
--   Name – The name of this individual creature.
--   Species – The species name of this creature.
--   Type – Any type tags you want to apply to this creature (Flying, Canid, Ungulate, Fire, etc.)
--   Star Count – How powerful this creature is
--   Total Cost – The cost of putting this card in your creature deck.
--   Base Power – The power of this creature, Irregardless of which biome it’s fighting in
--   Biome A Bonus – The power bonus this creature receives when fighting in Biome A. Each creature can have multiple of these
--   Ability – An ability this creature can use, often costing rest time or requiring it to be in a home biome
+-   Name – The name of this individual Creature.
+-   Species – The species name of this Creature.
+-   Type – Any type tags you want to apply to this Creature (Flying, Canid, Ungulate, Fire, etc.)
+-   Star Count – How powerful this Creature is
+-   Total Cost – The cost of putting this card in your Creature deck.
+-   Base Power – The power of this Creature, Irregardless of which biome it’s fighting in
+-   Biome A Bonus – The power bonus this Creature receives when fighting in Biome A. Each Creature can have multiple of these
+-   Ability – An ability this Creature can use, often costing rest time or requiring it to be in a home biome
 
 ### Name
 
-Give this creature a name, and write it on the card, with your own handwriting. This gives it a personal touch and makes the creature more personal to you. It’s like naming your Pokemon.
+Give this Creature a name, and write it on the card, with your own handwriting. This gives it a personal touch and makes the Creature more personal to you. It’s like naming your Pokemon.
 
 ### Species
 
-This is the name of the species of the creature, often printe in ink like the rest of the card.
+This is the name of the species of the Creature, often printe in ink like the rest of the card.
 
 ### Type
 
-What kind of creature is this? Use types like in Magic The Gathering: you can have any amount of types, and in any variety. There’s some that are included in the base game, but you can have your creature be any type you want. There’s no type bonuses in the base mechanics like in Pokemon, so don’t worry about playing your Fire type creature into an opponent’s Water type creature. Types work like in Magic The Gathering, in that abilities of certain creatures and lands reference those types to give tribal bonuses and effects.
+What kind of Creature is this? Use types like in Magic The Gathering: you can have any amount of types, and in any variety. There’s some that are included in the base game, but you can have your Creature be any type you want. There’s no type bonuses in the base mechanics like in Pokemon, so don’t worry about playing your Fire type Creature into an opponent’s Water type Creature. Types work like in Magic The Gathering, in that abilities of certain Creatures and Lands reference those types to give tribal bonuses and effects.
 
 ### Star Count
 
-A creature’s star count is a way to quickly gauge how powerful it is. A creature’s Star Count is equal to its Final Cost divided by 10, round up.
+A Creature’s star count is a way to quickly gauge how powerful it is. A Creature’s Star Count is equal to its Final Cost divided by 10, round up.
 
 ### Total Cost
 
-The total cost of a creature is determined by its other stats: Base Power, Biome Bonuses, and Abilities.
+The total cost of a Creature is determined by its other stats: Base Power, Biome Bonuses, and Abilities.
 
 The base total cost is 0, and then you add to this when you add points to the other stats.
 
@@ -213,48 +213,48 @@ Abilities have varying costs depending on what it does and the requirements to p
 
 Total Cost = (Base Power \* 2) + RoundUp(Total Biome Bonus / 2) + (Total Ability Cost)
 
-If your creature’s total cost is high enough, it might be eligible for cost discounts. For example, if your creature’s Base Total Cost is 90, it would be eligible for a cost reduction of let’s say 9, making its Final Total Cost equal to 81.
+If your Creature’s total cost is high enough, it might be eligible for cost discounts. For example, if your Creature’s Base Total Cost is 90, it would be eligible for a cost reduction of let’s say 9, making its Final Total Cost equal to 81.
 
 The Final Total Cost is what you use to determine the total cost of your deck. The Final Total Cost has a minimum of 1.
 
 ### Base Power
 
-This is the power of the creature no matter in which biome it is fighting.
+This is the power of the Creature no matter in which biome it is fighting.
 
 ### Biome Bonus
 
-This is the power bonus the creature receives when it is fighting in the given biome. Each biome bonus declares a biome and a bonus. When the creature fights in that specific biome, they get that bonus to their power.
+This is the power bonus the Creature receives when it is fighting in the given biome. Each biome bonus declares a biome and a bonus. When the Creature fights in that specific biome, they get that bonus to their power.
 
 The biome bonus can be negative. A shark wouldn’t fare too good on a mountain, for example.
 
-Each creature can have multiple biome bonuses. A deer is good in the mountains, in the forest, and in the plains, for example.
+Each Creature can have multiple biome bonuses. A deer is good in the mountains, in the forest, and in the plains, for example.
 
-If a creature has a positive bonus in a biome, it is said to be a home biome. Some abilities require a creature to be in a home biome to activate.
+If a Creature has a positive bonus in a biome, it is said to be a home biome. Some abilities require a Creature to be in a home biome to activate.
 
-If the creature is fighting in a biome in which it doesn’t have a biome bonus or detriment for, it just uses its Base Power with no biome bonuses.
+If the Creature is fighting in a biome in which it doesn’t have a biome bonus or detriment for, it just uses its Base Power with no biome bonuses.
 
 ### Ability
 
-Each creature can have one or more abilities.
+Each Creature can have one or more abilities.
 
-An ability might have a cost associated with it, which must be paid to activate it. For example, it might require that the creature gains 2 Rest counters when it leaves the battlefield. Or an ability might require that the creature is in a home biome in order to activate.
+An ability might have a cost associated with it, which must be paid to activate it. For example, it might require that the Creature gains 2 Rest counters when it leaves the battlefield. Or an ability might require that the Creature is in a home biome in order to activate.
 
 Some abilities are passives which activate when a certain condition is met.
 
-Some abilities are activatable. You can activate these abilities at any time, as long as the creature is deployed to a land. Creatures in your Ready piles and Resting piles cannot use their abilities. You can activate each creature’s ability only once per round. You can activate multiple creatures’ ability per round, even if those creatures are deployed to the same land. If a creature has more than one ability, you may activate more than one in a round.
+Some abilities are activatable. You can activate these abilities at any time, as long as the Creature is deployed to a Land. Creatures in your Ready piles and Resting piles cannot use their abilities. You can activate each Creature’s ability only once per round. You can activate multiple Creatures’ ability per round, even if those Creatures are deployed to the same Land. If a Creature has more than one ability, you may activate more than one in a round.
 
-Some abilities require the creature to not add its power to the total in order to use.
+Some abilities require the Creature to not add its power to the total in order to use.
 
-Unless otherwise specified, a creature’s ability effects are limited to the land they are on, unless otherwise specified. For example, “All creatures gain +1 power.” This means all creatures on that land, and not other creatures on other lands.
+Unless otherwise specified, a Creature’s ability effects are limited to the Land they are on, unless otherwise specified. For example, “All Creatures gain +1 power.” This means all Creatures on that Land, and not other Creatures on other Lands.
 
 # Creature Abilities
 
-Each creature can have one or more abilities.
+Each Creature can have one or more abilities.
 
-Here’s some examples of abilities creatures can have.
+Here’s some examples of abilities Creatures can have.
 
--   Roar – 1 Rest Counter: All other creatures get -1 Base Power.
--   Shield – Support: Enemy effects can’t make ally creatures lose Base Power.
+-   Roar – 1 Rest Counter: All other Creatures get -1 Base Power.
+-   Shield – Support: Enemy effects can’t make ally Creatures lose Base Power.
 
 Each ability has the following:
 
@@ -273,11 +273,11 @@ What does it cost to use this ability? Activating the ability requires some kind
 
 Common costs:
 
--   Rest X – Add X amount of rest counters to the creature when it activates this ability.
--   Support – This creature doesn’t add its power to the Total Power for claiming the land.
--   Exhaust X – This creature loses X amount of Base Power.
--   Sacrifice – This creature is removed from the game when the round ends.
--   Disorient X – This creature loses X amount of Biome Bonus in the relevant biome.
+-   Rest X – Add X amount of rest counters to the Creature when it activates this ability.
+-   Support – This Creature doesn’t add its power to the Total Power for claiming the Land.
+-   Exhaust X – This Creature loses X amount of Base Power.
+-   Sacrifice – This Creature is removed from the game when the round ends.
+-   Disorient X – This Creature loses X amount of Biome Bonus in the relevant biome.
 
 ## Requirement
 
@@ -285,13 +285,13 @@ What conditions need to be satisfied in order for this ability to be active / be
 
 Common requirements:
 
--   Home – The creature must be in a home biome. If the creature would be in a home biome but its biome bonus has been reduced to 0 or below, then this condition is longer met.
--   Biome A – The creature must in biome A. It doesn’t matter if the creature has a bonus or not in this biome.
--   Type Group – The creature must be fighting with another ally creature that shares a type.
--   Type Group X – The creature must be fighting with at least X other ally creatures that share at least one type with it.
--   Type Group A – The creature must be fighting with another ally creature that shares type A with it.
--   Type Group A X - The creature must be fighting with at least X other ally creatures that share type A with it.
--   Alone – The creature must be fighting alone.
+-   Home – The Creature must be in a home biome. If the Creature would be in a home biome but its biome bonus has been reduced to 0 or below, then this condition is longer met.
+-   Biome A – The Creature must in biome A. It doesn’t matter if the Creature has a bonus or not in this biome.
+-   Type Group – The Creature must be fighting with another ally Creature that shares a type.
+-   Type Group X – The Creature must be fighting with at least X other ally Creatures that share at least one type with it.
+-   Type Group A – The Creature must be fighting with another ally Creature that shares type A with it.
+-   Type Group A X - The Creature must be fighting with at least X other ally Creatures that share type A with it.
+-   Alone – The Creature must be fighting alone.
 
 ## Effect
 
@@ -305,6 +305,6 @@ Common effects:
 
 ## Taking Damage
 
-Creatures don’t have hitpoints, per say, but some abilities say “Deal 2 damage” for example. When a creature takes damage, its Base Power is reduced by that amount. A creature’s Base Power cannot be reduced below 0. If a creature’s Base Power is reduced to 0, it gets a number of extra Rest counters equal to its Star Count.
+Creatures don’t have hitpoints, per say, but some abilities say “Deal 2 damage” for example. When a Creature takes damage, its Base Power is reduced by that amount. A Creature’s Base Power cannot be reduced below 0. If a Creature’s Base Power is reduced to 0, it gets a number of extra Rest counters equal to its Star Count.
 
-All damage is removed when the creature leaves the battlefield.
+All damage is removed when the Creature leaves the battlefield.
