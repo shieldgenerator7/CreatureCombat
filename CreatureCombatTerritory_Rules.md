@@ -97,6 +97,10 @@ Do combat for each Land separately. For each Land:
 
 1.  Reveal your Creatures deployed at that Land.
 2.  Count up your Creatures’ total power at that Land.
+    1.  A Creature’s power is equal to its Base Power plus its Biome Modifier.
+    2.  The Creature’s Biome Modifier is the one that matches the biome of the Land it’s at.
+    3.  If it does not have a matching Biome Modifier, then its Biome Modifier is 0.
+    4.  If a Creature’s Base Power is 0 or less, its power is also 0 (ignore its Biome Modifier).
 3.  Determine which player has the highest total power.
 4.  If you have the highest total power, you claim that Land.
     1.  If two or more players are tied for highest total power, it’s a draw, and the Land does not get claimed.
