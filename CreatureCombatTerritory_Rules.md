@@ -145,6 +145,32 @@ Your Creature deck can have a total cost of 100 or less. Each Creature has a cos
 
 Your Land deck must contain 25 Lands. Your Lands and the opponent’s Lands will be shuffled together into the same deck, so it’s best if you use card sleeves for the Lands with backs distinct from your opponent’s.
 
+# FAQ
+
+Here are some common questions and answers.
+
+## Can Creatures with the Flying tag be attacked by Creatures without the Flying tag?
+
+Yes, a Creature “without” Flying can attack a Creature “with” Flying.
+
+“Flying” is not a keyword in the mechanics of this game. It’s purely aesthetic. You can use it as a type, but it doesn’t grant any additional benefits to your Creature. Some Creature abilities interact with types, so if you have one such ability in your deck, it will provide benefit. But the game doesn’t automatically give you anything for having “Flying” as a type.
+
+# Keywords
+
+Base Power – how strong a Creature is no matter where it is. Used to determine a Creature’s overall Power. Its Base Power is also used simultaneously as its Health and its available Ability Points.
+
+Biome – the type of the Land. Used to determine a Creature’s Biome Modifier
+
+Biome Bonus – a positive Biome Modifier
+
+Biome Detriment – a negative Biome Modifier
+
+Biome Modifier – the bonus or detriment a Creature gets while at a Land
+
+Power – the combined total of a Creature’s Base Power and its Biome Modifier. If the Base Power is 0 or less, then the Biome Modifier is ignored and the Power is just 0.
+
+Ward X – A Creature with this keyword costs X more Ability Points to target with a targeted ability.
+
 # Custom Card Creation Rules
 
 There’s two types of cards that you can create custom cards of: Land Cards, and Creature Cards.
