@@ -1,33 +1,72 @@
 Creature Combat Territory
 
+Creature Combat Territory is a card game about deploying your creatures to various lands to engage in battle so that you can claim the lands.
+
 # Win Condition
 
 You win by claiming the most lands by the end of the game. The game ends when there are no more lands left to claim.
 
-# Concept
+# Contents & Materials
 
-There will be 5 lands cards drawn from a deck of about 50 or so land cards. You place any number of your creature cards face down in front of the land cards. Then when each player is ready, you flip up your creature cards for each land card and tally the total power of the creatures at that land card. If your total power is higher than the opponent’s, you win and claim that land card. Then repeat for the other land cards. Afterwards, regardless if you won or lost, your creatures go to the recharge pile, and another land card is drawn to take its place. When all the land cards have been claimed, the player with the most land cards wins the game.
+In this game, there are two card types: Creature cards and Land cards. Creatures are the units that you send into battle, and Lands are the battlegrounds where you send them to fight.
 
-That’s the basic idea.
+You need to bring a deck of Creatures and a deck of 25 Lands. Creature decks must have a total combined cost of 100 points, as determined by each Creature’s cost. There is no card minimum or maximum for the Creature deck. There is no limit to how many copies of a particular Creature you can have in your deck. See page TODO for more detailed Deck construction rules.
 
-# Deck Building
+You will also need some way to keep track of Damage counters and Rest counters. A set of dice, trackers, tokens, and pips are all good options. Damage counters are often between 5 and 10, but can go as high as 50 and beyond in rare cases. Rest counters usually go between 1 and 3, and rarely get above 5.
 
-Each player comes to the table with a deck of creatures and a deck of lands. The total cost of your creature deck and the amount of lands in your land deck can vary from the rules below, but the total cost and land amount must be agreed upon by both players ahead of time.
-
-## Creature Deck
-
-Your creature deck can have a total cost of 100 or less. Each creature has a cost ranging from 0 to 100, depending on its stats and abilities. There is no minimum or maximum card count. You could have 10 creatures in your deck that each cost 10, or 100 creatures that each cost 1, or just 1 creature that costs 100. It’s up to you to decide what’s optimal for your deck.
-
-## Land Deck
-
-Your land deck must contain 25 lands. Your lands and the opponent’s lands will be shuffled together into the same deck, so it’s best if you use card sleeves for the lands with backs distinct from your opponent’s.
+You will most likely want to use card sleeves for both your Creature Cards and Land cards, especially for your Land cards. Your Land cards will be shuffled in with your opponent's Land cards, so it’s important that you have distinct sleeves so you can easily find your Land cards after the game is over.
 
 # Setup
 
-1.  Shuffle your land deck.
-2.  Shuffle your opponent’s land deck.
-3.  Shuffle your land deck into your opponent's land deck.
-4.  Place your creature deck face down on the table. No need to shuffle it.
+1.  Shuffle your Land deck.
+2.  Shuffle your opponent’s Land deck.
+3.  Shuffle your Land deck into your opponent's Land deck, creating a combined Land deck.
+4.  Place your Creature deck face down on the table. No need to shuffle it. This is your Ready pile.
+
+# Table Layout
+
+In a 2 player game, the table will be laid out like this:
+
+![Table layout](media/0856d8cdfa058dfdde6f7c575ae378e7.png)
+
+1.  Land Deck – this is where you draw Lands from at the beginning of the round
+2.  Lands – these are the Lands in play that you can deploy Creatures to
+3.  Ready Pile – this is the pile of Creatures that you can deploy Creatures from
+4.  Land Pile – this is your personal pile of Lands that you have claimed
+5.  Resting Pile(s) – these are piles of your Creatures that are resting for a number of rounds indicated by their Rest counters and cannot be deployed
+6.  Returning Pile – the Creatures that will be ready next round
+
+# Card Layout
+
+There’s two types of cards: Land cards, and Creature cards.
+
+## Land cards
+
+Land cards are the battlegrounds where your creatures fight. Winning in a battleground lets you claim that Land for yourself, getting you closer to winning the game.
+
+TODO: pic
+
+1.  Name – the name of this specific location.
+2.  Biome – the biome of this Land. Creatures use this to determine their Biome Bonus.
+
+## Creature cards
+
+Creatures are the units that battle on the Lands to win them for your team.
+
+TODO: pic
+
+1.  Name – where you write your Creature’s name on the card with a pen, pencil, or other writing utensil in your own handwriting. Yes, this is meant to be permanent.
+2.  Species – the species name of your Creature.
+3.  Cost – how much this Creature costs to include in your Creature deck.
+4.  Stars – a general indication of the Creature’s power level. The more stars it has, the more powerful it is.
+5.  Types – a list of type tags that identify what groups this Creature belongs to.
+6.  Art – the card art that shows what the Creature looks like.
+7.  Ability – what the Creature can do.
+8.  Base Power – how powerful the Creature is no matter where it’s fighting. Also used as “health” and as a resource to use abilities.
+9.  Biome Bonus – how much more powerful the Creature is in that particular biome. The Biome Bonus is added to the Base Power to get the Creature’s power.
+10. ID – the ID of this Creature card on the Creature Combat website, so that you can verify that it follows the card construction rules.
+11. Variant \# - which variant of this species it is.
+12. Version \# - the version number of the card generator used to make this card.
 
 # Gameplay
 
@@ -44,61 +83,77 @@ Deal 5 land cards into the space between players.
 
 ## Deploy Creatures
 
-Each player deploys any number of their ready creatures to the 5 lands. You can spread them out however you wish. You can add any number of creatures to each land. You don’t have to deploy all your creatures. You don’t have to deploy creatures to each land.
+Each player deploys any number of their ready Creatures to the 5 Lands. You can spread them out however you wish. You can add any number of Creatures to each Land. You don’t have to deploy all your Creatures. You don’t have to deploy Creatures to each Land.
 
-To deploy a creature, place it face down in front of the land you wish to deploy it to. If you deploy multiple creatures to the same land, place them in the same pile.
+To deploy a Creature, place it face down in front of the Land you wish to deploy it to. If you deploy multiple Creatures to the same Land, place them in the same pile.
+
+Each Creature receives a bonus or detriment depending on where it gets deployed. While a Creature is at a Land, it uses the Biome Modifier that matches the biome of the Land it’s at. If its Biome Modifier is positive, it gets a Biome Bonus; but if its Biome Modifier is negative, it gets a Biome Detriment.
+
+If a Creature has a Biome Bonus, it is considered to be in a home biome. Some Creature abilities require the Creature to be in a home biome in order to activate.
 
 ## Combat
 
-Do combat for each land separately. For each land:
+Do combat for each Land separately. For each Land:
 
-1.  Reveal your creatures deployed at that land.
-2.  Count up your creatures’ total power at that land.
+1.  Reveal your Creatures deployed at that Land.
+2.  Count up your Creatures’ total power at that Land.
 3.  Determine which player has the highest total power.
-4.  If you have the highest total power, you claim that land.
-    1.  If two or more players are tied for highest total power, the land does not get claimed.
-5.  If you claim the land, put it in your land pile.
+4.  If you have the highest total power, you claim that Land.
+    1.  If two or more players are tied for highest total power, it’s a draw, and the Land does not get claimed.
+5.  If you claim the Land, put it in your Land pile.
+6.  Pull back your deployed creatures.
+    1.  If a creature has Base Power 0 or less, put 1 additional Rest counter on it.
+    2.  If a creature has at least 1 Rest counter on it, place it in a separate Resting pile based on how many Rest counters it has.
+    3.  If a creature has no Rest counters on it, then place it in your Returning pile.
 
 ## Round End
 
 When the round ends, do the following:
 
-1.  If you have Resting piles with Rest counters on them,
+1.  Move Creatures from your Returning pile into your Ready pile.
+2.  If you have Resting piles with Rest counters on them,
     1.  Remove 1 Rest counter from each Resting pile.
-    2.  If a Resting pile now has 0 Rest counters, move it into your Ready pile.
-2.  Pull back your deployed creatures.
-    1.  If a creature has Base Power 0 or less, put 1 additional Rest counter on it.
-    2.  If a creature has at least 1 Rest counter on it, place it in a separate Resting pile based on how many Rest counters it has.
-    3.  If a creature has no Rest counters on it, then place it in your Ready pile.
-3.  If you have lands in your land pile,
-    1.  For each land card, you may remove 1 Rest counter from 1 creature.
-    2.  Move that creature to the Resting pile that has the same amount of Rest counters.
-    3.  If that creature’s last Rest counter is removed, move it to your Ready pile.
-    4.  You may remove multiple Rest counters from a single creature.
-    5.  You may remove Rest counters from multiple creatures.
+    2.  If a Resting pile now has 0 Rest counters, move it into your Returning pile.
+3.  If you have Lands in your Land pile,
+    1.  For each Land card, you may remove 1 Rest counter from 1 Creature.
+    2.  Move that Creature to the Resting pile that has the same amount of Rest counters.
+    3.  If that Creature’s last Rest counter is removed, move it to your Returning pile.
+    4.  You may remove multiple Rest counters from a single Creature.
+    5.  You may remove Rest counters from multiple Creatures.
+    6.  Alternatively, you may move 1 Creature from your Returning Pile to your Ready pile.
 4.  Then move onto the next round.
 
 # Ending the Game
 
-The game ends when there are no more land cards left to claim. If you have the most land cards, you win the game.
+The game ends when there are no more Land cards left to claim. If you have the most Land cards, you win the game.
 
-Alternatively, if you claim a majority of the lands at any point in the game, all players may agree to declare you the winner and end the game early.
+Alternatively, if you claim a majority of the Lands at any point in the game, all players may agree to declare you the winner and end the game early.
 
-You may concede at any time, losing the game. When you concede the land cards you claimed don’t go back into the land deck.
+You may concede at any time, losing the game. When you concede, the Land cards you claimed don’t go back into the Land deck.
 
-When a game ends, you may take back the land cards you own from the land deck and other players’ land piles.
+When the game ends, you may take back the Land cards you own from the Land deck and other players’ Land piles.
 
-# Cards
+# Deck Building
 
-There’s two types of cards: Land Cards, and Creature Cards.
+Each player comes to the table with a deck of Creatures and a deck of Lands. The total cost of your Creature deck and the amount of Lands in your Land deck can vary from the rules below, but the total cost and Land amount must be agreed upon by all players ahead of time.
+
+## Creature Deck
+
+Your Creature deck can have a total cost of 100 or less. Each Creature has a cost ranging from 1 to 100, depending on its stats and abilities. There is no minimum or maximum card count. There is no limit on duplicate Creatures. You could have 10 Creatures in your deck that each cost 10, or 100 Creatures that each cost 1, or just 1 Creature that costs 100. It’s up to you to decide what’s optimal for your deck.
+
+## Land Deck
+
+Your Land deck must contain 25 Lands. Your Lands and the opponent’s Lands will be shuffled together into the same deck, so it’s best if you use card sleeves for the Lands with backs distinct from your opponent’s.
+
+# Custom Card Creation Rules
+
+There’s two types of cards that you can create custom cards of: Land Cards, and Creature Cards.
 
 ## Land Cards
 
-Land cards are the battlegrounds where your creatures fight. Winning in a battleground lets you claim that land for yourself, getting you closer to winning the game.
+You can create your own custom Lands. Each Land needs a name and a biome.
 
-Land cards each have a biome, and potentially an ability.
-
-Biomes include
+Each Land card must have a biome. Choose from these biome options:
 
 -   Forest
 -   Mountain
@@ -109,22 +164,13 @@ Biomes include
 -   Desert
 -   Tundra
 -   Jungle
--   Cloud
 -   Volcano
 
-There are no set pre-defined biome it has to be. You can come up with your own biome and make it into a land card.
-
-However, if you do make your own biomes, you’ll have to explain why it’s different from the base biomes. If it’s determined that they’re the same, then your new biome will function as if it were the base biome. For example, Cliff and Mountain could be argued to be the same, so creatures good on Mountains will also be good on Cliffs. Same with Hill and Plain, if it’s all grass, creatures good on either will be good on both.
-
-Each creature has a home biome that it’s good in. Some creatures have more than one home biome, and are varying degrees of good in all of them. Creatures that are good in a biome get power bonuses and abilities in those biomes they are good in.
-
-Land cards can also have passive abilities, such as “Flying creatures get +2 power here.”
-
-Lands can be used to speed up your creature’s recovery. During the Round End phase, you can remove a single Rest counter from a creature for each land you have. Some lands have the ability to remove multiple Rest counters depending on the creature’s home biomes and their type.
+The Land’s biome is what Creatures use to determine their Biome Bonus.
 
 ## Creature Cards
 
-Creatures are the units that battle on the lands to win them for your team. Creatures don’t die, but they need rest, sometimes more time to rest if they were injured in battle.
+You can create your own custom Creatures. The rules for this are quite complex, so it’s recommended that you go to the following website and use the Creature Combat card creator to make your custom Creature card: TODO: website
 
 Here are the creature stats:
 
@@ -143,7 +189,7 @@ Give this creature a name, and write it on the card, with your own handwriting. 
 
 ### Species
 
-This is the name of the species of the creature, often printing in ink like the rest of the card.
+This is the name of the species of the creature, often printe in ink like the rest of the card.
 
 ### Type
 
