@@ -72,10 +72,10 @@ TODO: pic
 
 There’s 4 phases to each round:
 
--   Round Begin
--   Deploy
--   Combat
--   Round End
+-   Round Begin – Place Land cards (pg TODO)
+-   Deploy – Move your Creatures to Land cards (pg TODO)
+-   Combat – Count up your Creatures’ power, highest power wins (pg TODO)
+-   Round End – Return your Creatures to your Ready pile (pg TODO)
 
 ## Round Begin
 
@@ -224,6 +224,8 @@ This is the name of the species of the Creature, often printe in ink like the re
 ### Type
 
 What kind of Creature is this? Use types like in Magic The Gathering: you can have any amount of types, and in any variety. There’s some that are included in the base game, but you can have your Creature be any type you want. There’s no type bonuses in the base mechanics like in Pokemon, so don’t worry about playing your Fire type Creature into an opponent’s Water type Creature. Types work like in Magic The Gathering, in that abilities of certain Creatures and Lands reference those types to give tribal bonuses and effects.
+
+For best results, make type names that begin with a capital letter and have only lowercase letters follow it.
 
 ### Star Count
 
