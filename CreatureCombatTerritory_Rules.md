@@ -1,5 +1,9 @@
 Creature Combat Territory
 
+# Win Condition
+
+You win by claiming the most lands by the end of the game. The game ends when there are no more lands left to claim.
+
 # Concept
 
 There will be 5 lands cards drawn from a deck of about 50 or so land cards. You place any number of your creature cards face down in front of the land cards. Then when each player is ready, you flip up your creature cards for each land card and tally the total power of the creatures at that land card. If your total power is higher than the opponent’s, you win and claim that land card. Then repeat for the other land cards. Afterwards, regardless if you won or lost, your creatures go to the recharge pile, and another land card is drawn to take its place. When all the land cards have been claimed, the player with the most land cards wins the game.
@@ -74,15 +78,15 @@ When the round ends, do the following:
     5.  You may remove Rest counters from multiple creatures.
 4.  Then move onto the next round.
 
-# Win Condition
+# Ending the Game
 
-The game ends when all the lands have been claimed. The player with the most lands wins the game.
+The game ends when there are no more land cards left to claim. If you have the most land cards, you win the game.
 
-Alternatively, if a player obtains 50% of the lands +1 land, then you may agree to end the game early, declaring them the winner.
+Alternatively, if you claim a majority of the lands at any point in the game, all players may agree to declare you the winner and end the game early.
 
-Any player can forfeit the game, leaving the game. The last player left wins the game. When a player forfeits, the land cards they claimed don’t go back into the land deck.
+You may concede at any time, losing the game. When you concede the land cards you claimed don’t go back into the land deck.
 
-When a game ends, redistribute the land cards to the player that owns them.
+When a game ends, you may take back the land cards you own from the land deck and other players’ land piles.
 
 # Cards
 
