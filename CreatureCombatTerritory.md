@@ -61,20 +61,18 @@ When the round ends, do the following:
 
 1.  If you have Resting piles with Rest counters on them,
     1.  Remove 1 Rest counter from each Resting pile.
-    2.  If a Resting pile now has 0 Rest counters, move it into your Returning pile.
+    2.  If a Resting pile now has 0 Rest counters, move it into your Ready pile.
 2.  Pull back your deployed creatures.
     1.  If a creature has Base Power 0 or less, put 1 additional Rest counter on it.
     2.  If a creature has at least 1 Rest counter on it, place it in a separate Resting pile based on how many Rest counters it has.
-    3.  If a creature has no Rest counters on it, then place it in your Returning pile.
+    3.  If a creature has no Rest counters on it, then place it in your Ready pile.
 3.  If you have lands in your land pile,
     1.  For each land card, you may remove 1 Rest counter from 1 creature.
     2.  Move that creature to the Resting pile that has the same amount of Rest counters.
-    3.  If that creature’s last Rest counter is removed, move it to your Returning pile.
+    3.  If that creature’s last Rest counter is removed, move it to your Ready pile.
     4.  You may remove multiple Rest counters from a single creature.
     5.  You may remove Rest counters from multiple creatures.
-4.  Return creatures in your Returning pile to your Ready pile.
-
-Then move onto the next round.
+4.  Then move onto the next round.
 
 # Win Condition
 
@@ -193,7 +191,7 @@ An ability might have a cost associated with it, which must be paid to activate 
 
 Some abilities are passives which activate when a certain condition is met.
 
-Some abilities are activatable. You can activate these abilities at any time, as long as the creature is deployed to a land. Creatures in your Ready pile, Returning pile, and Resting piles cannot use their abilities. You can activate each creature’s ability only once per round. You can activate multiple creatures’ ability per round, even if those creatures are deployed to the same land. If a creature has more than one ability, you may activate more than one in a round.
+Some abilities are activatable. You can activate these abilities at any time, as long as the creature is deployed to a land. Creatures in your Ready piles and Resting piles cannot use their abilities. You can activate each creature’s ability only once per round. You can activate multiple creatures’ ability per round, even if those creatures are deployed to the same land. If a creature has more than one ability, you may activate more than one in a round.
 
 Some abilities require the creature to not add its power to the total in order to use.
 
