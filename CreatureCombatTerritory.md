@@ -27,15 +27,22 @@ Your land deck must contain 25 lands. Your lands and the opponent’s lands will
 
 # Gameplay
 
+There’s 4 phases to each round:
+
+-   Round Begin
+-   Deploy
+-   Combat
+-   Round End
+
 ## Round Begin
 
 Deal 5 land cards into the space between players.
 
 ## Deploy Creatures
 
-Each player deploys any number of their ready creatures to the 5 lands. They can spread them out however they wish. They can add any number of creatures to each land.
+Each player deploys any number of their ready creatures to the 5 lands. You can spread them out however you wish. You can add any number of creatures to each land. You don’t have to deploy all your creatures. You don’t have to deploy creatures to each land.
 
-To deploy a creature, place it face down in front of the land you wish to deploy it to.
+To deploy a creature, place it face down in front of the land you wish to deploy it to. If you deploy multiple creatures to the same land, place them in the same pile.
 
 ## Combat
 
@@ -43,20 +50,29 @@ Do combat for each land separately. For each land:
 
 1.  Reveal your creatures deployed at that land.
 2.  Count up your creatures’ total power at that land.
-3.  Determine which player has the higher total power.
-4.  The player with the highest total power takes that land.
-    1.  If the total powers are tied for highest, the land does not get claimed.
+3.  Determine which player has the highest total power.
+4.  If you have the highest total power, you claim that land.
+    1.  If two or more players are tied for highest total power, the land does not get claimed.
+5.  If you claim the land, put it in your land pile.
 
 ## Round End
 
 When the round ends, do the following:
 
-1.  Return creatures in the Returning pile to your Ready pile.
-2.  If you have Resting piles with time counters on them, remove 1 time counter from each Resting pile.
-    1.  If any Resting piles now have 0 time counters, move them into your Returning pile.
-3.  Take deployed creatures and move them into your Returning pile.
-    1.  If they have time counters on them, instead place them in separate Resting piles based on how many time counters they have.
-4.  If you have claimed lands, for each land card you have, you may remove a Rest counter from a single creature. You may remove multiple from a single creature, or remove them from different creatures. Move the creatures into the Resting pile with the matching number of Rest counters. If a creature’s last Rest counter is removed this way, put it into the Returning pile.
+1.  If you have Resting piles with Rest counters on them,
+    1.  Remove 1 Rest counter from each Resting pile.
+    2.  If a Resting pile now has 0 Rest counters, move it into your Returning pile.
+2.  Pull back your deployed creatures.
+    1.  If a creature has Base Power 0 or less, put 1 additional Rest counter on it.
+    2.  If a creature has at least 1 Rest counter on it, place it in a separate Resting pile based on how many Rest counters it has.
+    3.  If a creature has no Rest counters on it, then place it in your Returning pile.
+3.  If you have lands in your land pile,
+    1.  For each land card, you may remove 1 Rest counter from 1 creature.
+    2.  Move that creature to the Resting pile that has the same amount of Rest counters.
+    3.  If that creature’s last Rest counter is removed, move it to your Returning pile.
+    4.  You may remove multiple Rest counters from a single creature.
+    5.  You may remove Rest counters from multiple creatures.
+4.  Return creatures in your Returning pile to your Ready pile.
 
 Then move onto the next round.
 
