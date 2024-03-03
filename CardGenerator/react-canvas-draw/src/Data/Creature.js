@@ -46,3 +46,5 @@ class Creature {
         return Math.sqrt(total * 0.75);
     }
 }
+
+export default Creature;
