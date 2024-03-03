@@ -17,8 +17,21 @@ function Canvas() {
     context.fill();
   }, []);
 
+  const saveImage = () => {
+    const canvas = canvasRef.current;
+    const dataUrl = canvas.toDataURL('image/png');
+
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    link.download = 'canvas.png';
+    link.click();
+  };
+
   return (
-    <canvas ref={canvasRef} />
+    <div>
+      <canvas ref={canvasRef} />
+      <button onClick={saveImage}>Save Image</button>
+    </div>
   );
 }
 
