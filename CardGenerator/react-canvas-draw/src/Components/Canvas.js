@@ -94,7 +94,7 @@ function Canvas({ card }) {
       fontSize = 2.5 / 4;
       context.font = `${textRow * fontSize}px Arial`;
       context.fillText(
-        card.name.toUpperCase(),
+        card.name,
         bufferBase * 6 / 4,
         textRow * 1 + bufferBase - ((textRow - fontSize) * 0.3)
       );
@@ -114,7 +114,7 @@ function Canvas({ card }) {
     context.fillStyle = 'black';
     context.font = `${textRow * fontSize}px Arial`;
     context.fillText(
-      card.species.toUpperCase(),
+      card.species,
       bufferBase * 6 / 4,
       textRow * 2 + bufferBase - ((textRow - fontSize) * 0.3)
     );
@@ -122,7 +122,7 @@ function Canvas({ card }) {
     fontSize = 0.35;
     context.font = `${textRow * fontSize}px Arial`;
     context.fillText(
-      card.tags.map(t => t.toUpperCase()).join(" • "),
+      card.tags.map(t => t).join(" • "),
       bufferBase * 6 / 4,
       textRow * 2.5 + bufferBase
     );
