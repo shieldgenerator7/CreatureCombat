@@ -16,13 +16,23 @@ function Canvas() {
     canvas.height = height;
     const context = canvas.getContext('2d');
 
-    // Start drawing
-    context.fillStyle = 'white';
-    context.fillRect(0, 0, width, height);
-    context.beginPath();
-    context.arc(100, 100, 50, 0, 2 * Math.PI);
-    context.fillStyle = 'red';
-    context.fill();
+    let card = makeCardTest();
+
+    const bufferBase = 0.1 * RESOLUTION;
+    let boxes = [
+      // border
+      { c: 'black', x: 0, y: 0, w: width, h: height },
+      // base
+      { c: 'white', x: 0 + bufferBase, y: 0 + bufferBase, w: width - bufferBase * 2, h: height - bufferBase * 2 },
+    ];
+    boxes.forEach(box => {
+      context.fillStyle = box.c;
+      context.fillRect(box.x, box.y, box.w, box.h);
+    });
+    // context.beginPath();
+    // context.arc(100, 100, 50, 0, 2 * Math.PI);
+    // context.fillStyle = 'red';
+    // context.fill();
   }, []);
 
   const saveImage = () => {
