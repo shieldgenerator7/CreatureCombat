@@ -149,6 +149,10 @@ Your Creature deck can have a total cost of 100 or less. Each Creature has a cos
 
 Your Land deck must contain 25 Lands. Your Lands and the opponent’s Lands will be shuffled together into the same deck, so it’s best if you use card sleeves for the Lands with backs distinct from your opponent’s.
 
+# Multiplayer
+
+Although this game is designed for 2 players, more than 2 players can play the game. When you deal the lands, put a unique number counter on each land. When you deploy creatures to a land, place them in a pile in front of you with a number counter that matches the land you want to play it to.
+
 # FAQ
 
 Here are some common questions and answers.
