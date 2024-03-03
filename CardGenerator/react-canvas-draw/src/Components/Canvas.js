@@ -14,6 +14,7 @@ let creatureImage = new Image();
 function Canvas() {
   const canvasRef = useRef(null);
   initArrayExtensionMethods();
+  let card;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -21,7 +22,7 @@ function Canvas() {
     canvas.height = height;
     const context = canvas.getContext('2d');
 
-    let card = makeCardTest();
+    card = makeCardTest();
 
     // Back Boxes
     const bufferBase = 0.1 * RESOLUTION;
@@ -224,7 +225,7 @@ function Canvas() {
 
     const link = document.createElement('a');
     link.href = dataUrl;
-    link.download = 'canvas.png';
+    link.download = `${card.name || card.species || "card"}.png`;
     link.click();
   };
 
