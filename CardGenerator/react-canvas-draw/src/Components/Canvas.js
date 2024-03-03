@@ -13,7 +13,7 @@ function Canvas({ card }) {
     const canvasRef = useRef(null);
     initArrayExtensionMethods();
 
-    useEffect(() => {
+    const updateCanvas=(img)=>{
         const canvas = canvasRef.current;
         canvas.width = width;
         canvas.height = height;
@@ -31,6 +31,25 @@ function Canvas({ card }) {
             { c: 'black', x: 0, y: 0, w: width, h: height },
             // base
             { c: 'white', x: 0 + bufferBase, y: 0 + bufferBase, w: width - bufferBase * 2, h: height - bufferBase * 2 },
+        ];
+        boxes.forEach(box => {
+            context.fillStyle = box.c;
+            context.fillRect(box.x, box.y, box.w, box.h);
+        });
+
+        // images
+        if (img) {
+            context.drawImage(
+                img,
+                0 + bufferBase,
+                textRow * 3 + bufferBase,
+                width - bufferBase * 2,
+                1.6 * RESOLUTION
+            );
+        }
+
+        //Front Boxes
+        boxes = [
             //type
             { c: '#dbd69e', x: 0 + bufferBase, y: textRow * 2 + bufferBase, w: width - bufferBase * 2, h: textRow * .75 },
             //text border
@@ -67,19 +86,6 @@ function Canvas({ card }) {
         );
         context.fillStyle = 'grey';
         context.fill();
-
-        // images
-        let creatureImage = new Image();
-        creatureImage.src = card.imageURL;
-        creatureImage.onload = () => {
-            context.drawImage(
-                creatureImage,
-                0 + bufferBase,
-                textRow * 3 + bufferBase,
-                width - bufferBase * 2,
-                1.6 * RESOLUTION
-            );
-        };
 
         // text
 
@@ -213,8 +219,17 @@ function Canvas({ card }) {
             creditsX + bufferBase * 0.2,
             creditsY + bufferBase / 2
         );
+    }
 
-
+    useEffect(() => {
+        if (card.imageURL) {
+            let creatureImage = new Image();
+            creatureImage.src = card.imageURL;
+            creatureImage.onload = () => updateCanvas(creatureImage);
+        }
+        else {
+            updateCanvas();
+        }
     }, [card]);
 
     const saveImage = () => {
