@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 
-function EditPanel({ card , setCard, updateCard}) {//
+function EditPanel({ card, setCard, updateCard }) {
     return (
         <div className="editPanel">
             {/* Name */}

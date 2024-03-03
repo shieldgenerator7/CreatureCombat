@@ -190,29 +190,29 @@ function Canvas({ card }) {
       height - bufferBase * 2.5 - fontSize * 70
     );
     //Card Info
-    let creditsX = 0 + bufferBase*2.9;
-    let creditsY = height - bufferBase *1.4;
+    let creditsX = 0 + bufferBase * 2.9;
+    let creditsY = height - bufferBase * 1.4;
     context.fillStyle = 'white';
     fontSize = 0.2;
     context.font = `${textRow * fontSize}px Arial`;
     context.fillText(
-      "ID: "+card.id,
+      "ID: " + card.id,
       creditsX,
       creditsY
     );
     context.fillText(
-      "VARIANT: "+card.variant,
+      "VARIANT: " + card.variant,
       creditsX + bufferBase * 6,
       creditsY
     );
     context.fillText(
-      "CREATION DATE: "+card.creationDate,
+      "CREATION DATE: " + card.creationDate,
       creditsX + bufferBase * 12,
       creditsY
     );
     context.fillText(
       `Made with Creature Combat Custom Card Creator v${card.editorVersion} © 2024 shieldgenerator7`,
-      creditsX+bufferBase*0.2,
+      creditsX + bufferBase * 0.2,
       creditsY + bufferBase / 2
     );
 
