@@ -32,7 +32,7 @@ function Canvas() {
       // base
       { c: 'white', x: 0 + bufferBase, y: 0 + bufferBase, w: width - bufferBase * 2, h: height - bufferBase * 2 },
       //type
-      { c: '#dbd69e', x: 0 + bufferBase, y: textRow * 2 + bufferBase, w: width - bufferBase * 2, h: textRow },
+      { c: '#dbd69e', x: 0 + bufferBase, y: textRow * 2 + bufferBase, w: width - bufferBase * 2, h: textRow * .75 },
       //text border
       { c: 'black', x: 0, y: textAreaY, w: width, h: textAreaH },
       //text area
@@ -62,14 +62,27 @@ function Canvas() {
 
     // text
 
-    context.font = `${textRow * 3 / 4}px Arial`;
     // context.fillStyle =
     //Name
-    let fontSize = 3 / 4;
+    let fontSize = 2.5 / 4;
     context.font = `${textRow * fontSize}px Arial`;
-    context.fillText(card.name.toUpperCase(), bufferBase * 5 / 4, textRow * 1 + bufferBase - (textRow - fontSize) / 2);
+    context.fillText(
+      card.name.toUpperCase(),
+      bufferBase * 6 / 4,
+      textRow * 1 + bufferBase - ((textRow - fontSize) * 0.3)
+    );
     //Species
-    context.fillText(card.species.toUpperCase(), bufferBase * 5 / 4, textRow * 2 + bufferBase - (textRow - fontSize) / 2);
+    fontSize = 7 / 8;
+    context.font = `${textRow * fontSize}px Arial`;
+    context.fillText(card.species.toUpperCase(), bufferBase * 6 / 4, textRow * 2 + bufferBase - ((textRow - fontSize) * 0.3));
+    //Tags
+    fontSize = 0.35;
+    context.font = `${textRow * fontSize}px Arial`;
+    context.fillText(
+      card.tags.map(t => t.toUpperCase()).join(" • "),
+      bufferBase * 6 / 4,
+      textRow * 2.5 + bufferBase
+    )
 
   }, []);
 
