@@ -72,6 +72,8 @@ function Canvas({ card }) {
     context.fill();
 
     // images
+    let creatureImage = new Image();
+    creatureImage.src = card.imageURL;
     creatureImage.onload = () => {
       context.drawImage(
         creatureImage,
