@@ -217,7 +217,7 @@ function Canvas({ card }) {
     );
 
 
-  }, []);
+  }, [card]);
 
   const saveImage = () => {
     const canvas = canvasRef.current;
