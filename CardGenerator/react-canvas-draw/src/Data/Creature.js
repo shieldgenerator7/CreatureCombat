@@ -1,9 +1,12 @@
 "use strict";
 
+import BiomeModifier from "./BiomeModifier";
+
 class Creature {
     constructor() {
         this.name = "";
         this.species = "";
+        this.tags = [];
 
         this.imageURL = undefined;
 
@@ -11,10 +14,16 @@ class Creature {
         this.biomeModifiers = {};
 
         this.abilities = [];
+        this.flavorText = "";
     }
 
     getBiomeModifier(biome) {
         return this.biomeModifiers[biome]?.modifier ?? 0;
+    }
+
+    addBiomeModifier(biome, mod) {
+        let bm = new BiomeModifier(biome, mod);
+        this.biomeModifiers[biome] = bm;
     }
 
     getTotalPower(biome) {
@@ -26,9 +35,14 @@ class Creature {
         //Base Power
         cost += Math.max(0, this.basePower) * 2;
         //Biome Modifiers
-        cost += this.biomeModifiers.sum(bm => bm.modifier) / 2;
+        cost += Object.keys(this.biomeModifiers)
+            .map(bm => this.biomeModifiers[bm].modifier)
+            .sum()
+            / 2;
         //Abilities
         cost += Math.max(0, this.abilities.sum(a => a.cost));
+        //TEST
+        if (this.ability) { cost++; }
         //
         cost = Math.round(cost);
         //
@@ -43,7 +57,7 @@ class Creature {
 
     getStarCount() {
         let total = this.getTotalCost();
-        return Math.sqrt(total * 0.75);
+        return Math.ceil(Math.sqrt(total * 0.75));
     }
 }
 
