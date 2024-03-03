@@ -11,10 +11,10 @@ const height = 3.5 * RESOLUTION;
 
 let creatureImage = new Image();
 
-function Canvas() {
+function Canvas({ card }) {
+
   const canvasRef = useRef(null);
   initArrayExtensionMethods();
-  let card;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -230,7 +230,6 @@ function Canvas() {
   };
 
   const makeCardTest = () => {
-    let card = new Creature();
     card.name = ""; //"Willus";
     card.species = "Leftop";
     card.basePower = 5;

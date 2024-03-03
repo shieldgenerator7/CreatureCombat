@@ -13,8 +13,15 @@ class Creature {
         this.basePower = 1;
         this.biomeModifiers = {};
 
+        this.ability = "";//test
         this.abilities = [];
         this.flavorText = "";
+
+        //Card Info
+        this.id = "";
+        this.variant = "01/01";
+        this.editorVersion = "0.001";
+        this.creationDate = new Date().toISOString().slice(0, 10);
     }
 
     getBiomeModifier(biome) {
