@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.editPanel {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    background: "black";
+}
+
+.field {
+    display: block;
+}
+
+.multiline {
+    resize: none;
+    height: 50px;
+}

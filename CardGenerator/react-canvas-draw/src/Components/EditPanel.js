@@ -4,23 +4,26 @@ import React, { useRef, useEffect } from 'react';
 
 function EditPanel({ card , setCard, updateCard}) {//
     return (
-        <div>
+        <div className="editPanel">
             {/* Name */}
-            <input type="text" onChange={(e) => {
+            Name
+            <input type="text" className="field" onChange={(e) => {
                 card.name = e.target.value;
                 updateCard(card);
             }}
                 value={card.name}></input>
 
             {/* Species */}
-            <input type="text" onChange={(e) => {
+            Species
+            <input type="text" className="field" onChange={(e) => {
                 card.species = e.target.value;
                 updateCard(card);
             }}
                 value={card.species}></input>
 
-            {/* Species */}
-            <input type="text" onChange={(e) => {
+            {/* Tags */}
+            Type
+            <input type="text" className="field" onChange={(e) => {
                 let tags = "" + e.target.value;
                 card.tags = tags.split(", ");
                 updateCard(card);
@@ -28,25 +31,32 @@ function EditPanel({ card , setCard, updateCard}) {//
                 value={card.tags.join(", ")}></input>
 
             {/* Base Power */}
-            <input type="text" onChange={(e) => {
-                card.basePower = e.target.value*1;
+            Base Power
+            <input type="text" className="field" onChange={(e) => {
+                card.basePower = e.target.value * 1;
                 updateCard(card);
             }}
                 value={card.basePower}></input>
 
             {/* Ability TEST */}
-            <input type="text" onChange={(e) => {
+            Ability
+            <textarea className="field multiline" onChange={(e) => {
                 card.ability = e.target.value;
                 updateCard(card);
             }}
-                value={card.ability}></input>
+                rows="5"
+                value={card.ability}
+            ></textarea>
 
             {/* Flavor Text */}
-            <input type="text" onChange={(e) => {
+            Flavor Text
+            <textarea className="field multiline" onChange={(e) => {
                 card.flavorText = e.target.value;
                 updateCard(card);
             }}
-            value={card.flavorText}></input>
+                rows="5"
+                value={card.flavorText}
+            ></textarea>
         </div>
     );
 }
