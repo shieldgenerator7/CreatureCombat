@@ -61,7 +61,7 @@ function EditPanel({ card, setCard, updateCard }) {
 
             {/* Card Art */}
             Card Art
-            <button className="field" onClick={() => {
+            <button className="action" onClick={() => {
                 console.log("upload");
                 UploadFromFilePicker(card, ()=>updateCard(card));
             }}>Upload</button>

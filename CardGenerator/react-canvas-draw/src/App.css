@@ -51,5 +51,17 @@
 
 .multiline {
     resize: none;
-    height: 50px;
+}
+
+.action {
+    font-size: large;
+    border: white 2px solid;
+    color: white;
+    background-color: black;
+    display: block;
+    width: 100%;
+}
+.action:hover {
+    color: black;
+    background-color: white;
 }
