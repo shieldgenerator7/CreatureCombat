@@ -1,6 +1,7 @@
 "use strict"
 
 import React, { useRef, useEffect } from 'react';
+import { UploadFromFilePicker } from '../Utility/Upload';
 
 function EditPanel({ card, setCard, updateCard }) {
     return (
@@ -57,6 +58,14 @@ function EditPanel({ card, setCard, updateCard }) {
                 rows="5"
                 value={card.flavorText}
             ></textarea>
+
+            {/* Card Art */}
+            Card Art
+            <button className="field" onClick={() => {
+                console.log("upload");
+                UploadFromFilePicker(card, ()=>updateCard(card));
+            }}>Upload</button>
+            {card.imageFileName && card.imageFileName}
         </div>
     );
 }
