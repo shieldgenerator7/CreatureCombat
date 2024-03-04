@@ -41,6 +41,12 @@ function EditPanel({ card, setCard, updateCard }) {
 
             {/* Ability TEST */}
             Ability
+            <input type="number" className="field" onChange={(e) => {
+                card.abilityCost = e.target.value;
+                updateCard(card);
+            }}
+                value={card.abilityCost}
+            ></input>
             <textarea className="field multiline" onChange={(e) => {
                 card.ability = e.target.value;
                 updateCard(card);

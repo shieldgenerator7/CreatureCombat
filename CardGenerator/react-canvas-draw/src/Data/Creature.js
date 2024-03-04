@@ -14,6 +14,7 @@ class Creature {
         this.biomeModifiers = {};
 
         this.ability = "";//test
+        this.abilityCost = 0;//test
         this.abilities = [];
         this.flavorText = "";
 
@@ -47,11 +48,11 @@ class Creature {
             .sum()
             / 2;
         //Abilities
+        cost += Math.ceil(this.abilityCost);//test
         cost += Math.max(0, this.abilities.sum(a => a.cost));
-        //TEST
-        if (this.ability) { cost++; }
         //
         cost = Math.round(cost);
+        cost = Math.max(cost, this.basePower);
         //
         return cost;
     }
