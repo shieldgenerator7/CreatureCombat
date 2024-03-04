@@ -76,16 +76,16 @@ function Canvas({ card }) {
         context.fillStyle = 'grey';
         context.fill();
         //Ability Cost (TEST)
-        context.beginPath();
-        context.arc(
-            bufferBase * 8.35,
-            textRow * 10.4,
-            15,
-            0,
-            2 * Math.PI
-        );
-        context.fillStyle = 'grey';
-        context.fill();
+        // context.beginPath();
+        // context.arc(
+        //     bufferBase * 8.35,
+        //     textRow * 10.4,
+        //     15,
+        //     0,
+        //     2 * Math.PI
+        // );
+        // context.fillStyle = 'grey';
+        // context.fill();
 
         // text
 
@@ -156,14 +156,14 @@ function Canvas({ card }) {
             textRow * 10.5
         );
         //Ability Cost (TEST)
-        context.fillStyle = 'white';
-        fontSize = 0.3;
-        context.font = `${textRow * fontSize}px Arial`;
-        context.fillText(
-            "-1",
-            0 + bufferBase * 8,
-            textRow * 10.5
-        );
+        // context.fillStyle = 'white';
+        // fontSize = 0.3;
+        // context.font = `${textRow * fontSize}px Arial`;
+        // context.fillText(
+        //     "-1",
+        //     0 + bufferBase * 8,
+        //     textRow * 10.5
+        // );
         //Flavor Text
         context.fillStyle = 'black';
         fontSize = 0.3;
