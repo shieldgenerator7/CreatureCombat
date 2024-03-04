@@ -26,7 +26,7 @@ function EditPanel({ card, setCard, updateCard }) {
             Type
             <input type="text" className="field" onChange={(e) => {
                 let tags = "" + e.target.value;
-                card.tags = tags.split(", ");
+                card.setTags(tags);
                 updateCard(card);
             }}
                 value={card.tags.join(", ")}></input>
@@ -72,6 +72,40 @@ function EditPanel({ card, setCard, updateCard }) {
                 UploadFromFilePicker(card, ()=>updateCard(card));
             }}>Upload</button>
             {card.imageFileName && card.imageFileName}
+
+            {/* Paste Box */}
+            Paste Box
+            <textarea className="field multiline" onChange={(e) => {
+                //2024-03-03: setup to work with a specific Excel spreadsheet i have
+                let txt = e.target.value;
+                if (!txt) { return; }
+                let fields = txt.split("	").map(f => f.trim());
+                let valid = (index) => fields[index] != undefined && fields[index] != "";
+                card.species = fields[0];
+                if (valid(1)) {
+                    card.setTags(fields[1]);
+                }
+                if (valid(5)) {
+                    card.basePower = fields[5];
+                }
+                card.biomeModifiers = [];
+                for (let i = 6; i < 16; i += 2) {
+                    if (valid(i) && valid(i + 1)) {
+                        let biomeName = fields[i];
+                        let biomeModifier = fields[i + 1] * 1;
+                        card.addBiomeModifier(biomeName, biomeModifier);
+                    }
+                }
+                if (valid(16)) {
+                    card.ability = fields[16];
+                    card.abilityCost = fields[17];
+                }
+                updateCard(card);
+                e.target.value = "";
+            }}
+                rows="3"
+                placeholder="Paste here (from spreadsheet)"
+            ></textarea>
         </div>
     );
 }

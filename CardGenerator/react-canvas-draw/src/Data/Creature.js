@@ -11,7 +11,7 @@ class Creature {
         this.imageURL = undefined;
 
         this.basePower = 1;
-        this.biomeModifiers = {};
+        this.biomeModifiers = [];
 
         this.ability = "";//test
         this.abilityCost = 0;//test
@@ -25,13 +25,19 @@ class Creature {
         this.creationDate = new Date().toISOString().slice(0, 10);
     }
 
+    setTags(tags) {
+        this.tags = tags.split(/,| /)//split on comma or space
+            .map(t => t.trim())
+            .filter(t => t);
+    }
+
     getBiomeModifier(biome) {
-        return this.biomeModifiers[biome]?.modifier ?? 0;
+        return this.biomeModifiers.find(bm => bm.biome == biome)?.modifier ?? 0;
     }
 
     addBiomeModifier(biome, mod) {
         let bm = new BiomeModifier(biome, mod);
-        this.biomeModifiers[biome] = bm;
+        this.biomeModifiers.push(bm);
     }
 
     getTotalPower(biome) {
