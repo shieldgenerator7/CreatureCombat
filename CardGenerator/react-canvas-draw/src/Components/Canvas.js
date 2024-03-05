@@ -102,14 +102,14 @@ function Canvas({ card }) {
             );
         }
         else {
-            fontSize = 1.5 / 4;
-            context.fillStyle = 'lightgrey';
-            context.font = `italic ${textRow * fontSize}px Arial`;
-            context.fillText(
-                "[card name goes here]",
-                bufferBase * 6 / 4,
-                textRow * 1 + bufferBase - ((textRow - fontSize) * 0.4)
-            );
+            // fontSize = 1.5 / 4;
+            // context.fillStyle = 'lightgrey';
+            // context.font = `italic ${textRow * fontSize}px Arial`;
+            // context.fillText(
+            //     "[card name goes here]",
+            //     bufferBase * 6 / 4,
+            //     textRow * 1 + bufferBase - ((textRow - fontSize) * 0.4)
+            // );
         }
         //Species
         fontSize = 7 / 8;
