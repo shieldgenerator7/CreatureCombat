@@ -151,7 +151,8 @@ function Canvas({ card }) {
         fontSize = 0.3;
         context.font = `${textRow * fontSize}px Arial`;
         let abilityStartY = textRow * 10.5;
-        let abilityLines = getLines(context, card.ability, width - bufferBase * 4);
+        const MAX_WIDTH_TEXT = width - bufferBase * 4;
+        let abilityLines = getLines(context, card.ability.trim(), MAX_WIDTH_TEXT);
         const LINEHEIGHT = 0.1 * RESOLUTION;
         abilityLines.forEach((line, i) => {
             context.fillText(
@@ -173,11 +174,18 @@ function Canvas({ card }) {
         context.fillStyle = 'black';
         fontSize = 0.3;
         context.font = `italic ${textRow * fontSize}px Arial`;
-        context.fillText(
-            card.flavorText,
-            0 + bufferBase * 2,
+        let flavorStartY = Math.max(
+            abilityStartY + (abilityLines.length * LINEHEIGHT),
             textRow * 11.2
         );
+        let flavorLines = getLines(context, card.flavorText.trim(), MAX_WIDTH_TEXT);
+        flavorLines.forEach((line, i) => {
+            context.fillText(
+                line,
+                0 + bufferBase * 2,
+                flavorStartY + LINEHEIGHT * i
+            );
+        })
         //
         //Base Power
         context.fillStyle = 'white';
