@@ -132,7 +132,7 @@ function Canvas({ card }) {
         fontSize = 0.5;
         context.font = `${textRow * fontSize}px Arial`;
         context.fillText(
-            card.getTotalCost(),
+            card.getFinalCost(),
             width - bufferBase * 2 - fontSize * 70,
             textRow * 1 + bufferBase - ((textRow - fontSize) * 0.3)
         );

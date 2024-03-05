@@ -47,7 +47,7 @@ class Creature {
     getTotalCost() {
         let cost = 0;
         //Base Power
-        cost += Math.max(0, this.basePower) * 2;
+        cost += Math.max(0, Math.ceil(this.basePower)) * 2;
         //Biome Modifiers
         cost += Object.keys(this.biomeModifiers)
             .map(bm => this.biomeModifiers[bm].modifier)
@@ -66,7 +66,7 @@ class Creature {
     getFinalCost() {
         let total = this.getTotalCost();
         let discount = total / 10;
-        return total - discount;
+        return Math.ceil(total - discount);
     }
 
     getStarCount() {
