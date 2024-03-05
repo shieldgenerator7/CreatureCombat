@@ -1,5 +1,5 @@
 "use strict";
-import initArrayExtensionMethods from '../Utility/Utility';
+import initArrayExtensionMethods, { getLines } from '../Utility/Utility';
 
 //2024-03-02: copied from https://www.dhiwise.com/post/designing-stunning-artwork-with-react-canvas-draw
 import React, { useRef, useEffect } from 'react';
@@ -150,11 +150,16 @@ function Canvas({ card }) {
         context.fillStyle = 'black';
         fontSize = 0.3;
         context.font = `${textRow * fontSize}px Arial`;
-        context.fillText(
-            card.ability,
-            0 + bufferBase * 2,
-            textRow * 10.5
-        );
+        let abilityStartY = textRow * 10.5;
+        let abilityLines = getLines(context, card.ability, width - bufferBase * 4);
+        const LINEHEIGHT = 0.1 * RESOLUTION;
+        abilityLines.forEach((line, i) => {
+            context.fillText(
+                line,
+                0 + bufferBase * 2,
+                abilityStartY + LINEHEIGHT * i
+            );
+        });
         //Ability Cost (TEST)
         // context.fillStyle = 'white';
         // fontSize = 0.3;

@@ -268,6 +268,26 @@ function inflateObject(obj, prototype, delegates = []) {
 
 }
 
+//2024-03-05: copied from https://stackoverflow.com/a/16599668/2336212
+export function getLines(ctx, text, maxWidth) {
+    var words = text.split(" ");
+    var lines = [];
+    var currentLine = words[0];
+
+    for (var i = 1; i < words.length; i++) {
+        var word = words[i];
+        var width = ctx.measureText(currentLine + " " + word).width;
+        if (width < maxWidth) {
+            currentLine += " " + word;
+        } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+    }
+    lines.push(currentLine);
+    return lines;
+}
+
 
 function getMemorySize(json) {
     if (!json) return 0;

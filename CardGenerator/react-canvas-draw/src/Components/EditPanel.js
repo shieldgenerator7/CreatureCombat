@@ -103,7 +103,7 @@ function EditPanel({ card, setCard, updateCard }) {
                     let acost = fields[17] ?? 0;
                     let areq = fields[18] ?? "";
                     let atext = fields[19] ?? "Deal 0 damage to target creature."
-                    card.ability = `${aname} [${areq}]: ${atext}`;
+                    card.ability = `${aname}   [${areq}]: ${atext}`;
                     card.abilityCost = acost;
                 }
                 updateCard(card);
