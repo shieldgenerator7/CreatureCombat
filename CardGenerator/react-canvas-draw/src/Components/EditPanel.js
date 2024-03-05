@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
+import Creature from '../Data/Creature';
 
 function EditPanel({ card, setCard, updateCard }) {
     return (
@@ -69,7 +70,7 @@ function EditPanel({ card, setCard, updateCard }) {
             Card Art
             <button className="action" onClick={() => {
                 console.log("upload");
-                UploadFromFilePicker(card, ()=>updateCard(card));
+                UploadFromFilePicker(card, () => updateCard(card));
             }}>Upload</button>
             {card.imageFileName && card.imageFileName}
 
@@ -79,6 +80,7 @@ function EditPanel({ card, setCard, updateCard }) {
                 //2024-03-03: setup to work with a specific Excel spreadsheet i have
                 let txt = e.target.value;
                 if (!txt) { return; }
+                let card = new Creature();
                 let fields = txt.split("	").map(f => f.trim());
                 let valid = (index) => fields[index] != undefined && fields[index] != "";
                 card.species = fields[0];
@@ -108,7 +110,7 @@ function EditPanel({ card, setCard, updateCard }) {
                 e.target.value = "";
             }}
                 rows="3"
-                placeholder="Paste here (from spreadsheet)"
+                placeholder="Paste new creature data here (from spreadsheet)"
             ></textarea>
         </div>
     );
