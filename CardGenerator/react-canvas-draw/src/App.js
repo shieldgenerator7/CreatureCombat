@@ -35,7 +35,8 @@ function App() {
         window.cardList = cardList;
         setPasteString("");
         //
-        card = cardList[0];
+        // card = cardList[0];
+        setCard(cardList[0]);
     }
     //
 
