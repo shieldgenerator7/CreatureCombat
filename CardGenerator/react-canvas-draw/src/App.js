@@ -25,6 +25,12 @@ function App() {
     const defaultPasteString = () => "";
     [pasteString, setPasteString] = useState(defaultPasteString);
     window.pasteString = pasteString;
+    //Autodownload
+    let autoDownload = false;
+    let setAutoDownload = (b) => { autoDownload = b; };
+    const defaultAutoDownload = () => false;
+    [autoDownload, setAutoDownload] = useState(defaultAutoDownload);
+    let lastDownloadedIndex = -1;
     //Card List
     let cardList = [];
     if (pasteString) {
@@ -33,17 +39,32 @@ function App() {
             cardList.push(new Creature());
         }
         window.cardList = cardList;
-        setPasteString("");
         //
         // card = cardList[0];
-        setCard(cardList[0]);
+    console.log("AUTO1", autoDownload);
+        setAutoDownload(true);
+        console.log("AUTO2", autoDownload);
+        autoDownload = true;
+        console.log("AUTO3", autoDownload);
+        for (let i = 0; i < cardList.length; i++) {
+            console.log("AUTO3", autoDownload, i);
+            setCard(cardList[i]);
+        }
+        console.log("AUTO4", autoDownload);
+        setAutoDownload(false);
+        setPasteString("");
     }
+    console.log("AUTO5", autoDownload);
+    // console.log("autoDownload", autoDownload);
     //
 
     return (
         <div className="App">
             <header className="App-header">
-                <Canvas card={card}></Canvas>
+                <Canvas
+                    card={card}
+                    autoDownload={autoDownload}
+                ></Canvas>
                 <EditPanel
                     card={card}
                     setCard={setCard}

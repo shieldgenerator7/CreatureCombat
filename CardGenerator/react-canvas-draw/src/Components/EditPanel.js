@@ -80,6 +80,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 //2024-03-03: setup to work with a specific Excel spreadsheet i have
                 let txt = e.target.value;
                 if (!txt) { return; }
+                console.log("TXT PASTE STRING ON CHANGE");
                 setPasteString(txt);
             }}
                 rows="3"

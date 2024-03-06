@@ -8,8 +8,9 @@ const RESOLUTION = 300;
 const width = 2.5 * RESOLUTION;
 const height = 3.5 * RESOLUTION;
 
-function Canvas({ card }) {
+function Canvas({ card, autoDownload }) {
 
+    console.log("AUTO3.1 CVS", autoDownload);
     const canvasRef = useRef(null);
     initArrayExtensionMethods();
 
@@ -246,17 +247,6 @@ function Canvas({ card }) {
         );
     }
 
-    useEffect(() => {
-        if (card.imageURL) {
-            let creatureImage = new Image();
-            creatureImage.src = card.imageURL;
-            creatureImage.onload = () => updateCanvas(creatureImage);
-        }
-        else {
-            updateCanvas();
-        }
-    }, [card]);
-
     const saveImage = () => {
         const canvas = canvasRef.current;
         const dataUrl = canvas.toDataURL('image/png');
@@ -266,6 +256,33 @@ function Canvas({ card }) {
         link.download = `${card.name || card.species || "card"}.png`;
         link.click();
     };
+
+    useEffect(() => {
+        console.log("AUTO3.2 CVS", autoDownload);
+        if (card.imageURL) {
+            console.log("AUTO3.3A CVS", autoDownload);
+            let creatureImage = new Image();
+            creatureImage.src = card.imageURL;
+            creatureImage.onload = () => {
+                updateCanvas(creatureImage);
+                // console.log("useffect autoDownload (img)", autoDownload);
+                        if (autoDownload) {
+                            console.log("AUTO3.4A CVS", autoDownload);
+                            saveImage();
+                        }
+            }
+
+        }
+        else {
+            console.log("AUTO3.3B CVS", autoDownload);
+            updateCanvas();
+            // console.log("useffect autoDownload (no img)", autoDownload);
+            if (autoDownload) {
+                console.log("AUTO3.4B CVS", autoDownload);
+                saveImage();
+            }
+        }
+    }, [card, autoDownload]);
 
     const makeCardTest = () => {
         card.name = ""; //"Willus";
