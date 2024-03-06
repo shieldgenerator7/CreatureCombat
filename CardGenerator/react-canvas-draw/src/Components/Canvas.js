@@ -198,14 +198,26 @@ function Canvas({ card }) {
         );
         //Biome Modifiers
         context.fillStyle = 'black';
-        context.fillText(
-            Object.keys(card.biomeModifiers).map(bmkey => {
-                let bm = card.biomeModifiers[bmkey];
-                return bm.biome + ": " + ((bm.modifier > 0) ? "+" : "") + bm.modifier;
-            }).join(",  "),
-            0 + bufferBase * 5,
-            height - bufferBase * 2.5 - fontSize * 70
-        );
+        fontSize = 0.35;
+        context.font = `${textRow * fontSize}px Arial`;
+        let bmStartY = height - bufferBase * 3.5 - fontSize * 70;
+        let bmLineHeight = 0.1 * RESOLUTION;
+        let bmStartX = 0 + bufferBase * 4.7;
+        let bmBufferX = width * 0.15;
+        let bmModOffset = bmBufferX * 0.15;
+        card.biomeModifiers.forEach((bm, i) => {
+            let drawX = bmStartX + bmBufferX * i;
+            context.fillText(
+                bm.biome,
+                drawX,
+                bmStartY
+            );
+            context.fillText(
+                ((bm.modifier > 0) ? "+" : "") + bm.modifier,
+                drawX + bmModOffset,
+                bmStartY + bmLineHeight
+            )
+        });
         //Card Info
         let creditsX = 0 + bufferBase * 2.9;
         let creditsY = height - bufferBase * 1.4;
