@@ -33,7 +33,7 @@ function App() {
             cardList.push(new Creature());
         }
         window.cardList = cardList;
-        pasteString = "";
+        setPasteString("");
         //
         card = cardList[0];
     }
