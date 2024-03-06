@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
 import Creature from '../Data/Creature';
 
-function EditPanel({ card, setCard, updateCard }) {
+function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
     return (
         <div className="editPanel">
             {/* Name */}
@@ -80,38 +80,11 @@ function EditPanel({ card, setCard, updateCard }) {
                 //2024-03-03: setup to work with a specific Excel spreadsheet i have
                 let txt = e.target.value;
                 if (!txt) { return; }
-                let card = new Creature();
-                let fields = txt.split("	").map(f => f.trim());
-                let valid = (index) => fields[index] != undefined && fields[index] != "";
-                card.species = fields[0];
-                if (valid(1)) {
-                    card.setTags(fields[1]);
-                }
-                if (valid(5)) {
-                    card.basePower = fields[5];
-                }
-                card.biomeModifiers = [];
-                for (let i = 6; i < 16; i += 2) {
-                    if (valid(i) && valid(i + 1)) {
-                        let biomeName = fields[i];
-                        let biomeModifier = fields[i + 1] * 1;
-                        card.addBiomeModifier(biomeName, biomeModifier);
-                    }
-                }
-                if (valid(16)) {
-                    let aname = fields[16] ?? "Ability";
-                    let acost = fields[17] ?? 0;
-                    let areq = fields[18] ?? "-0";
-                    let areqsec = (areq) ? `[${areq}]:` : "---";
-                    let atext = fields[19] ?? "Deal 0 damage to target creature."
-                    card.ability = `${aname}   ${areqsec} ${atext}`;
-                    card.abilityCost = acost;
-                }
-                updateCard(card);
-                e.target.value = "";
+                setPasteString(txt);
             }}
                 rows="3"
                 placeholder="Paste new creature data here (from spreadsheet)"
+                value={pasteString}
             ></textarea>
         </div>
     );
