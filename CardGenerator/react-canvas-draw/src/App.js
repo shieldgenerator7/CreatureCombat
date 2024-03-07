@@ -5,6 +5,7 @@ import Creature from './Data/Creature';
 import { useState } from 'react';
 import EditPanel from './Components/EditPanel';
 import { parsePasteFromExcel } from './Utility/Parser';
+import CardListPanel from './Components/CardListPanel';
 
 function App() {
 
@@ -61,6 +62,10 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
+                <CardListPanel
+                    cardList={cardList}
+                    setCard={setCard}
+                ></CardListPanel>
                 <Canvas
                     card={card}
                     autoDownload={autoDownload}
