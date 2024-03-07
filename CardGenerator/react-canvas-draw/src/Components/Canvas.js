@@ -241,7 +241,7 @@ function Canvas({ card, autoDownload }) {
             creditsY
         );
         context.fillText(
-            `Made with Creature Combat Custom Card Creator v${card.editorVersion} © 2024 shieldgenerator7`,
+            `www.creaturecombat.io           v${card.editorVersion}`,
             creditsX + bufferBase * 0.2,
             creditsY + bufferBase / 2
         );
