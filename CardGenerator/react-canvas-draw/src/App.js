@@ -18,6 +18,12 @@ function App() {
     let updateCard = (oldcard) => {
         let newcard = JSON.parse(JSON.stringify(oldcard));
         Object.setPrototypeOf(newcard, Creature.prototype);
+        //
+        if (cardList.includes(oldcard)) {
+            let index = cardList.indexOf(oldcard);
+            cardList.splice(index, 1, newcard);
+        }
+        //
         setCard(newcard);
     }
     //Paste String
