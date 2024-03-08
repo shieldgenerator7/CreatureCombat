@@ -1,19 +1,16 @@
 "use strict";
 
 function CardListPanel({ cardList, setCard }) {
-    return
-    (
+    return (
         <div>
             {
-                cardList.forEach(card => {
-                    return (
-
-                        <div>
-                            <button onClick={() => setCard(card)}>{ card.name}</button>
-                        </div>
-
-                    )
-                })
+                cardList.map(card => (
+                    <div>
+                        <button onClick={() => setCard(card)}>
+                            {card.name || card.species}
+                        </button>
+                    </div>
+                ))
             }
         </div>
     );

@@ -34,6 +34,10 @@ function App() {
     let lastDownloadedIndex = -1;
     //Card List
     let cardList = [];
+    let setCardList = (list) => { cardList = list; };
+    const defaultCardList = () => [];
+    [cardList, setCardList] = useState(defaultCardList);
+    //
     if (pasteString) {
         cardList = parsePasteFromExcel(pasteString);
         if (cardList.length < 1) {
@@ -52,6 +56,7 @@ function App() {
             setCard(cardList[i]);
         }
         console.log("AUTO4", autoDownload);
+        setCardList([...cardList]);
         setAutoDownload(false);
         setPasteString("");
     }
