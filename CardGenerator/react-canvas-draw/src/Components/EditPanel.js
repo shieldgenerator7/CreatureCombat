@@ -75,8 +75,8 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             {card.imageFileName && card.imageFileName}
 
             {/* Paste Box */}
-            Paste Box
-            <textarea className="field multiline" onChange={(e) => {
+            <div className='lowvisibilitylabel'>Paste Box</div>
+            <textarea className="field multiline lowvisibility" onChange={(e) => {
                 //2024-03-03: setup to work with a specific Excel spreadsheet i have
                 let txt = e.target.value;
                 if (!txt) { return; }

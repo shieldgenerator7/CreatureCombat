@@ -123,3 +123,14 @@
     height: 700px;
     display: block;
 }
+
+.lowvisibilitylabel{
+    color:rgb(77, 77, 77);
+}
+.lowvisibility{
+    background-color: rgb(77, 77, 77);
+    border:none;
+}
+.lowvisibility::placeholder{
+    background-color: rgb(170, 170, 170);
+}
