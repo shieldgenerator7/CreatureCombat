@@ -15,15 +15,15 @@ function CardListPanel({ cardList, setCardList, setCard }) {
             {/* Card List */}
             <div className="list">
                 {
-                    cardList.map(card => (
-                        <div>
+                    cardList.map((card,i) => (
+                        <div key={`divCard${i}`}>
                             <button className="listItem" onClick={() => setCard(card)}>
                                 {card.name || card.species || "[creature]"} - {card.getFinalCost()}
                             </button>
                         </div>
                     ))
                 }
-                <div>
+                <div key="divCardNew">
                     <button className="action" onClick={() => {
                         let newcard = new Creature();
                         setCard(newcard);
