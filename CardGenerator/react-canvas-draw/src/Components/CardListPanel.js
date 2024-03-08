@@ -2,11 +2,11 @@
 
 function CardListPanel({ cardList, setCard }) {
     return (
-        <div>
+        <div className="editPanel" style={{ right: "200px" }}>
             {
                 cardList.map(card => (
                     <div>
-                        <button onClick={() => setCard(card)}>
+                        <button className="action" onClick={() => setCard(card)}>
                             {card.name || card.species}
                         </button>
                     </div>

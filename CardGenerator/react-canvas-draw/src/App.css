@@ -43,6 +43,8 @@
     right: 0px;
     height: 100%;
     background: "black";
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .field {
@@ -60,6 +62,7 @@
     background-color: black;
     display: block;
     width: 100%;
+    margin-bottom: 5px;
 }
 .action:hover {
     color: black;
