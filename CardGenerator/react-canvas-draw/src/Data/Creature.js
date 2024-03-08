@@ -1,5 +1,6 @@
 "use strict";
 
+import { arraySum } from "../Utility/Utility";
 import BiomeModifier from "./BiomeModifier";
 
 class Creature {
@@ -49,13 +50,14 @@ class Creature {
         //Base Power
         cost += Math.max(0, Math.ceil(this.basePower)) * 2;
         //Biome Modifiers
-        cost += Object.keys(this.biomeModifiers)
-            .map(bm => this.biomeModifiers[bm].modifier)
-            .sum()
+        cost += arraySum(
+                Object.keys(this.biomeModifiers)
+                    .map(bm => this.biomeModifiers[bm].modifier)
+            )
             / 2;
         //Abilities
         cost += Math.ceil(this.abilityCost);//test
-        cost += Math.max(0, this.abilities.sum(a => a.cost));
+        cost += Math.max(0, arraySum(this.abilities,a => a.cost));
         //
         cost = Math.round(cost);
         cost = Math.max(cost, this.basePower);

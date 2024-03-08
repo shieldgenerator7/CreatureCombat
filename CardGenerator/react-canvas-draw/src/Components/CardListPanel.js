@@ -1,6 +1,7 @@
 "use strict";
 
 import Creature from "../Data/Creature";
+import { arraySum } from "../Utility/Utility";
 
 function CardListPanel({ cardList, setCardList, setCard }) {
     return (
@@ -9,7 +10,7 @@ function CardListPanel({ cardList, setCardList, setCard }) {
             <div className="listInfo">
                 <p> Creature List</p>
                 <p> Count: {cardList.length}</p>
-                <p> Total Cost: {cardList.sum(card => card.getFinalCost())}</p>
+                <p> Total Cost: {arraySum(cardList, card => card.getFinalCost())}</p>
             </div>
             {/* Card List */}
             <div className="list">

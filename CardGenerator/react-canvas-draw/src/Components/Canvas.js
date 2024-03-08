@@ -1,5 +1,5 @@
 "use strict";
-import initArrayExtensionMethods, { getLines } from '../Utility/Utility';
+import { getLines } from '../Utility/Utility';
 
 //2024-03-02: copied from https://www.dhiwise.com/post/designing-stunning-artwork-with-react-canvas-draw
 import React, { useRef, useEffect } from 'react';
@@ -12,7 +12,6 @@ function Canvas({ card, autoDownload }) {
 
     console.log("AUTO3.1 CVS", autoDownload);
     const canvasRef = useRef(null);
-    initArrayExtensionMethods();
 
     const updateCanvas = (img) => {
         const canvas = canvasRef.current;

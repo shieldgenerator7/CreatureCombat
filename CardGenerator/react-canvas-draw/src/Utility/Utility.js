@@ -86,42 +86,38 @@ function getDisplayDateToolTip(date) {
         + `${date.getHours()}:${('' + date.getMinutes()).padStart(2, '0')}`;
 }
 
-let arrayExtInit = false;
-function initArrayExtensionMethods() {
-    if (arrayExtInit) { return; }
-    arrayExtInit = true;
 
     //2022-07-19: copied from https://stackoverflow.com/a/19494146/2336212
-    Array.prototype.equals = function (array) {
-        return this === array ||
-            this.length === array.length &&
-            this.every((item, i) => item === array[i]);
+    export function arrayEquals(array, arr1) {
+        return array === arr1 ||
+            array.length === arr1.length &&
+            array.every((item, i) => item === arr1[i]);
     }
 
-    Array.prototype.min = function (minFunc = (val) => val) {
-        return this.reduce(
+    export function arrayMin (array, minFunc = (val) => val) {
+        return array.reduce(
             (acc, cur) => Math.min(minFunc(cur), acc),
-            minFunc(this[0])
+            minFunc(array[0])
         );
     }
-    Array.prototype.max = function (maxFunc = (val) => val) {
-        return this.reduce(
+    export function arrayMax  (array, maxFunc = (val) => val) {
+        return array.reduce(
             (acc, cur) => Math.max(maxFunc(cur), acc),
-            maxFunc(this[0])
+            maxFunc(array[0])
         );
     }
 
-    Array.prototype.sum = function (sumFunc = (val) => val) {
-        return this.reduce(
+    export function arraySum(array, sumFunc = (val) => val) {
+        return array.reduce(
             (acc, cur) => sumFunc(cur) + acc,
             0
         );
     }
 
-    Array.prototype.remove = function (value) {
-        let index = this.indexOf(value);
+    export function arrayRemove  (array, value) {
+        let index = array.indexOf(value);
         if (index >= 0) {
-            this.splice(index, 1);
+            array.splice(index, 1);
             return true;
         }
         return false;
@@ -130,17 +126,16 @@ function initArrayExtensionMethods() {
     /**
      * Returns a new array with the duplicates removed
      */
-    Array.prototype.removeDuplicates = function () {
+    export function arrayRemoveDuplicates (array) {
         let arr = [];
-        this.forEach(n => {
+        array.forEach(n => {
             if (!arr.includes(n)) {
                 arr.push(n);
             }
         });
         return arr;
     }
-}
-export default initArrayExtensionMethods;
+
 
 /**
  * Returns a random number between min and max, inclusive
