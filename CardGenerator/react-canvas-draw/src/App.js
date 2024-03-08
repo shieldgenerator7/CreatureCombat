@@ -46,7 +46,7 @@ function App() {
         window.cardList = cardList;
         //
         // card = cardList[0];
-    console.log("AUTO1", autoDownload);
+        console.log("AUTO1", autoDownload);
         setAutoDownload(true);
         console.log("AUTO2", autoDownload);
         autoDownload = true;

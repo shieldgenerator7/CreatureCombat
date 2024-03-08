@@ -10,7 +10,7 @@ export function UploadFromFilePicker(card, callback) {
     // el.multiple = "multiple"; // remove to have a single file selection
 
     // (cancel will not trigger 'change')
-    el.addEventListener('change', ()=>{
+    el.addEventListener('change', () => {
         // access el.files[] to do something with it (test its length!)
 
         // add first image, if available

@@ -70,8 +70,8 @@
 }
 
 .leftPanel {
-    position:absolute;
-    width:200px;
+    position: absolute;
+    width: 200px;
     top: 0px;
     left: 0px;
     height: 100%;
@@ -79,7 +79,7 @@
     border-right: white 2px solid;
     overflow-y: auto;
     overflow-x: hidden;
-    z-index:1;
+    z-index: 1;
 }
 
 .listInfo {
@@ -113,9 +113,9 @@
     background-color: rgb(210, 210, 210);
 }
 
-.cardPanel{
-    position:absolute;
-    left:210px;
+.cardPanel {
+    position: absolute;
+    left: 210px;
 }
 
 .cvsCard {

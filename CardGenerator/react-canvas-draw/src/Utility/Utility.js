@@ -91,54 +91,54 @@ function initArrayExtensionMethods() {
     if (arrayExtInit) { return; }
     arrayExtInit = true;
 
-//2022-07-19: copied from https://stackoverflow.com/a/19494146/2336212
-Array.prototype.equals = function (array) {
-    return this === array ||
-        this.length === array.length &&
-        this.every((item, i) => item === array[i]);
-}
-
-Array.prototype.min = function (minFunc = (val) => val) {
-    return this.reduce(
-        (acc, cur) => Math.min(minFunc(cur), acc),
-        minFunc(this[0])
-    );
-}
-Array.prototype.max = function (maxFunc = (val) => val) {
-    return this.reduce(
-        (acc, cur) => Math.max(maxFunc(cur), acc),
-        maxFunc(this[0])
-    );
-}
-
-Array.prototype.sum = function (sumFunc = (val) => val) {
-    return this.reduce(
-        (acc, cur) => sumFunc(cur) + acc,
-        0
-    );
-}
-
-Array.prototype.remove = function (value) {
-    let index = this.indexOf(value);
-    if (index >= 0) {
-        this.splice(index, 1);
-        return true;
+    //2022-07-19: copied from https://stackoverflow.com/a/19494146/2336212
+    Array.prototype.equals = function (array) {
+        return this === array ||
+            this.length === array.length &&
+            this.every((item, i) => item === array[i]);
     }
-    return false;
-}
 
-/**
- * Returns a new array with the duplicates removed
- */
-Array.prototype.removeDuplicates = function () {
-    let arr = [];
-    this.forEach(n => {
-        if (!arr.includes(n)) {
-            arr.push(n);
+    Array.prototype.min = function (minFunc = (val) => val) {
+        return this.reduce(
+            (acc, cur) => Math.min(minFunc(cur), acc),
+            minFunc(this[0])
+        );
+    }
+    Array.prototype.max = function (maxFunc = (val) => val) {
+        return this.reduce(
+            (acc, cur) => Math.max(maxFunc(cur), acc),
+            maxFunc(this[0])
+        );
+    }
+
+    Array.prototype.sum = function (sumFunc = (val) => val) {
+        return this.reduce(
+            (acc, cur) => sumFunc(cur) + acc,
+            0
+        );
+    }
+
+    Array.prototype.remove = function (value) {
+        let index = this.indexOf(value);
+        if (index >= 0) {
+            this.splice(index, 1);
+            return true;
         }
-    });
-    return arr;
-}
+        return false;
+    }
+
+    /**
+     * Returns a new array with the duplicates removed
+     */
+    Array.prototype.removeDuplicates = function () {
+        let arr = [];
+        this.forEach(n => {
+            if (!arr.includes(n)) {
+                arr.push(n);
+            }
+        });
+        return arr;
+    }
 }
 export default initArrayExtensionMethods;
 

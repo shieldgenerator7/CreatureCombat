@@ -14,7 +14,7 @@ function Canvas({ card, autoDownload }) {
     const canvasRef = useRef(null);
     initArrayExtensionMethods();
 
-    const updateCanvas=(img)=>{
+    const updateCanvas = (img) => {
         const canvas = canvasRef.current;
         canvas.width = width;
         canvas.height = height;
@@ -266,10 +266,10 @@ function Canvas({ card, autoDownload }) {
             creatureImage.onload = () => {
                 updateCanvas(creatureImage);
                 // console.log("useffect autoDownload (img)", autoDownload);
-                        if (autoDownload) {
-                            console.log("AUTO3.4A CVS", autoDownload);
-                            saveImage();
-                        }
+                if (autoDownload) {
+                    console.log("AUTO3.4A CVS", autoDownload);
+                    saveImage();
+                }
             }
 
         }
