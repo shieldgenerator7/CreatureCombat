@@ -24,7 +24,7 @@ function CardListPanel({ cardList, setCardList, setCard }) {
                     ))
                 }
                 <div key="divCardNew">
-                    <button className="action" onClick={() => {
+                    <button className="action listAction" onClick={() => {
                         let newcard = new Creature();
                         setCard(newcard);
                         cardList.push(newcard);

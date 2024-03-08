@@ -113,6 +113,12 @@
     background-color: rgb(210, 210, 210);
 }
 
+.listAction {
+    width: 95%;
+    margin-left:5px;
+    margin-right: 5px;
+}
+
 .cardPanel {
     position: absolute;
     left: 210px;
