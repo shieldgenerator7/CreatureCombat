@@ -2,7 +2,7 @@
 
 function CardListPanel({ cardList, setCard }) {
     return (
-        <div className="editPanel" style={{ right: "200px" }}>
+        <div className="listPanel">
             {
                 cardList.map(card => (
                     <div>

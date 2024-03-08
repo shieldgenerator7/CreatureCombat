@@ -308,11 +308,11 @@ function Canvas({ card, autoDownload }) {
     }
 
     return (
-        <div>
-            <canvas ref={canvasRef}
-                style={{ width: "500px", height: "700px", display: "block" }}
-            />
-            <button onClick={saveImage}>Save Image</button>
+        <div className='cardPanel'>
+            <canvas ref={canvasRef} className='cvsCard' />
+            <button className='action' onClick={saveImage}>
+                Save Image
+            </button>
         </div>
     );
 }

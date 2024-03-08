@@ -68,3 +68,26 @@
     color: black;
     background-color: white;
 }
+
+.listPanel {
+    position:absolute;
+    width:200px;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background: "black";
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index:1;
+}
+
+.cardPanel{
+    position:absolute;
+    left:210px;
+}
+
+.cvsCard {
+    width: 500px;
+    height: 700px;
+    display: block;
+}
