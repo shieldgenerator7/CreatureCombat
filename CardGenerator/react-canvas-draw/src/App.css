@@ -69,16 +69,48 @@
     background-color: white;
 }
 
-.listPanel {
+.leftPanel {
     position:absolute;
     width:200px;
     top: 0px;
     left: 0px;
     height: 100%;
     background: "black";
+    border-right: white 2px solid;
     overflow-y: auto;
     overflow-x: hidden;
     z-index:1;
+}
+
+.listInfo {
+    border-bottom: white 2px solid;
+    font-size: large;
+}
+
+.listInfo p {
+    margin: 5px;
+}
+
+.list {
+    width: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+.listItem {
+    text-align: left;
+    font-size: large;
+    border: #303030 2px solid;
+    color: white;
+    background-color: rgb(37, 37, 37);
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.listItem:hover {
+    color: black;
+    background-color: rgb(210, 210, 210);
 }
 
 .cardPanel{

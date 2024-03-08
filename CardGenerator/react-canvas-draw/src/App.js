@@ -35,7 +35,7 @@ function App() {
     //Card List
     let cardList = [];
     let setCardList = (list) => { cardList = list; };
-    const defaultCardList = () => [];
+    const defaultCardList = () => [card];
     [cardList, setCardList] = useState(defaultCardList);
     //
     if (pasteString) {
