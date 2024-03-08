@@ -69,6 +69,7 @@ function App() {
             <header className="App-header">
                 <CardListPanel
                     cardList={cardList}
+                    setCardList={setCardList}
                     setCard={setCard}
                 ></CardListPanel>
                 <Canvas

@@ -1,6 +1,8 @@
 "use strict";
 
-function CardListPanel({ cardList, setCard }) {
+import Creature from "../Data/Creature";
+
+function CardListPanel({ cardList, setCardList, setCard }) {
     return (
         <div className="leftPanel">
             {/* Deck Stats */}
@@ -20,6 +22,16 @@ function CardListPanel({ cardList, setCard }) {
                         </div>
                     ))
                 }
+                <div>
+                    <button className="action" onClick={() => {
+                        let newcard = new Creature();
+                        setCard(newcard);
+                        cardList.push(newcard);
+                        setCardList([...cardList]);
+                    }}>
+                        Add New Card
+                    </button>
+                </div>
             </div>
         </div>
     );
