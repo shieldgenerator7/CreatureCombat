@@ -24,6 +24,9 @@ class Creature {
         this.variant = "01/01";
         this.editorVersion = "0.001";
         this.creationDate = new Date().toISOString().slice(0, 10);
+
+        //temp
+        this.count = 1;//TODO: move this somewhere else
     }
 
     setTags(tags) {
@@ -50,11 +53,11 @@ class Creature {
         //Base Power
         cost += Math.max(0, Math.ceil(this.basePower)) * 2;
         //Biome Modifiers
-        cost += arraySum(
+        cost += Math.ceil(arraySum(
                 Object.keys(this.biomeModifiers)
                     .map(bm => this.biomeModifiers[bm].modifier)
             )
-            / 2;
+            / 2);
         //Abilities
         cost += Math.ceil(this.abilityCost);//test
         cost += Math.max(0, arraySum(this.abilities,a => a.cost));

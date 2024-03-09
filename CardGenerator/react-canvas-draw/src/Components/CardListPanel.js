@@ -10,18 +10,23 @@ function CardListPanel({ cardList, setCardList, setCard }) {
             <div className="listInfo">
                 <p> Creature List</p>
                 <p> Count: {cardList.length}</p>
-                <p> Total Cost: {arraySum(cardList, card => card.getFinalCost())}</p>
+                <p> Total Cost: {arraySum(cardList, card => card.getFinalCost() * card.count)}</p>
             </div>
             {/* Card List */}
             <div className="list">
                 {
-                    cardList.map((card,i) => (
-                        <div key={`divCard${i}`}>
-                            <button className="listItem" onClick={() => setCard(card)}>
-                                {card.name || card.species || "[creature]"} - {card.getFinalCost()}
-                            </button>
-                        </div>
-                    ))
+                    cardList.map((card, i) => {
+                        let cardName = card.name || card.species || "[creature]";
+                        let cardCost = card.getFinalCost();
+                        let cardCount = card.count;
+                        return (
+                            <div key={`divCard${i}`}>
+                                <button className="listItem" onClick={() => setCard(card)}>
+                                    {cardName} - {cardCost}  x{cardCount}
+                                </button>
+                            </div>
+                        );
+                    })
                 }
                 <div key="divCardNew">
                     <button className="action listAction" onClick={() => {

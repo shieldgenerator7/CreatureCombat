@@ -107,6 +107,14 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             }}>Upload</button>
             {card.imageFileName && card.imageFileName}
 
+            {/* Count */}
+            Count
+            <input type="text" className="field" onChange={(e) => {
+                card.count = e.target.value * 1;
+                updateCard(card);
+            }}
+                value={card.count}></input>
+
             {/* Paste Box */}
             <div className='lowvisibilitylabel'>Paste Box</div>
             <textarea className="field multiline lowvisibility" onChange={(e) => {
