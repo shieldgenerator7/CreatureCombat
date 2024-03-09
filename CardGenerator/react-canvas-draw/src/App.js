@@ -6,13 +6,21 @@ import { useState } from 'react';
 import EditPanel from './Components/EditPanel';
 import { parsePasteFromExcel } from './Utility/Parser';
 import CardListPanel from './Components/CardListPanel';
+import Storage from './Utility/Storage';
 
 function App() {
-
+    //Storage
+    let storage;
+    let setStorage = (s) => { storage = s; };
+    const defaultStorage = () => new Storage();
+    [storage, setStorage] = useState(defaultStorage);
     //Card
     let card = new Creature();
-    let setCard = (c) => { card = c; };
-    const defaultCard = () => new Creature();
+    let setCard = (c) => {
+        card = c;
+        storage.cardList = cardList;
+    };
+    const defaultCard = () => storage.cardList[0] ?? new Creature();
     [card, setCard] = useState(defaultCard);
     window.card = card;
     let updateCard = (oldcard) => {
@@ -25,6 +33,7 @@ function App() {
         }
         //
         setCard(newcard);
+        storage.cardList = cardList;
     }
     //Paste String
     let pasteString = "";
@@ -40,8 +49,11 @@ function App() {
     let lastDownloadedIndex = -1;
     //Card List
     let cardList = [];
-    let setCardList = (list) => { cardList = list; };
-    const defaultCardList = () => [card];
+    let setCardList = (list) => {
+        cardList = list;
+        storage.cardList = cardList;
+    };
+    const defaultCardList = () => storage.cardList ?? [card];
     [cardList, setCardList] = useState(defaultCardList);
     //
     if (pasteString) {

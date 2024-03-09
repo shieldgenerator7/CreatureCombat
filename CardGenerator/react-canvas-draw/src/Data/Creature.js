@@ -81,3 +81,10 @@ class Creature {
 }
 
 export default Creature;
+
+export function inflateCreature(creature) {
+    Object.setPrototypeOf(creature, Creature.prototype);
+    creature.biomeModifiers.forEach(bm => {
+        Object.setPrototypeOf(bm, BiomeModifier.prototype);
+    });
+}

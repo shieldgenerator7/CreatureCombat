@@ -1,27 +1,26 @@
 "use strict";
 
+import { inflateCreature } from "../Data/Creature";
+
 //2024-03-08: copied from StoryViewer
 
-const storageName = "StoryViewerStorage";
+const storageName = "CreatureCombat_CardList";
 
-export class Storage {
+class Storage {
     constructor() {
-        this.storageName = "StoryViewerStorage";
+        this.storageName = "CreatureCombat_CardList";
         this.storage = {
-            storyLinks: [],
+            cardList: [],
         };
         this.entryCount = 0;
         this.loadStorage();
         this.saveStorage();
         let storage = this;
-        window.onbeforeunload = () => { storage.saveStorage(); };
-        window.onblur = () => { storage.saveStorage(); };
+        let _saveStorage = this.saveStorage.bind(this);
+        window.onbeforeunload = _saveStorage;
+        window.onblur = _saveStorage;
         //TEST
         window.storage = this;
-    }
-
-    _updateEntryCount() {
-        this.entryCount = this.storage.storyLinks.length;
     }
 
     saveStorage() {
@@ -39,30 +38,18 @@ export class Storage {
             content = null;
         }
         this.storage = JSON.parse(content) ?? this.storage;
-        this._updateEntryCount();
         console.log("loadStorage", this.storage);
+        //
+        this.storage.cardList.forEach(card => {
+            inflateCreature(card);
+        });
     }
 
-    storeURL(url, storyInfo, param) {
-        // console.log("storeURL called 1: ", url, this.storage);
-        let story = storyInfo?.story ?? storyInfo;
-        let urlObj = this.storage.storyLinks.find(obj => obj.url == url) ?? {};
-        //
-        urlObj.url = url;
-        urlObj.title = storyInfo?.title ?? story?.title ?? urlObj.title;
-        if (param) {
-            urlObj.param = param;
-        }
-        urlObj.author = storyInfo?.author;
-        urlObj.chapterCount = story?.chapters?.length;
-        //
-        if (!this.storage.storyLinks.includes(urlObj)) {
-            this.storage.storyLinks.push(urlObj);
-        }
-        this._updateEntryCount();
+    get cardList() {
+        return this.storage.cardList;
     }
-
-    getURLs() {
-        return this.storage.storyLinks;
+    set cardList(value) {
+        this.storage.cardList = value;
     }
 }
+export default Storage;
