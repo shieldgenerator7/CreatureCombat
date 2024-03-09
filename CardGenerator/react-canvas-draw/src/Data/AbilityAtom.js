@@ -7,8 +7,8 @@ class AbilityAtom{
         this.costFunc = costFunc;
     }
 
-    getCost(x) {
-        return this.costFunc(x);
+    getCost(...x) {
+        return this.costFunc(...x);
     }
 
     getText(x) {

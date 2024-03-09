@@ -2,7 +2,7 @@
 
 import AbilityAtom from "./AbilityAtom";
 
-const abilityEffects = [
+export const abilityEffects = [
     new AbilityAtom(
         "attack",
         "Deal X damage to target Creature.",
@@ -105,7 +105,7 @@ const abilityEffects = [
     ),
 ];
 
-const abilityCosts = [
+export const abilityCosts = [
     new AbilityAtom(
         "exhaust",
         "Reduce this Creature's Base Power by X",
@@ -118,7 +118,7 @@ const abilityCosts = [
     )
 ];
 
-const abilityRequirements = [
+export const abilityRequirements = [
     new AbilityAtom(
         "home",
         "This Creature must be in a home biome.",
