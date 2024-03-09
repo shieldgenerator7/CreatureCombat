@@ -86,3 +86,4 @@ class Ability {
         return Math.ceil(Math.max(0, cost));
     }
 }
+export default Ability;

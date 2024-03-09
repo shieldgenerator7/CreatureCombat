@@ -1,6 +1,7 @@
 "use strict";
 
 import { arraySum } from "../Utility/Utility";
+import Ability from "./Ability";
 import BiomeModifier from "./BiomeModifier";
 
 class Creature {
@@ -44,6 +45,11 @@ class Creature {
         this.biomeModifiers.push(bm);
     }
 
+    addAbility(ability) {
+        ability ??= new Ability();
+        this.abilities.push(ability);
+    }
+
     getTotalPower(biome) {
         return this.basePower + this.getBiomeModifier(biome);
     }
@@ -60,7 +66,7 @@ class Creature {
             / 2);
         //Abilities
         cost += Math.ceil(this.abilityCost);//test
-        cost += Math.max(0, arraySum(this.abilities,a => a.cost));
+        cost += Math.max(0, arraySum(this.abilities,a => a.TotalCost));
         //
         cost = Math.round(cost);
         cost = Math.max(cost, this.basePower);
