@@ -124,6 +124,13 @@
     background-color: rgb(210, 210, 210);
 }
 
+.select{
+    background-color:#2a4786
+}
+.select:hover{
+    background-color:#85abfc
+}
+
 .listAction {
     width: 95%;
     margin-left:5px;

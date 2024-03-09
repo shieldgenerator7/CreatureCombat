@@ -3,7 +3,7 @@
 import Creature from "../Data/Creature";
 import { arraySum } from "../Utility/Utility";
 
-function CardListPanel({ cardList, setCardList, setCard }) {
+function CardListPanel({ cardList, setCardList, currentCard, setCard }) {
     return (
         <div className="leftPanel">
             {/* Deck Stats */}
@@ -19,9 +19,10 @@ function CardListPanel({ cardList, setCardList, setCard }) {
                         let cardName = card.name || card.species || "[creature]";
                         let cardCost = card.getFinalCost();
                         let cardCount = card.count;
+                        let className = "listItem" + ((card == currentCard) ? " select" : "");
                         return (
                             <div key={`divCard${i}`}>
-                                <button className="listItem" onClick={() => setCard(card)}>
+                                <button className={className} onClick={() => setCard(card)}>
                                     {cardName} - {cardCost}  x{cardCount}
                                 </button>
                             </div>
