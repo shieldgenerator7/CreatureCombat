@@ -55,14 +55,14 @@
     resize: none;
 }
 
-.fieldLine{
+.fieldLine {
     display: block;
     border-bottom: white 1px solid;
 }
-.fieldLine input{
+.fieldLine input {
     width: 100px;
 }
-.fieldLine input[type=number]{
+.fieldLine input[type="number"] {
     width: 40px;
 }
 
@@ -124,16 +124,16 @@
     background-color: rgb(210, 210, 210);
 }
 
-.select{
-    background-color:#2a4786
+.select {
+    background-color: #2a4786;
 }
-.select:hover{
-    background-color:#85abfc
+.select:hover {
+    background-color: #85abfc;
 }
 
 .listAction {
     width: 95%;
-    margin-left:5px;
+    margin-left: 5px;
     margin-right: 5px;
 }
 
@@ -148,13 +148,13 @@
     display: block;
 }
 
-.lowvisibilitylabel{
-    color:rgb(77, 77, 77);
+.lowvisibilitylabel {
+    color: rgb(77, 77, 77);
 }
-.lowvisibility{
+.lowvisibility {
     background-color: rgb(77, 77, 77);
-    border:none;
+    border: none;
 }
-.lowvisibility::placeholder{
+.lowvisibility::placeholder {
     background-color: rgb(170, 170, 170);
 }

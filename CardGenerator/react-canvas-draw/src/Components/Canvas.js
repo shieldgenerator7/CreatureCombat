@@ -208,7 +208,7 @@ function Canvas({ card, autoDownload }) {
         card.biomeModifiers.forEach((bm, i) => {
             let drawX = bmStartX + bmBufferX * i;
             context.fillText(
-                bm.biome?.trim() || `[biome ${i+1}]`,
+                bm.biome?.trim() || `[biome ${i + 1}]`,
                 drawX,
                 bmStartY
             );

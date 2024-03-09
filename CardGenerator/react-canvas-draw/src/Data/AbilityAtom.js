@@ -1,6 +1,6 @@
 "use strict";
 
-class AbilityAtom{
+class AbilityAtom {
     constructor(name, text, costFunc) {
         this.name = name;
         this.text = text;

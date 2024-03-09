@@ -60,13 +60,13 @@ class Creature {
         cost += Math.max(0, Math.ceil(this.basePower)) * 2;
         //Biome Modifiers
         cost += Math.ceil(arraySum(
-                Object.keys(this.biomeModifiers)
-                    .map(bm => this.biomeModifiers[bm].modifier)
-            )
+            Object.keys(this.biomeModifiers)
+                .map(bm => this.biomeModifiers[bm].modifier)
+        )
             / 2);
         //Abilities
         cost += Math.ceil(this.abilityCost);//test
-        cost += Math.max(0, arraySum(this.abilities,a => a.TotalCost));
+        cost += Math.max(0, arraySum(this.abilities, a => a.TotalCost));
         //
         cost = Math.round(cost);
         cost = Math.max(cost, this.basePower);

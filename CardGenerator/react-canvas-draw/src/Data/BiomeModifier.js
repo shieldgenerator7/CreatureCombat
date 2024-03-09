@@ -1,6 +1,6 @@
 "use strict";
 
-class BiomeModifier{
+class BiomeModifier {
     constructor(biome, modifier) {
         this.biome = biome;
         this.modifier = modifier;
