@@ -55,6 +55,17 @@
     resize: none;
 }
 
+.fieldLine{
+    display: block;
+    border-bottom: white 1px solid;
+}
+.fieldLine input{
+    width: 100px;
+}
+.fieldLine input[type=number]{
+    width: 40px;
+}
+
 .action {
     font-size: large;
     border: white 2px solid;

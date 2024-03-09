@@ -40,6 +40,39 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             }}
                 value={card.basePower}></input>
 
+            {/* Biome Modifiers */}
+            Biome Modifiers
+            {
+                card.biomeModifiers.map((bm, i) => {
+                    return (<div className='fieldLine' key={"divBM_" + i}>
+                        {/* Biome */}
+                        <input type="text" onChange={(e) => {
+                            bm.biome = e.target.value;
+                            updateCard(card);
+                        }}
+                            value={bm.biome}></input>
+                        {/* Modifier */}
+                        <input type="number" onChange={(e) => {
+                            bm.modifier = e.target.value * 1;
+                            updateCard(card);
+                        }}
+                            value={bm.modifier}></input>
+                        {/* Remove Button */}
+                        <button onClick={() => {
+                            card.biomeModifiers.splice(i, 1);
+                            updateCard(card);
+                        }}>X</button>
+                    </div>);
+                })
+            }
+            {/* Add Button */}
+            {card.biomeModifiers.length < 5 && (
+                <button className='action' onClick={() => {
+                    card.addBiomeModifier("", 0);
+                    updateCard(card);
+                }}>Add Biome Modifier</button>
+            )}
+
             {/* Ability TEST */}
             Ability
             <input type="number" className="field" onChange={(e) => {
