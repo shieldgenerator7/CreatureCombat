@@ -15,7 +15,7 @@ const abilityEffects = [
     ),
     new AbilityAtom(
         "move-self",
-        "Move this Creature to another land.",
+        "Move this Creature to another Land.",
         (x) => 10
     ),
     new AbilityAtom(
@@ -30,7 +30,7 @@ const abilityEffects = [
     ),
     new AbilityAtom(
         "change-biome",
-        "Look at the top X cards of the land deck, and choose 1 to place on top of the current land. That land determines the biome for this battle. At the end of the round, shuffle that land into the land deck.",
+        "Look at the top X cards of the Land deck, and choose 1 to place on top of the current Land. That Land determines the biome for this battle. At the end of the round, shuffle that Land into the Land deck.",
         (x) => x + 2
     ),
     new AbilityAtom(
@@ -40,7 +40,7 @@ const abilityEffects = [
     ),
     new AbilityAtom(
         "recovery",
-        "When you use a land card to recover this creature, remove X Rest counters instead of 1.",
+        "When you use a Land card to recover this Creature, remove X Rest counters instead of 1.",
         (x) => x - 1
     ),
     new AbilityAtom(
@@ -50,7 +50,7 @@ const abilityEffects = [
     ),
     new AbilityAtom(
         "negate-biomemod",
-        "Negate target Creature's biome bonus.",
+        "Negate target Creature's biome modifier.",
         (x) => 2
     ),
     new AbilityAtom(
@@ -65,12 +65,12 @@ const abilityEffects = [
     ),
     new AbilityAtom(
         "duplicate",
-        "Summon a duplicate of target creature until the end of the round. At the end of the round, add X Rest counters to that creature.",
+        "Create a duplicate of target Creature until the end of the round. At the end of the round, add X Rest counters to that Creature.",
         (x) => 5 - x * 1.5
     ),
     new AbilityAtom(
-        "move-from-ready-to-land",
-        "Move target creature from your Ready pile to this land.",
+        "move-from-ready-to-Land",
+        "Move target Creature from your Ready pile to this Land.",
         (x) => 5 - x * 1.5
     ),
     new AbilityAtom(
@@ -85,22 +85,22 @@ const abilityEffects = [
     ),
     new AbilityAtom(
         "reveal",
-        "Reveal this creature. Reveal target creature.",
+        "Reveal this Creature. Reveal target Creature.",
         (x) => 2
     ),
     new AbilityAtom(
         "absorb",
-        "If this creature would take damage, it heals that amount instead.",
+        "If this Creature would take damage, it heals that amount instead.",
         (x) => 10
     ),
     new AbilityAtom(
         "ward",
-        "When an enemy creature targets this creature, they must pay Exhaust X, or else their ability has no effect on this creature.",
+        "When an enemy Creature targets this Creature, they must pay Exhaust X, or else their ability has no effect on it.",
         (x) => x * 0.3
     ),
     new AbilityAtom(
         "ward-any",
-        "Target creature has Ward X.",
+        "Target Creature has Ward X.",
         (x) => x * 0.3
     ),
 ];
@@ -108,12 +108,12 @@ const abilityEffects = [
 const abilityCosts = [
     new AbilityAtom(
         "exhaust",
-        "Reduce this creature's Base Power by X",
+        "Reduce this Creature's Base Power by X",
         (x, c) => c - x
     ),
     new AbilityAtom(
         "rest",
-        "Add X Rest counters to this creature.",
+        "Add X Rest counters to this Creature.",
         (x, c) => c / (x + 1)
     )
 ];
@@ -121,32 +121,32 @@ const abilityCosts = [
 const abilityRequirements = [
     new AbilityAtom(
         "home",
-        "This creature must be in a home biome.",
+        "This Creature must be in a home biome.",
         (x, c) => c * 0.5
     ),
     new AbilityAtom(
         "type-count",
-        "This creature must have at least X allies that share a type with it, including itself.",
+        "This Creature must have at least X allies that share a type with it, including itself.",
         (x, c) => c - (x * 0.2)
     ),
     new AbilityAtom(
         "target-rest-count",
-        "Target creature must have at least X Rest counters on it.",
+        "Target Creature must have at least X Rest counters on it.",
         (x, c) => c - x * 2
     ),
     new AbilityAtom(
         "target-type-share",
-        "Target creature must share at least X types with this creature.",
+        "Target Creature must share at least X types with this Creature.",
         (x, c) => c / (x + 1)
     ),
     new AbilityAtom(
         "channel",
-        "If this creature takes any amount of damage between activating this ability and completing it, its ability effect is canceled.",
+        "If this Creature takes any amount of damage between activating this ability and completing it, its ability effect is canceled.",
         (x, c) => c * 0.5
     ),
     new AbilityAtom(
         "targeter-type-share",
-        "The targeter must share at least X types with this creature.",
+        "The targeter must share at least X types with this Creature.",
         (x, c) => c / (x + 1)
     )
 ]
