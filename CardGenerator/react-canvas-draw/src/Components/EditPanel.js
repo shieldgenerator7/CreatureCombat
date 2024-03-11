@@ -106,11 +106,13 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                     const costHasNumber = ability.abilityCost?.symbol.includes("X");
                     const effectHasNumber = ability.abilityEffect?.text.includes("X");
 
+                    const abilityName = ability.name.trim();
+
                     return (
-                        <div className='abilityArea' key={`${`ability`}_${i}`}>
+                        <div className='abilityArea' key={`ability_${i}`}>
                             {/* Ability Header */}
                             <div>
-                                {`Ability ${i + 1} (${ability.TotalCost}pts)`}
+                                {`${abilityName || `Ability ${i + 1}`} (${ability.TotalCost}pts)`}
                                 {/* Remove Button */}
                                 <button onClick={() => {
                                     card.abilities.splice(i, 1);
