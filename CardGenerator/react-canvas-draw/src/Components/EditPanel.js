@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
 import Creature from '../Data/Creature';
+import { biomeList } from '../Data/BiomeModifier';
 
 function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
     return (
@@ -51,18 +52,11 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                     return (<div className='fieldLine' key={"divBM_" + i}>
                         {/* Biome */}
                         <select value={bm.biome} onChange={biomeFunc}>
-                            <option value={"Forest"}>Forest</option>
-                            <option value={"Jungle"}>Jungle</option>
-                            <option value={"Swamp"}>Swamp</option>
-                            <option value={"Mountain"}>Mountain</option>
-                            <option value={"Plain"}>Plain</option>
-                            <option value={"Desert"}>Desert</option>
-                            <option value={"Tundra"}>Tundra</option>
-                            <option value={"Wasteland"}>Wasteland</option>
-                            <option value={"Ocean"}>Ocean</option>
-                            <option value={"Lake"}>Lake</option>
-                            <option value={"Cloud"}>Cloud</option>
-                            <option value={"Volcano"}>Volcano</option>
+                            {
+                                biomeList.map(b => (
+                                    <option value={b} key={b}>{b}</option>
+                                ))
+                            }
                         </select>
                         {/* Modifier */}
                         <input type="number" onChange={(e) => {
