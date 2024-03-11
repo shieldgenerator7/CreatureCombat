@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
 import Creature from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
+import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
 
 function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
     return (
@@ -97,6 +98,99 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 rows="5"
                 value={card.ability}
             ></textarea>
+
+            {/* Abilities */}
+            {
+                card.abilities.map((ability, i) => {
+                    const reqFunc = (e) => {
+                        let req = e.target.value;
+                        ability.requirementName = req;
+                        updateCard(card);
+                    };
+                    const costFunc = (e) => {
+                        let cost = e.target.value;
+                        ability.costName = cost;
+                        updateCard(card);
+                    };
+                    const effectFunc = (e) => {
+                        let effect = e.target.value;
+                        ability.effectName = effect;
+                        updateCard(card);
+                    };
+                    return (
+                        <div className='abilityArea'>
+                            {/* Ability Header */}
+                            <div>
+                                Ability {i + 1}
+                                {/* Remove Button */}
+                                <button onClick={() => {
+                                    card.abilities.splice(i, 1);
+                                    updateCard(card);
+                                }}>X</button>
+                            </div>
+                            {/* Ability Name */}
+                            <div>
+                                <span>Name</span>
+                                <input type="text" onChange={(e) => {
+                                    ability.name = e.target.value;
+                                    updateCard(card);
+                                }}
+                                    value={ability.name}
+                                ></input>
+                            </div>
+                            {/* Ability Requirement */}
+                            <div>
+                                <span>Req</span>
+                                <select value={ability.requirementName} onChange={reqFunc}>
+                                    {
+                                        abilityRequirements
+                                            .map(r => r.name)
+                                            // .filter(r => !ability.hasRequirement(r) || bm.biome == b)
+                                            .map(r => (
+                                                <option value={r} key={r}>{r}</option>
+                                            ))
+                                    }
+                                </select>
+                            </div>
+                            {/* Ability Cost */}
+                            <div>
+                                <span>Cost</span>
+                                <select value={ability.costName} onChange={costFunc}>
+                                    {
+                                        abilityCosts
+                                            .map(c => c.name)
+                                            // .filter(r => !ability.hasCost(c) || bm.biome == b)
+                                            .map(c => (
+                                                <option value={c} key={c}>{c}</option>
+                                            ))
+                                    }
+                                </select>
+                            </div>
+                            {/* Ability Effect */}
+                            <div>
+                                <span>Effect</span>
+                                <select value={ability.effectName} onChange={effectFunc}>
+                                    {
+                                        abilityEffects
+                                            .map(f => f.name)
+                                            // .filter(r => !ability.hasCost(f) || bm.biome == b)
+                                            .map(f => (
+                                                <option value={f} key={f}>{f}</option>
+                                            ))
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    );
+                })
+            }
+            {/* Add Button */}
+            {card.abilities.length < 2 && (
+                <button className='action' onClick={() => {
+                    card.addAbility();
+                    updateCard(card);
+                }}>Add Ability</button>
+            )}
 
             {/* Flavor Text */}
             Flavor Text
