@@ -16,6 +16,7 @@ class Ability {
         this.pointCost = undefined;//how much it costs to include this ability (for custom abilities)
         this.costReqText = "";//what it costs to play this ability (for custom abilities)
         this.effectText = "";//what this ability does (for custom abilities)
+        this.effectCost = undefined;//how much it costs to include this effect (for custom abilities)
     }
 
 
@@ -83,6 +84,9 @@ class Ability {
     }
 
     get EffectCost() {
+        if (this.effectCost != undefined) {
+            return this.effectCost;
+        }
         return Math.max(0, this.abilityEffect
             ?.getCost(this.effectX)
             ?? 10
