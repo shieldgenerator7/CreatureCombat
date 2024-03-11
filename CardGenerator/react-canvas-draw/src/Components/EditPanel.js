@@ -44,13 +44,26 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             Biome Modifiers
             {
                 card.biomeModifiers.map((bm, i) => {
+                    const biomeFunc = (e) => {
+                        bm.biome = e.target.value;
+                        updateCard(card);
+                    }
                     return (<div className='fieldLine' key={"divBM_" + i}>
                         {/* Biome */}
-                        <input type="text" onChange={(e) => {
-                            bm.biome = e.target.value;
-                            updateCard(card);
-                        }}
-                            value={bm.biome}></input>
+                        <select value={bm.biome} onChange={biomeFunc}>
+                            <option value={"Forest"}>Forest</option>
+                            <option value={"Jungle"}>Jungle</option>
+                            <option value={"Swamp"}>Swamp</option>
+                            <option value={"Mountain"}>Mountain</option>
+                            <option value={"Plain"}>Plain</option>
+                            <option value={"Desert"}>Desert</option>
+                            <option value={"Tundra"}>Tundra</option>
+                            <option value={"Wasteland"}>Wasteland</option>
+                            <option value={"Ocean"}>Ocean</option>
+                            <option value={"Lake"}>Lake</option>
+                            <option value={"Cloud"}>Cloud</option>
+                            <option value={"Volcano"}>Volcano</option>
+                        </select>
                         {/* Modifier */}
                         <input type="number" onChange={(e) => {
                             bm.modifier = e.target.value * 1;
