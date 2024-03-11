@@ -1,6 +1,6 @@
 "use strict";
 
-import { arraySum } from "../Utility/Utility";
+import { arraySum, getDateString } from "../Utility/Utility";
 import { VERSION } from "../Version";
 import Ability from "./Ability";
 import BiomeModifier from "./BiomeModifier";
@@ -25,7 +25,7 @@ class Creature {
         this.id = "";
         this.variant = "01/01";
         this.editorVersion = VERSION;
-        this.creationDate = new Date().toISOString().slice(0, 10);
+        this.creationDate = getDateString();
 
         //temp
         this.count = 1;//TODO: move this somewhere else

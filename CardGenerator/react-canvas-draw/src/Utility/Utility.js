@@ -283,6 +283,10 @@ export function getLines(ctx, text, maxWidth) {
     return lines;
 }
 
+export function getDateString() {
+    return new Date().toISOString().slice(0, 10);
+}
+
 
 function getMemorySize(json) {
     if (!json) return 0;

@@ -1,5 +1,5 @@
 "use strict";
-import { getLines } from '../Utility/Utility';
+import { getDateString, getLines } from '../Utility/Utility';
 
 //2024-03-02: copied from https://www.dhiwise.com/post/designing-stunning-artwork-with-react-canvas-draw
 import React, { useRef, useEffect } from 'react';
@@ -226,17 +226,17 @@ function Canvas({ card, autoDownload }) {
         fontSize = 0.2;
         context.font = `${textRow * fontSize}px Arial`;
         context.fillText(
-            "ID: " + card.id,
+            "Id: " + card.id,
             creditsX,
             creditsY
         );
         context.fillText(
-            "VARIANT: " + card.variant,
+            "Variant: " + card.variant,
             creditsX + bufferBase * 6,
             creditsY
         );
         context.fillText(
-            "CREATION DATE: " + card.creationDate,
+            `Creation Date: ${card.creationDate} - ${getDateString()}`,
             creditsX + bufferBase * 12,
             creditsY
         );
