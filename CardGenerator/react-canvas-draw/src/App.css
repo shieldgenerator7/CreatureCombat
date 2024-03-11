@@ -131,6 +131,10 @@
     background-color: #85abfc;
 }
 
+.sltBiome {
+    min-width: 100px;
+}
+
 .listAction {
     width: 95%;
     margin-left: 5px;

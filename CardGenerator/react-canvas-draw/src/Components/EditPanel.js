@@ -51,7 +51,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                     }
                     return (<div className='fieldLine' key={"divBM_" + i}>
                         {/* Biome */}
-                        <select value={bm.biome} onChange={biomeFunc}>
+                        <select className="sltBiome" value={bm.biome} onChange={biomeFunc}>
                             {
                                 biomeList
                                     .filter(b => !card.hasBiome(b) || bm.biome == b)
