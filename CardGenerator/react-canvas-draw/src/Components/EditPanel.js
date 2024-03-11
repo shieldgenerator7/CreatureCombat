@@ -83,23 +83,8 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 }}>Add Biome Modifier</button>
             )}
 
-            {/* Ability TEST */}
-            Ability
-            <input type="number" className="field" onChange={(e) => {
-                card.abilityCost = e.target.value;
-                updateCard(card);
-            }}
-                value={card.abilityCost}
-            ></input>
-            <textarea className="field multiline" onChange={(e) => {
-                card.ability = e.target.value;
-                updateCard(card);
-            }}
-                rows="5"
-                value={card.ability}
-            ></textarea>
-
             {/* Abilities */}
+            Ability
             {
                 card.abilities.map((ability, i) => {
                     const reqFunc = (e) => {
@@ -118,10 +103,10 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                         updateCard(card);
                     };
                     return (
-                        <div className='abilityArea'>
+                        <div className='abilityArea' key={ability.name?.trim() || `ability_${i}`}>
                             {/* Ability Header */}
                             <div>
-                                Ability {i + 1}
+                                {ability.name.trim() || `Ability ${i + 1}`}
                                 {/* Remove Button */}
                                 <button onClick={() => {
                                     card.abilities.splice(i, 1);

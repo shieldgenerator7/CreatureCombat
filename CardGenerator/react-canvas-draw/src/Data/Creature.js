@@ -16,8 +16,6 @@ class Creature {
         this.basePower = 1;
         this.biomeModifiers = [];
 
-        this.ability = "";//test
-        this.abilityCost = 0;//test
         this.abilities = [];
         this.flavorText = "";
 
