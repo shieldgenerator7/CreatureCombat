@@ -12,6 +12,7 @@ export const biomeList = [
     "Swamp",
     "Tundra",
     "Volcano",
+    "Wasteland",
 ];
 
 class BiomeModifier {

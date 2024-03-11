@@ -36,6 +36,10 @@ class Creature {
             .filter(t => t);
     }
 
+    hasBiome(biome) {
+        return this.biomeModifiers.some(bm => bm.biome == biome);
+    }
+
     getBiomeModifier(biome) {
         return this.biomeModifiers.find(bm => bm.biome == biome)?.modifier ?? 0;
     }
