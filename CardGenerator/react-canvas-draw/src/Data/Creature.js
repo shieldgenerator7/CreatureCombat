@@ -98,4 +98,7 @@ export function inflateCreature(creature) {
     creature.biomeModifiers.forEach(bm => {
         Object.setPrototypeOf(bm, BiomeModifier.prototype);
     });
+    creature.abilities.forEach(ability => {
+        Object.setPrototypeOf(ability, Ability.prototype);
+    });
 }

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Canvas from './Components/Canvas';
-import Creature from './Data/Creature';
+import Creature, { inflateCreature } from './Data/Creature';
 import { useState } from 'react';
 import EditPanel from './Components/EditPanel';
 import { parsePasteFromExcel } from './Utility/Parser';
@@ -25,7 +25,7 @@ function App() {
     window.card = card;
     let updateCard = (oldcard) => {
         let newcard = JSON.parse(JSON.stringify(oldcard));
-        Object.setPrototypeOf(newcard, Creature.prototype);
+        inflateCreature(newcard);
         //
         if (cardList.includes(oldcard)) {
             let index = cardList.indexOf(oldcard);
