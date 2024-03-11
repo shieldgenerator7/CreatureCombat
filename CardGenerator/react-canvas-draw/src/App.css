@@ -181,3 +181,7 @@
     margin-left: 5px;
     max-width:120px;
 }
+.abilityArea div input[type="number"] {
+    margin-left: 5px;
+    max-width: 30px;
+}

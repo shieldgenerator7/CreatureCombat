@@ -4,6 +4,11 @@ import AbilityAtom from "./AbilityAtom";
 
 export const abilityEffects = [
     new AbilityAtom(
+        "custom",
+        "",
+        (x) => x
+    ),
+    new AbilityAtom(
         "attack",
         "Deal X damage to target Creature.",
         (x) => x

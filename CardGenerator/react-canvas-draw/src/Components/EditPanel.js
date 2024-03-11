@@ -102,11 +102,15 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                         ability.effectName = effect;
                         updateCard(card);
                     };
+                    const reqHasNumber = ability.abilityRequirement?.symbol.includes("X");
+                    const costHasNumber = ability.abilityCost?.symbol.includes("X");
+                    const effectHasNumber = ability.abilityEffect?.text.includes("X");
+
                     return (
-                        <div className='abilityArea' key={ability.name?.trim() || `ability_${i}`}>
+                        <div className='abilityArea' key={`${ability.name?.trim() || `ability`}_${i}`}>
                             {/* Ability Header */}
                             <div>
-                                {ability.name.trim() || `Ability ${i + 1}`}
+                                {(ability.name.trim() || `Ability ${i + 1}`)+` (${ability.TotalCost}pts)`}
                                 {/* Remove Button */}
                                 <button onClick={() => {
                                     card.abilities.splice(i, 1);
@@ -136,6 +140,14 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                             ))
                                     }
                                 </select>
+                                {reqHasNumber && (
+                                    <input type="number" onChange={(e) => {
+                                        ability.requirementX = e.target.value * 1;
+                                        updateCard(card);
+                                    }}
+                                        value={ability.requirementX}
+                                    ></input>
+                                )}
                             </div>
                             {/* Ability Cost */}
                             <div>
@@ -150,6 +162,14 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                             ))
                                     }
                                 </select>
+                                {costHasNumber && (
+                                    <input type="number" onChange={(e) => {
+                                        ability.costX = e.target.value * 1;
+                                        updateCard(card);
+                                    }}
+                                        value={ability.costX}
+                                    ></input>
+                                )}
                             </div>
                             {/* Ability Effect */}
                             <div>
@@ -164,6 +184,14 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                             ))
                                     }
                                 </select>
+                                {effectHasNumber && (
+                                    <input type="number" onChange={(e) => {
+                                        ability.effectX = e.target.value * 1;
+                                        updateCard(card);
+                                    }}
+                                        value={ability.effectX}
+                                    ></input>
+                                )}
                             </div>
                         </div>
                     );
