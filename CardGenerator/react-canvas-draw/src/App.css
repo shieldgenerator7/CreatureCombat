@@ -163,3 +163,21 @@
 .lowvisibility::placeholder {
     background-color: rgb(170, 170, 170);
 }
+.abilityArea {
+    border: #BBBBBB 1px solid;
+    padding: 2px;
+}
+.abilityArea div {
+    margin: 0px;
+    display: flex;
+    text-align: justify;
+    justify-content: space-between;
+    font-size: large;
+}
+.abilityArea div span{
+    font-size: medium;
+}
+.abilityArea div input{
+    margin-left: 5px;
+    max-width:120px;
+}
