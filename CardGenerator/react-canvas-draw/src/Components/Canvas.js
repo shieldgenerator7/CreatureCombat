@@ -264,7 +264,8 @@ function Canvas({ card, autoDownload }) {
 
         const link = document.createElement('a');
         link.href = dataUrl;
-        link.download = `${card.name || card.species || "card"}.png`;
+        let cardName = `${card.name || card.species || "card"}`.trim().replaceAll(" ", "");
+        link.download = `${cardName}_${card.getFinalCost()}pts.png`;
         link.click();
     };
 
