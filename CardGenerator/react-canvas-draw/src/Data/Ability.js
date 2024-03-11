@@ -56,27 +56,27 @@ class Ability {
         if (this.pointCost >= 0) {
             return this.pointCost;
         }
-        let effectCost = this.EffectCost;
-        let reqCost = this.applyRequirementDiscount(effectCost);
-        let costCost = this.applyCostDiscount(reqCost);
+        let effectCost = this.EffectCost || 0;
+        let reqCost = this.applyRequirementDiscount(effectCost) || effectCost;
+        let costCost = this.applyCostDiscount(reqCost) || reqCost;
         return costCost;
     }
 
     get EffectCost() {
-        return Math.max(0, abilityEffect
+        return Math.max(0, this.abilityEffect
             .getCost(this.effectX)
         );
     }
 
     applyRequirementDiscount(cost) {
-        return this.cleanse(abilityRequirement
+        return this.cleanse(this.abilityRequirement
             ?.getCost(this.requirementX, cost)
             ?? cost
         );
     }
 
     applyCostDiscount(cost) {
-        return this.cleanse(abilityCost
+        return this.cleanse(this.abilityCost
             ?.getCost(this.costX, cost)
             ?? cost
         );

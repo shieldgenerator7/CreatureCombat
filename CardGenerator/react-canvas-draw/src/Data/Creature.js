@@ -70,8 +70,8 @@ class Creature {
         )
             / 2);
         //Abilities
-        cost += Math.ceil(this.abilityCost);//test
-        cost += Math.max(0, arraySum(this.abilities, a => a.TotalCost));
+        cost += Math.ceil(this.abilityCost || 0);//test
+        cost += Math.max(0, arraySum(this.abilities, a => (a.TotalCost || 0)));
         //
         cost = Math.round(cost);
         cost = Math.max(cost, this.basePower);
