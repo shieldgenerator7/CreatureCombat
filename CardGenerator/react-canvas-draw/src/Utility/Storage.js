@@ -26,7 +26,6 @@ class Storage {
     saveStorage() {
         let stringify = JSON.stringify(this.storage);
         localStorage.setItem(this.storageName, stringify);
-        console.log("saveStorage", stringify);
     }
 
     loadStorage() {

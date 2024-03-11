@@ -64,21 +64,15 @@ function App() {
         window.cardList = cardList;
         //
         // card = cardList[0];
-        console.log("AUTO1", autoDownload);
         setAutoDownload(true);
-        console.log("AUTO2", autoDownload);
         autoDownload = true;
-        console.log("AUTO3", autoDownload);
         for (let i = 0; i < cardList.length; i++) {
-            console.log("AUTO3", autoDownload, i);
             setCard(cardList[i]);
         }
-        console.log("AUTO4", autoDownload);
         setCardList([...cardList]);
         setAutoDownload(false);
         setPasteString("");
     }
-    console.log("AUTO5", autoDownload);
     // console.log("autoDownload", autoDownload);
     //
 

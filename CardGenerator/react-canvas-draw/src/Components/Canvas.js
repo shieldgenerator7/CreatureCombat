@@ -11,7 +11,6 @@ const height = 3.5 * RESOLUTION;
 
 function Canvas({ card, autoDownload }) {
 
-    console.log("AUTO3.1 CVS", autoDownload);
     const canvasRef = useRef(null);
 
     const updateCanvas = (img) => {
@@ -267,27 +266,22 @@ function Canvas({ card, autoDownload }) {
     };
 
     useEffect(() => {
-        console.log("AUTO3.2 CVS", autoDownload);
         if (card.imageURL) {
-            console.log("AUTO3.3A CVS", autoDownload);
             let creatureImage = new Image();
             creatureImage.src = card.imageURL;
             creatureImage.onload = () => {
                 updateCanvas(creatureImage);
                 // console.log("useffect autoDownload (img)", autoDownload);
                 if (autoDownload) {
-                    console.log("AUTO3.4A CVS", autoDownload);
                     saveImage();
                 }
             }
 
         }
         else {
-            console.log("AUTO3.3B CVS", autoDownload);
             updateCanvas();
             // console.log("useffect autoDownload (no img)", autoDownload);
             if (autoDownload) {
-                console.log("AUTO3.4B CVS", autoDownload);
                 saveImage();
             }
         }
