@@ -235,13 +235,22 @@ function Canvas({ card, autoDownload }) {
             creditsX + bufferBase * 6,
             creditsY
         );
+        const oneOrBoth = (saved, current, extra = "") => {
+            let str = `${extra}${saved}`;
+            if (saved != current) {
+                str += ` - ${extra}${current}`;
+            }
+            return str;
+        }
+        let dateString = oneOrBoth(card.creationDate, getDateString());
         context.fillText(
-            `Creation Date: ${card.creationDate} - ${getDateString()}`,
+            `Creation Date: ${dateString}`,
             creditsX + bufferBase * 12,
             creditsY
         );
+        let versionString = oneOrBoth(card.editorVersion, VERSION, "v");
         context.fillText(
-            `www.creaturecombat.io           v${card.editorVersion} - v${VERSION}`,
+            `www.creaturecombat.io           ${versionString}`,
             creditsX + bufferBase * 0.2,
             creditsY + bufferBase / 2
         );
