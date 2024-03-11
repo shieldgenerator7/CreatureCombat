@@ -241,7 +241,7 @@ function Canvas({ card, autoDownload }) {
             creditsY
         );
         context.fillText(
-            `www.creaturecombat.io           v${card.editorVersion} - ${VERSION}`,
+            `www.creaturecombat.io           v${card.editorVersion} - v${VERSION}`,
             creditsX + bufferBase * 0.2,
             creditsY + bufferBase / 2
         );
