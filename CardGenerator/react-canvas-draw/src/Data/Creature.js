@@ -1,6 +1,7 @@
 "use strict";
 
 import { arraySum } from "../Utility/Utility";
+import { VERSION } from "../Version";
 import Ability from "./Ability";
 import BiomeModifier from "./BiomeModifier";
 
@@ -23,7 +24,7 @@ class Creature {
         //Card Info
         this.id = "";
         this.variant = "01/01";
-        this.editorVersion = "0.001";
+        this.editorVersion = VERSION;
         this.creationDate = new Date().toISOString().slice(0, 10);
 
         //temp

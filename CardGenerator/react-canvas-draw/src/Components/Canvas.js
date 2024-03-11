@@ -3,6 +3,7 @@ import { getLines } from '../Utility/Utility';
 
 //2024-03-02: copied from https://www.dhiwise.com/post/designing-stunning-artwork-with-react-canvas-draw
 import React, { useRef, useEffect } from 'react';
+import { VERSION } from '../Version';
 
 const RESOLUTION = 300;
 const width = 2.5 * RESOLUTION;
@@ -240,7 +241,7 @@ function Canvas({ card, autoDownload }) {
             creditsY
         );
         context.fillText(
-            `www.creaturecombat.io           v${card.editorVersion}`,
+            `www.creaturecombat.io           v${card.editorVersion} - ${VERSION}`,
             creditsX + bufferBase * 0.2,
             creditsY + bufferBase / 2
         );
