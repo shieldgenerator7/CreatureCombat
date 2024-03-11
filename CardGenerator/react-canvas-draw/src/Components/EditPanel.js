@@ -57,8 +57,8 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 biomeList
                                     .filter(b => !card.hasBiome(b) || bm.biome == b)
                                     .map(b => (
-                                    <option value={b} key={b}>{b}</option>
-                                ))
+                                        <option value={b} key={b}>{b}</option>
+                                    ))
                             }
                         </select>
                         {/* Modifier */}
