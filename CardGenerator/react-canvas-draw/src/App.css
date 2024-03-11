@@ -110,14 +110,15 @@
 }
 
 .listItem {
-    text-align: left;
     font-size: large;
     border: #303030 2px solid;
     color: white;
     background-color: rgb(37, 37, 37);
-    display: block;
+    display: flex;
     width: 100%;
     margin-bottom: 5px;
+    text-align: justify;
+    justify-content: space-between;
 }
 .listItem:hover {
     color: black;

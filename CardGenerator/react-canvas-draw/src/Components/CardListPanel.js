@@ -18,12 +18,14 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard }) {
                     cardList.map((card, i) => {
                         let cardName = card.name || card.species || "[creature]";
                         let cardCost = card.getFinalCost();
+                        cardCost += (cardCost != 1) ? "pts" : "pt";
                         let cardCount = card.count;
                         let className = "listItem" + ((card == currentCard) ? " select" : "");
                         return (
                             <div key={`divCard${i}`}>
                                 <button className={className} onClick={() => setCard(card)}>
-                                    {cardName} - {cardCost}  x{cardCount}
+                                    <span>{cardName} ({cardCost})</span>
+                                    <span>x{cardCount}</span>
                                 </button>
                             </div>
                         );
