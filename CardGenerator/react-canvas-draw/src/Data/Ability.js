@@ -5,14 +5,17 @@ import { abilityCosts, abilityEffects, abilityRequirements } from "./AbilityData
 class Ability {
     constructor() {
         this.name = "";
-        this.pointCost = undefined;//how much it costs to include this ability
         this.costX = 0;//how much it costs to activate this ability
         this.costName = "";
         this.requirementX = 0;
         this.requirementName = "";
         this.effectX = 1;
         this.effectName = "";
-        this.effectText = "";//for custom abilities
+
+        // custom abilities
+        this.pointCost = undefined;//how much it costs to include this ability (for custom abilities)
+        this.costReqText = "";//what it costs to play this ability (for custom abilities)
+        this.effectText = "";//what this ability does (for custom abilities)
     }
 
 
@@ -35,6 +38,9 @@ class Ability {
             ?? "";
     }
     get RequirementText() {
+        if (this.costReqText) {
+            return this.costReqText;
+        }
         return this.abilityRequirement
             ?.getText(this.requirementX)
             ?? "";

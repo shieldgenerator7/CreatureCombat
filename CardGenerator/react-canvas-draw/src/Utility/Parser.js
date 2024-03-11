@@ -1,5 +1,6 @@
 "use strict";
 
+import Ability from "../Data/Ability";
 import Creature from "../Data/Creature";
 
 export function parsePasteFromExcel(pasteString) {
@@ -44,13 +45,17 @@ function parseCreatureTabLine(creatureTabLine) {
 
     //Abilities
     if (valid(16)) {
-        let aname = fields[16] ?? "Ability";
+        let aname = fields[16] ?? "";
         let acost = fields[17] ?? 0;
-        let areq = fields[18] ?? "-0";
-        let areqsec = (areq) ? `[${areq}]:` : "---";
-        let atext = fields[19] ?? "Deal 0 damage to target creature."
-        card.ability = `${aname}   ${areqsec} ${atext}`;
-        card.abilityCost = acost;
+        let areq = fields[18] ?? "";
+        let atext = fields[19] ?? "";
+        let ability = new Ability();
+        ability.name = aname;
+        // ability.requirementName = areq;//todo: make this find the right ability requirement
+        ability.costReqText = areq;//todo: make this find the right ability requirement
+        ability.effectText = atext;
+        ability.pointCost = acost;
+        card.addAbility(ability);
     }
 
     //
