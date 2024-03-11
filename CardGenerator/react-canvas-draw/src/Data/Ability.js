@@ -64,7 +64,8 @@ class Ability {
 
     get EffectCost() {
         return Math.max(0, this.abilityEffect
-            .getCost(this.effectX)
+            ?.getCost(this.effectX)
+            ?? 10
         );
     }
 
