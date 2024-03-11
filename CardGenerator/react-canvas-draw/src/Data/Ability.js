@@ -39,7 +39,7 @@ class Ability {
             ?? "";
     }
     get RequirementText() {
-        if (this.costReqText) {
+        if (this.costReqText && ["none", "custom"].includes(this.requirementName)) {
             return this.costReqText;
         }
         return this.abilityRequirement
@@ -47,7 +47,7 @@ class Ability {
             ?? "";
     }
     get EffectText() {
-        if (this.effectText) {
+        if (this.effectText && this.effectName == "custom") {
             return this.effectText;
         }
         return this.abilityEffect
@@ -61,7 +61,7 @@ class Ability {
             ?? "";
     }
     get RequirementSymbol() {
-        if (this.costReqText) {
+        if (this.costReqText && ["none", "custom"].includes(this.requirementName)) {
             return this.costReqText;
         }
         return this.abilityRequirement
