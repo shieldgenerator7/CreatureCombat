@@ -152,7 +152,8 @@ function Canvas({ card, autoDownload }) {
         context.font = `${textRow * fontSize}px Arial`;
         let abilityStartY = textRow * 10.5;
         const MAX_WIDTH_TEXT = width - bufferBase * 4;
-        let abilityLines = getLines(context, card.ability.trim(), MAX_WIDTH_TEXT);
+        let abilityString = card.abilities.map(ability => ability.FullText).join("\n");
+        let abilityLines = getLines(context, abilityString, MAX_WIDTH_TEXT);
         const LINEHEIGHT = 0.1 * RESOLUTION;
         abilityLines.forEach((line, i) => {
             context.fillText(
