@@ -1,7 +1,7 @@
 "use strict";
 
 import Ability from "../Data/Ability";
-import { abilityCosts, abilityRequirements } from "../Data/AbilityData";
+import { abilityCosts, abilityEffects, abilityRequirements } from "../Data/AbilityData";
 import Creature from "../Data/Creature";
 
 export function parsePasteFromExcel(pasteString) {
@@ -57,14 +57,14 @@ function parseCreatureTabLine(creatureTabLine) {
         areqL.forEach(symbol => {
             //Cost: Exhaust
             if (/-[0-9]+/.test(symbol)) {//bug: allows extra letters around it
-                ability.costName = abilityCosts.find(ac => ac.name == "exhaust")?.name;
+                ability.costName = "exhaust";
                 ability.costX = symbol.match(/[0-9]+/)[0];
                 return;
             }
 
             //Cost: Rest
             if (/\+[0-9]+R/.test(symbol)) {//bug: allows extra letters around it
-                ability.costName = abilityCosts.find(ac => ac.name == "rest")?.name;
+                ability.costName = "rest";
                 ability.costX = symbol.match(/[0-9]+/)[0];
                 return;
             }
@@ -97,6 +97,7 @@ function parseCreatureTabLine(creatureTabLine) {
                 return;
             }
         });
+        ability.effectName = "custom";
         ability.effectText = atext;
         ability.effectCost = acost;
         card.addAbility(ability);

@@ -193,6 +193,27 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                     ></input>
                                 )}
                             </div>
+                            {ability.effectName == "custom" && (<>
+                                <div>
+                                    <span>Effect Point Cost</span>
+                                    <input type="number" className='field' title='Effect Point Cost' onChange={(e) => {
+                                        ability.effectCost = e.target.value * 1;
+                                        updateCard(card);
+                                    }}
+                                        value={ability.effectCost}
+                                    ></input>
+                                </div>
+                                <div>
+                                    <span>Effect</span>
+                                    <textarea className="field multiline" onChange={(e) => {
+                                        ability.effectText = e.target.value;
+                                        updateCard(card);
+                                    }}
+                                        rows="5"
+                                        value={ability.effectText}
+                                    ></textarea>
+                                </div>
+                            </>)}
                         </div>
                     );
                 })

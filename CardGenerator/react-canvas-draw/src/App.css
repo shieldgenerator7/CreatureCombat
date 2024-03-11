@@ -185,3 +185,6 @@
     margin-left: 5px;
     max-width: 30px;
 }
+.abilityArea div div {
+    display: block;
+}
