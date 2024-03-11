@@ -54,8 +54,22 @@ class Ability {
             ?? "";
     }
 
+    get CostSymbol() {
+        return this.abilityCost
+            ?.getSymbol(this.costX)
+            ?? "";
+    }
+    get RequirementSymbol() {
+        if (this.costReqText) {
+            return this.costReqText;
+        }
+        return this.abilityRequirement
+            ?.getSymbol(this.requirementX)
+            ?? "";
+    }
+
     get FullText() {
-        return `${this.name}   ${this.CostText} (${this.RequirementText}): ${this.EffectText}`;
+        return `${this.name}   ${this.CostSymbol} (${this.RequirementSymbol}): ${this.EffectText}`;
     }
 
     get TotalCost() {

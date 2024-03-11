@@ -109,12 +109,14 @@ export const abilityCosts = [
     new AbilityAtom(
         "exhaust",
         "Reduce this Creature's Base Power by X",
-        (x, c) => c - x
+        (x, c) => c - x,
+        "-X"
     ),
     new AbilityAtom(
         "rest",
         "Add X Rest counters to this Creature.",
-        (x, c) => c / (x + 1)
+        (x, c) => c / (x + 1),
+        "+XR"
     )
 ];
 
@@ -122,31 +124,43 @@ export const abilityRequirements = [
     new AbilityAtom(
         "home",
         "This Creature must be in a home biome.",
-        (x, c) => c * 0.5
+        (x, c) => c * 0.5,
+        "H?"
     ),
     new AbilityAtom(
         "type-count",
         "This Creature must have at least X allies that share a type with it, including itself.",
-        (x, c) => c - (x * 0.2)
+        (x, c) => c - (x * 0.2),
+        "TX?"
     ),
     new AbilityAtom(
         "target-rest-count",
         "Target Creature must have at least X Rest counters on it.",
-        (x, c) => c - x * 2
+        (x, c) => c - x * 2,
+        "RX?"
     ),
     new AbilityAtom(
         "target-type-share",
         "Target Creature must share at least X types with this Creature.",
-        (x, c) => c / (x + 1)
+        (x, c) => c / (x + 1),
+        "t-TX?"
     ),
     new AbilityAtom(
         "channel",
         "If this Creature takes any amount of damage between activating this ability and completing it, its ability effect is canceled.",
-        (x, c) => c * 0.5
+        (x, c) => c * 0.5,
+        "C"
     ),
     new AbilityAtom(
         "targeter-type-share",
         "The targeter must share at least X types with this Creature.",
-        (x, c) => c / (x + 1)
-    )
+        (x, c) => c / (x + 1),
+        "tr-TX?"
+    ),
+    new AbilityAtom(
+        "once-per-battle",
+        "This ability can only be used once per battle.",
+        (x, c) => c / 3,
+        "O."
+    ),
 ]

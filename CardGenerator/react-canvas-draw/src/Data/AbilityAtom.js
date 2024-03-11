@@ -1,10 +1,11 @@
 "use strict";
 
 class AbilityAtom {
-    constructor(name, text, costFunc) {
+    constructor(name, text, costFunc, symbol) {
         this.name = name;
         this.text = text;
         this.costFunc = costFunc;
+        this.symbol = symbol;
     }
 
     getCost(...x) {
@@ -13,6 +14,11 @@ class AbilityAtom {
 
     getText(x) {
         return this.text.replaceAll("X", x);
+    }
+
+    getSymbol(x) {
+        return this.symbol?.replaceAll("X", x)
+            ?? this.getText(x);
     }
 }
 export default AbilityAtom;
