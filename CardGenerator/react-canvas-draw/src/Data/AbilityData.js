@@ -107,6 +107,12 @@ export const abilityEffects = [
 
 export const abilityCosts = [
     new AbilityAtom(
+        "none",
+        "There is no cost to this ability",
+        (x, c) => c,
+        ""
+    ),
+    new AbilityAtom(
         "exhaust",
         "Reduce this Creature's Base Power by X",
         (x, c) => c - x,
@@ -121,6 +127,12 @@ export const abilityCosts = [
 ];
 
 export const abilityRequirements = [
+    new AbilityAtom(
+        "none",
+        "There is no requirement to this ability",
+        (x, c) => c,
+        ""
+    ),
     new AbilityAtom(
         "home",
         "This Creature must be in a home biome.",
