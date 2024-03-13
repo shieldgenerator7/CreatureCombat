@@ -30,12 +30,17 @@ export const abilityEffects = [
     ),
     new AbilityAtom(//danger: exploitable! esp when only paired with exhaust cost
         "powerup",
-        "Gain X Base Power.",
+        "Gain +X Base Power.",
         (x) => x
     ),
     new AbilityAtom(
+        "scout",
+        "Look at the top X cards of the Land deck, choose 1, and place the others on the bottom of the Land deck in any order. Place the scouted Land on top of the Land deck.",
+        (x) => x + 2
+    ),
+    new AbilityAtom(
         "change-biome",
-        "Look at the top X cards of the Land deck, and choose 1 to place on top of the current Land. That Land determines the biome for this battle. At the end of the round, shuffle that Land into the Land deck.",
+        "Scout X. You may place the scouted Land on top of the current Land. That Land determines the biome for this battle. At the end of the round, shuffle that Land into the Land deck.",
         (x) => x + 2
     ),
     new AbilityAtom(
@@ -59,7 +64,7 @@ export const abilityEffects = [
         (x) => 2
     ),
     new AbilityAtom(
-        "bounce",
+        "move-off",
         "Move target Creature to its owner's Ready pile.",
         (x) => 5
     ),
@@ -74,7 +79,7 @@ export const abilityEffects = [
         (x) => 5 - x * 1.5
     ),
     new AbilityAtom(
-        "move-from-ready-to-Land",
+        "move-on-ally",
         "Move target Creature from your Ready pile to this Land.",
         (x) => 5 - x * 1.5
     ),
