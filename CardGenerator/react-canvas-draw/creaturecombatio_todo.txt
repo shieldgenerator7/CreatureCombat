@@ -1,0 +1,40 @@
+a 2 cost is a 2 star??
+
+
+
+bug: the first card should be shown in the list when starting from empty list
+
+
+long list of card design improvements:
+-adding symbols to abilities (like house symbol for home requirement)
+-making abilities not stretch out into power section
+-decrease size of power section
+-move stars to same row as cost?
+-sketch up card design, use sprites for section borders
+
+
+-bug: cant type spaces or commas in Type field
+
+-move card count input to card list panel
+
+
+-feature: unique card ids
+
+-feature: save cards in the cloud, connected to user account
+
+-feature: download deck as sprite sheet (for import to TTS), maybe even download as TTS mod
+
+-feature: upload design for back
+
+-feature: add lands to deck
+
+
+-feature: decks (separate from cards)
+
+-add field to change color of background / card section elements
+
+-button: remove card from deck (separate from deleting card)
+
+-feature: download as JSON, upload as JSON
+
+-drag+drop image and/or JSON
