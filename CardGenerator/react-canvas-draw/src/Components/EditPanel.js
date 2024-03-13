@@ -37,9 +37,9 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Base Power */}
             Base Power
-                card.basePower = e.target.value * 1;
             <div>
             <input type="number" className="field" onChange={(e) => {
+                card.basePower = Math.max(0, e.target.value * 1);
                 updateCard(card);
             }}
                 value={card.basePower}></input>
@@ -251,9 +251,9 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Count */}
             Count
-                card.count = e.target.value * 1;
             <div>
             <input type="number" className="field" onChange={(e) => {
+                card.count = Math.max(0, e.target.value * 1);
                 updateCard(card);
             }}
                 value={card.count}></input>
