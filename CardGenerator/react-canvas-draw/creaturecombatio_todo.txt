@@ -13,7 +13,9 @@ long list of card design improvements:
 -sketch up card design, use sprites for section borders
 
 
--bug: cant type spaces or commas in Type field
+-bug: card canvas is too big for small resolution monitors
+
+-css: everything lol
 
 -move card count input to card list panel
 
