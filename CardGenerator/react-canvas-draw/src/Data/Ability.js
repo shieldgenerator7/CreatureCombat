@@ -86,8 +86,8 @@ class Ability {
     }
 
     get EffectCost() {
-        if (this.effectCost != undefined) {
-            return this.effectCost;
+        if (this.effectCost != undefined && this.abilityEffect.name == "custom") {
+            return Math.max(0, this.effectCost);
         }
         return Math.max(0, this.abilityEffect
             ?.getCost(this.effectX)
