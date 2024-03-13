@@ -37,11 +37,13 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Base Power */}
             Base Power
-            <input type="text" className="field" onChange={(e) => {
                 card.basePower = e.target.value * 1;
+            <div>
+            <input type="number" className="field" onChange={(e) => {
                 updateCard(card);
             }}
                 value={card.basePower}></input>
+            </div>
 
             {/* Biome Modifiers */}
             Biome Modifiers
@@ -249,11 +251,13 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Count */}
             Count
-            <input type="text" className="field" onChange={(e) => {
                 card.count = e.target.value * 1;
+            <div>
+            <input type="number" className="field" onChange={(e) => {
                 updateCard(card);
             }}
                 value={card.count}></input>
+            </div>
 
             {/* Paste Box */}
             <div className='lowvisibilitylabel'>Paste Box</div>
