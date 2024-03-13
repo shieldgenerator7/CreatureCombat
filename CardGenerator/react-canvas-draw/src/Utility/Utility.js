@@ -322,6 +322,17 @@ function validateIndexBounds(value, max, name) {
     return true;
 }
 
+export function makeUserFacing(str) {
+    return capitalizeFirstLetters(str.replaceAll("-", " "));
+}
+
+export function capitalizeFirstLetters(str) {
+    return str
+        .split(" ")
+        .map(word => word.substring(0, 1).toUpperCase() + word.substring(1))
+        .join(" ");
+}
+
 const REGEXP_FLOAT = new RegExp("-?(([0-9]+.?[0-9]*)|([0-9]*.?[0-9]+))", "g");
 function cleanInput(value, regexp = REGEXP_FLOAT) {
     let parts = [];

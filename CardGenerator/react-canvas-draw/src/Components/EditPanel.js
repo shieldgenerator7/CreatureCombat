@@ -5,6 +5,7 @@ import { UploadFromFilePicker } from '../Utility/Upload';
 import Creature from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
+import { capitalizeFirstLetters, makeUserFacing } from '../Utility/Utility';
 
 function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
     return (
@@ -138,7 +139,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                             .map(r => r.name)
                                             // .filter(r => !ability.hasRequirement(r) || bm.biome == b)
                                             .map(r => (
-                                                <option value={r} key={r}>{r}</option>
+                                                <option value={r} key={r}>{makeUserFacing(r)}</option>
                                             ))
                                     }
                                 </select>
@@ -160,7 +161,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                             .map(c => c.name)
                                             // .filter(r => !ability.hasCost(c) || bm.biome == b)
                                             .map(c => (
-                                                <option value={c} key={c}>{c}</option>
+                                                <option value={c} key={c}>{makeUserFacing(c)}</option>
                                             ))
                                     }
                                 </select>
@@ -182,7 +183,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                             .map(f => f.name)
                                             // .filter(r => !ability.hasCost(f) || bm.biome == b)
                                             .map(f => (
-                                                <option value={f} key={f}>{f}</option>
+                                                <option value={f} key={f}>{makeUserFacing(f)}</option>
                                             ))
                                     }
                                 </select>
