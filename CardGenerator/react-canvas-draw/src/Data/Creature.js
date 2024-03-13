@@ -31,8 +31,8 @@ class Creature {
 
     setTags(tags) {
         this.tags = tags.split(/,| /)//split on comma or space
-            .map(t => t.trim())
-            .filter(t => t);
+            .map((t, i, arr) => (i < arr.length - 1) ? t.trim() : t)
+            .filter((t, i, arr) => t || i == arr.length - 1);
     }
 
     hasBiome(biome) {
