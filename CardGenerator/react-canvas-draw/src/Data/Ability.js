@@ -2,6 +2,8 @@
 
 import { abilityCosts, abilityEffects, abilityRequirements } from "./AbilityData";
 
+const ABILITY_POINTCOST_FACTOR = 3;
+
 class Ability {
     constructor() {
         this.name = "";
@@ -79,7 +81,7 @@ class Ability {
         if (this.pointCost >= 0) {
             return this.pointCost;
         }
-        let effectCost = this.EffectCost || 0;
+        let effectCost = (this.EffectCost || 0) * ABILITY_POINTCOST_FACTOR;
         let reqCost = this.applyRequirementDiscount(effectCost) || effectCost;
         let costCost = this.applyCostDiscount(reqCost) || reqCost;
         return costCost;
