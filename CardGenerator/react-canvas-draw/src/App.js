@@ -2,11 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import Canvas from './Components/Canvas';
 import Creature, { inflateCreature } from './Data/Creature';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EditPanel from './Components/EditPanel';
 import { parsePasteFromExcel } from './Utility/Parser';
 import CardListPanel from './Components/CardListPanel';
 import Storage from './Utility/Storage';
+import { VERSION } from './Version';
 
 function App() {
     //Storage
@@ -75,6 +76,11 @@ function App() {
     }
     // console.log("autoDownload", autoDownload);
     //
+
+    useEffect(() => {
+        let cardName = card?.name || card?.species;
+        document.title = ((cardName) ? `${cardName} - ` : "") + `Creature Combat v${VERSION}`;
+    }, [card]);
 
     return (
         <div className="App">
