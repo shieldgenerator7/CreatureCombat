@@ -1,9 +1,23 @@
 a 2 cost is a 2 star??
 
+-pic is stretched
 
+-bug: some abilities can divide by 0
+
+-alpahbetize creature list
+-options for ordering creature list by name / cost / count / stars
+
+-signature on info
+
+-bug: on reload, image urls are weird, using blob instead of dataURL
+
+-bug: inserting 0s in front of all number fields
+
+-bug: selecting biome but not showing on canvas (when adding biome mod)
 
 bug: the first card should be shown in the list when starting from empty list
 
+-feature: edit directly on canvas
 
 long list of card design improvements:
 -adding symbols to abilities (like house symbol for home requirement)
@@ -11,6 +25,11 @@ long list of card design improvements:
 -decrease size of power section
 -move stars to same row as cost?
 -sketch up card design, use sprites for section borders
+-center text, like base power, biome mods, final cost
+
+-feature: rest amount: how many rest counters to add to this creature after
+
+-alphabetize ability lists (req, cost, effect) (but still have custom / none at the top)
 
 
 -bug: card canvas is too big for small resolution monitors
