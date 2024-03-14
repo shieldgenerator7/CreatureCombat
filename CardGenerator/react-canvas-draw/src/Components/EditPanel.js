@@ -248,16 +248,6 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 UploadFromFilePicker(card, () => updateCard(card));
             }}>Upload</button>
             {card.imageFileName && card.imageFileName}
-
-            {/* Count */}
-            Count
-            <div>
-                <input type="number" className="field" onChange={(e) => {
-                    card.count = Math.max(0, e.target.value * 1);
-                    updateCard(card);
-                }}
-                    value={card.count.toString()}></input>
-            </div>
         </div>
     );
 }
