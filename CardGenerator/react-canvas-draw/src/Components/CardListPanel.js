@@ -3,7 +3,7 @@
 import Creature from "../Data/Creature";
 import { arraySum } from "../Utility/Utility";
 
-function CardListPanel({ cardList, setCardList, currentCard, setCard }) {
+function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard }) {
     return (
         <div className="leftPanel">
             {/* Deck Stats */}
@@ -19,14 +19,24 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard }) {
                         let cardName = card.name || card.species || "[creature]";
                         let cardCost = card.getFinalCost();
                         cardCost += (cardCost != 1) ? "pts" : "pt";
-                        let cardCount = card.count;
                         let className = "listItem" + ((card == currentCard) ? " select" : "");
                         return (
-                            <div key={`divCard${i}`}>
-                                <button className={className} onClick={() => setCard(card)}>
+                            <div key={`divCard${i}`}
+                                className={className} onClick={() => setCard(card)}
+                            >
                                     <span>{cardName} ({cardCost})</span>
-                                    <span>x{cardCount}</span>
-                                </button>
+                                <button
+                                    onClick={e => {
+                                        card.count++;
+                                        updateCard(card);
+                                        e.preventDefault();
+                                    }}
+                                    onContextMenu={e => {
+                                        card.count = Math.max(0, card.count - 1);
+                                        updateCard(card);
+                                        e.preventDefault();
+                                    }}
+                                >x{card.count}</button>
                             </div>
                         );
                     })

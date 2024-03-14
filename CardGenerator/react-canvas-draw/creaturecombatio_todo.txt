@@ -26,9 +26,6 @@ long list of card design improvements:
 
 -css: everything lol
 
--move card count input to card list panel
-
-
 -feature: unique card ids
 
 -feature: save cards in the cloud, connected to user account
@@ -38,6 +35,10 @@ long list of card design improvements:
 -feature: upload design for back
 
 -feature: add lands to deck
+
+-feature: ability triggers
+
+-feature: multiple ability reqs, costs, effects, triggers, in various orders
 
 
 -feature: decks (separate from cards)

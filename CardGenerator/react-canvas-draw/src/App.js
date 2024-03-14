@@ -92,6 +92,7 @@ function App() {
                     setCardList={setCardList}
                     currentCard={card}
                     setCard={setCard}
+                    updateCard={updateCard}
                 ></CardListPanel>
                 <Canvas
                     card={card}
