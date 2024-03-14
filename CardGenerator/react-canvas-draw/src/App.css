@@ -141,11 +141,8 @@
     justify-content: space-between;
 }
 .listItem button:hover {
-    font-size: large;
-    color: white;
-    background-color: rgb(70, 70, 70, 70);
-    text-align: justify;
-    justify-content: space-between;
+    color: black;
+    background-color: rgb(255, 255, 255, 0.5);
 }
 
 .sltBiome {

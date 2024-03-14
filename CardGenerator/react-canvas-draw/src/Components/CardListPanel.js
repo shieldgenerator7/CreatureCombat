@@ -20,12 +20,13 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                         let cardCost = card.getFinalCost();
                         cardCost += (cardCost != 1) ? "pts" : "pt";
                         let className = "listItem" + ((card == currentCard) ? " select" : "");
+                        let countClassName = (card == currentCard) ? "select" : "";
                         return (
                             <div key={`divCard${i}`}
                                 className={className} onClick={() => setCard(card)}
                             >
                                     <span>{cardName} ({cardCost})</span>
-                                <button
+                                <button className={countClassName}
                                     onClick={e => {
                                         card.count++;
                                         updateCard(card);
