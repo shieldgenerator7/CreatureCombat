@@ -258,20 +258,6 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             }}
                 value={card.count.toString()}></input>
             </div>
-
-            {/* Paste Box */}
-            <div className='lowvisibilitylabel'>Paste Box</div>
-            <textarea className="field multiline lowvisibility" onChange={(e) => {
-                //2024-03-03: setup to work with a specific Excel spreadsheet i have
-                let txt = e.target.value;
-                if (!txt) { return; }
-                console.log("TXT PASTE STRING ON CHANGE");
-                setPasteString(txt);
-            }}
-                rows="3"
-                placeholder="Paste new creature data here (from spreadsheet)"
-                value={pasteString}
-            ></textarea>
         </div>
     );
 }

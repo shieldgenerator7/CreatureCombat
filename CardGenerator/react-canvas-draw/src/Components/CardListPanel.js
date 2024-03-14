@@ -3,7 +3,7 @@
 import Creature from "../Data/Creature";
 import { arraySum } from "../Utility/Utility";
 
-function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard }) {
+function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard, setPasteString }) {
     return (
         <div className="leftPanel">
             {/* Deck Stats */}
@@ -25,7 +25,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                             <div key={`divCard${i}`}
                                 className={className} onClick={() => setCard(card)}
                             >
-                                    <span>{cardName} ({cardCost})</span>
+                                <span>{cardName} ({cardCost})</span>
                                 <button className={countClassName}
                                     onClick={e => {
                                         card.count++;
@@ -54,6 +54,20 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                         Add New Card
                     </button>
                 </div>
+
+                {/* Paste Box */}
+                <div className='lowvisibilitylabel'>Paste Box</div>
+                <textarea className="field multiline lowvisibility" onChange={(e) => {
+                    //2024-03-03: setup to work with a specific Excel spreadsheet i have
+                    let txt = e.target.value;
+                    if (!txt) { return; }
+                    console.log("TXT PASTE STRING ON CHANGE");
+                    setPasteString(txt);
+                }}
+                    rows="2"
+                    placeholder="Paste here from spreadsheet"
+                    value={""}
+                ></textarea>
             </div>
         </div>
     );

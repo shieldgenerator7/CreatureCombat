@@ -93,6 +93,7 @@ function App() {
                     currentCard={card}
                     setCard={setCard}
                     updateCard={updateCard}
+                    setPasteString={setPasteString}
                 ></CardListPanel>
                 <Canvas
                     card={card}

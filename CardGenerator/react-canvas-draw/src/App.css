@@ -174,7 +174,7 @@
     border: none;
 }
 .lowvisibility::placeholder {
-    background-color: rgb(170, 170, 170);
+    background-color: rgb(39, 39, 39);
 }
 .abilityArea {
     border: #bbbbbb 1px solid;
