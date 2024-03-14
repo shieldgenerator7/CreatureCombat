@@ -53,9 +53,11 @@ function App() {
     let setCardList = (list) => {
         cardList = list;
         storage.cardList = cardList;
+        window.cardList = cardList;
     };
     const defaultCardList = () => (storage.cardList.length > 0) ? storage.cardList : [card];
     [cardList, setCardList] = useState(defaultCardList);
+    window.cardList = cardList;
     //
     if (pasteString) {
         cardList = parsePasteFromExcel(pasteString);
