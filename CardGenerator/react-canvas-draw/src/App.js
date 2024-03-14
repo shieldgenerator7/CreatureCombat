@@ -54,7 +54,7 @@ function App() {
         cardList = list;
         storage.cardList = cardList;
     };
-    const defaultCardList = () => storage.cardList ?? [card];
+    const defaultCardList = () => (storage.cardList.length > 0) ? storage.cardList : [card];
     [cardList, setCardList] = useState(defaultCardList);
     //
     if (pasteString) {

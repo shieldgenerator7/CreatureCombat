@@ -7,8 +7,6 @@ a 2 cost is a 2 star??
 
 -signature on info
 
-bug: the first card should be shown in the list when starting from empty list
-
 -feature: edit directly on canvas
 
 long list of card design improvements:
