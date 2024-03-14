@@ -38,11 +38,11 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             {/* Base Power */}
             Base Power
             <div>
-            <input type="number" className="field" onChange={(e) => {
-                card.basePower = Math.max(0, e.target.value * 1);
-                updateCard(card);
-            }}
-                value={card.basePower.toString()}></input>
+                <input type="number" className="field" onChange={(e) => {
+                    card.basePower = Math.max(0, e.target.value * 1);
+                    updateCard(card);
+                }}
+                    value={card.basePower.toString()}></input>
             </div>
 
             {/* Biome Modifiers */}
@@ -252,11 +252,11 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             {/* Count */}
             Count
             <div>
-            <input type="number" className="field" onChange={(e) => {
-                card.count = Math.max(0, e.target.value * 1);
-                updateCard(card);
-            }}
-                value={card.count.toString()}></input>
+                <input type="number" className="field" onChange={(e) => {
+                    card.count = Math.max(0, e.target.value * 1);
+                    updateCard(card);
+                }}
+                    value={card.count.toString()}></input>
             </div>
         </div>
     );

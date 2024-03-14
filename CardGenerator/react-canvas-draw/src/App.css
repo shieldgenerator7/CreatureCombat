@@ -136,7 +136,7 @@
     border: none;
     font-size: large;
     color: white;
-    background-color: rgb(70, 70, 70, .5);
+    background-color: rgb(70, 70, 70, 0.5);
     text-align: justify;
     justify-content: space-between;
 }

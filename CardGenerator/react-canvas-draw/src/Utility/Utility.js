@@ -87,54 +87,54 @@ function getDisplayDateToolTip(date) {
 }
 
 
-    //2022-07-19: copied from https://stackoverflow.com/a/19494146/2336212
-    export function arrayEquals(array, arr1) {
-        return array === arr1 ||
-            array.length === arr1.length &&
-            array.every((item, i) => item === arr1[i]);
-    }
+//2022-07-19: copied from https://stackoverflow.com/a/19494146/2336212
+export function arrayEquals(array, arr1) {
+    return array === arr1 ||
+        array.length === arr1.length &&
+        array.every((item, i) => item === arr1[i]);
+}
 
-    export function arrayMin (array, minFunc = (val) => val) {
-        return array.reduce(
-            (acc, cur) => Math.min(minFunc(cur), acc),
-            minFunc(array[0])
-        );
-    }
-    export function arrayMax  (array, maxFunc = (val) => val) {
-        return array.reduce(
-            (acc, cur) => Math.max(maxFunc(cur), acc),
-            maxFunc(array[0])
-        );
-    }
+export function arrayMin(array, minFunc = (val) => val) {
+    return array.reduce(
+        (acc, cur) => Math.min(minFunc(cur), acc),
+        minFunc(array[0])
+    );
+}
+export function arrayMax(array, maxFunc = (val) => val) {
+    return array.reduce(
+        (acc, cur) => Math.max(maxFunc(cur), acc),
+        maxFunc(array[0])
+    );
+}
 
-    export function arraySum(array, sumFunc = (val) => val) {
-        return array.reduce(
-            (acc, cur) => sumFunc(cur) + acc,
-            0
-        );
-    }
+export function arraySum(array, sumFunc = (val) => val) {
+    return array.reduce(
+        (acc, cur) => sumFunc(cur) + acc,
+        0
+    );
+}
 
-    export function arrayRemove  (array, value) {
-        let index = array.indexOf(value);
-        if (index >= 0) {
-            array.splice(index, 1);
-            return true;
+export function arrayRemove(array, value) {
+    let index = array.indexOf(value);
+    if (index >= 0) {
+        array.splice(index, 1);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Returns a new array with the duplicates removed
+ */
+export function arrayRemoveDuplicates(array) {
+    let arr = [];
+    array.forEach(n => {
+        if (!arr.includes(n)) {
+            arr.push(n);
         }
-        return false;
-    }
-
-    /**
-     * Returns a new array with the duplicates removed
-     */
-    export function arrayRemoveDuplicates (array) {
-        let arr = [];
-        array.forEach(n => {
-            if (!arr.includes(n)) {
-                arr.push(n);
-            }
-        });
-        return arr;
-    }
+    });
+    return arr;
+}
 
 
 /**
