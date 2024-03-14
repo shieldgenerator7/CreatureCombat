@@ -60,7 +60,9 @@ function App() {
     window.cardList = cardList;
     //
     if (pasteString) {
+        let oldList = cardList;
         cardList = parsePasteFromExcel(pasteString);
+        cardList.splice(0, 0, ...oldList);
         if (cardList.length < 1) {
             cardList.push(new Creature());
         }
