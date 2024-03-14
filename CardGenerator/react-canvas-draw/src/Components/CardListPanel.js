@@ -30,11 +30,13 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                                         card.count++;
                                         updateCard(card);
                                         e.preventDefault();
+                                        e.stopPropagation();
                                     }}
                                     onContextMenu={e => {
                                         card.count = Math.max(0, card.count - 1);
                                         updateCard(card);
                                         e.preventDefault();
+                                        e.stopPropagation();
                                     }}
                                 >x{card.count}</button>
                             </div>
