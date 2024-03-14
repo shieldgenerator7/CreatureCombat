@@ -15,8 +15,16 @@ export function UploadFromFilePicker(card, callback) {
 
         // add first image, if available
         if (el.files.length) {
-            card.imageURL = URL.createObjectURL(el.files[0]);
-            callback();
+            let file = el.files[0];
+
+            //2024-03-14: copied from RoomLayout
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = (progressEvent) => {
+                let imageURL = progressEvent.currentTarget.result;
+                card.imageURL = imageURL;
+                callback();
+            };
         }
 
 
