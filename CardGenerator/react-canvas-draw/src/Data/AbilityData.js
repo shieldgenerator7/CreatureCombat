@@ -131,7 +131,7 @@ export const abilityCosts = [
     new AbilityAtom(
         "rest",
         "Add X Rest counters to this Creature.",
-        (x, c) => c / (x + 1),
+        (x, c) => c / Math.max(1, x + 1),
         "+XR"
     )
 ];
@@ -164,7 +164,7 @@ export const abilityRequirements = [
     new AbilityAtom(
         "target-type-share",
         "Target Creature must share at least X types with this Creature.",
-        (x, c) => c / (x + 1),
+        (x, c) => c / Math.max(1, x + 1),
         "t-TX?"
     ),
     new AbilityAtom(
@@ -176,13 +176,13 @@ export const abilityRequirements = [
     new AbilityAtom(
         "targeter-type-share",
         "The targeter must share at least X types with this Creature.",
-        (x, c) => c / (x + 1),
+        (x, c) => c / Math.max(1, x + 1),
         "tr-TX?"
     ),
     new AbilityAtom(
         "once-per-battle",
         "This ability can only be used once per battle.",
-        (x, c) => c / 3,
+        (x, c) => c / Math.max(1, 3),
         "O."
     ),
 ]

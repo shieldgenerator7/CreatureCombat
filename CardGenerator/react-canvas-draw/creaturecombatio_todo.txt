@@ -2,8 +2,6 @@ a 2 cost is a 2 star??
 
 -pic is stretched
 
--bug: some abilities can divide by 0
-
 -alpahbetize creature list
 -options for ordering creature list by name / cost / count / stars
 
