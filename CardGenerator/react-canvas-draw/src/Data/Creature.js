@@ -3,7 +3,7 @@
 import { arraySum, getDateString } from "../Utility/Utility";
 import { VERSION } from "../Version";
 import Ability from "./Ability";
-import BiomeModifier from "./BiomeModifier";
+import BiomeModifier, { biomeList } from "./BiomeModifier";
 
 class Creature {
     constructor() {
@@ -44,6 +44,9 @@ class Creature {
     }
 
     addBiomeModifier(biome, mod) {
+        if (!biome) {
+            biome = biomeList.find(bm => !this.hasBiome(bm));
+        }
         let bm = new BiomeModifier(biome, mod);
         this.biomeModifiers.push(bm);
     }
