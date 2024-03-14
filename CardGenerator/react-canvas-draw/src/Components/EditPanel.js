@@ -42,7 +42,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 card.basePower = Math.max(0, e.target.value * 1);
                 updateCard(card);
             }}
-                value={card.basePower}></input>
+                value={card.basePower.toString()}></input>
             </div>
 
             {/* Biome Modifiers */}
@@ -69,7 +69,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                             bm.modifier = e.target.value * 1;
                             updateCard(card);
                         }}
-                            value={bm.modifier}></input>
+                            value={bm.modifier.toString()}></input>
                         {/* Remove Button */}
                         <button onClick={() => {
                             card.biomeModifiers.splice(i, 1);
@@ -150,7 +150,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         ability.requirementX = e.target.value * 1;
                                         updateCard(card);
                                     }}
-                                        value={ability.requirementX}
+                                        value={ability.requirementX.toString()}
                                     ></input>
                                 )}
                             </div>
@@ -172,7 +172,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         ability.costX = e.target.value * 1;
                                         updateCard(card);
                                     }}
-                                        value={ability.costX}
+                                        value={ability.costX.toString()}
                                     ></input>
                                 )}
                             </div>
@@ -194,7 +194,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         ability.effectX = e.target.value * 1;
                                         updateCard(card);
                                     }}
-                                        value={ability.effectX}
+                                        value={ability.effectX.toString()}
                                     ></input>
                                 )}
                             </div>
@@ -205,7 +205,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         ability.effectCost = e.target.value * 1;
                                         updateCard(card);
                                     }}
-                                        value={ability.effectCost}
+                                        value={ability.effectCost.toString()}
                                     ></input>
                                 </div>
                                 <div>
@@ -256,7 +256,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 card.count = Math.max(0, e.target.value * 1);
                 updateCard(card);
             }}
-                value={card.count}></input>
+                value={card.count.toString()}></input>
             </div>
 
             {/* Paste Box */}

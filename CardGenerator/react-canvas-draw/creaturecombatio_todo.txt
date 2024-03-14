@@ -7,8 +7,6 @@ a 2 cost is a 2 star??
 
 -signature on info
 
--bug: inserting 0s in front of all number fields
-
 -bug: selecting biome but not showing on canvas (when adding biome mod)
 
 bug: the first card should be shown in the list when starting from empty list
