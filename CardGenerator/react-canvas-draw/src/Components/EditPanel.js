@@ -147,7 +147,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 </select>
                                 {reqHasNumber && (
                                     <input type="number" onChange={(e) => {
-                                        ability.requirementX = e.target.value * 1;
+                                        ability.requirementX = Math.max(0, e.target.value * 1);
                                         updateCard(card);
                                     }}
                                         value={ability.requirementX.toString()}
@@ -169,7 +169,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 </select>
                                 {costHasNumber && (
                                     <input type="number" onChange={(e) => {
-                                        ability.costX = e.target.value * 1;
+                                        ability.costX = Math.max(0, e.target.value * 1);
                                         updateCard(card);
                                     }}
                                         value={ability.costX.toString()}
@@ -191,7 +191,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 </select>
                                 {effectHasNumber && (
                                     <input type="number" onChange={(e) => {
-                                        ability.effectX = e.target.value * 1;
+                                        ability.effectX = Math.max(0, e.target.value * 1);
                                         updateCard(card);
                                     }}
                                         value={ability.effectX.toString()}
@@ -202,7 +202,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 <div>
                                     <span>Effect Point Cost</span>
                                     <input type="number" className='field' title='Effect Point Cost' onChange={(e) => {
-                                        ability.effectCost = e.target.value * 1;
+                                        ability.effectCost = Math.max(0, e.target.value * 1);
                                         updateCard(card);
                                     }}
                                         value={ability.effectCost.toString()}
