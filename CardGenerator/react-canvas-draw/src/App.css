@@ -201,3 +201,6 @@
 .abilityArea div div {
     display: block;
 }
+.info {
+    font-size: medium;
+}
