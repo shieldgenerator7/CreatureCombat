@@ -275,12 +275,12 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                     card.colors
                         .filter((c, i) => i < 3)
                         .map((color, i) => (< span key={"bgc_" + i}>
-                        {i + 1}
-                        <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
-                            card.colors[i] = e.target.value;
-                            updateCard(card);
-                        }}></input>
-                    </span>))
+                            {i + 1}
+                            <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
+                                card.colors[i] = e.target.value;
+                                updateCard(card);
+                            }}></input>
+                        </span>))
                 }
             </div>
 
