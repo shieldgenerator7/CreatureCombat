@@ -2,6 +2,30 @@
 
 import AbilityAtom from "./AbilityAtom";
 
+const topList = [
+    "custom",
+    "none",
+];
+function sortFunc(_a, _b) {
+    let a = _a.name;
+    let b = _b.name;
+    const topA = topList.includes(a);
+    const topB = topList.includes(b);
+    if (topA && !topB) {
+        return -1;
+    }
+    if (!topA && topB) {
+        return 1;
+    }
+    if (a < b) {
+        return -1;
+    }
+    if (a > b) {
+        return 1;
+    }
+    return 0;
+}
+
 export const abilityEffects = [
     new AbilityAtom(
         "custom",
@@ -113,7 +137,7 @@ export const abilityEffects = [
         "Target Creature has Ward X.",
         (x) => x * 0.3
     ),
-];
+].sort(sortFunc);
 
 export const abilityCosts = [
     new AbilityAtom(
@@ -134,7 +158,7 @@ export const abilityCosts = [
         (x, c) => c / Math.max(1, x + 1),
         "+XR"
     )
-];
+].sort(sortFunc);
 
 export const abilityRequirements = [
     new AbilityAtom(
@@ -185,4 +209,4 @@ export const abilityRequirements = [
         (x, c) => c / Math.max(1, 3),
         "O."
     ),
-]
+].sort(sortFunc);

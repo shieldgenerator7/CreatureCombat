@@ -19,9 +19,6 @@ long list of card design improvements:
 
 -feature: rest amount: how many rest counters to add to this creature after
 
--alphabetize ability lists (req, cost, effect) (but still have custom / none at the top)
-
-
 -bug: card canvas is too big for small resolution monitors
 
 -css: everything lol
