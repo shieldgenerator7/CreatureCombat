@@ -30,7 +30,7 @@ function Canvas({ card, autoDownload }) {
             // border
             { c: 'black', x: 0, y: 0, w: width, h: height },
             // base
-            { c: 'white', x: 0 + bufferBase, y: 0 + bufferBase, w: width - bufferBase * 2, h: height - bufferBase * 2 },
+            { c: card.colors[0], x: 0 + bufferBase, y: 0 + bufferBase, w: width - bufferBase * 2, h: height - bufferBase * 2 },
         ];
         boxes.forEach(box => {
             context.fillStyle = box.c;
@@ -51,11 +51,11 @@ function Canvas({ card, autoDownload }) {
         //Front Boxes
         boxes = [
             //type
-            { c: '#dbd69e', x: 0 + bufferBase, y: textRow * 2 + bufferBase, w: width - bufferBase * 2, h: textRow * .75 },
+            { c: card.colors[1], x: 0 + bufferBase, y: textRow * 2 + bufferBase, w: width - bufferBase * 2, h: textRow * .75 },
             //text border
             { c: 'black', x: 0, y: textAreaY, w: width, h: textAreaH },
             //text area
-            { c: '#dbd69e', x: 0 + bufferBase, y: textAreaY + bufferBase / 2, w: width - bufferBase * 2, h: textAreaH - bufferBase },
+            { c: card.colors[1], x: 0 + bufferBase, y: textAreaY + bufferBase / 2, w: width - bufferBase * 2, h: textAreaH - bufferBase },
             //card info
             { c: 'black', x: 0, y: height - bufferBase * 2, w: width, h: bufferBase * 2 },
         ];
@@ -73,7 +73,7 @@ function Canvas({ card, autoDownload }) {
             0,
             2 * Math.PI
         );
-        context.fillStyle = 'grey';
+        context.fillStyle = card.colors[2];
         context.fill();
         //Ability Cost (TEST)
         // context.beginPath();
@@ -137,7 +137,7 @@ function Canvas({ card, autoDownload }) {
             textRow * 1 + bufferBase - ((textRow - fontSize) * 0.3)
         );
         //Star Count
-        context.fillStyle = '#dbd69e';
+        context.fillStyle = card.colors[1];
         fontSize = 0.5;
         context.font = `${textRow * fontSize}px Arial`;
         let starCount = card.getStarCount();

@@ -1,6 +1,6 @@
 "use strict";
 
-import { inflateCreature } from "../Data/Creature";
+import { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
 
 //2024-03-08: copied from StoryViewer
 
@@ -41,6 +41,7 @@ class Storage {
         //
         this.storage.cardList.forEach(card => {
             inflateCreature(card);
+            backwardsCompatifyCreature(card);
         });
     }
 

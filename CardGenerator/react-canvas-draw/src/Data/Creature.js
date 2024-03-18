@@ -103,3 +103,12 @@ export function inflateCreature(creature) {
         Object.setPrototypeOf(ability, Ability.prototype);
     });
 }
+
+export function backwardsCompatifyCreature(creature) {
+    //Change: add colors[]
+    creature.colors ??= [
+        "#FFFFFF",//white
+        "#dbd69e",//tan
+        "#808080",//grey
+    ];
+}
