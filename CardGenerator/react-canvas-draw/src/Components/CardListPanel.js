@@ -90,9 +90,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                 </div>
                 <div>
                     <button className="action listAction" onClick={() => {
-                        console.log("upload json");
                         UploadFromFilePicker(".card", true, (json) => {
-                            console.log("json", json);
                             let card = JSON.parse(decodeURIComponent(json));
                             inflateCreature(card);
                             backwardsCompatifyCreature(card);
@@ -109,7 +107,6 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                     //2024-03-03: setup to work with a specific Excel spreadsheet i have
                     let txt = e.target.value;
                     if (!txt) { return; }
-                    console.log("TXT PASTE STRING ON CHANGE");
                     setPasteString(txt);
                 }}
                     rows="2"

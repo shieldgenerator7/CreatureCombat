@@ -68,7 +68,6 @@ function App() {
         }
         window.cardList = cardList;
         //
-        // card = cardList[0];
         setAutoDownload(true);
         autoDownload = true;
         for (let i = 0; i < cardList.length; i++) {
@@ -78,7 +77,6 @@ function App() {
         setAutoDownload(false);
         setPasteString("");
     }
-    // console.log("autoDownload", autoDownload);
     //
 
     useEffect(() => {

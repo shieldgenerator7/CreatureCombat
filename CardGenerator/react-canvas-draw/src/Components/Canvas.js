@@ -293,7 +293,6 @@ function Canvas({ card, autoDownload }) {
             creatureImage.src = card.imageURL;
             creatureImage.onload = () => {
                 updateCanvas(creatureImage);
-                // console.log("useffect autoDownload (img)", autoDownload);
                 if (autoDownload) {
                     saveImage();
                 }
@@ -302,7 +301,6 @@ function Canvas({ card, autoDownload }) {
         }
         else {
             updateCanvas();
-            // console.log("useffect autoDownload (no img)", autoDownload);
             if (autoDownload) {
                 saveImage();
             }

@@ -37,7 +37,6 @@ class Storage {
             content = null;
         }
         this.storage = JSON.parse(content) ?? this.storage;
-        console.log("loadStorage", this.storage);
         //
         this.storage.cardList.forEach(card => {
             inflateCreature(card);

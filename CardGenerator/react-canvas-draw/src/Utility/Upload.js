@@ -2,9 +2,7 @@
 
 //2024-03-03: copied from https://stackoverflow.com/a/56607553/2336212
 export function UploadFromFilePicker(filetype, readAsText = true, callback = (result) => { }) {
-    var el =
-        // window._protected_reference =
-        document.createElement("INPUT");
+    var el = document.createElement("INPUT");
     el.type = "file";
     el.accept = filetype; //"image/*"; "text/*"
     // el.multiple = "multiple"; // remove to have a single file selection
@@ -29,17 +27,6 @@ export function UploadFromFilePicker(filetype, readAsText = true, callback = (re
                 callback(progressEvent.currentTarget.result);
             };
         }
-
-
-        // // test some async handling
-        // new Promise(function (resolve) {
-        //     setTimeout(function () { console.log(el.files); resolve(); }, 1000);
-        // })
-        //     .then(function () {
-        //         // clear / free reference
-        //         el = window._protected_reference = undefined;
-        //     });
-
     });
 
     el.click(); // open
