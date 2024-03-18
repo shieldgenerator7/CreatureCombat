@@ -155,9 +155,15 @@ function Canvas({ card, autoDownload }) {
         let abilityStartY = textRow * 10.5;
         const MAX_WIDTH_TEXT = width - bufferBase * 4;
         let abilityLines = card.abilities
-            .map(ability => ability.FullText)
+            .map(ability => ability.FullTextWithReminders)
             .map(text => getLines(context, text, MAX_WIDTH_TEXT))
             .flat();
+        if (abilityLines.length > 5) {
+            abilityLines = card.abilities
+                .map(ability => ability.FullText)
+                .map(text => getLines(context, text, MAX_WIDTH_TEXT))
+                .flat();
+        }
         const LINEHEIGHT = 0.1 * RESOLUTION;
         abilityLines.forEach((line, i) => {
             context.fillText(

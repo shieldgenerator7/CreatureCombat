@@ -77,6 +77,15 @@ class Ability {
         return `${this.name}   ${this.CostSymbol}${reqstr}: ${this.EffectText}`;
     }
 
+    get FullTextWithReminders() {
+        let fulltext = this.FullText;
+        let reqsym = this.RequirementSymbol;
+        if (reqsym) {
+            fulltext += ` (${reqsym}: ${this.RequirementText})`;
+        }
+        return fulltext;
+    }
+
     get TotalCost() {
         if (this.pointCost >= 0) {
             return this.pointCost;
