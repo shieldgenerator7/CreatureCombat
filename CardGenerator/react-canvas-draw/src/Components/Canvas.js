@@ -154,8 +154,16 @@ function Canvas({ card, autoDownload }) {
         context.font = `${textRow * fontSize}px Arial`;
         let abilityStartY = textRow * 10.5;
         const MAX_WIDTH_TEXT = width - bufferBase * 4;
+        let remindersSeen = [];
         let abilityLines = card.abilities
-            .map(ability => ability.FullTextWithReminders)
+            .map(ability => {
+                let reqsym = ability.RequirementSymbol;
+                if (reqsym && !remindersSeen.includes(reqsym)) {
+                    remindersSeen.push(reqsym);
+                    return ability.FullTextWithReminders;
+                }
+                return ability.FullText;
+            })
             .map(text => getLines(context, text, MAX_WIDTH_TEXT))
             .flat();
         if (abilityLines.length > 5) {
