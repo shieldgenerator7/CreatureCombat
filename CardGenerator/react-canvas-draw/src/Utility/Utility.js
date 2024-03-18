@@ -94,15 +94,16 @@ export function arrayEquals(array, arr1) {
         array.every((item, i) => item === arr1[i]);
 }
 
-export function arraySort(array, mapFunc = (a) => a) {
+export function arraySort(array, mapFunc = (a) => a, ascending = true) {
+    let ascValue = (ascending) ? 1 : -1;
     array.sort((a, b) => {
         let mfa = mapFunc(a);
         let mfb = mapFunc(b);
         if (mfa < mfb) {
-            return -1;
+            return -1 * ascValue;
         }
         if (mfa > mfb) {
-            return 1;
+            return 1 * ascValue;
         }
         return 0;
     });

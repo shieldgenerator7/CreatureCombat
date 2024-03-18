@@ -29,7 +29,11 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                             case "count": mf = mfcount; break;
                             case "date_creation": mf = mfdatecreation; break;
                         }
-                        arraySort(cardList, mf);
+                        let reverseList = [
+                            "count",
+                            "date_creation",
+                        ]
+                        arraySort(cardList, mf, !reverseList.includes(value));
                         setCardList([...cardList]);
                     }}>
                         <option value="name">Name (or Species)</option>
