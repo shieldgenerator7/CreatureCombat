@@ -246,7 +246,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             <div className='info'>Recommended: 690x483</div>
             <button className="action" onClick={() => {
                 console.log("upload");
-                UploadFromFilePicker("image/*", (imageURL) => {
+                UploadFromFilePicker("image/*", false, (imageURL) => {
                     card.imageURL = imageURL;
                     updateCard(card);
                 });
@@ -283,6 +283,31 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                         }}></input>
                     </span>))
                 }
+            </div>
+
+            {/* Download Button */}
+            Download File
+            <div>
+                <button className='action' onClick={(e) => {
+                    const json = JSON.stringify(card);
+
+
+
+                    const link = document.createElement('a');
+                    let cardName = `${card.name || card.species || "card"}`.trim().replaceAll(" ", "");
+                    link.download = `${cardName}_${card.getFinalCost()}pts.card`;
+
+                    //2024-03-17: copied from https://stackoverflow.com/a/30800715/2336212
+                    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(json);
+                    // var dlAnchorElem = document.getElementById('downloadAnchorElem');
+                    // dlAnchorElem.setAttribute("href", dataStr);
+                    link.href = dataStr;
+                    // dlAnchorElem.setAttribute("download", "scene.json");
+                    // dlAnchorElem.click();
+                    link.click();
+                }}>
+                    Download .card File
+                </button>
             </div>
         </div>
     );

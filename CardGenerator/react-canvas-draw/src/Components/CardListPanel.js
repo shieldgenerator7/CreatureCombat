@@ -1,6 +1,7 @@
 "use strict";
 
-import Creature from "../Data/Creature";
+import Creature, { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
+import { UploadFromFilePicker } from "../Utility/Upload";
 import { arraySort, arraySum } from "../Utility/Utility";
 
 function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard, setPasteString }) {
@@ -86,6 +87,20 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                     }}>
                         Add New Card
                     </button>
+                </div>
+                <div>
+                    <button className="action listAction" onClick={() => {
+                        console.log("upload json");
+                        UploadFromFilePicker(".card", true, (json) => {
+                            console.log("json", json);
+                            let card = JSON.parse(decodeURIComponent(json));
+                            inflateCreature(card);
+                            backwardsCompatifyCreature(card);
+                            cardList.push(card);
+                            setCardList([...cardList]);
+                            setCard(card);
+                        });
+                    }}>Upload .card File</button>
                 </div>
 
                 {/* Paste Box */}

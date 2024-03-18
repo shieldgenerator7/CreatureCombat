@@ -1,7 +1,7 @@
 "use strict";
 
 //2024-03-03: copied from https://stackoverflow.com/a/56607553/2336212
-export function UploadFromFilePicker(filetype, callback = (result) => { }) {
+export function UploadFromFilePicker(filetype, readAsText = true, callback = (result) => { }) {
     var el =
         // window._protected_reference =
         document.createElement("INPUT");
@@ -19,9 +19,13 @@ export function UploadFromFilePicker(filetype, callback = (result) => { }) {
 
             //2024-03-14: copied from RoomLayout
             let reader = new FileReader();
-            reader.readAsDataURL(file);
+            if (readAsText) {
+                reader.readAsText(file);
+            }
+            else {
+                reader.readAsDataURL(file);
+            }
             reader.onloadend = (progressEvent) => {
-
                 callback(progressEvent.currentTarget.result);
             };
         }
