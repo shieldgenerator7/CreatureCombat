@@ -1,10 +1,12 @@
-a 2 cost is a 2 star??
+-make tab icon (favicon.ico)
 
--pic is stretched
+a 2 cost is a 2 star??
 
 -signature on info
 
 -feature: edit directly on canvas
+
+-option: set portrait fit and/or position
 
 long list of card design improvements:
 -adding symbols to abilities (like house symbol for home requirement)
@@ -22,7 +24,7 @@ long list of card design improvements:
 
 -feature: unique card ids
 
--feature: save cards in the cloud, connected to user account
+-feature: save cards in the cloud, connected to user account (big table?)
 
 -feature: download deck as sprite sheet (for import to TTS), maybe even download as TTS mod
 
@@ -37,10 +39,6 @@ long list of card design improvements:
 
 -feature: decks (separate from cards)
 
--add field to change color of background / card section elements
-
 -button: remove card from deck (separate from deleting card)
-
--feature: download as JSON, upload as JSON
 
 -drag+drop image and/or JSON
