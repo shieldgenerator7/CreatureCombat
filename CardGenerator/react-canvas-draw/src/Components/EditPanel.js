@@ -243,6 +243,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Card Art */}
             Card Art
+            <div className='info'>Recommended: 690x483</div>
             <button className="action" onClick={() => {
                 console.log("upload");
                 UploadFromFilePicker(card, () => updateCard(card));

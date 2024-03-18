@@ -42,9 +42,9 @@ function Canvas({ card, autoDownload }) {
             context.drawImage(
                 img,
                 0 + bufferBase,
-                textRow * 3 + bufferBase,
+                textRow * 2.75 + bufferBase,
                 width - bufferBase * 2,
-                1.6 * RESOLUTION
+                1.615 * RESOLUTION
             );
         }
 
