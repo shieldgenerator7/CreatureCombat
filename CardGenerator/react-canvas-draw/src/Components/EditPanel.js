@@ -255,13 +255,13 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 {
                     card.colors
                         .filter((c, i) => i >= 3)
-                        .map((color, i) => (<>
+                        .map((color, i) => (<span key={"tc_" + i}>
                             {i + 1}
                             <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
                                 card.colors[i + 3] = e.target.value;
                                 updateCard(card);
                             }}></input>
-                        </>))
+                        </span>))
                 }
             </div>
 
@@ -271,13 +271,13 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 {
                     card.colors
                         .filter((c, i) => i < 3)
-                        .map((color, i) => (<>
+                        .map((color, i) => (< span key={"bgc_" + i}>
                         {i + 1}
                         <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
                             card.colors[i] = e.target.value;
                             updateCard(card);
                         }}></input>
-                    </>))
+                    </span>))
                 }
             </div>
         </div>
