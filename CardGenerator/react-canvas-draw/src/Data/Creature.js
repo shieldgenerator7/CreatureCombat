@@ -13,6 +13,15 @@ class Creature {
 
         this.imageURL = undefined;
 
+        this.colors = [
+            "#FFFFFF",//white
+            "#dbd69e",//tan
+            "#808080",//grey
+            "#000000",//black
+            "#000000",//black
+            "#FFFFFF",//white
+        ];
+
         this.basePower = 1;
         this.biomeModifiers = [];
 
