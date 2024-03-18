@@ -249,11 +249,29 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             }}>Upload</button>
             {card.imageFileName && card.imageFileName}
 
+            {/* Text Color */}
+            Text Color
+            <div>
+                {
+                    card.colors
+                        .filter((c, i) => i >= 3)
+                        .map((color, i) => (<>
+                            {i + 1}
+                            <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
+                                card.colors[i + 3] = e.target.value;
+                                updateCard(card);
+                            }}></input>
+                        </>))
+                }
+            </div>
+
             {/* Background Color */}
             Background Color
             <div>
                 {
-                    card.colors.map((color, i) => (<>
+                    card.colors
+                        .filter((c, i) => i < 3)
+                        .map((color, i) => (<>
                         {i + 1}
                         <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
                             card.colors[i] = e.target.value;

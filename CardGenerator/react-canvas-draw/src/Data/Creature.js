@@ -110,5 +110,8 @@ export function backwardsCompatifyCreature(creature) {
         "#FFFFFF",//white
         "#dbd69e",//tan
         "#808080",//grey
+        "#000000",//black
+        "#000000",//black
+        "#FFFFFF",//white
     ];
 }

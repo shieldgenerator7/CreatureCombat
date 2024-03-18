@@ -89,7 +89,7 @@ function Canvas({ card, autoDownload }) {
 
         // text
 
-        context.fillStyle = 'black';
+        context.fillStyle = card.colors[3];
         let fontSize;
         //Name
         if (card.name) {
@@ -113,7 +113,7 @@ function Canvas({ card, autoDownload }) {
         }
         //Species
         fontSize = 7 / 8;
-        context.fillStyle = 'black';
+        context.fillStyle = card.colors[3];
         context.font = `${textRow * fontSize}px Arial`;
         context.fillText(
             card.species,
@@ -122,6 +122,7 @@ function Canvas({ card, autoDownload }) {
         );
         //Tags
         fontSize = 0.35;
+        context.fillStyle = card.colors[4];
         context.font = `${textRow * fontSize}px Arial`;
         context.fillText(
             card.tags.map(t => t).join(" • "),
@@ -130,6 +131,7 @@ function Canvas({ card, autoDownload }) {
         );
         //Cost
         fontSize = 0.5;
+        context.fillStyle = card.colors[3];
         context.font = `${textRow * fontSize}px Arial`;
         context.fillText(
             card.getFinalCost(),
@@ -137,7 +139,7 @@ function Canvas({ card, autoDownload }) {
             textRow * 1 + bufferBase - ((textRow - fontSize) * 0.3)
         );
         //Star Count
-        context.fillStyle = card.colors[1];
+        context.fillStyle = card.colors[3];
         fontSize = 0.5;
         context.font = `${textRow * fontSize}px Arial`;
         let starCount = card.getStarCount();
@@ -147,7 +149,7 @@ function Canvas({ card, autoDownload }) {
             textRow * 2 + bufferBase - ((textRow - fontSize) * 0.3)
         );
         //Ability
-        context.fillStyle = 'black';
+        context.fillStyle = card.colors[4];
         fontSize = 0.3;
         context.font = `${textRow * fontSize}px Arial`;
         let abilityStartY = textRow * 10.5;
@@ -174,7 +176,7 @@ function Canvas({ card, autoDownload }) {
         //     textRow * 10.5
         // );
         //Flavor Text
-        context.fillStyle = 'black';
+        context.fillStyle = card.colors[4];
         fontSize = 0.3;
         context.font = `italic ${textRow * fontSize}px Arial`;
         let flavorStartY = Math.max(
@@ -191,7 +193,7 @@ function Canvas({ card, autoDownload }) {
         })
         //
         //Base Power
-        context.fillStyle = 'white';
+        context.fillStyle = card.colors[5];
         fontSize = 0.5;
         context.font = `${textRow * fontSize}px Arial`;
         context.fillText(
@@ -200,7 +202,7 @@ function Canvas({ card, autoDownload }) {
             height - bufferBase * 2.5 - fontSize * 70
         );
         //Biome Modifiers
-        context.fillStyle = 'black';
+        context.fillStyle = card.colors[4];
         fontSize = 0.35;
         context.font = `${textRow * fontSize}px Arial`;
         let bmStartY = height - bufferBase * 3.5 - fontSize * 70;
