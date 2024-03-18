@@ -1,12 +1,12 @@
 "use strict";
 
 //2024-03-03: copied from https://stackoverflow.com/a/56607553/2336212
-export function UploadFromFilePicker(card, callback) {
+export function UploadFromFilePicker(filetype, callback = (result) => { }) {
     var el =
         // window._protected_reference =
         document.createElement("INPUT");
     el.type = "file";
-    el.accept = "image/*";
+    el.accept = filetype; //"image/*"; "text/*"
     // el.multiple = "multiple"; // remove to have a single file selection
 
     // (cancel will not trigger 'change')
@@ -21,9 +21,8 @@ export function UploadFromFilePicker(card, callback) {
             let reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onloadend = (progressEvent) => {
-                let imageURL = progressEvent.currentTarget.result;
-                card.imageURL = imageURL;
-                callback();
+
+                callback(progressEvent.currentTarget.result);
             };
         }
 
