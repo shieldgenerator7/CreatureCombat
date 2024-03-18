@@ -1,7 +1,7 @@
 "use strict";
 
 import Creature from "../Data/Creature";
-import { arraySum } from "../Utility/Utility";
+import { arraySort, arraySum } from "../Utility/Utility";
 
 function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard, setPasteString }) {
     return (
@@ -11,6 +11,35 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                 <p> Creature List</p>
                 <p> Count: {cardList.length}</p>
                 <p> Total Cost: {arraySum(cardList, card => card.getFinalCost() * card.count)}</p>
+                <p> Sort:
+                    <select onChange={(e) => {
+                        let value = e.target.value;
+                        let mf = (a) => a;//"map func"
+                        let mfname = (a) => a.name || a.species || "[creature]";
+                        let mfcost = (a) => a.getFinalCost();
+                        let mfstars = (a) => a.getStarCount();
+                        let mfpowerbase = (a) => a.basePower;
+                        let mfcount = (a) => a.count;
+                        let mfdatecreation = (a) => a.creationDate;
+                        switch (value) {
+                            case "name": mf = mfname; break;
+                            case "cost": mf = mfcost; break;
+                            case "stars": mf = mfstars; break;
+                            case "power_base": mf = mfpowerbase; break;
+                            case "count": mf = mfcount; break;
+                            case "date_creation": mf = mfdatecreation; break;
+                        }
+                        arraySort(cardList, mf);
+                        setCardList([...cardList]);
+                    }}>
+                        <option value="name">Name (or Species)</option>
+                        <option value="cost">Cost</option>
+                        <option value="stars">Stars</option>
+                        <option value="power_base">Base Power</option>
+                        <option value="count">Count</option>
+                        <option value="date_creation">Creation Date</option>
+                    </select>
+                </p>
             </div>
             {/* Card List */}
             <div className="list">

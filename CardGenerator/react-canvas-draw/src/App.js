@@ -84,7 +84,7 @@ function App() {
     useEffect(() => {
         let cardName = card?.name || card?.species;
         document.title = ((cardName) ? `${cardName} - ` : "") + `Creature Combat v${VERSION}`;
-    }, [card]);
+    }, [card, cardList]);
 
     return (
         <div className="App">

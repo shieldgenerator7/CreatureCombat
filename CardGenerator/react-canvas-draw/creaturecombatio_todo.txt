@@ -2,9 +2,6 @@ a 2 cost is a 2 star??
 
 -pic is stretched
 
--alpahbetize creature list
--options for ordering creature list by name / cost / count / stars
-
 -signature on info
 
 -feature: edit directly on canvas

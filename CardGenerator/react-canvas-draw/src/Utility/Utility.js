@@ -94,6 +94,20 @@ export function arrayEquals(array, arr1) {
         array.every((item, i) => item === arr1[i]);
 }
 
+export function arraySort(array, mapFunc = (a) => a) {
+    array.sort((a, b) => {
+        let mfa = mapFunc(a);
+        let mfb = mapFunc(b);
+        if (mfa < mfb) {
+            return -1;
+        }
+        if (mfa > mfb) {
+            return 1;
+        }
+        return 0;
+    });
+}
+
 export function arrayMin(array, minFunc = (val) => val) {
     return array.reduce(
         (acc, cur) => Math.min(minFunc(cur), acc),
