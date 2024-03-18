@@ -1,5 +1,5 @@
 "use strict";
-import { getDateString, getLines } from '../Utility/Utility';
+import { arraySort, getDateString, getLines } from '../Utility/Utility';
 
 //2024-03-02: copied from https://www.dhiwise.com/post/designing-stunning-artwork-with-react-canvas-draw
 import React, { useRef, useEffect } from 'react';
@@ -210,7 +210,9 @@ function Canvas({ card, autoDownload }) {
         let bmStartX = 0 + bufferBase * 4.7;
         let bmBufferX = width * 0.15;
         let bmModOffset = bmBufferX * 0.15;
-        card.biomeModifiers.forEach((bm, i) => {
+        let bmList = [...card.biomeModifiers];
+        arraySort(bmList, (bm) => bm.modifier * -1);
+        bmList.forEach((bm, i) => {
             let drawX = bmStartX + bmBufferX * i;
             context.fillText(
                 bm.biome?.trim() || `[biome ${i + 1}]`,
