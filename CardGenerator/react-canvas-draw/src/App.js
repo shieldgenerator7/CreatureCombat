@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 import Canvas from './Components/Canvas';
 import Creature, { inflateCreature } from './Data/Creature';
