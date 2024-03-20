@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
-import Creature from '../Data/Creature';
+import Creature, { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT } from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
 import { capitalizeFirstLetters, makeUserFacing } from '../Utility/Utility';
@@ -243,10 +243,13 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Card Art */}
             Card Art
+            {
+                !card.imageURL && (<>
             <div className='info'>Recommended: 690x483</div>
             <button className="action" onClick={() => {
-                UploadFromFilePicker("image/*", false, (imageURL) => {
+                UploadFromFilePicker("image/*", false, (imageURL, filename) => {
                     card.imageURL = imageURL;
+                    card.imageFileName = filename;
                     updateCard(card);
                     if (card.imageURL) {
                         let creatureImage = new Image();
@@ -258,7 +261,35 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                     }
                 });
             }}>Upload</button>
-            {card.imageFileName && card.imageFileName}
+                </>)
+            }
+            {
+                card.imageURL && (
+                    <div>
+                        <div className='info'>
+                            {card.imageFileName ?? "Portrait"}
+                            {/* Remove Button */}
+                            <button onClick={() => {
+                                card.imageURL = undefined;
+                                card.imageFileName = undefined;
+                                card.imgPortrait = undefined;
+                                updateCard(card);
+                            }}>X</button>
+                        </div>
+                        <div className='info'>Portrait Fit
+                            <select onChange={(e) => {
+                                let value = e.target.value * 1;
+                                card.imageFit = value;
+                                updateCard(card);
+                            }}>
+                                <option value={FIT_WHOLE}>Whole</option>
+                                <option value={FIT_WIDTH}>Width</option>
+                                <option value={FIT_HEIGHT}>Height</option>
+                            </select>
+                        </div>
+                    </div>
+                )
+            }
 
             {/* Text Color */}
             Text Color

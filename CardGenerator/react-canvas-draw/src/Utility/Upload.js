@@ -1,7 +1,7 @@
 "use strict";
 
 //2024-03-03: copied from https://stackoverflow.com/a/56607553/2336212
-export function UploadFromFilePicker(filetype, readAsText = true, callback = (result) => { }) {
+export function UploadFromFilePicker(filetype, readAsText = true, callback = (result, filename) => { }) {
     var el = document.createElement("INPUT");
     el.type = "file";
     el.accept = filetype; //"image/*"; "text/*"
@@ -24,7 +24,7 @@ export function UploadFromFilePicker(filetype, readAsText = true, callback = (re
                 reader.readAsDataURL(file);
             }
             reader.onloadend = (progressEvent) => {
-                callback(progressEvent.currentTarget.result);
+                callback(progressEvent.currentTarget.result, file.name);
             };
         }
     });

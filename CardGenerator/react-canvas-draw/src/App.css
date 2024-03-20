@@ -204,3 +204,11 @@
 .info {
     font-size: medium;
 }
+.info select {
+    margin-left: 10px;
+}
+.info button {
+    margin-left: 10px;
+    position: absolute;
+    right: 0px;
+}
