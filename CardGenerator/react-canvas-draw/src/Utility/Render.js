@@ -1,6 +1,6 @@
 "use strict";
 
-import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT } from "../Data/Creature";
+import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from "../Data/Creature";
 import { DRAWLAYER_BOX, DRAWLAYER_IMAGE } from "../Data/DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "../Data/Vector2";
 import { VERSION } from "../Version";
@@ -67,6 +67,14 @@ export function renderCard(card, canvas, drawData) {
                     switch (card.imageFit) {
                         case FIT_WHOLE:
                             if (wRatio < hRatio) {
+                                fitWidth();
+                            }
+                            else {
+                                fitHeight();
+                            }
+                            break;
+                        case FIT_FILL:
+                            if (wRatio > hRatio) {
                                 fitWidth();
                             }
                             else {

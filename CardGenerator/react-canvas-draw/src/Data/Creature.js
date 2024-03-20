@@ -6,8 +6,9 @@ import Ability from "./Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
 
 export const FIT_WHOLE = 0;
-export const FIT_WIDTH = 1;
-export const FIT_HEIGHT = 2;
+export const FIT_FILL = 1;
+export const FIT_WIDTH = 2;
+export const FIT_HEIGHT = 3;
 
 class Creature {
     constructor() {

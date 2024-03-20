@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
-import Creature, { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT } from '../Data/Creature';
+import Creature, { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
 import { capitalizeFirstLetters, makeUserFacing } from '../Utility/Utility';
@@ -283,6 +283,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 updateCard(card);
                             }}>
                                 <option value={FIT_WHOLE}>Whole</option>
+                                <option value={FIT_FILL}>Fill</option>
                                 <option value={FIT_WIDTH}>Width</option>
                                 <option value={FIT_HEIGHT}>Height</option>
                             </select>
