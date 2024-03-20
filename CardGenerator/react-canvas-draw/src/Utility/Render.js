@@ -2,6 +2,7 @@
 
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT } from "../Data/Creature";
 import { DRAWLAYER_BOX, DRAWLAYER_IMAGE } from "../Data/DrawLayer";
+import Vector2, { VECTOR2_ZERO } from "../Data/Vector2";
 import { VERSION } from "../Version";
 import { arraySort, getDateString, getLines } from "./Utility";
 
@@ -32,20 +33,36 @@ export function renderCard(card, canvas, drawData) {
                 let size = draw.size.clone();
                 let width = img.width;
                 let height = img.height;
+                let spos = VECTOR2_ZERO.clone();
+                let ssize = new Vector2(img.width, img.height);
                 if (width != size.x || height != size.y) {
                     let wRatio = size.x / width;
                     let hRatio = size.y / height;
                     const fitWidth = () => {
                         let newHeight = height * wRatio;
-                        let newY = pos.y + (size.y - newHeight) / 2
+                        let newY = pos.y + (size.y - newHeight) / 2;
+                        if (newHeight > size.y) {
+                            let diff = (newHeight - size.y) / wRatio;
+                            ssize.y = height - diff;
+                            spos.y = 0 + diff / 2;
+                        }
+                        else {
                         size.y = newHeight;
                         pos.y = newY;
+                        }
                     }
                     const fitHeight = () => {
                         let newWidth = width * hRatio;
-                        let newX = pos.x + (size.x - newWidth) / 2
+                        let newX = pos.x + (size.x - newWidth) / 2;
+                        if (newWidth > size.x) {
+                            let diff = (newWidth - size.x) / hRatio;
+                            ssize.x = width - diff;
+                            spos.x = 0 + diff / 2;
+                        }
+                        else {
                         size.x = newWidth;
                         pos.x = newX;
+                        }
                     }
                     switch (card.imageFit) {
                         case FIT_WHOLE:
@@ -68,7 +85,11 @@ export function renderCard(card, canvas, drawData) {
 
                 }
                 //draw
-                context.drawImage(img, pos.x, pos.y, size.x, size.y);
+                context.drawImage(
+                    img,
+                    spos.x, spos.y, ssize.x, ssize.y,
+                    pos.x, pos.y, size.x, size.y,
+                );
                 break;
             default:
                 console.error("unknown draw layer type:", draw.type);
