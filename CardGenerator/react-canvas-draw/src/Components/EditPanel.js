@@ -248,6 +248,14 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                 UploadFromFilePicker("image/*", false, (imageURL) => {
                     card.imageURL = imageURL;
                     updateCard(card);
+                    if (card.imageURL) {
+                        let creatureImage = new Image();
+                        creatureImage.src = card.imageURL;
+                        creatureImage.onload = () => {
+                            card.imgPortrait = creatureImage;
+                            updateCard(card);
+                        }
+                    }
                 });
             }}>Upload</button>
             {card.imageFileName && card.imageFileName}

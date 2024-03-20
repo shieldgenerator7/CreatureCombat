@@ -103,7 +103,7 @@ class Creature {
 
 export default Creature;
 
-export function inflateCreature(creature) {
+export function inflateCreature(creature, updateCard) {
     Object.setPrototypeOf(creature, Creature.prototype);
     creature.biomeModifiers.forEach(bm => {
         Object.setPrototypeOf(bm, BiomeModifier.prototype);
@@ -111,6 +111,16 @@ export function inflateCreature(creature) {
     creature.abilities.forEach(ability => {
         Object.setPrototypeOf(ability, Ability.prototype);
     });
+
+    //Portrait
+    if (creature.imageURL && !creature.imgPortrait) {
+        let creatureImage = new Image();
+        creatureImage.src = creature.imageURL;
+        creatureImage.onload = () => {
+            creature.imgPortrait = creatureImage;
+            updateCard?.(creature);
+        }
+    }
 }
 
 export function backwardsCompatifyCreature(creature) {

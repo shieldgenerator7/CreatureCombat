@@ -26,7 +26,11 @@ function App() {
     window.card = card;
     let updateCard = (oldcard) => {
         let newcard = JSON.parse(JSON.stringify(oldcard));
-        inflateCreature(newcard);
+        newcard.imgPortrait = oldcard.imgPortrait;
+        inflateCreature(
+            newcard,
+            (c) => { if (c == card) { updateCard(c); } }
+        );
         //
         if (cardList.includes(oldcard)) {
             let index = cardList.indexOf(oldcard);
