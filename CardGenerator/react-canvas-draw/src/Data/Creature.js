@@ -1,6 +1,6 @@
 "use strict";
 
-import { arraySum, getDateString } from "../Utility/Utility";
+import { arraySum, getDateString, isImage } from "../Utility/Utility";
 import { VERSION } from "../Version";
 import Ability from "./Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
@@ -113,7 +113,7 @@ export function inflateCreature(creature, updateCard) {
     });
 
     //Portrait
-    if (creature.imageURL && !creature.imgPortrait) {
+    if (creature.imageURL && !isImage(creature.imgPortrait)) {
         let creatureImage = new Image();
         creatureImage.src = creature.imageURL;
         creatureImage.onload = () => {

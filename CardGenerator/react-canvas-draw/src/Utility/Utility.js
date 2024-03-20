@@ -22,6 +22,11 @@ function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 //2023-02-27: constructed after consulting https://stackoverflow.com/q/14636536/2336212
 function isInteger(n) { return isNumber(n) && Math.floor(n) === n; }
 
+//2024-03-19: copied from https://stackoverflow.com/a/1760522/2336212
+export function isImage(i) {
+    return i instanceof HTMLImageElement;
+}
+
 function $(id) {
     return document.getElementById(id);
 }

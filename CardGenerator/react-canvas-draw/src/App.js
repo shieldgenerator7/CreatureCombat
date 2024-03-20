@@ -8,6 +8,7 @@ import { parsePasteFromExcel } from './Utility/Parser';
 import CardListPanel from './Components/CardListPanel';
 import Storage from './Utility/Storage';
 import { VERSION } from './Version';
+import { isImage } from './Utility/Utility';
 
 function App() {
     //Storage
@@ -26,7 +27,9 @@ function App() {
     window.card = card;
     let updateCard = (oldcard) => {
         let newcard = JSON.parse(JSON.stringify(oldcard));
-        newcard.imgPortrait = oldcard.imgPortrait;
+        if (isImage(oldcard.imgPortrait)) {
+            newcard.imgPortrait = oldcard.imgPortrait;
+        }
         inflateCreature(
             newcard,
             (c) => { if (c == card) { updateCard(c); } }
