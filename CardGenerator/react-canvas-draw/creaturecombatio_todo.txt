@@ -2,11 +2,13 @@
 
 a 2 cost is a 2 star??
 
+-add biome: island, garden
+
 -signature on info
 
 -feature: edit directly on canvas
 
--option: set portrait fit and/or position
+-option: set portrait crop/position
 
 long list of card design improvements:
 -adding symbols to abilities (like house symbol for home requirement)
@@ -23,6 +25,8 @@ long list of card design improvements:
 -css: everything lol
 
 -feature: unique card ids
+
+-bug: cant type negative numbers into number (where allowed, like biome mods)
 
 -feature: save cards in the cloud, connected to user account (big table?)
 
