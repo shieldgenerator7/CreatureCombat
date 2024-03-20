@@ -5,6 +5,10 @@ import { VERSION } from "../Version";
 import Ability from "./Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
 
+export const FIT_WHOLE = 0;
+export const FIT_WIDTH = 1;
+export const FIT_HEIGHT = 2;
+
 class Creature {
     constructor() {
         this.name = "";
@@ -12,6 +16,7 @@ class Creature {
         this.tags = [];
 
         this.imageURL = undefined;
+        this.imageFit = FIT_WHOLE;
 
         this.colors = [
             "#FFFFFF",//white
@@ -124,6 +129,7 @@ export function inflateCreature(creature, updateCard) {
 }
 
 export function backwardsCompatifyCreature(creature) {
+
     //Change: add colors[]
     creature.colors ??= [
         "#FFFFFF",//white
@@ -133,4 +139,7 @@ export function backwardsCompatifyCreature(creature) {
         "#000000",//black
         "#FFFFFF",//white
     ];
+
+    //Change: add imageFit
+    creature.imageFit ??= FIT_WHOLE;
 }

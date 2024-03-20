@@ -1,5 +1,6 @@
 "use strict";
 
+import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT } from "../Data/Creature";
 import { DRAWLAYER_BOX, DRAWLAYER_IMAGE } from "../Data/DrawLayer";
 import { VERSION } from "../Version";
 import { arraySort, getDateString, getLines } from "./Utility";
@@ -25,15 +26,49 @@ export function renderCard(card, canvas, drawData) {
                 break;
             case DRAWLAYER_IMAGE:
                 let img = draw.getInfo(card);
-                if (img) {
-                    context.drawImage(
-                        img,
-                        draw.position.x,
-                        draw.position.y,
-                        draw.size.x,
-                        draw.size.y
-                    );
+                if (!img) { return; }
+                //fit picture
+                let pos = draw.position.clone();
+                let size = draw.size.clone();
+                let width = img.width;
+                let height = img.height;
+                if (width != size.x || height != size.y) {
+                    let wRatio = size.x / width;
+                    let hRatio = size.y / height;
+                    switch (card.imageFit) {
+                        case FIT_WHOLE:
+                            if (wRatio < hRatio) {
+                                let newHeight = height * wRatio;
+                                let newY = pos.y + (size.y - newHeight) / 2
+                                size.y = newHeight;
+                                pos.y = newY;
+                            }
+                            else {
+                                let newWidth = width * hRatio;
+                                let newX = pos.x + (size.x - newWidth) / 2
+                                size.x = newWidth;
+                                pos.x = newX;
+                            }
+                            break;
+                        case FIT_WIDTH:
+                            let newHeight = height * wRatio;
+                            let newY = pos.y + (size.y - newHeight) / 2
+                            size.y = newHeight;
+                            pos.y = newY;
+                            break;
+                        case FIT_HEIGHT:
+                            let newWidth = width * hRatio;
+                            let newX = pos.x + (size.x - newWidth) / 2
+                            size.x = newWidth;
+                            pos.x = newX;
+                            break;
+                        default:
+                            console.error("unknown fit:", card.imageFit);
+                    }
+
                 }
+                //draw
+                context.drawImage(img, pos.x, pos.y, size.x, size.y);
                 break;
             default:
                 console.error("unknown draw layer type:", draw.type);
