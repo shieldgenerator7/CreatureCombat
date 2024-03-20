@@ -12,14 +12,15 @@ export function generateCardSkin(width, height, margin, padding) {
             DRAWLAYER_BOX,
             'black',
             VECTOR2_ZERO,
-            new Vector2(width, height)
+            new Vector2(width, height),
         ),
         //background
         new DrawLayer(
             DRAWLAYER_BOX,
             'white',
             new Vector2(margin, margin),
-            new Vector2(marginWidth, height - margin * 2)
+            new Vector2(marginWidth, height - margin * 2),
+            (card) => card.colors[0]
         ),
         //image
         new DrawLayer(
@@ -34,14 +35,16 @@ export function generateCardSkin(width, height, margin, padding) {
             DRAWLAYER_BOX,
             '#dbd69e',
             new Vector2(margin, margin + rowheight * 4),
-            new Vector2(marginWidth, rowheight * 1)
+            new Vector2(marginWidth, rowheight * 1),
+            (card) => card.colors[1]
         ),
         //text area bg
         new DrawLayer(
             DRAWLAYER_BOX,
             '#dbd69e',
             new Vector2(margin, margin + rowheight * 13),
-            new Vector2(marginWidth, rowheight * 4)
+            new Vector2(marginWidth, rowheight * 4),
+            (card) => card.colors[1]
         ),
         //text border
         new DrawLayer(

@@ -20,7 +20,7 @@ export function renderCard(card, canvas, drawData) {
     drawData.forEach(draw => {
         switch (draw.type) {
             case DRAWLAYER_BOX:
-                context.fillStyle = draw.color;
+                context.fillStyle = draw.getInfo(card) ?? draw.color;
                 context.fillRect(draw.position.x, draw.position.y, draw.size.x, draw.size.y);
                 break;
             case DRAWLAYER_IMAGE:

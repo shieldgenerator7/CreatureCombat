@@ -15,7 +15,7 @@ class DrawLayer {
     }
 
     getInfo(card) {
-        return this.infoFunc(card);
+        return this.infoFunc?.(card);
     }
 }
 
