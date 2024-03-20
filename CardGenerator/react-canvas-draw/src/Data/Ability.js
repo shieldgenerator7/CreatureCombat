@@ -7,18 +7,18 @@ const ABILITY_POINTCOST_FACTOR = 3;
 class Ability {
     constructor() {
         this.name = "";
-        this.costX = 0;//how much it costs to activate this ability
-        this.costName = "";
-        this.requirementX = 0;
-        this.requirementName = "";
-        this.effectX = 1;
-        this.effectName = "";
+        this.costX = 1;//how much it costs to activate this ability
+        this.costName = "exhaust";
+        this.requirementX = 1;
+        this.requirementName = "channel";
+        this.effectX = 5;
+        this.effectName = "attack";
 
         // custom abilities
         this.pointCost = undefined;//how much it costs to include this ability (for custom abilities)
         this.costReqText = "";//what it costs to play this ability (for custom abilities)
         this.effectText = "";//what this ability does (for custom abilities)
-        this.effectCost = undefined;//how much it costs to include this effect (for custom abilities)
+        this.effectCost = 10;//how much it costs to include this effect (for custom abilities)
     }
 
 
@@ -97,8 +97,8 @@ class Ability {
     }
 
     get EffectCost() {
-        if (this.effectCost != undefined && this.abilityEffect.name == "custom") {
-            return Math.max(0, this.effectCost);
+        if (this.effectName == "custom") {
+            return Math.max(0, this.effectCost ?? 10);
         }
         return Math.max(0, this.abilityEffect
             ?.getCost(this.effectX)
