@@ -307,29 +307,6 @@ function Canvas({ card, autoDownload }) {
         }
     }, [card, autoDownload]);
 
-    const makeCardTest = () => {
-        card.name = ""; //"Willus";
-        card.species = "Leftop";
-        card.basePower = 5;
-        card.addBiomeModifier("Forest", 2);
-        card.addBiomeModifier("Jungle", 2);
-        card.tags = [
-            "insect",
-            "flying",
-            "light",
-            "poison",
-        ];
-        card.ability = "SHIELD LASER:  -1 : Reduce incoming damage by 5."
-        card.flavorText = "Although solitary, these giant insects are quite formidable."
-
-        //Card Info
-        card.id = "#1256201516";
-        card.variant = "01/01";
-        card.editorVersion = "0.001";
-        card.creationDate = "2024-03-02";
-        return card;
-    }
-
     return (
         <div className='cardPanel'>
             <canvas ref={canvasRef} className='cvsCard' />
