@@ -1,5 +1,6 @@
 "use strict";
 
+import { DRAWLAYER_BOX, DRAWLAYER_IMAGE } from "../Data/DrawLayer";
 import { VERSION } from "../Version";
 import { arraySort, getDateString, getLines } from "./Utility";
 
@@ -15,51 +16,33 @@ export function renderCard(card, canvas, drawData) {
     const width = canvas.width;
     const height = canvas.height;
 
-    // card = makeCardTest();
+    //Process layers
+    drawData.forEach(draw => {
+        switch (draw.type) {
+            case DRAWLAYER_BOX:
+                context.fillStyle = draw.color;
+                context.fillRect(draw.position.x, draw.position.y, draw.size.x, draw.size.y);
+                break;
+            case DRAWLAYER_IMAGE:
+                let img = draw.getInfo(card);
+                if (img) {
+                    context.drawImage(
+                        img,
+                        draw.position.x,
+                        draw.position.y,
+                        draw.size.x,
+                        draw.size.y
+                    );
+                }
+                break;
+            default:
+                console.error("unknown draw layer type:", draw.type);
+        }
+    });
 
     // Back Boxes
     const bufferBase = 0.1 * RESOLUTION;
     const textRow = 0.25 * RESOLUTION;
-    const textAreaY = 2.4 * RESOLUTION;
-    const textAreaH = 1 * RESOLUTION;
-    let boxes = [
-        // border
-        { c: 'black', x: 0, y: 0, w: width, h: height },
-        // base
-        { c: card.colors[0], x: 0 + bufferBase, y: 0 + bufferBase, w: width - bufferBase * 2, h: height - bufferBase * 2 },
-    ];
-    boxes.forEach(box => {
-        context.fillStyle = box.c;
-        context.fillRect(box.x, box.y, box.w, box.h);
-    });
-
-    // images
-    let img = card.imgPortrait;
-    if (img) {
-        context.drawImage(
-            img,
-            0 + bufferBase,
-            textRow * 2.75 + bufferBase,
-            width - bufferBase * 2,
-            1.615 * RESOLUTION
-        );
-    }
-
-    //Front Boxes
-    boxes = [
-        //type
-        { c: card.colors[1], x: 0 + bufferBase, y: textRow * 2 + bufferBase, w: width - bufferBase * 2, h: textRow * .75 },
-        //text border
-        { c: 'black', x: 0, y: textAreaY, w: width, h: textAreaH },
-        //text area
-        { c: card.colors[1], x: 0 + bufferBase, y: textAreaY + bufferBase / 2, w: width - bufferBase * 2, h: textAreaH - bufferBase },
-        //card info
-        { c: 'black', x: 0, y: height - bufferBase * 2, w: width, h: bufferBase * 2 },
-    ];
-    boxes.forEach(box => {
-        context.fillStyle = box.c;
-        context.fillRect(box.x, box.y, box.w, box.h);
-    });
 
     //Circles
     context.beginPath();

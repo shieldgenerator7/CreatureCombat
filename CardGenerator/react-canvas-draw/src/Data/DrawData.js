@@ -27,7 +27,7 @@ export function generateCardSkin(width, height, margin, padding) {
             undefined,
             new Vector2(margin, margin + rowheight * 5),
             new Vector2(marginWidth, rowheight * 8),
-            (card) => card.portrait//TODO: set card.portrait
+            (card) => card.imgPortrait
         ),
         //type bg
         new DrawLayer(
