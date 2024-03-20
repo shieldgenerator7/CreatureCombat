@@ -35,32 +35,32 @@ export function renderCard(card, canvas, drawData) {
                 if (width != size.x || height != size.y) {
                     let wRatio = size.x / width;
                     let hRatio = size.y / height;
+                    const fitWidth = () => {
+                        let newHeight = height * wRatio;
+                        let newY = pos.y + (size.y - newHeight) / 2
+                        size.y = newHeight;
+                        pos.y = newY;
+                    }
+                    const fitHeight = () => {
+                        let newWidth = width * hRatio;
+                        let newX = pos.x + (size.x - newWidth) / 2
+                        size.x = newWidth;
+                        pos.x = newX;
+                    }
                     switch (card.imageFit) {
                         case FIT_WHOLE:
                             if (wRatio < hRatio) {
-                                let newHeight = height * wRatio;
-                                let newY = pos.y + (size.y - newHeight) / 2
-                                size.y = newHeight;
-                                pos.y = newY;
+                                fitWidth();
                             }
                             else {
-                                let newWidth = width * hRatio;
-                                let newX = pos.x + (size.x - newWidth) / 2
-                                size.x = newWidth;
-                                pos.x = newX;
+                                fitHeight();
                             }
                             break;
                         case FIT_WIDTH:
-                            let newHeight = height * wRatio;
-                            let newY = pos.y + (size.y - newHeight) / 2
-                            size.y = newHeight;
-                            pos.y = newY;
+                            fitWidth();
                             break;
                         case FIT_HEIGHT:
-                            let newWidth = width * hRatio;
-                            let newX = pos.x + (size.x - newWidth) / 2
-                            size.x = newWidth;
-                            pos.x = newX;
+                            fitHeight();
                             break;
                         default:
                             console.error("unknown fit:", card.imageFit);
