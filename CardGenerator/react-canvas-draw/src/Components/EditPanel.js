@@ -281,7 +281,8 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 let value = e.target.value * 1;
                                 card.imageFit = value;
                                 updateCard(card);
-                            }}>
+                            }}
+                                value={ card.imageFit}>
                                 <option value={FIT_WHOLE}>Whole</option>
                                 <option value={FIT_FILL}>Fill</option>
                                 <option value={FIT_WIDTH}>Width</option>
