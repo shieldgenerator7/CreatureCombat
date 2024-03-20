@@ -36,6 +36,14 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(marginWidth, markersY[2]-markersY[1]),
             (card) => card.imgPortrait
         ),
+        //background
+        new DrawLayer(
+            DRAWLAYER_BOX,
+            'white',
+            new Vector2(margin, margin),
+            new Vector2(marginWidth, markersY[1]-margin),
+            (card) => card.colors[0]
+        ),
         //type bg
         new DrawLayer(
             DRAWLAYER_BOX,
