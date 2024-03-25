@@ -112,33 +112,64 @@ export function renderCard(card, canvas, drawData) {
                 );
                 break;
             case DRAWLAYER_TEXT:
-                const text = draw.getInfo(card);
+                const text = [draw.getInfo(card)].flat(Infinity);
+                if (text.length == 0) { return; }
                 const format = draw.getFormat(card) ?? {};
                 const padding = format.padding ?? draw.size.y * 0.05;
-                let fontSize = draw.size.y - (padding * 2);
+                let fontSize = (draw.size.y - (padding * 2)) / text.length;
                 context.font = `${fontSize}px Arial`;
-                const measurement = context.measureText(text);
-                let x;
                 const padLeft = format.padding_left ?? padding;
                 const padRight = format.padding_right ?? padding;
                 const textalign = format.text_align ?? "left";
-                switch (textalign) {
-                    case "left":
-                        x = draw.position.x + padLeft;
-                        break;
-                    case "right":
-                        x = draw.position.x + draw.size.x - measurement.width - padRight;
-                        break;
-                    case "center":
-                        let diff = draw.size.x - measurement.width - padLeft - padRight;
-                        x = draw.position.x + diff / 2 + padLeft;
-                        break;
-                    default:
-                        console.error("unknown textalign value: ", textalign);
-                }
-                let y = draw.position.y + draw.size.y - (padding * 1.3);
+                const LINEHEIGHT = 0.1 * RESOLUTION;
+                const boldSymbol = "*";
+                const italicSymbol = "_";
+                let bold = false;
+                let italic = false;
+                const startY = draw.position.y + (padding * 1.3) + fontSize;
+                const bufferY = fontSize;
                 context.fillStyle = draw.getColor(card) ?? draw.color;
-                context.fillText(text, x, y);
+                text.forEach((line, i) => {
+                    line = `${line}`;
+                    if (!line) { return; }
+                    const measurement = context.measureText(
+                        line.replaceAll(boldSymbol, "").replaceAll(italicSymbol, "")
+                    );
+                    let x;
+                    switch (textalign) {
+                        case "left":
+                            x = draw.position.x + padLeft;
+                            break;
+                        case "right":
+                            x = draw.position.x + draw.size.x - measurement.width - padRight;
+                            break;
+                        case "center":
+                            let diff = draw.size.x - measurement.width - padLeft - padRight;
+                            x = draw.position.x + diff / 2 + padLeft;
+                            break;
+                        default:
+                            console.error("unknown textalign value: ", textalign);
+                    }
+                    let y = startY + bufferY * i;
+                    [...line].forEach(char => {
+                        if (char == boldSymbol) {
+                            bold = !bold;
+                            return;
+                        }
+                        if (char == italicSymbol) {
+                            italic = !italic;
+                            return;
+                        }
+                        //write char
+                        context.font = `${(bold) ? "bold " : ""}${(italic) ? "italic " : ""}${fontSize}px Arial`;
+                        context.fillText(
+                            char,
+                            x,
+                            y
+                        );
+                        x += context.measureText(char).width;
+                    });
+                });
                 break;
             default:
                 console.error("unknown draw layer type:", draw.type);
