@@ -112,14 +112,14 @@ export function renderCard(card, canvas, drawData) {
                 );
                 break;
             case DRAWLAYER_TEXT:
-                let fontSize = 2.5 / 4;
-                context.font = `${0.25 * RESOLUTION * fontSize}px Arial`;
+                const format = draw.getFormat(card);
+                const padding = format?.padding ?? draw.size.y * 0.05;
+                let fontSize = draw.size.y - (padding * 2);
+                context.font = `${fontSize}px Arial`;
+                let x = draw.position.x + (format?.padding_left ?? padding);
+                let y = draw.position.y + draw.size.y - (padding * 1.3);
                 context.fillStyle = draw.getColor(card) ?? draw.color;
-                context.fillText(
-                    draw.getInfo(card),
-                    draw.position.x,
-                    draw.position.y
-                );
+                context.fillText(draw.getInfo(card), x, y);
                 break;
             default:
                 console.error("unknown draw layer type:", draw.type);
