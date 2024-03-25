@@ -119,13 +119,23 @@ export function renderCard(card, canvas, drawData) {
                 const padLeft = format.padding_left ?? padding;
                 const padRight = format.padding_right ?? padding;
                 const MAX_WIDTH_TEXT = draw.size.x - padLeft - padRight;
-                const lines = text
+                let fontSize = format.max_text_width;
+                context.font = `${fontSize}px Arial`;
+                let lines = text
                     .split("\n")
                     .map(line => getLines(context, line, MAX_WIDTH_TEXT))
                     .flat(Infinity)
                     .filter(l => l);
-                let fontSize = (draw.size.y - (padding * 2)) / lines.length;
+                fontSize = Math.min(
+                    format.max_text_width,
+                    (draw.size.y - (padding * 2)) / lines.length
+                );
                 context.font = `${fontSize}px Arial`;
+                lines = text
+                    .split("\n")
+                    .map(line => getLines(context, line, MAX_WIDTH_TEXT))
+                    .flat(Infinity)
+                    .filter(l => l);
                 const textalign = format.text_align ?? "left";
                 const LINEHEIGHT = 0.1 * RESOLUTION;
                 const boldSymbol = "*";

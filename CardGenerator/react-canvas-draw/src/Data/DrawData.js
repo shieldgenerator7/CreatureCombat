@@ -168,11 +168,18 @@ export function generateCardSkin(width, height, margin, padding) {
             },
         ),
         //rest count, abilities, flavor text
+        // new DrawLayer(
+        //     DRAWLAYER_BOX,
+        //     'white',
+        //     new Vector2(margin, markersY[2]),
+        //     new Vector2(marginWidth, rowheight * 3.4),
+        //     (card) => card.colors[0]
+        // ),
         new DrawLayer(
             DRAWLAYER_TEXT,
             'white',
             new Vector2(margin, markersY[2]),
-            new Vector2(marginWidth, markersY[3] - markersY[2]),
+            new Vector2(marginWidth, rowheight * 3.4),
             (card) => {
                 let remindersSeen = [];
                 let showReminders = card.showReminderText;
@@ -196,7 +203,14 @@ export function generateCardSkin(width, height, margin, padding) {
                     .flat(Infinity)
                     .filter(l => l)
                     .join("\n");
-            }
+            },
+            (card) => card.colors[4],
+            (card) => {
+                return {
+                    text_align: "left",
+                    max_text_width: rowheight * 0.38
+                }
+            },
         ),
         //base power
         // new DrawLayer(
