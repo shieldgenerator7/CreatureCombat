@@ -45,6 +45,16 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                     value={card.basePower.toString()}></input>
             </div>
 
+            {/* Rest Count */}
+            Rest Count
+            <div>
+                <input type="number" className="field" onChange={(e) => {
+                    card.rest = Math.max(0, e.target.value * 1);
+                    updateCard(card);
+                }}
+                    value={card.rest.toString()}></input>
+            </div>
+
             {/* Biome Modifiers */}
             Biome Modifiers
             {

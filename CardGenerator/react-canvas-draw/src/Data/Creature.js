@@ -31,6 +31,8 @@ class Creature {
         this.basePower = 1;
         this.biomeModifiers = [];
 
+        this.rest = 1;
+
         this.abilities = [];
         this.flavorText = "";
 
@@ -88,6 +90,12 @@ class Creature {
         //Abilities
         cost += Math.ceil(this.abilityCost || 0);//test
         cost += Math.max(0, arraySum(this.abilities, a => (a.TotalCost || 0)));
+        //Rest
+        if (this.rest > 0) {
+            const restSqr = Math.pow(this.rest, 2);
+            cost += -(Math.min(restSqr, this.rest * 5) + Math.max(1, restSqr * 0.1));
+            // cost *= 0.75 + 0.25 * (1 / ((this.rest-1) || 1));
+        }
         //
         cost = Math.round(cost);
         cost = Math.max(cost, this.basePower);
@@ -143,4 +151,7 @@ export function backwardsCompatifyCreature(creature) {
 
     //Change: add imageFit
     creature.imageFit ??= FIT_WHOLE;
+
+    //Change: add rest
+    creature.rest ??= 0;
 }

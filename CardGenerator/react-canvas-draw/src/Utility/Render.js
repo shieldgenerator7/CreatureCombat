@@ -192,6 +192,17 @@ export function renderCard(card, canvas, drawData) {
         width - bufferBase * 2 - fontSize * 70 * starCount,
         textRow * 2 + bufferBase - ((textRow - fontSize) * 0.3)
     );
+    //Rest Count
+    if (card.rest > 0) {
+        context.fillStyle = card.colors[3];
+        fontSize = 0.3;
+        context.font = `${textRow * fontSize}px Arial`;
+        context.fillText(
+            `Rest ${card.rest}`,
+            0 + bufferBase * 2,
+            textRow * 10.5 - (0.075 * RESOLUTION)
+        );
+    }
     //Ability
     context.fillStyle = card.colors[4];
     fontSize = 0.3;
