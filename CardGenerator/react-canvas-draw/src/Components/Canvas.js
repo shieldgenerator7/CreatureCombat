@@ -32,7 +32,7 @@ function Canvas({ card, autoDownload }) {
     };
 
     useEffect(() => {
-            updateCanvas();
+        updateCanvas();
     }, [card]);
 
     return (

@@ -34,7 +34,7 @@ export function generateCardSkin(width, height, margin, padding) {
             DRAWLAYER_IMAGE,
             undefined,
             new Vector2(margin, markersY[1]),
-            new Vector2(marginWidth, markersY[2]-markersY[1]),
+            new Vector2(marginWidth, markersY[2] - markersY[1]),
             (card) => card.imgPortrait
         ),
         //background
@@ -42,7 +42,7 @@ export function generateCardSkin(width, height, margin, padding) {
             DRAWLAYER_BOX,
             'white',
             new Vector2(margin, margin),
-            new Vector2(marginWidth, markersY[1]-margin),
+            new Vector2(marginWidth, markersY[1] - margin),
             (card) => card.colors[0]
         ),
         //type bg
@@ -50,7 +50,7 @@ export function generateCardSkin(width, height, margin, padding) {
             DRAWLAYER_BOX,
             '#dbd69e',
             new Vector2(margin, markersY[0]),
-            new Vector2(marginWidth, markersY[1]-markersY[0]),
+            new Vector2(marginWidth, markersY[1] - markersY[0]),
             (card) => card.colors[1]
         ),
         //text area bg
@@ -58,7 +58,7 @@ export function generateCardSkin(width, height, margin, padding) {
             DRAWLAYER_BOX,
             '#dbd69e',
             new Vector2(margin, markersY[2]),
-            new Vector2(marginWidth, markersY[3]-markersY[2]),
+            new Vector2(marginWidth, markersY[3] - markersY[2]),
             (card) => card.colors[1]
         ),
         //text border
@@ -79,8 +79,8 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_CIRCLE,
             'grey',
-            new Vector2(margin + 50, markersY[3]-50),
-            new Vector2(rowheight*.75, rowheight*.75),
+            new Vector2(margin + 50, markersY[3] - 50),
+            new Vector2(rowheight * .75, rowheight * .75),
             (card) => card.colors[2]
         ),
 
