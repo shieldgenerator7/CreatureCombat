@@ -1,7 +1,7 @@
 "use strict";
 
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from "../Data/Creature";
-import { DRAWLAYER_BOX, DRAWLAYER_IMAGE } from "../Data/DrawLayer";
+import { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE } from "../Data/DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "../Data/Vector2";
 import { VERSION } from "../Version";
 import { arraySort, getDateString, getLines } from "./Utility";
@@ -24,6 +24,18 @@ export function renderCard(card, canvas, drawData) {
             case DRAWLAYER_BOX:
                 context.fillStyle = draw.getInfo(card) ?? draw.color;
                 context.fillRect(draw.position.x, draw.position.y, draw.size.x, draw.size.y);
+                break;
+            case DRAWLAYER_CIRCLE:
+                context.beginPath();
+                context.arc(
+                    draw.position.x,
+                    draw.position.y,
+                    draw.size.x,
+                    0,
+                    2 * Math.PI
+                );
+                context.fillStyle = draw.getInfo(card) ?? draw.color;
+                context.fill();
                 break;
             case DRAWLAYER_IMAGE:
                 let img = draw.getInfo(card);
@@ -108,17 +120,6 @@ export function renderCard(card, canvas, drawData) {
     const bufferBase = 0.1 * RESOLUTION;
     const textRow = 0.25 * RESOLUTION;
 
-    //Circles
-    context.beginPath();
-    context.arc(
-        bufferBase * 5.5 * 0.5,
-        height - bufferBase * 4.2,
-        50,
-        0,
-        2 * Math.PI
-    );
-    context.fillStyle = card.colors[2];
-    context.fill();
     //Ability Cost (TEST)
     // context.beginPath();
     // context.arc(

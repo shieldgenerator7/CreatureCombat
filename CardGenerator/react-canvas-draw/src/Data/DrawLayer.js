@@ -3,6 +3,7 @@
 import Vector2, { VECTOR2_ZERO } from "./Vector2";
 
 export const DRAWLAYER_BOX = "box";
+export const DRAWLAYER_CIRCLE = "circle";
 export const DRAWLAYER_IMAGE = "image";
 
 class DrawLayer {
