@@ -115,17 +115,23 @@ export function renderCard(card, canvas, drawData) {
                 const text = draw.getInfo(card);
                 const format = draw.getFormat(card) ?? {};
                 const padding = format.padding ?? draw.size.y * 0.05;
-                const textalign = format.text_align ?? "left";
                 let fontSize = draw.size.y - (padding * 2);
                 context.font = `${fontSize}px Arial`;
+                const measurement = context.measureText(text);
                 let x;
+                const padLeft = format.padding_left ?? padding;
+                const padRight = format.padding_right ?? padding;
+                const textalign = format.text_align ?? "left";
                 switch (textalign) {
                     case "left":
-                        x = draw.position.x + (format.padding_left ?? padding);
+                        x = draw.position.x + padLeft;
                         break;
                     case "right":
-                        x = draw.position.x + draw.size.x - context.measureText(text).width
-                            - (format.padding_right ?? padding);
+                        x = draw.position.x + draw.size.x - measurement.width - padRight;
+                        break;
+                    case "center":
+                        let diff = draw.size.x - measurement.width - padLeft - padRight;
+                        x = draw.position.x + diff / 2 + padLeft;
                         break;
                     default:
                         console.error("unknown textalign value: ", textalign);
@@ -236,15 +242,7 @@ export function renderCard(card, canvas, drawData) {
     //     textRow * 10.5
     // );
     //
-    //Base Power
-    context.fillStyle = card.colors[5];
-    fontSize = 0.5;
-    context.font = `${textRow * fontSize}px Arial`;
-    context.fillText(
-        card.basePower,
-        0 + bufferBase * 2.5,
-        height - bufferBase * 2.5 - fontSize * 70
-    );
+
     //Biome Modifiers
     context.fillStyle = card.colors[4];
     fontSize = 0.35;

@@ -166,6 +166,28 @@ export function generateCardSkin(width, height, margin, padding) {
                 }
             },
         ),
+        //base power
+        // new DrawLayer(
+        //     DRAWLAYER_BOX,
+        //     'white',
+        //     new Vector2(margin + rowheight * 0.17, markersY[3] - rowheight * 1.45),
+        //     new Vector2(rowheight * 1.28, rowheight * 1.28),
+        //     (card) => card.colors[1],
+        // ),
+        new DrawLayer(
+            DRAWLAYER_TEXT,
+            'white',
+            new Vector2(margin + rowheight * 0.17, markersY[3] - rowheight * 1.4),
+            new Vector2(rowheight * 1.28, rowheight * 0.9),
+            (card) => card.basePower,
+            (card) => card.colors[5],
+            (card) => {
+                return {
+                    text_align: "center",
+                    padding: 0,
+                }
+            },
+        ),
     ];
     return cardSkin;
 }
