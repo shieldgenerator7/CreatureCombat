@@ -285,6 +285,7 @@ function inflateObject(obj, prototype, delegates = []) {
 
 //2024-03-05: copied from https://stackoverflow.com/a/16599668/2336212
 export function getLines(ctx, text, maxWidth) {
+    if (!text) { return []; }
     var words = text.split(" ");
     var lines = [];
     var currentLine = words[0];
