@@ -176,7 +176,9 @@ export function renderCard(card, canvas, drawData) {
     let restLines = getLines(context, card.getRestText(true), MAX_WIDTH_TEXT);
     let flavorLines = getLines(context, `_${card.flavorText.trim()}_`, MAX_WIDTH_TEXT)
         .filter(l => l);
-    let abilityLines = [
+    let abilityLines;
+    if (card.showReminderText) {
+        abilityLines = [
         restLines,
         card.abilities
             .map(ability => {
@@ -192,7 +194,8 @@ export function renderCard(card, canvas, drawData) {
     ]
         .flat(Infinity)
         .filter(l => l);
-    if (abilityLines.length > 5) {
+    } else //if (abilityLines.length > 5)
+    {
         restLines = getLines(context, card.getRestText(false), MAX_WIDTH_TEXT);
         abilityLines = [
             restLines,

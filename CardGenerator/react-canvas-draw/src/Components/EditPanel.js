@@ -98,6 +98,15 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Abilities */}
             Ability
+            <div className='info'>
+                Show Reminder Text
+                <input type="checkbox" checked={card.showReminderText}
+                    onChange={() => {
+                        card.showReminderText = !card.showReminderText;
+                        updateCard(card);
+                    }}
+                />
+            </div>
             {
                 card.abilities.map((ability, i) => {
                     const reqFunc = (e) => {

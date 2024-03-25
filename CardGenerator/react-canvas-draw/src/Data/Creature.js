@@ -34,6 +34,7 @@ class Creature {
         this.rest = 1;
 
         this.abilities = [];
+        this.showReminderText = true;
         this.flavorText = "";
 
         //Card Info
@@ -163,4 +164,7 @@ export function backwardsCompatifyCreature(creature) {
 
     //Change: add rest
     creature.rest ??= 0;
+
+    //Change: add showReminderText
+    creature.showReminderText ??= true;
 }
