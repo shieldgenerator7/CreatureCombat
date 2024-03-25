@@ -2,8 +2,6 @@
 
 -bug: sort combobox doesnt reflect current sort order (needs variable that it controls and reads from)
 
--bug: sort A-Z separates upper case and lower case
-
 -report the point cost (or make the point cost in the top right of the card more obvious)
 
 -add link to rules

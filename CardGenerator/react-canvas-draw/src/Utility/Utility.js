@@ -104,6 +104,9 @@ export function arraySort(array, mapFunc = (a) => a, ascending = true) {
     array.sort((a, b) => {
         let mfa = mapFunc(a);
         let mfb = mapFunc(b);
+        if (isString(mfa) || isString(mfb)) {
+            return ("" + mfa).localeCompare("" + mfb);
+        }
         if (mfa < mfb) {
             return -1 * ascValue;
         }
