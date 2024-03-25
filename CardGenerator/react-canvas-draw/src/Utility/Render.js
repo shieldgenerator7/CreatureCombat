@@ -146,24 +146,7 @@ export function renderCard(card, canvas, drawData) {
 
     context.fillStyle = card.colors[3];
     let fontSize;
-    //Species
-    fontSize = 7 / 8;
-    context.fillStyle = card.colors[3];
-    context.font = `${textRow * fontSize}px Arial`;
-    context.fillText(
-        card.species,
-        bufferBase * 6 / 4,
-        textRow * 2 + bufferBase - ((textRow - fontSize) * 0.3)
-    );
-    //Tags
-    fontSize = 0.35;
-    context.fillStyle = card.colors[4];
-    context.font = `${textRow * fontSize}px Arial`;
-    context.fillText(
-        card.tags.map(t => t).join(" • "),
-        bufferBase * 6 / 4,
-        textRow * 2.5 + bufferBase
-    );
+
     //Cost
     fontSize = 0.5;
     context.fillStyle = card.colors[3];
