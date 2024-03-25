@@ -87,7 +87,7 @@ function App() {
     //
 
     useEffect(() => {
-        let cardName = card?.name || card?.species;
+        let cardName = card?.getNameText(true, false);
         document.title = ((cardName) ? `${cardName} - ` : "") + `Creature Combat v${VERSION}`;
     }, [card, cardList]);
 

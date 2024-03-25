@@ -16,7 +16,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                     <select onChange={(e) => {
                         let value = e.target.value;
                         let mf = (a) => a;//"map func"
-                        let mfname = (a) => a.name || a.species || "[creature]";
+                        let mfname = (a) => a.getNameText(true, false) || "[creature]";
                         let mfcost = (a) => a.getFinalCost();
                         let mfstars = (a) => a.getStarCount();
                         let mfpowerbase = (a) => a.basePower;
@@ -37,7 +37,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                         arraySort(cardList, mf, !reverseList.includes(value));
                         setCardList([...cardList]);
                     }}>
-                        <option value="name">Name (or Species)</option>
+                        <option value="name">Species & Name</option>
                         <option value="cost">Cost</option>
                         <option value="stars">Stars</option>
                         <option value="power_base">Base Power</option>
@@ -50,7 +50,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
             <div className="list">
                 {
                     cardList.map((card, i) => {
-                        let cardName = card.name || card.species || "[creature]";
+                        let cardName = card.getNameText(true, false) || "[creature]";
                         let cardCost = card.getFinalCost();
                         cardCost += (cardCost != 1) ? "pts" : "pt";
                         let className = "listItem" + ((card == currentCard) ? " select" : "");

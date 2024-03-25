@@ -355,8 +355,8 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
 
                     const link = document.createElement('a');
-                    let cardName = `${card.name || card.species || "card"}`.trim().replaceAll(" ", "");
-                    link.download = `${cardName}_${card.getFinalCost()}pts.card`;
+                    let cardName = `${card.getNameText(false, true) || "card"}`.trim().replaceAll(" ", "");
+                    link.download = `${cardName}.card`;
 
                     //2024-03-17: copied from https://stackoverflow.com/a/30800715/2336212
                     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(json);

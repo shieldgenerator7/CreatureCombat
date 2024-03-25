@@ -74,6 +74,29 @@ class Creature {
         this.abilities.push(ability);
     }
 
+    getNameText(display, points) {
+        const connector = (display) ? ", " : "_";
+        let finalCost = this.getFinalCost();
+        finalCost += (finalCost != 1) ? "pts" : "pt";
+        const pointStr = (points)
+            ? (display) ? ` (${finalCost})` : `_${finalCost}`
+            : "";
+        let nameStr;
+        if (this.name && this.species) {
+            nameStr = `${this.species}${connector}${this.name}`;
+        }
+        else if (this.name) {
+            nameStr = `${this.name}`;
+        }
+        else if (this.species) {
+            nameStr = `${this.species}`;
+        }
+        else {
+            nameStr = "";
+        }
+        return `${nameStr}${pointStr}`;
+    }
+
     getRestText(reminder = true) {
         if (!(this.rest > 0)) { return undefined; }
         let text = `*Rest ${this.rest}* `;
