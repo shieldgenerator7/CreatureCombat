@@ -83,7 +83,7 @@ class Ability {
         if (reqsym) {
             fulltext += ` (${reqsym}: ${this.RequirementText})`;
         }
-        return fulltext;
+        return fulltext.trim();
     }
 
     get TotalCost() {

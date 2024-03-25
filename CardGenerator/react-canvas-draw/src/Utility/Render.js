@@ -192,43 +192,50 @@ export function renderCard(card, canvas, drawData) {
         width - bufferBase * 2 - fontSize * 70 * starCount,
         textRow * 2 + bufferBase - ((textRow - fontSize) * 0.3)
     );
-    //Rest Count
-    if (card.rest > 0) {
-        context.fillStyle = card.colors[3];
-        fontSize = 0.3;
-        context.font = `${textRow * fontSize}px Arial`;
-        context.fillText(
-            `Rest ${card.rest}`,
-            0 + bufferBase * 2,
-            textRow * 10.5 - (0.075 * RESOLUTION)
-        );
-    }
-    //Ability
+    //Ability Box (Rest Count, Abilities, Flavor Text)
     context.fillStyle = card.colors[4];
     fontSize = 0.3;
     context.font = `${textRow * fontSize}px Arial`;
     let abilityStartY = textRow * 10.5;
     const MAX_WIDTH_TEXT = width - bufferBase * 4;
     let remindersSeen = [];
-    let abilityLines = card.abilities
-        .map(ability => {
-            let reqsym = ability.RequirementSymbol;
-            if (reqsym && !remindersSeen.includes(reqsym)) {
-                remindersSeen.push(reqsym);
-                return ability.FullTextWithReminders;
-            }
-            return ability.FullText;
-        })
-        .map(text => getLines(context, text, MAX_WIDTH_TEXT))
-        .flat();
+    let flavorLines = getLines(context, card.flavorText.trim(), MAX_WIDTH_TEXT)
+        .filter(l => l);
+    let abilityLines = [
+        (card.rest > 0) ? `Rest ${card.rest}` : undefined,
+        card.abilities
+            .map(ability => {
+                let reqsym = ability.RequirementSymbol;
+                if (reqsym && !remindersSeen.includes(reqsym)) {
+                    remindersSeen.push(reqsym);
+                    return ability.FullTextWithReminders;
+                }
+                return ability.FullText;
+            })
+            .map(text => getLines(context, text, MAX_WIDTH_TEXT)),
+        flavorLines
+    ]
+        .flat(Infinity)
+        .filter(l => l);
+    console.log("abilityLines", abilityLines);
     if (abilityLines.length > 5) {
-        abilityLines = card.abilities
-            .map(ability => ability.FullText)
-            .map(text => getLines(context, text, MAX_WIDTH_TEXT))
-            .flat();
+        abilityLines = [
+            (card.rest > 0) ? `Rest ${card.rest}` : undefined,
+            card.abilities
+                .map(ability => ability.FullText)
+                .map(text => getLines(context, text, MAX_WIDTH_TEXT)),
+            flavorLines
+        ]
+            .flat(Infinity)
+            .filter(l => l);
     }
     const LINEHEIGHT = 0.1 * RESOLUTION;
     abilityLines.forEach((line, i) => {
+        //flavor fill change
+        if (i >= abilityLines.length - flavorLines.length) {
+            context.font = `italic ${textRow * fontSize}px Arial`;
+        }
+        //
         context.fillText(
             line,
             0 + bufferBase * 2,
@@ -244,22 +251,6 @@ export function renderCard(card, canvas, drawData) {
     //     0 + bufferBase * 8,
     //     textRow * 10.5
     // );
-    //Flavor Text
-    context.fillStyle = card.colors[4];
-    fontSize = 0.3;
-    context.font = `italic ${textRow * fontSize}px Arial`;
-    let flavorStartY = Math.max(
-        abilityStartY + (abilityLines.length * LINEHEIGHT),
-        textRow * 11.2
-    );
-    let flavorLines = getLines(context, card.flavorText.trim(), MAX_WIDTH_TEXT);
-    flavorLines.forEach((line, i) => {
-        context.fillText(
-            line,
-            0 + bufferBase * 2,
-            flavorStartY + LINEHEIGHT * i
-        );
-    })
     //
     //Base Power
     context.fillStyle = card.colors[5];
