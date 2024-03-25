@@ -8,8 +8,6 @@
 
 -rest setting
 
--increase cost of Ward
-
 -flavor text needs to be included in textbox size check (when determining whether to include reinder text or not)
 
 -trim whitespace ability and flavor text

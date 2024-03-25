@@ -130,12 +130,12 @@ export const abilityEffects = [
     new AbilityAtom(
         "ward",
         "When an enemy Creature targets this Creature, they must pay Exhaust X, or else their ability has no effect on it.",
-        (x) => x * 0.3
+        (x) => x * 1.1
     ),
     new AbilityAtom(
         "ward-any",
         "Target Creature has Ward X.",
-        (x) => x * 0.3
+        (x) => x * 1.1
     ),
 ].sort(sortFunc);
 
