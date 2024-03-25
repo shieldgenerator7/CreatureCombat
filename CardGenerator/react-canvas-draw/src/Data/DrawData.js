@@ -122,7 +122,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             'black',
-            new Vector2(margin, markersY[0] + 2),
+            new Vector2(margin, markersY[0] - rowheight * 0.15),
             new Vector2(marginWidth, markersY[1] - markersY[0]),
             (card) => card.tags.map(t => t.trim()).join(" • "),
             (card) => card.colors[4],
@@ -154,7 +154,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             'black',
-            new Vector2(margin, margin + rowheight * 1),
+            new Vector2(margin, margin + rowheight * 0.8),
             new Vector2(marginWidth, rowheight * 1.5),
             (card) => "★ ".repeat(card.getStarCount()).trim(),
             (card) => card.colors[3],
@@ -171,14 +171,14 @@ export function generateCardSkin(width, height, margin, padding) {
         // new DrawLayer(
         //     DRAWLAYER_BOX,
         //     'white',
-        //     new Vector2(margin, markersY[2]),
-        //     new Vector2(marginWidth, rowheight * 3.4),
+        //     new Vector2(margin, markersY[2] + rowheight * 0.2),
+        //     new Vector2(marginWidth, rowheight * 3.2),
         //     (card) => card.colors[0]
         // ),
         new DrawLayer(
             DRAWLAYER_TEXT,
             'white',
-            new Vector2(margin, markersY[2]+ rowheight*0.2),
+            new Vector2(margin, markersY[2] + rowheight * 0.2),
             new Vector2(marginWidth, rowheight * 3.2),
             (card) => {
                 let remindersSeen = [];
@@ -194,7 +194,7 @@ export function generateCardSkin(width, height, margin, padding) {
                             return ability.FullTextWithReminders;
                         }
                         return ability.FullText;
-                    })
+                    });
                 return [
                     restLine,
                     abilityLines,
@@ -202,7 +202,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 ]
                     .flat(Infinity)
                     .filter(l => l)
-                    .join("\n");
+                    .join("\n \n");
             },
             (card) => card.colors[4],
             (card) => {

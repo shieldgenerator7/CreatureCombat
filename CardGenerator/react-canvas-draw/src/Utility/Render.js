@@ -121,7 +121,9 @@ export function renderCard(card, canvas, drawData) {
                 const MAX_WIDTH_TEXT = draw.size.x - padLeft - padRight;
                 let fontSize;
                 let lines = text.split("\n");
-                for (let i = 0; i < 5; i++) {
+                let prevFontSize = 0;
+                let i = 0;
+                for (i = 0; i < 1000; i++) {
                     fontSize = Math.min(
                         format.max_text_height || Infinity,
                         (draw.size.y - (padding * 2)) / lines.length
@@ -132,6 +134,10 @@ export function renderCard(card, canvas, drawData) {
                         .map(line => getLines(context, line, MAX_WIDTH_TEXT))
                         .flat(Infinity)
                         .filter(l => l);
+                    if (i % 2 == 1) {
+                        if (Math.abs(prevFontSize - fontSize) < 0.01) { break; }
+                        prevFontSize = fontSize;
+                    }
                 }
                 const textalign = format.text_align ?? "left";
                 const LINEHEIGHT = 0.1 * RESOLUTION;
