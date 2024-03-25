@@ -178,8 +178,8 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             'white',
-            new Vector2(margin, markersY[2]),
-            new Vector2(marginWidth, rowheight * 3.4),
+            new Vector2(margin, markersY[2]+ rowheight*0.2),
+            new Vector2(marginWidth, rowheight * 3.2),
             (card) => {
                 let remindersSeen = [];
                 let showReminders = card.showReminderText;
@@ -208,7 +208,8 @@ export function generateCardSkin(width, height, margin, padding) {
             (card) => {
                 return {
                     text_align: "left",
-                    max_text_width: rowheight * 0.38
+                    max_text_height: rowheight * 0.38,
+                    padding: 15,
                 }
             },
         ),
