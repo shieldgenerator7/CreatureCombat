@@ -1,4 +1,13 @@
 
+-bug: cant backspace comma in type text box
+
+-when portrait is small, still expand them to fill the space as much as possible (if do before adding versatile image controls)
+
+-trim custom ability effect text
+
+-improve number up/down controls
+
+-skorh: is it ok if the final cost is less than the base power?
 
 -bug: sort combobox doesnt reflect current sort order (needs variable that it controls and reads from)
 
