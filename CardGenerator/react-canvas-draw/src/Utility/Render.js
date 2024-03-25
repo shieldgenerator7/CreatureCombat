@@ -201,7 +201,8 @@ export function renderCard(card, canvas, drawData) {
     let remindersSeen = [];
     let restLines = getLines(context, card.getRestText(true), MAX_WIDTH_TEXT);
     let flavorLines = getLines(context, card.flavorText.trim(), MAX_WIDTH_TEXT)
-        .filter(l => l);
+        .filter(l => l)
+        .map(l => `_${l}_`);
     let abilityLines = [
         restLines,
         card.abilities
@@ -231,15 +232,35 @@ export function renderCard(card, canvas, drawData) {
             .filter(l => l);
     }
     const LINEHEIGHT = 0.1 * RESOLUTION;
+    let bold = false;
+    let italic = false;
     abilityLines.forEach((line, i) => {
         context.font = `${textRow * fontSize}px Arial`;
-        //flavor fill change
-        if (i >= abilityLines.length - flavorLines.length) {
-            context.font = `italic ${textRow * fontSize}px Arial`;
-        }
         //bold fill change
-        const boldSymbol = "*"
-        if (line.includes(boldSymbol)) {
+        const boldSymbol = "*";
+        const italicSymbol = "_";
+        if (true) {
+            let x = 0 + bufferBase * 2;
+            [...line].forEach(char => {
+                if (char == boldSymbol) {
+                    bold = !bold;
+                }
+                else if (char == italicSymbol) {
+                    italic = !italic;
+                }
+                //write char
+                else {
+                    context.font = `${(bold) ? "bold " : ""}${(italic) ? "italic " : ""}${textRow * fontSize}px Arial`;
+                    context.fillText(
+                        char,
+                        x,
+                        abilityStartY + LINEHEIGHT * i
+                    );
+                    x += context.measureText(char).width;
+                }
+            });
+        }
+        else if (line.includes(boldSymbol)) {
             let split = line.split(boldSymbol).filter(s => s);
             context.font = `bold ${textRow * fontSize}px Arial`;
             let x = 0 + bufferBase * 2;

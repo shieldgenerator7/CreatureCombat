@@ -81,7 +81,7 @@ class Ability {
         let fulltext = this.FullText;
         let reqsym = this.RequirementSymbol;
         if (reqsym) {
-            fulltext += ` (${reqsym}: ${this.RequirementText})`;
+            fulltext += ` _(${reqsym}: ${this.RequirementText})_`;
         }
         return fulltext.trim();
     }
