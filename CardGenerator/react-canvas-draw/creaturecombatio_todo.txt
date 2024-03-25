@@ -1,7 +1,5 @@
 
 
--bug: when you switch cards, it loses progress on your card. happens right after you upload an image to the card
-
 -bug: sort combobox doesnt reflect current sort order (needs variable that it controls and reads from)
 
 -bug: sort A-Z separates upper case and lower case

@@ -269,7 +269,6 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                         UploadFromFilePicker("image/*", false, (imageURL, filename) => {
                             card.imageURL = imageURL;
                             card.imageFileName = filename;
-                            updateCard(card);
                             if (card.imageURL) {
                                 let creatureImage = new Image();
                                 creatureImage.src = card.imageURL;
@@ -277,6 +276,9 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                     card.imgPortrait = creatureImage;
                                     updateCard(card);
                                 }
+                            }
+                            else {
+                                updateCard(card);
                             }
                         });
                     }}>Upload</button>
