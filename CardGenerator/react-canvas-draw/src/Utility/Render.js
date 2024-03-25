@@ -1,7 +1,7 @@
 "use strict";
 
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from "../Data/Creature";
-import { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE } from "../Data/DrawLayer";
+import { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_TEXT } from "../Data/DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "../Data/Vector2";
 import { VERSION } from "../Version";
 import { arraySort, getDateString, getLines } from "./Utility";
@@ -111,6 +111,16 @@ export function renderCard(card, canvas, drawData) {
                     pos.x, pos.y, size.x, size.y,
                 );
                 break;
+            case DRAWLAYER_TEXT:
+                let fontSize = 2.5 / 4;
+                context.font = `${0.25 * RESOLUTION * fontSize}px Arial`;
+                context.fillStyle = draw.getColor(card) ?? draw.color;
+                context.fillText(
+                    draw.getInfo(card),
+                    draw.position.x,
+                    draw.position.y
+                );
+                break;
             default:
                 console.error("unknown draw layer type:", draw.type);
         }
@@ -136,26 +146,6 @@ export function renderCard(card, canvas, drawData) {
 
     context.fillStyle = card.colors[3];
     let fontSize;
-    //Name
-    if (card.name) {
-        fontSize = 2.5 / 4;
-        context.font = `${textRow * fontSize}px Arial`;
-        context.fillText(
-            card.name,
-            bufferBase * 6 / 4,
-            textRow * 1 + bufferBase - ((textRow - fontSize) * 0.3)
-        );
-    }
-    else {
-        // fontSize = 1.5 / 4;
-        // context.fillStyle = 'lightgrey';
-        // context.font = `italic ${textRow * fontSize}px Arial`;
-        // context.fillText(
-        //     "[card name goes here]",
-        //     bufferBase * 6 / 4,
-        //     textRow * 1 + bufferBase - ((textRow - fontSize) * 0.4)
-        // );
-    }
     //Species
     fontSize = 7 / 8;
     context.fillStyle = card.colors[3];

@@ -1,6 +1,6 @@
 "use strict";
 
-import DrawLayer, { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE } from "./DrawLayer";
+import DrawLayer, { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_TEXT } from "./DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "./Vector2";
 
 export function generateCardSkin(width, height, margin, padding) {
@@ -81,6 +81,20 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(margin + 50, markersY[3]-50),
             new Vector2(rowheight*.75, rowheight*.75),
             (card) => card.colors[2]
+        ),
+
+        //
+        // TEXT
+        //
+
+        //name
+        new DrawLayer(
+            DRAWLAYER_TEXT,
+            'black',
+            new Vector2(margin + 15, margin + rowheight),
+            new Vector2(marginWidth, rowheight * 1.4),
+            (card) => card.name,
+            (card) => card.colors[3]
         ),
     ];
     return cardSkin;
