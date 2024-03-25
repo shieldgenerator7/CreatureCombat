@@ -132,6 +132,40 @@ export function generateCardSkin(width, height, margin, padding) {
                 }
             },
         ),
+        //cost
+        new DrawLayer(
+            DRAWLAYER_TEXT,
+            'black',
+            new Vector2(margin, margin + rowheight * 0.3),
+            new Vector2(marginWidth, rowheight * 0.7),
+            (card) => card.getFinalCost(),
+            (card) => card.colors[3],
+            (card) => {
+                return {
+                    text_align: "right",
+                    padding: 0,
+                    padding_left: 15,
+                    padding_right: 15,
+                }
+            },
+        ),
+        //star count
+        new DrawLayer(
+            DRAWLAYER_TEXT,
+            'black',
+            new Vector2(margin, margin + rowheight * 1),
+            new Vector2(marginWidth, rowheight * 1.5),
+            (card) => "★ ".repeat(card.getStarCount()).trim(),
+            (card) => card.colors[3],
+            (card) => {
+                return {
+                    text_align: "right",
+                    padding: 25,
+                    padding_left: 15,
+                    padding_right: 15,
+                }
+            },
+        ),
     ];
     return cardSkin;
 }

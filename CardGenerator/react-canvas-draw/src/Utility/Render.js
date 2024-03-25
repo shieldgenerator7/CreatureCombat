@@ -112,14 +112,27 @@ export function renderCard(card, canvas, drawData) {
                 );
                 break;
             case DRAWLAYER_TEXT:
-                const format = draw.getFormat(card);
-                const padding = format?.padding ?? draw.size.y * 0.05;
+                const text = draw.getInfo(card);
+                const format = draw.getFormat(card) ?? {};
+                const padding = format.padding ?? draw.size.y * 0.05;
+                const textalign = format.text_align ?? "left";
                 let fontSize = draw.size.y - (padding * 2);
                 context.font = `${fontSize}px Arial`;
-                let x = draw.position.x + (format?.padding_left ?? padding);
+                let x;
+                switch (textalign) {
+                    case "left":
+                        x = draw.position.x + (format.padding_left ?? padding);
+                        break;
+                    case "right":
+                        x = draw.position.x + draw.size.x - context.measureText(text).width
+                            - (format.padding_right ?? padding);
+                        break;
+                    default:
+                        console.error("unknown textalign value: ", textalign);
+                }
                 let y = draw.position.y + draw.size.y - (padding * 1.3);
                 context.fillStyle = draw.getColor(card) ?? draw.color;
-                context.fillText(draw.getInfo(card), x, y);
+                context.fillText(text, x, y);
                 break;
             default:
                 console.error("unknown draw layer type:", draw.type);
@@ -147,25 +160,6 @@ export function renderCard(card, canvas, drawData) {
     context.fillStyle = card.colors[3];
     let fontSize;
 
-    //Cost
-    fontSize = 0.5;
-    context.fillStyle = card.colors[3];
-    context.font = `${textRow * fontSize}px Arial`;
-    context.fillText(
-        card.getFinalCost(),
-        width - bufferBase * 2 - fontSize * 70,
-        textRow * 1 + bufferBase - ((textRow - fontSize) * 0.3)
-    );
-    //Star Count
-    context.fillStyle = card.colors[3];
-    fontSize = 0.5;
-    context.font = `${textRow * fontSize}px Arial`;
-    let starCount = card.getStarCount();
-    context.fillText(
-        "★ ".repeat(starCount),
-        width - bufferBase * 2 - fontSize * 70 * starCount,
-        textRow * 2 + bufferBase - ((textRow - fontSize) * 0.3)
-    );
     //Ability Box (Rest Count, Abilities, Flavor Text)
     context.fillStyle = card.colors[4];
     fontSize = 0.3;
