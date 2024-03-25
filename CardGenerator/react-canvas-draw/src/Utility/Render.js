@@ -47,8 +47,8 @@ export function renderCard(card, canvas, drawData) {
                             spos.y = 0 + diff / 2;
                         }
                         else {
-                        size.y = newHeight;
-                        pos.y = newY;
+                            size.y = newHeight;
+                            pos.y = newY;
                         }
                     }
                     const fitHeight = () => {
@@ -60,8 +60,8 @@ export function renderCard(card, canvas, drawData) {
                             spos.x = 0 + diff / 2;
                         }
                         else {
-                        size.x = newWidth;
-                        pos.x = newX;
+                            size.x = newWidth;
+                            pos.x = newX;
                         }
                     }
                     switch (card.imageFit) {
@@ -238,25 +238,25 @@ export function renderCard(card, canvas, drawData) {
         //bold fill change
         const boldSymbol = "*";
         const italicSymbol = "_";
-            let x = 0 + bufferBase * 2;
-            [...line].forEach(char => {
-                if (char == boldSymbol) {
-                    bold = !bold;
-                }
-                else if (char == italicSymbol) {
-                    italic = !italic;
-                }
-                //write char
-                else {
-                    context.font = `${(bold) ? "bold " : ""}${(italic) ? "italic " : ""}${textRow * fontSize}px Arial`;
-                    context.fillText(
-                        char,
-                        x,
-                        abilityStartY + LINEHEIGHT * i
-                    );
-                    x += context.measureText(char).width;
-                }
-            });
+        let x = 0 + bufferBase * 2;
+        [...line].forEach(char => {
+            if (char == boldSymbol) {
+                bold = !bold;
+            }
+            else if (char == italicSymbol) {
+                italic = !italic;
+            }
+            //write char
+            else {
+                context.font = `${(bold) ? "bold " : ""}${(italic) ? "italic " : ""}${textRow * fontSize}px Arial`;
+                context.fillText(
+                    char,
+                    x,
+                    abilityStartY + LINEHEIGHT * i
+                );
+                x += context.measureText(char).width;
+            }
+        });
     });
     //Ability Cost (TEST)
     // context.fillStyle = 'white';

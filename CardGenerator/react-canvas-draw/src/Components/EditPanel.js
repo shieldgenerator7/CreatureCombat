@@ -255,22 +255,22 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
             Card Art
             {
                 !card.imageURL && (<>
-            <div className='info'>Recommended: 690x483</div>
-            <button className="action" onClick={() => {
-                UploadFromFilePicker("image/*", false, (imageURL, filename) => {
-                    card.imageURL = imageURL;
-                    card.imageFileName = filename;
-                    updateCard(card);
-                    if (card.imageURL) {
-                        let creatureImage = new Image();
-                        creatureImage.src = card.imageURL;
-                        creatureImage.onload = () => {
-                            card.imgPortrait = creatureImage;
+                    <div className='info'>Recommended: 690x483</div>
+                    <button className="action" onClick={() => {
+                        UploadFromFilePicker("image/*", false, (imageURL, filename) => {
+                            card.imageURL = imageURL;
+                            card.imageFileName = filename;
                             updateCard(card);
-                        }
-                    }
-                });
-            }}>Upload</button>
+                            if (card.imageURL) {
+                                let creatureImage = new Image();
+                                creatureImage.src = card.imageURL;
+                                creatureImage.onload = () => {
+                                    card.imgPortrait = creatureImage;
+                                    updateCard(card);
+                                }
+                            }
+                        });
+                    }}>Upload</button>
                 </>)
             }
             {
@@ -292,7 +292,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 card.imageFit = value;
                                 updateCard(card);
                             }}
-                                value={ card.imageFit}>
+                                value={card.imageFit}>
                                 <option value={FIT_WHOLE}>Whole</option>
                                 <option value={FIT_FILL}>Fill</option>
                                 <option value={FIT_WIDTH}>Width</option>
