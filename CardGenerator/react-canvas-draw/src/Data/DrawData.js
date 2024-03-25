@@ -91,13 +91,13 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             'black',
-            new Vector2(margin, margin),
-            new Vector2(marginWidth, rowheight * 1),
+            new Vector2(margin, margin + rowheight * 0.3),
+            new Vector2(marginWidth, rowheight * 0.7),
             (card) => card.name,
             (card) => card.colors[3],
             (card) => {
                 return {
-                    padding: 5,
+                    padding: 0,
                     padding_left: 15,
                 }
             },
@@ -106,8 +106,8 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             'black',
-            new Vector2(margin, margin + rowheight * 1),
-            new Vector2(marginWidth, rowheight * 1.4),
+            new Vector2(margin, margin + rowheight * 0.9),
+            new Vector2(marginWidth, rowheight * 1.5),
             (card) => card.species,
             (card) => card.colors[3],
             (card) => {
@@ -121,13 +121,14 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             'black',
-            new Vector2(margin, markersY[0]),
+            new Vector2(margin, markersY[0] + 2),
             new Vector2(marginWidth, markersY[1] - markersY[0]),
             (card) => card.tags.map(t => t.trim()).join(" • "),
             (card) => card.colors[4],
             (card) => {
                 return {
-                    padding: 15,
+                    padding: 18,
+                    padding_left: 15,
                 }
             },
         ),
