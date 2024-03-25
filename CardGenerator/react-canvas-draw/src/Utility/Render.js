@@ -202,7 +202,7 @@ export function renderCard(card, canvas, drawData) {
     let flavorLines = getLines(context, card.flavorText.trim(), MAX_WIDTH_TEXT)
         .filter(l => l);
     let abilityLines = [
-        (card.rest > 0) ? `Rest ${card.rest}` : undefined,
+        (card.rest > 0) ? `*Rest* ${card.rest}` : undefined,
         card.abilities
             .map(ability => {
                 let reqsym = ability.RequirementSymbol;
@@ -217,10 +217,9 @@ export function renderCard(card, canvas, drawData) {
     ]
         .flat(Infinity)
         .filter(l => l);
-    console.log("abilityLines", abilityLines);
     if (abilityLines.length > 5) {
         abilityLines = [
-            (card.rest > 0) ? `Rest ${card.rest}` : undefined,
+            (card.rest > 0) ? `*Rest* ${card.rest}` : undefined,
             card.abilities
                 .map(ability => ability.FullText)
                 .map(text => getLines(context, text, MAX_WIDTH_TEXT)),
@@ -231,16 +230,37 @@ export function renderCard(card, canvas, drawData) {
     }
     const LINEHEIGHT = 0.1 * RESOLUTION;
     abilityLines.forEach((line, i) => {
+        context.font = `${textRow * fontSize}px Arial`;
         //flavor fill change
         if (i >= abilityLines.length - flavorLines.length) {
             context.font = `italic ${textRow * fontSize}px Arial`;
         }
+        //bold fill change
+        const boldSymbol = "*"
+        if (line.includes(boldSymbol)) {
+            let split = line.split(boldSymbol).filter(s => s);
+            context.font = `bold ${textRow * fontSize}px Arial`;
+            let x = 0 + bufferBase * 2;
+            let bold = true;
+            split.forEach(seg => {
+                context.font = `${(bold) ? "bold " : ""}${textRow * fontSize}px Arial`;
+                context.fillText(
+                    seg,
+                    x,
+                    abilityStartY + LINEHEIGHT * i
+                );
+                bold = !bold;
+                x += context.measureText(seg).width;
+            });
+        }
+        else {
         //
         context.fillText(
             line,
             0 + bufferBase * 2,
             abilityStartY + LINEHEIGHT * i
         );
+        }
     });
     //Ability Cost (TEST)
     // context.fillStyle = 'white';

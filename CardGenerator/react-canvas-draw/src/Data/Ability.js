@@ -74,7 +74,7 @@ class Ability {
     get FullText() {
         let reqsym = this.RequirementSymbol;
         let reqstr = (reqsym) ? ` (${reqsym})` : "";
-        return `${this.name}   ${this.CostSymbol}${reqstr}: ${this.EffectText}`;
+        return `*${this.name}*   ${this.CostSymbol}${reqstr}: ${this.EffectText}`;
     }
 
     get FullTextWithReminders() {
