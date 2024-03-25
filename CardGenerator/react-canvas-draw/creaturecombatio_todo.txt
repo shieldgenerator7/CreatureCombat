@@ -6,12 +6,6 @@
 
 -add link to rules
 
--rest setting
-
--flavor text needs to be included in textbox size check (when determining whether to include reinder text or not)
-
--trim whitespace ability and flavor text
-
 a 2 cost is a 2 star??
 
 -add biome: island, garden
@@ -28,18 +22,13 @@ a 2 cost is a 2 star??
 
 long list of card design improvements:
 -adding symbols to abilities (like house symbol for home requirement)
--making abilities not stretch out into power section
--decrease size of power section
 -move stars to same row as cost?
 -sketch up card design, use sprites for section borders
--center text, like base power, biome mods, final cost
+-center text, like biome mods
 -frame for point cost
--textbox for making text stays in its area
 
 -upload bg img in addition to portrait?
 -upload multiple images, and allow moving them all / layering them all?
-
--feature: rest amount: how many rest counters to add to this creature after
 
 -bug: card canvas is too big for small resolution monitors
 
