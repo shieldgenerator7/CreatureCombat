@@ -1,5 +1,6 @@
 "use strict";
 
+import { getLines } from "../Utility/Utility";
 import DrawLayer, { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_TEXT } from "./DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "./Vector2";
 
@@ -9,7 +10,7 @@ export function generateCardSkin(width, height, margin, padding) {
     const markersY = [
         margin + rowheight * 2.4,
         margin + rowheight * 3.4,
-        margin + rowheight * 11.4,
+        margin + rowheight * 10.4,
         margin + rowheight * 15.4,
     ];
     let cardSkin = [
@@ -165,6 +166,37 @@ export function generateCardSkin(width, height, margin, padding) {
                     padding_right: 15,
                 }
             },
+        ),
+        //rest count, abilities, flavor text
+        new DrawLayer(
+            DRAWLAYER_TEXT,
+            'white',
+            new Vector2(margin, markersY[2]),
+            new Vector2(marginWidth, markersY[3] - markersY[2]),
+            (card) => {
+                let remindersSeen = [];
+                let showReminders = card.showReminderText;
+                let restLine = card.getRestText(card.showReminderText);
+                let flavorLine = `_${card.flavorText.trim()}_`;
+                let abilityLines;
+                abilityLines = card.abilities
+                    .map(ability => {
+                        let reqsym = ability.RequirementSymbol;
+                        if (showReminders && reqsym && !remindersSeen.includes(reqsym)) {
+                            remindersSeen.push(reqsym);
+                            return ability.FullTextWithReminders;
+                        }
+                        return ability.FullText;
+                    })
+                return [
+                    restLine,
+                    abilityLines,
+                    flavorLine
+                ]
+                    .flat(Infinity)
+                    .filter(l => l)
+                    .join("\n");
+            }
         ),
         //base power
         // new DrawLayer(

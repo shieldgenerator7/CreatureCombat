@@ -112,14 +112,20 @@ export function renderCard(card, canvas, drawData) {
                 );
                 break;
             case DRAWLAYER_TEXT:
-                const text = [draw.getInfo(card)].flat(Infinity);
-                if (text.length == 0) { return; }
+                const text = `${draw.getInfo(card)}`;
+                if (!text) { return; }
                 const format = draw.getFormat(card) ?? {};
                 const padding = format.padding ?? draw.size.y * 0.05;
-                let fontSize = (draw.size.y - (padding * 2)) / text.length;
-                context.font = `${fontSize}px Arial`;
                 const padLeft = format.padding_left ?? padding;
                 const padRight = format.padding_right ?? padding;
+                const MAX_WIDTH_TEXT = draw.size.x - padLeft - padRight;
+                const lines = text
+                    .split("\n")
+                    .map(line => getLines(context, line, MAX_WIDTH_TEXT))
+                    .flat(Infinity)
+                    .filter(l => l);
+                let fontSize = (draw.size.y - (padding * 2)) / lines.length;
+                context.font = `${fontSize}px Arial`;
                 const textalign = format.text_align ?? "left";
                 const LINEHEIGHT = 0.1 * RESOLUTION;
                 const boldSymbol = "*";
@@ -129,7 +135,7 @@ export function renderCard(card, canvas, drawData) {
                 const startY = draw.position.y + (padding * 1.3) + fontSize;
                 const bufferY = fontSize;
                 context.fillStyle = draw.getColor(card) ?? draw.color;
-                text.forEach((line, i) => {
+                lines.forEach((line, i) => {
                     line = `${line}`;
                     if (!line) { return; }
                     const measurement = context.measureText(
@@ -197,75 +203,6 @@ export function renderCard(card, canvas, drawData) {
     context.fillStyle = card.colors[3];
     let fontSize;
 
-    //Ability Box (Rest Count, Abilities, Flavor Text)
-    context.fillStyle = card.colors[4];
-    fontSize = 0.3;
-    context.font = `${textRow * fontSize}px Arial`;
-    let abilityStartY = textRow * 10.5;
-    const MAX_WIDTH_TEXT = width - bufferBase * 4;
-    let remindersSeen = [];
-    let restLines = getLines(context, card.getRestText(true), MAX_WIDTH_TEXT);
-    let flavorLines = getLines(context, `_${card.flavorText.trim()}_`, MAX_WIDTH_TEXT)
-        .filter(l => l);
-    let abilityLines;
-    if (card.showReminderText) {
-        abilityLines = [
-        restLines,
-        card.abilities
-            .map(ability => {
-                let reqsym = ability.RequirementSymbol;
-                if (reqsym && !remindersSeen.includes(reqsym)) {
-                    remindersSeen.push(reqsym);
-                    return ability.FullTextWithReminders;
-                }
-                return ability.FullText;
-            })
-            .map(text => getLines(context, text, MAX_WIDTH_TEXT)),
-        flavorLines
-    ]
-        .flat(Infinity)
-        .filter(l => l);
-    } else //if (abilityLines.length > 5)
-    {
-        restLines = getLines(context, card.getRestText(false), MAX_WIDTH_TEXT);
-        abilityLines = [
-            restLines,
-            card.abilities
-                .map(ability => ability.FullText)
-                .map(text => getLines(context, text, MAX_WIDTH_TEXT)),
-            flavorLines
-        ]
-            .flat(Infinity)
-            .filter(l => l);
-    }
-    const LINEHEIGHT = 0.1 * RESOLUTION;
-    let bold = false;
-    let italic = false;
-    abilityLines.forEach((line, i) => {
-        context.font = `${textRow * fontSize}px Arial`;
-        //bold fill change
-        const boldSymbol = "*";
-        const italicSymbol = "_";
-        let x = 0 + bufferBase * 2;
-        [...line].forEach(char => {
-            if (char == boldSymbol) {
-                bold = !bold;
-            }
-            else if (char == italicSymbol) {
-                italic = !italic;
-            }
-            //write char
-            else {
-                context.font = `${(bold) ? "bold " : ""}${(italic) ? "italic " : ""}${textRow * fontSize}px Arial`;
-                context.fillText(
-                    char,
-                    x,
-                    abilityStartY + LINEHEIGHT * i
-                );
-                x += context.measureText(char).width;
-            }
-        });
-    });
     //Ability Cost (TEST)
     // context.fillStyle = 'white';
     // fontSize = 0.3;
