@@ -73,6 +73,15 @@ class Creature {
         this.abilities.push(ability);
     }
 
+    getRestText(reminder = true) {
+        if (!(this.rest > 0)) { return undefined; }
+        let text = `*Rest ${this.rest}* `;
+        if (reminder) {
+            text += `_(After battling, put ${this.rest} Rest counters on this Creature)_`;
+        }
+        return text;
+    }
+
     getTotalPower(biome) {
         return this.basePower + this.getBiomeModifier(biome);
     }

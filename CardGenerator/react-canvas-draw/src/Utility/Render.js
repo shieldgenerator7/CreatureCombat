@@ -199,10 +199,11 @@ export function renderCard(card, canvas, drawData) {
     let abilityStartY = textRow * 10.5;
     const MAX_WIDTH_TEXT = width - bufferBase * 4;
     let remindersSeen = [];
+    let restLines = getLines(context, card.getRestText(true), MAX_WIDTH_TEXT);
     let flavorLines = getLines(context, card.flavorText.trim(), MAX_WIDTH_TEXT)
         .filter(l => l);
     let abilityLines = [
-        (card.rest > 0) ? `*Rest* ${card.rest}` : undefined,
+        restLines,
         card.abilities
             .map(ability => {
                 let reqsym = ability.RequirementSymbol;
@@ -218,8 +219,9 @@ export function renderCard(card, canvas, drawData) {
         .flat(Infinity)
         .filter(l => l);
     if (abilityLines.length > 5) {
+        restLines = getLines(context, card.getRestText(false), MAX_WIDTH_TEXT);
         abilityLines = [
-            (card.rest > 0) ? `*Rest* ${card.rest}` : undefined,
+            restLines,
             card.abilities
                 .map(ability => ability.FullText)
                 .map(text => getLines(context, text, MAX_WIDTH_TEXT)),
