@@ -200,9 +200,8 @@ export function renderCard(card, canvas, drawData) {
     const MAX_WIDTH_TEXT = width - bufferBase * 4;
     let remindersSeen = [];
     let restLines = getLines(context, card.getRestText(true), MAX_WIDTH_TEXT);
-    let flavorLines = getLines(context, card.flavorText.trim(), MAX_WIDTH_TEXT)
-        .filter(l => l)
-        .map(l => `_${l}_`);
+    let flavorLines = getLines(context, `_${card.flavorText.trim()}_`, MAX_WIDTH_TEXT)
+        .filter(l => l);
     let abilityLines = [
         restLines,
         card.abilities
@@ -239,7 +238,6 @@ export function renderCard(card, canvas, drawData) {
         //bold fill change
         const boldSymbol = "*";
         const italicSymbol = "_";
-        if (true) {
             let x = 0 + bufferBase * 2;
             [...line].forEach(char => {
                 if (char == boldSymbol) {
@@ -259,31 +257,6 @@ export function renderCard(card, canvas, drawData) {
                     x += context.measureText(char).width;
                 }
             });
-        }
-        else if (line.includes(boldSymbol)) {
-            let split = line.split(boldSymbol).filter(s => s);
-            context.font = `bold ${textRow * fontSize}px Arial`;
-            let x = 0 + bufferBase * 2;
-            let bold = true;
-            split.forEach(seg => {
-                context.font = `${(bold) ? "bold " : ""}${textRow * fontSize}px Arial`;
-                context.fillText(
-                    seg,
-                    x,
-                    abilityStartY + LINEHEIGHT * i
-                );
-                bold = !bold;
-                x += context.measureText(seg).width;
-            });
-        }
-        else {
-        //
-        context.fillText(
-            line,
-            0 + bufferBase * 2,
-            abilityStartY + LINEHEIGHT * i
-        );
-        }
     });
     //Ability Cost (TEST)
     // context.fillStyle = 'white';
