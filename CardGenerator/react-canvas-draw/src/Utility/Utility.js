@@ -31,12 +31,16 @@ function $(id) {
     return document.getElementById(id);
 }
 
-Math.clamp = function (value, min, max) {
+export function clamp(value, min, max) {
     if (min > max) {
         console.error("Min should be less than or equal to max!",
             "min:", min,
             "max:", max
         );
+        //swap min and max
+        let swap = min;
+        min = max;
+        max = swap;
     }
     return Math.max(
         min,

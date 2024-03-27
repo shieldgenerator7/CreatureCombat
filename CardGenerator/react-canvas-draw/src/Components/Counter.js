@@ -1,8 +1,8 @@
 "use strict";
 
-import { isNumber } from "../Utility/Utility";
+import { clamp, isNumber } from "../Utility/Utility";
 
-function Counter({ value, setValue, allowNegative = false }) {
+function Counter({ value, setValue, allowNegative = false, max = 99 }) {
     //
     function valueAcceptable(v) {
         //
@@ -19,6 +19,9 @@ function Counter({ value, setValue, allowNegative = false }) {
         let newValue = v ?? 0;
         if (!allowNegative) {
             newValue = Math.max(0, newValue);
+        }
+        if (max) {
+            newValue = clamp(newValue, -max, max);
         }
         setValue(newValue);
     };
