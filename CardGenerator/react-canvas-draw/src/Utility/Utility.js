@@ -17,7 +17,7 @@ function isEmpty(str) {
 function isString(s) { return s === "" + s; }
 
 //2019-10-31: copied from https://stackoverflow.com/a/1421988/2336212
-function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+export function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 
 //2023-02-27: constructed after consulting https://stackoverflow.com/q/14636536/2336212
 function isInteger(n) { return isNumber(n) && Math.floor(n) === n; }
