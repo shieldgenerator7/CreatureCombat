@@ -47,13 +47,12 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Rest Count */}
             Rest Count
-            <div>
-                <input type="number" className="field" onChange={(e) => {
-                    card.rest = Math.max(0, e.target.value * 1);
+            <Counter
+                value={card.rest}
+                setValue={(v) => {
+                    card.rest = v;
                     updateCard(card);
-                }}
-                    value={card.rest.toString()}></input>
-            </div>
+                }}></Counter>
 
             {/* Biome Modifiers */}
             Biome Modifiers
@@ -75,11 +74,14 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                             }
                         </select>
                         {/* Modifier */}
-                        <input type="number" onChange={(e) => {
-                            bm.modifier = e.target.value * 1;
-                            updateCard(card);
-                        }}
-                            value={bm.modifier.toString()}></input>
+                        <Counter
+                            value={bm.modifier}
+                            setValue={(v) => {
+                                bm.modifier = v;
+                                updateCard(card);
+                            }}
+                            allowNegative={true}
+                        ></Counter>
                         {/* Remove Button */}
                         <button onClick={() => {
                             card.biomeModifiers.splice(i, 1);
@@ -165,12 +167,12 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                     }
                                 </select>
                                 {reqHasNumber && (
-                                    <input type="number" onChange={(e) => {
-                                        ability.requirementX = Math.max(0, e.target.value * 1);
-                                        updateCard(card);
-                                    }}
-                                        value={ability.requirementX.toString()}
-                                    ></input>
+                                    <Counter
+                                        value={ability.requirementX}
+                                        setValue={(v) => {
+                                            ability.requirementX = v;
+                                            updateCard(card);
+                                        }}></Counter>
                                 )}
                             </div>
                             {/* Ability Cost */}
@@ -187,12 +189,12 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                     }
                                 </select>
                                 {costHasNumber && (
-                                    <input type="number" onChange={(e) => {
-                                        ability.costX = Math.max(0, e.target.value * 1);
-                                        updateCard(card);
-                                    }}
-                                        value={ability.costX.toString()}
-                                    ></input>
+                                    <Counter
+                                        value={ability.costX}
+                                        setValue={(v) => {
+                                            ability.costX = v;
+                                            updateCard(card);
+                                        }}></Counter>
                                 )}
                             </div>
                             {/* Ability Effect */}
@@ -209,23 +211,23 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                     }
                                 </select>
                                 {effectHasNumber && (
-                                    <input type="number" onChange={(e) => {
-                                        ability.effectX = Math.max(0, e.target.value * 1);
-                                        updateCard(card);
-                                    }}
-                                        value={ability.effectX.toString()}
-                                    ></input>
+                                    <Counter
+                                        value={ability.effectX}
+                                        setValue={(v) => {
+                                            ability.effectX = v;
+                                            updateCard(card);
+                                        }}></Counter>
                                 )}
                             </div>
                             {ability.effectName == "custom" && (<>
                                 <div>
                                     <span>Effect Point Cost</span>
-                                    <input type="number" className='field' title='Effect Point Cost' onChange={(e) => {
-                                        ability.effectCost = Math.max(0, e.target.value * 1);
-                                        updateCard(card);
-                                    }}
-                                        value={ability.effectCost.toString()}
-                                    ></input>
+                                    <Counter
+                                        value={ability.effectCost}
+                                        setValue={(v) => {
+                                            ability.effectCost = v;
+                                            updateCard(card);
+                                        }}></Counter>
                                 </div>
                                 <div>
                                     <span>Effect</span>
