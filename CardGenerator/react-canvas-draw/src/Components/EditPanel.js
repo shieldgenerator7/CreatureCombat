@@ -81,6 +81,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                 updateCard(card);
                             }}
                             allowNegative={true}
+                            inline={true}
                         ></Counter>
                         {/* Remove Button */}
                         <button onClick={() => {
@@ -172,7 +173,9 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         setValue={(v) => {
                                             ability.requirementX = v;
                                             updateCard(card);
-                                        }}></Counter>
+                                        }}
+                                        inline={true}
+                                    ></Counter>
                                 )}
                             </div>
                             {/* Ability Cost */}
@@ -194,7 +197,9 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         setValue={(v) => {
                                             ability.costX = v;
                                             updateCard(card);
-                                        }}></Counter>
+                                        }}
+                                        inline={true}
+                                    ></Counter>
                                 )}
                             </div>
                             {/* Ability Effect */}
@@ -216,7 +221,9 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         setValue={(v) => {
                                             ability.effectX = v;
                                             updateCard(card);
-                                        }}></Counter>
+                                        }}
+                                        inline={true}
+                                    ></Counter>
                                 )}
                             </div>
                             {ability.effectName == "custom" && (<>
@@ -227,7 +234,9 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
                                         setValue={(v) => {
                                             ability.effectCost = v;
                                             updateCard(card);
-                                        }}></Counter>
+                                        }}
+                                        inline={true}
+                                    ></Counter>
                                 </div>
                                 <div>
                                     <span>Effect</span>

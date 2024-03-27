@@ -2,7 +2,7 @@
 
 import { clamp, isNumber } from "../Utility/Utility";
 
-function Counter({ value, setValue, allowNegative = false, max = 99 }) {
+function Counter({ value, setValue, allowNegative = false, inline = false, max = 99 }) {
     //
     function valueAcceptable(v) {
         //
@@ -27,8 +27,8 @@ function Counter({ value, setValue, allowNegative = false, max = 99 }) {
     };
     //
     return (
-        <div>
-            <input type="text" inputMode="numeric" className="counter" onChange={(e) => {
+        <div className={`counter ${(inline) ? "inline" : ""}`}>
+            <input type="text" inputMode="numeric" onChange={(e) => {
                 let v = e.target.value * 1;
                 if (!valueAcceptable(v)) { return; }
                 set(v);
