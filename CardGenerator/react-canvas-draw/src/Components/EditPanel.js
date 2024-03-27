@@ -6,6 +6,7 @@ import Creature, { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from '../Data/Cr
 import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
 import { capitalizeFirstLetters, makeUserFacing } from '../Utility/Utility';
+import Counter from './Counter';
 
 function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
     return (
@@ -37,13 +38,12 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Base Power */}
             Base Power
-            <div>
-                <input type="number" className="field" onChange={(e) => {
-                    card.basePower = Math.max(0, e.target.value * 1);
+            <Counter
+                value={card.basePower}
+                setValue={(v) => {
+                    card.basePower = v;
                     updateCard(card);
-                }}
-                    value={card.basePower.toString()}></input>
-            </div>
+                }}></Counter>
 
             {/* Rest Count */}
             Rest Count
