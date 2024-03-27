@@ -212,3 +212,8 @@
     position: absolute;
     right: 0px;
 }
+
+.counter {
+    width: 40px;
+    text-align: right;
+}
