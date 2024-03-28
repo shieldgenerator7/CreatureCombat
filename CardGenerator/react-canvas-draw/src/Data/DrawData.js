@@ -1,6 +1,6 @@
 "use strict";
 
-import { arraySort, getLines } from "../Utility/Utility";
+import { arrayMax, arraySort, getLines } from "../Utility/Utility";
 import DrawLayer, { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_LAYERS, DRAWLAYER_TEXT } from "./DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "./Vector2";
 
@@ -252,8 +252,8 @@ export function generateCardSkin(width, height, margin, padding) {
                 (bm) => bm.modifier * -1
             )
                 .map((bm, i) => {
-                    const startX = margin + 50 + rowheight * 1.0;
-                    const bmWidth = rowheight * 1.7;
+                    const startX = margin + 50 + rowheight * 1.1;
+                    const bmWidth = rowheight * 1.5;
                     const areaSize = rowheight * 1.4;
                     const areaSizeHalf = areaSize / 2;
                     return [
@@ -277,7 +277,7 @@ export function generateCardSkin(width, height, margin, padding) {
                         new DrawLayer(
                             DRAWLAYER_TEXT,
                             'white',
-                            new Vector2(startX + (bmWidth * i), markersY[3] - 55 - areaSizeHalf),
+                            new Vector2(startX + (bmWidth * i), markersY[3] - 47 - areaSizeHalf),
                             new Vector2(areaSize, areaSizeHalf),
                             (card) => bm.biome,
                             (card) => card.colors[5],
@@ -285,14 +285,15 @@ export function generateCardSkin(width, height, margin, padding) {
                                 return {
                                     text_align: "center",
                                     padding: rowheight * 0.1,
+                                    max_text_height: rowheight * 0.25,
                                 }
                             },
                         ),
                         new DrawLayer(
                             DRAWLAYER_TEXT,
                             'white',
-                            new Vector2(startX + (bmWidth * i)+(areaSize-areaSize*.75)/2, markersY[3] - rowheight * 0.93),
-                            new Vector2(areaSize*.75, areaSize*.4),
+                            new Vector2(startX + (bmWidth * i) + (areaSize - areaSize * .75) / 2, markersY[3] - rowheight * 0.93),
+                            new Vector2(areaSize * .75, areaSize * .4),
                             (card) => bm.modifier,
                             (card) => card.colors[5],
                             (card) => {
