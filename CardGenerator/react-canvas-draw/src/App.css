@@ -57,7 +57,8 @@
 
 .fieldLine {
     display: block;
-    border-bottom: white 1px solid;
+    margin-top: -12px;
+    margin-bottom: 7px;
 }
 
 .action {
