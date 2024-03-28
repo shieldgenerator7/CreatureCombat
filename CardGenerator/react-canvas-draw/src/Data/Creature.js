@@ -20,12 +20,12 @@ class Creature {
         this.imageFit = FIT_WHOLE;
 
         this.colors = [
-            "#FFFFFF",//white
-            "#dbd69e",//tan
-            "#808080",//grey
-            "#000000",//black
-            "#000000",//black
-            "#FFFFFF",//white
+            "#D7D7D7",//top bg
+            "#717171",//ability bg
+            "#000000",//power bg
+            "#000000",//top text
+            "#FFFFFF",//ability text
+            "#FFFFFF",//power text
         ];
 
         this.basePower = 1;
@@ -174,12 +174,12 @@ export function backwardsCompatifyCreature(creature) {
 
     //Change: add colors[]
     creature.colors ??= [
-        "#FFFFFF",//white
-        "#dbd69e",//tan
-        "#808080",//grey
-        "#000000",//black
-        "#000000",//black
-        "#FFFFFF",//white
+        "#D7D7D7",//top bg
+        "#717171",//ability bg
+        "#000000",//power bg
+        "#000000",//top text
+        "#FFFFFF",//ability text
+        "#FFFFFF",//power text
     ];
 
     //Change: add imageFit
