@@ -133,7 +133,7 @@ export function generateCardSkin(width, height, margin, padding) {
             'black',
             new Vector2(margin, markersY[0] - rowheight * 0.15),
             new Vector2(marginWidth, markersY[1] - markersY[0]),
-            (card) => card.tags.map(t => t.trim()).join(" • "),
+            (card) => card.tags.map(t => t.trim()).filter(t=>t).join(" • "),
             (card) => card.colors[4],
             (card) => {
                 return {
