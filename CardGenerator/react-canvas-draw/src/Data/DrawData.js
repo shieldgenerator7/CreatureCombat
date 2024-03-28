@@ -133,7 +133,7 @@ export function generateCardSkin(width, height, margin, padding) {
             'black',
             new Vector2(margin, markersY[0] - rowheight * 0.15),
             new Vector2(marginWidth, markersY[1] - markersY[0]),
-            (card) => card.tags.map(t => t.trim()).filter(t=>t).join(" • "),
+            (card) => card.tags.map(t => t.trim()).filter(t => t).join(" • "),
             (card) => card.colors[4],
             (card) => {
                 return {
@@ -279,7 +279,7 @@ export function generateCardSkin(width, height, margin, padding) {
                             DRAWLAYER_BOX,
                             'white',
                             new Vector2(startX + (bmWidth * i), markersY[3] - (50 - boxLessAmount) - areaSizeHalf),
-                            new Vector2(areaSize, areaSizeHalf-boxLessAmount),
+                            new Vector2(areaSize, areaSizeHalf - boxLessAmount),
                             (card) => card.colors[2],
                         ),
                         //Biome
@@ -303,7 +303,7 @@ export function generateCardSkin(width, height, margin, padding) {
                             'white',
                             new Vector2(startX + (bmWidth * i) + (areaSize - areaSize * .75) / 2, markersY[3] - rowheight * 0.93),
                             new Vector2(areaSize * .75, areaSize * .4),
-                            (card) => `${(bm.modifier>0)?"+":""}${bm.modifier}`,
+                            (card) => `${(bm.modifier > 0) ? "+" : ""}${bm.modifier}`,
                             (card) => card.colors[5],
                             (card) => {
                                 return {

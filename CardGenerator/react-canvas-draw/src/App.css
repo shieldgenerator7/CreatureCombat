@@ -217,7 +217,7 @@
 }
 
 .counter {
-    display:flex;
+    display: flex;
     margin-bottom: 10px;
 }
 .counter input {

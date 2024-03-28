@@ -28,13 +28,13 @@ class Deck {
 
 export default Deck;
 
-export function inflateDeck(deck){
+export function inflateDeck(deck) {
     Object.setPrototypeOf(deck, Deck.prototype);
 
     deck._cardList.forEach(card => inflateCreature(card));
 }
 
-export function backwardsCompatifyDeck(deck){
+export function backwardsCompatifyDeck(deck) {
 
     deck._cardList.forEach(card => backwardsCompatifyCreature(card));
 }
