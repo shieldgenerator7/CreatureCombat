@@ -252,10 +252,11 @@ export function generateCardSkin(width, height, margin, padding) {
                 (bm) => bm.modifier * -1
             )
                 .map((bm, i) => {
-                    const startX = margin + 50 + rowheight * 1.1;
+                    const startX = margin + 50 + rowheight * 0.85;
                     const bmWidth = rowheight * 1.5;
                     const areaSize = rowheight * 1.4;
                     const areaSizeHalf = areaSize / 2;
+                    const boxLessAmount = 7;
                     return [
                         //Circle
                         new DrawLayer(
@@ -269,8 +270,8 @@ export function generateCardSkin(width, height, margin, padding) {
                         new DrawLayer(
                             DRAWLAYER_BOX,
                             'white',
-                            new Vector2(startX + (bmWidth * i), markersY[3] - 50 - areaSizeHalf),
-                            new Vector2(areaSize, areaSizeHalf),
+                            new Vector2(startX + (bmWidth * i), markersY[3] - (50 - boxLessAmount) - areaSizeHalf),
+                            new Vector2(areaSize, areaSizeHalf-boxLessAmount),
                             (card) => card.colors[2],
                         ),
                         //Biome
