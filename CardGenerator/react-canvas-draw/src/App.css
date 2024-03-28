@@ -87,9 +87,17 @@
     z-index: 1;
 }
 
+.listInfoFiller {
+    height: 130px;
+}/**/
+
 .listInfo {
     border-bottom: white 2px solid;
     font-size: large;
+    position: fixed;
+    z-index: 10;
+    background: #303030;
+    width: 200px;
 }
 
 .listInfo p {

@@ -46,6 +46,9 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                     </select>
                 </p>
             </div>
+            {/* Deck Stats (Behind) */}
+            <div className ="listInfoFiller">
+            </div>
             {/* Card List */}
             <div className="list">
                 {
