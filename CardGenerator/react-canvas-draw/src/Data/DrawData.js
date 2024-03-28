@@ -1,7 +1,7 @@
 "use strict";
 
-import { getLines } from "../Utility/Utility";
-import DrawLayer, { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_TEXT } from "./DrawLayer";
+import { arraySort, getLines } from "../Utility/Utility";
+import DrawLayer, { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_LAYERS, DRAWLAYER_TEXT } from "./DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "./Vector2";
 
 export function generateCardSkin(width, height, margin, padding) {
@@ -118,6 +118,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 }
             },
         ),
+
         //tags
         new DrawLayer(
             DRAWLAYER_TEXT,
@@ -133,6 +134,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 }
             },
         ),
+
         //cost
         new DrawLayer(
             DRAWLAYER_TEXT,
@@ -150,6 +152,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 }
             },
         ),
+
         //star count
         new DrawLayer(
             DRAWLAYER_TEXT,
@@ -167,6 +170,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 }
             },
         ),
+
         //rest count, abilities, flavor text
         // new DrawLayer(
         //     DRAWLAYER_BOX,
@@ -213,6 +217,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 }
             },
         ),
+
         //base power
         // new DrawLayer(
         //     DRAWLAYER_BOX,
@@ -234,6 +239,71 @@ export function generateCardSkin(width, height, margin, padding) {
                     padding: 0,
                 }
             },
+        ),
+
+        // Biome Modifiers
+        new DrawLayer(
+            DRAWLAYER_LAYERS,
+            undefined,
+            undefined,
+            undefined,
+            (card) => arraySort(
+                [...card.biomeModifiers],
+                (bm) => bm.modifier * -1
+            )
+                .map((bm, i) => {
+                    const startX = margin + 50 + rowheight * 1.0;
+                    const bmWidth = rowheight * 1.7;
+                    const areaSize = rowheight * 1.4;
+                    const areaSizeHalf = areaSize / 2;
+                    return [
+                        //Circle
+                        new DrawLayer(
+                            DRAWLAYER_CIRCLE,
+                            'grey',
+                            new Vector2(startX + (bmWidth * i) + areaSizeHalf, markersY[3] - 50),
+                            new Vector2(areaSizeHalf, areaSizeHalf),
+                            (card) => card.colors[2]
+                        ),
+                        //Biome Box
+                        new DrawLayer(
+                            DRAWLAYER_BOX,
+                            'white',
+                            new Vector2(startX + (bmWidth * i), markersY[3] - 50 - areaSizeHalf),
+                            new Vector2(areaSize, areaSizeHalf),
+                            (card) => card.colors[2],
+                        ),
+                        //Biome
+                        new DrawLayer(
+                            DRAWLAYER_TEXT,
+                            'white',
+                            new Vector2(startX + (bmWidth * i), markersY[3] - 55 - areaSizeHalf),
+                            new Vector2(areaSize, areaSizeHalf),
+                            (card) => bm.biome,
+                            (card) => card.colors[5],
+                            (card) => {
+                                return {
+                                    text_align: "center",
+                                    padding: rowheight * 0.1,
+                                }
+                            },
+                        ),
+                        new DrawLayer(
+                            DRAWLAYER_TEXT,
+                            'white',
+                            new Vector2(startX + (bmWidth * i)+(areaSize-areaSize*.75)/2, markersY[3] - rowheight * 0.93),
+                            new Vector2(areaSize*.75, areaSize*.4),
+                            (card) => bm.modifier,
+                            (card) => card.colors[5],
+                            (card) => {
+                                return {
+                                    text_align: "center",
+                                    padding: 0,//rowheight * 0.1,
+                                }
+                            },
+                        ),
+                    ];
+                })
         ),
     ];
     return cardSkin;

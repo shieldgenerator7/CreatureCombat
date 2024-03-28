@@ -119,6 +119,7 @@ export function arraySort(array, mapFunc = (a) => a, ascending = true) {
         }
         return 0;
     });
+    return array;
 }
 
 export function arrayMin(array, minFunc = (val) => val) {

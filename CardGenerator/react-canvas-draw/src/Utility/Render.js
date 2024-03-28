@@ -1,7 +1,7 @@
 "use strict";
 
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from "../Data/Creature";
-import { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_TEXT } from "../Data/DrawLayer";
+import { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_LAYERS, DRAWLAYER_TEXT } from "../Data/DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "../Data/Vector2";
 import { VERSION } from "../Version";
 import { arraySort, getDateString, getLines } from "./Utility";
@@ -18,6 +18,11 @@ export function renderCard(card, canvas, drawData) {
     const width = canvas.width;
     const height = canvas.height;
 
+    //Add layers as needed
+    drawData = drawData.map(layer => {
+        if (layer.type != DRAWLAYER_LAYERS) { return layer; }
+        return layer.getInfo(card);
+    }).flat(Infinity);
     //Process layers
     drawData.forEach(draw => {
         switch (draw.type) {
@@ -139,6 +144,17 @@ export function renderCard(card, canvas, drawData) {
                         prevFontSize = fontSize;
                     }
                 }
+                //If line is too big for area, decrease font size
+                if (lines.length == 1) {
+                    let textwidth = context.measureText(lines[0]).width;
+                    let drawSizePad = draw.size.x - padLeft - padRight;
+                    if (textwidth > drawSizePad) {
+                        let ratio = drawSizePad / textwidth;
+                        fontSize *= ratio;
+                        context.font = `${fontSize}px Arial`;
+                    }
+                }
+                //
                 const textalign = format.text_align ?? "left";
                 const LINEHEIGHT = 0.1 * RESOLUTION;
                 const boldSymbol = "*";
@@ -190,6 +206,9 @@ export function renderCard(card, canvas, drawData) {
                     });
                 });
                 break;
+            case DRAWLAYER_LAYERS:
+                //do nothing, the layers it added is processed above
+                break;
             default:
                 console.error("unknown draw layer type:", draw.type);
         }
@@ -227,30 +246,6 @@ export function renderCard(card, canvas, drawData) {
     // );
     //
 
-    //Biome Modifiers
-    context.fillStyle = card.colors[4];
-    fontSize = 0.35;
-    context.font = `${textRow * fontSize}px Arial`;
-    let bmStartY = height - bufferBase * 3.5 - fontSize * 70;
-    let bmLineHeight = 0.1 * RESOLUTION;
-    let bmStartX = 0 + bufferBase * 4.7;
-    let bmBufferX = width * 0.15;
-    let bmModOffset = bmBufferX * 0.15;
-    let bmList = [...card.biomeModifiers];
-    arraySort(bmList, (bm) => bm.modifier * -1);
-    bmList.forEach((bm, i) => {
-        let drawX = bmStartX + bmBufferX * i;
-        context.fillText(
-            bm.biome?.trim() || `[biome ${i + 1}]`,
-            drawX,
-            bmStartY
-        );
-        context.fillText(
-            ((bm.modifier > 0) ? "+" : "") + bm.modifier,
-            drawX + bmModOffset,
-            bmStartY + bmLineHeight
-        )
-    });
     //Card Info
     let creditsX = 0 + bufferBase * 2.9;
     let creditsY = height - bufferBase * 1.4;

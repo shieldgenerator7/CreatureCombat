@@ -6,6 +6,7 @@ export const DRAWLAYER_BOX = "box";
 export const DRAWLAYER_CIRCLE = "circle";
 export const DRAWLAYER_IMAGE = "image";
 export const DRAWLAYER_TEXT = "text";
+export const DRAWLAYER_LAYERS = "layers";
 
 class DrawLayer {
     constructor(type, color = 'black', pos = VECTOR2_ZERO, size = VECTOR2_ZERO, infoFunc, colorFunc, formatFunc) {
