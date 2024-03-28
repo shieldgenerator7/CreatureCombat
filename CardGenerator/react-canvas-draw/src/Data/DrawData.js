@@ -303,7 +303,7 @@ export function generateCardSkin(width, height, margin, padding) {
                             'white',
                             new Vector2(startX + (bmWidth * i) + (areaSize - areaSize * .75) / 2, markersY[3] - rowheight * 0.93),
                             new Vector2(areaSize * .75, areaSize * .4),
-                            (card) => bm.modifier,
+                            (card) => `${(bm.modifier>0)?"+":""}${bm.modifier}`,
                             (card) => card.colors[5],
                             (card) => {
                                 return {
