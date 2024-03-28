@@ -1,23 +1,21 @@
 
 -bug: cant backspace comma in type text box
 
--when portrait is small, still expand them to fill the space as much as possible (if do before adding versatile image controls)
-
--trim custom ability effect text
-
--improve number up/down controls
-
 -skorh: is it ok if the final cost is less than the base power?
 
 -bug: sort combobox doesnt reflect current sort order (needs variable that it controls and reads from)
 
 -report the point cost (or make the point cost in the top right of the card more obvious)
+-show cost of each individual piece (easier after CostSpec addition)
 
 -add link to rules
+
+balance: limit how far in the negative a biome modifier can go?
 
 a 2 cost is a 2 star??
 
 -add biome: island, garden
+-feature: custom biome
 
 -move canvas closer to the edit panel?
 
@@ -33,8 +31,11 @@ long list of card design improvements:
 -adding symbols to abilities (like house symbol for home requirement)
 -move stars to same row as cost?
 -sketch up card design, use sprites for section borders
--center text, like biome mods
 -frame for point cost
+-box around ability name (can use colors used for base power)
+-keywords for reqs / costs instead of symbols (w/ symbol for exhaust still?)
+
+
 
 -upload bg img in addition to portrait?
 -upload multiple images, and allow moving them all / layering them all?
@@ -47,17 +48,19 @@ long list of card design improvements:
 
 -bug: cant type negative numbers into number (where allowed, like biome mods)
 
--feature: save cards in the cloud, connected to user account (big table?)
+-feature: save cards in the cloud, connected to user account (amazon aws?)
 
 -feature: download deck as sprite sheet (for import to TTS), maybe even download as TTS mod
 
 -feature: upload design for back
+-feature: download standard card back
 
--feature: add lands to deck
+-feature: add lands to deck, or recommend lands (with proper proportions)
 
 -feature: ability triggers
 
 -feature: multiple ability reqs, costs, effects, triggers, in various orders
+-option: ability activatable/triggerable?
 
 
 -feature: decks (separate from cards)
@@ -67,3 +70,9 @@ long list of card design improvements:
 -drag+drop image and/or JSON
 
 -feature: card skins
+
+-rework: design different screens, and modify the UI accordingly
+-card edit screen
+-deck construction screen (show whole card for each card)
+
+-feature: download deck (json, separate pngs, png spritesheet)
