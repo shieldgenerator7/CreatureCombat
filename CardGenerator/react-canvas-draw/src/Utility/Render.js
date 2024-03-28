@@ -47,6 +47,19 @@ export function renderCard(card, canvas, drawData) {
                 let height = img.height;
                 let spos = VECTOR2_ZERO.clone();
                 let ssize = new Vector2(img.width, img.height);
+                //if image is small, expand it first
+                console.log("widthheight1", width,height);
+                if (width < size.x && height < size.y) {
+                    let wr = size.x / width;
+                    let hr = size.y / height;
+                    console.log("wrhrt1", wr,hr);
+                    let r = Math.min([wr, hr].filter(r => r > 1)) || 1;
+                    // let r = (wr < hr) ? wr : hr;
+                    width *= r;
+                    height *= r;
+                }
+                console.log("widthheight2",  width,height);
+                //
                 if (width != size.x || height != size.y) {
                     let wRatio = size.x / width;
                     let hRatio = size.y / height;
