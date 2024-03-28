@@ -50,7 +50,7 @@ class Ability {
     }
     get EffectText() {
         if (this.effectText && this.effectName == "custom") {
-            return this.effectText;
+            return this.effectText.trim();
         }
         return this.abilityEffect
             ?.getText(this.effectX)

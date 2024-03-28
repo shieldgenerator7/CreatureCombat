@@ -94,7 +94,7 @@ export function generateCardSkin(width, height, margin, padding) {
             'black',
             new Vector2(margin, margin + rowheight * 0.3),
             new Vector2(marginWidth, rowheight * 0.7),
-            (card) => card.name,
+            (card) => card.name?.trim(),
             (card) => card.colors[3],
             (card) => {
                 return {
@@ -109,7 +109,7 @@ export function generateCardSkin(width, height, margin, padding) {
             'black',
             new Vector2(margin, margin + rowheight * 0.9),
             new Vector2(marginWidth, rowheight * 1.5),
-            (card) => card.species,
+            (card) => card.species?.trim(),
             (card) => card.colors[3],
             (card) => {
                 return {
