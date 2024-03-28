@@ -45,6 +45,14 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(marginWidth, markersY[1] - margin),
             (card) => card.colors[0]
         ),
+        //cost circle
+        // new DrawLayer(
+        //     DRAWLAYER_CIRCLE,
+        //     "#00000022",
+        //     new Vector2(width - margin - 45, margin + rowheight * 0.7),
+        //     new Vector2(rowheight * 0.7, rowheight * 0.7),
+        //     (card) => "#FFFFFF22"
+        // ),
         //type bg
         new DrawLayer(
             DRAWLAYER_BOX,
