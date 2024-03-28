@@ -1,6 +1,7 @@
 "use strict";
 
 import { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
+import { backwardsCompatifyDeck, inflateDeck } from "../Data/Deck";
 
 //2024-03-08: copied from StoryViewer
 
@@ -10,7 +11,10 @@ class Storage {
     constructor() {
         this.storageName = "CreatureCombat_CardList";
         this.storage = {
+            //list of all cards this player has
             cardList: [],
+            //list of decks this player has
+            deckList: [],
         };
         this.entryCount = 0;
         this.loadStorage();
@@ -38,10 +42,21 @@ class Storage {
         }
         this.storage = JSON.parse(content) ?? this.storage;
         //
+        this.backwardsCompatifyStorage(this.storage);
+        //
         this.storage.cardList.forEach(card => {
             inflateCreature(card);
             backwardsCompatifyCreature(card);
         });
+        this.storage.deckList.forEach(deck => {
+            inflateDeck(deck);
+            backwardsCompatifyDeck(deck);
+        });
+    }
+
+    backwardsCompatifyStorage(storage) {
+        //Change: add deckList
+        storage.deckList ??= [];
     }
 
     get cardList() {
