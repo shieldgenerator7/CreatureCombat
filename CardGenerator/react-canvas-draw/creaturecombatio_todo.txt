@@ -1,7 +1,48 @@
+allow multiple cards to be picked in the upload .card dialogue
+
+errors in rendering should not crash the whole app!
+
+feature: search creautre list
+
+feature: copy+paste biome modifiers or other stuff
+
+bug: sometimes Counter concatenates "1" instead of adding 1
+
+keywords:
+-Territorial X (the enemy Creatures must share a total of at least X unique types with this Creature in order to play it)(total power 0 unless there are X enemies that share a type with it)
+-Homebound (can only be played to a Home biome)(total power 0 unless played to a Home biome)
+-Social X (can only be played to a Land with X allies that share a type with it)(total power 0 unless it has X allies that share a type with it)
+-Afraid (when a creature with higher base power is played, this Creature leaves battle)
+-Indigenous (instead of deploying to deploy zone, play faceup directly at Land)
+
+reqs:
+-slow (can't react to other ability)
+-symbiotic (must target a creature that shares a Home biome with it)
+
+cost: move off the land
+
+triggers: ambush, greeting, battlecry
+-Revenge (when an enemy brings an ally to 0 base power)
+
+effect:
+-stun (cancel target ability)
+-Fear X (target Creature with base power X or less can't use its abilities)
+-Mentor X Y (target Creature with base power X or less gets +Y base power
+
+bug: area around Counter component can be right clicked
+
+name: assignmentzone? (zone where creatures are assigned to land, but not ther eyt, and not in ready pile) -> deploy zone
+
+feature: make predefined list of types as suggestion (list of ones already created)
+also include count of other creatures of the type in your deck / library
+
+bug: uploading .card file sometimes doesnt get saved on reload
 
 -bug: cant backspace comma in type text box
 
 -skorh: is it ok if the final cost is less than the base power?
+
+feature: code blocks for ability (so cost can be calculated)
 
 -bug: sort combobox doesnt reflect current sort order (needs variable that it controls and reads from)
 
@@ -61,6 +102,8 @@ long list of card design improvements:
 
 -feature: multiple ability reqs, costs, effects, triggers, in various orders
 -option: ability activatable/triggerable?
+
+-feature: card id in deck (like 7/23), so you know which card it was in the decks
 
 
 -feature: decks (separate from cards)
