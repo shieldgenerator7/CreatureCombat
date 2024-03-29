@@ -10,18 +10,23 @@ You win by claiming the most Lands by the end of the game. The game ends when th
 
 In this game, there are two card types: Creature cards and Land cards. Creatures are the units that you send into battle, and Lands are the battlegrounds where you send them to fight.
 
-You need to bring a deck of Creatures and a deck of 25 Lands. Creature decks must have a total combined cost of 100 points, as determined by each Creature’s cost. There is no card minimum or maximum for the Creature deck. There is no limit to how many copies of a particular Creature you can have in your deck. See page TODO for more detailed Deck construction rules.
+You need to bring a deck of Creatures and a deck of 20 Lands. Creature decks must have a total combined cost of 100 points, as determined by each Creature’s cost. There is no card minimum or maximum for the Creature deck. There is no limit to how many copies of a particular Creature you can have in your deck. See page TODO for more detailed Deck construction rules.
 
 You will also need some way to keep track of Damage counters and Rest counters. A set of dice, trackers, tokens, and pips are all good options. Damage counters are often between 5 and 10, but can go as high as 50 and beyond in rare cases. Rest counters usually go between 1 and 3, and rarely get above 5.
 
-You will most likely want to use card sleeves for both your Creature Cards and Land cards, especially for your Land cards. Your Land cards will be shuffled in with your opponent's Land cards, so it’s important that you have distinct sleeves so you can easily find your Land cards after the game is over.
+You will most likely want to use card sleeves for both your Creature Cards and Land cards, especially for your Land cards. Your Land cards will be shuffled into a combined deck with your opponent's Land cards, so it’s important that you have distinct sleeves so you can easily find your Land cards after the game is over.
+
+You will need someway to mark the numbers 1 – 5 on each of the lands, and 1-5 in each player’s deploy zone. Numbered tokens, playing cards, and dice are all good options. For a 2 player game, you will need 3 sets of these 1-5 markers, for a total of 15 markers.
+
+You may also need a divider, to keep other players from seeing your deploy zone. This is optional though.
 
 # Setup
 
-1.  Shuffle your Land deck.
-2.  Shuffle your opponent’s Land deck.
-3.  Shuffle your Land deck into your opponent's Land deck, creating a combined Land deck.
-4.  Place your Creature deck face down on the table. No need to shuffle it. This is your Ready pile.
+1.  Shuffle your 20-card Land deck.
+2.  Shuffle your opponent’s 20-card Land deck.
+3.  Shuffle the deck of 10 random neutral Lands.
+4.  Shuffle your Land deck and your opponent's Land deck into the neutral Land deck, creating a combined Land deck of 50 cards.
+5.  Place your Creature pile face down on the table. No need to shuffle it. This is your Ready pile.
 
 # Table Layout
 
@@ -31,10 +36,11 @@ In a 2 player game, the table will be laid out like this:
 
 1.  Land Deck – this is where you draw Lands from at the beginning of the round
 2.  Lands – these are the Lands in play that you can deploy Creatures to
-3.  Ready Pile – this is the pile of Creatures that you can deploy Creatures from
-4.  Land Pile – this is your personal pile of Lands that you have claimed
-5.  Resting Pile(s) – these are piles of your Creatures that are resting for a number of rounds indicated by their Rest counters and cannot be deployed
-6.  Returning Pile – the Creatures that will be ready next round
+3.  Deploy Zone – this is where you put your Creatures to show which Land they will be deployed to
+4.  Ready Pile – this is the pile of Creatures that you can deploy Creatures from
+5.  Land Pile – this is your personal pile of Lands that you have claimed
+6.  Resting Pile(s) – these are piles of your Creatures that are resting for a number of rounds indicated by their Rest counters and cannot be deployed
+7.  Returning Pile – the Creatures that will be ready next round
 
 # Card Layout
 
@@ -63,7 +69,7 @@ TODO: pic
 6.  Art – the card art that shows what the Creature looks like.
 7.  Ability – what the Creature can do.
 8.  Base Power – how powerful the Creature is no matter where it’s fighting. Also used as “health” and as a resource to use abilities.
-9.  Biome Bonus – how much more powerful the Creature is in that particular biome. The Biome Bonus is added to the Base Power to get the Creature’s power.
+9.  Biome Modifier – how much more powerful the Creature is in that particular biome. The Biome Modifier is added to the Base Power to get the Creature’s total power.
 10. ID – the ID of this Creature card on the Creature Combat website, so that you can verify that it follows the card construction rules.
 11. Variant \# - which variant of this species it is.
 12. Version \# - the version number of the card generator used to make this card.
@@ -73,7 +79,7 @@ TODO: pic
 There’s 4 phases to each round:
 
 -   Round Begin – Place Land cards (pg TODO)
--   Deploy – Move your Creatures to Land cards (pg TODO)
+-   Deploy – Determine which of your Creatures will be deployed to which Lands (pg TODO)
 -   Combat – Count up your Creatures’ power, highest power wins (pg TODO)
 -   Round End – Return your Creatures to your Ready pile (pg TODO)
 
@@ -81,11 +87,11 @@ There’s 4 phases to each round:
 
 Deal 5 Land cards into the space between players.
 
+The player with the least number of lands places the 5 numbered markers on the Lands, 1 marker per Land, in any order.
+
 ## Deploy Creatures
 
-Each player deploys any number of their ready Creatures to the 5 Lands. You can spread them out however you wish. You can add any number of Creatures to each Land. You don’t have to deploy all your Creatures. You don’t have to deploy Creatures to each Land.
-
-To deploy a Creature, place it face down in front of the Land you wish to deploy it to. If you deploy multiple Creatures to the same Land, place them in the same pile.
+Deploy any number of your ready Creatures to your Deploy zone. In your Deploy zone, you have 5 numbered markers that correspond to the 5 numbered markers on the Lands. Place a Creature facedown at a marker to deploy it to the Land that matches the marker. You can spread your Creatures out however you wish. You can deploy any number of Creatures to each marker. You don’t have to deploy all your Creatures. You don’t have to deploy Creatures to each marker.
 
 Each Creature receives a bonus or detriment depending on where it gets deployed. While a Creature is at a Land, it uses the Biome Modifier that matches the biome of the Land it’s at. If its Biome Modifier is positive, it gets a Biome Bonus; but if its Biome Modifier is negative, it gets a Biome Detriment.
 
@@ -95,6 +101,17 @@ If a Creature has a Biome Bonus, it is considered to be in a home biome. Some Cr
 
 Do combat for each Land separately. For each Land:
 
+### Battle Start Phase
+
+1.  Find your marker that matches the Land. Draw all the Creatures at that marker into your hand.
+2.  Play a Creature from your hand facedown at the Land. If you have a faceup Creature at the Land already, you may skip this step.
+3.  Once every player has player a Creature at the Land, reveal your Creature.
+
+### Battle Play Phase
+
+1.  Take Battle Actions:
+-   Activate Creature abilities
+-   Play Creature cards from your hand faceup at the Land
 1.  Reveal your Creatures deployed at that Land.
 2.  Count up your Creatures’ total power at that Land.
     1.  A Creature’s power is equal to its Base Power plus its Biome Modifier.
@@ -137,6 +154,20 @@ You may concede at any time, losing the game. When you concede, the Land cards y
 
 When the game ends, you may take back the Land cards you own from the Land deck and other players’ Land piles.
 
+# Battle Play Phase
+
+During this phase, you may play Creature cards and activate Creature abilities.
+
+## Play Creature Cards
+
+To play a Creature card from your hand, place it faceup at the Land where the battle is happening. In order to play a Creature card, it must be in your hand that was assigned to this Land.
+
+You may play a Creature as a reaction to an opponent playing a Creature or activating an ability. If you do, your Creature comes into play before that other Creature comes into play or that ability’s effect resolves.
+
+## Activate Creature Ability
+
+To activate a Creature ability, pay the ability’s cost, if any, and declare that you’re activating the ability. For example, say “Embird, use Fire Spit!”
+
 # Deck Building
 
 Each player comes to the table with a deck of Creatures and a deck of Lands. The total cost of your Creature deck and the amount of Lands in your Land deck can vary from the rules below, but the total cost and Land amount must be agreed upon by all players ahead of time.
@@ -147,7 +178,7 @@ Your Creature deck can have a total cost of 100 or less. Each Creature has a cos
 
 ## Land Deck
 
-Your Land deck must contain 25 Lands. Your Lands and the opponent’s Lands will be shuffled together into the same deck, so it’s best if you use card sleeves for the Lands with backs distinct from your opponent’s.
+Your Land deck must contain 20 Lands. Your Lands and the opponent’s Lands will be shuffled together into the same deck, so it’s best if you use card sleeves for the Lands with backs distinct from your opponent’s.
 
 # Multiplayer
 
