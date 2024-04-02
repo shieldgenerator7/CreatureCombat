@@ -1,6 +1,8 @@
 "use strict";
 
+import { isNumber } from "../Utility/Utility";
 import AbilityAtom from "./AbilityAtom";
+import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM } from "./AbilityConstants";
 
 const topList = [
     "custom",
@@ -210,3 +212,196 @@ export const abilityRequirements = [
         "O."
     ),
 ].sort(sortFunc);
+
+
+
+
+export const abilityTokens = [
+    new AbilityToken(
+        TYPE_PARAM_CREATURE,
+        [
+            "any",
+            "all",
+            "self",
+            "nonself",
+            "triggering",
+            "that",
+        ]
+    ),
+    new AbilityToken(
+        TYPE_PARAM_TEAM,
+        [
+            "team-all",
+            "ally",
+            "enemy",
+            "neutral",
+            "any",
+            "that",
+        ]
+    ),
+    new AbilityToken(
+        TYPE_PARAM_LAND,
+        [
+            "any",
+            "all",
+            "this",
+            "that",
+            "scouted",
+        ]
+    ),
+    new AbilityToken(
+        TYPE_PARAM_BIOME,
+        [
+            "any",
+            "all",
+            "none",
+            "that",
+            "specific",
+        ]
+    ),
+    new AbilityToken(
+        TYPE_PARAM_BIOMEMOD,
+        [
+            "any",
+            "all",
+            "none",
+            "that",
+            "specific",
+        ]
+    ),
+    new AbilityToken(
+        TYPE_PARAM_LOCATION,
+        [
+            "any",
+            "all",
+            "land",
+            "ready",
+            "deploy",
+            "returning",
+            "resting",
+        ]
+    ),
+    new AbilityToken(
+        TYPE_PARAM_NUMBER_WHOLE,
+        (x) => isNumber(x)
+    ),
+    new AbilityToken(
+        TYPE_PARAM_NUMBER_TYPE,
+        [
+            "any",
+            "all",
+            "none",
+            "that",
+            "specific",
+        ]
+    ),
+];
+
+export const abilityAtoms = [
+
+    //costs
+    new AbilityAtom(
+        "exhaust",
+        "reduce this Creature's base power by {cost}",
+        LINETYPE_COST,
+        {
+            cost: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom(
+        "rest",
+        "add {rest} rest counters to this Creature",
+        LINETYPE_COST,
+        {
+            rest: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+
+    //triggers
+    new AbilityAtom(
+        "ambush",
+        "when an enemy Creature is played",
+        LINETYPE_TRIGGER,
+        {}
+    ),
+    new AbilityAtom(
+        "greeting",
+        "when an ally Creature is played",
+        LINETYPE_TRIGGER,
+        {}
+    ),
+    new AbilityAtom(
+        "battlecry",
+        "when this Creature is played",
+        LINETYPE_TRIGGER,
+        {}
+    ),
+
+    //requirements
+    new AbilityAtom(
+        "home",
+        "this Creature must be in a home biome",
+        LINETYPE_REQUIREMENT,
+        {}
+    ),
+    new AbilityAtom(
+        "once",
+        "this ability may only {actionWord} once per battle",
+        LINETYPE_REQUIREMENT,
+        {
+            actionWord: ["activate", "trigger"],
+        }
+    ),
+    new AbilityAtom(
+        "channel",
+        "if this Creature takes damage before this ability effect resolves, the effect is canceled",
+        LINETYPE_REQUIREMENT,
+        {}
+    ),
+    new AbilityAtom(
+        "social",
+        "this Creature must have {count} allies that share a type with it",
+        LINETYPE_REQUIREMENT,
+        {
+            count: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+
+    //effects
+    new AbilityAtom(
+        "attack",
+        "deal {damage} damage to {team}{target}",
+        LINETYPE_EFFECT,
+        {
+            damage: TYPE_PARAM_NUMBER_WHOLE,
+            team: TYPE_PARAM_TEAM,
+            target: TYPE_PARAM_CREATURE,
+        }
+    ),
+    new AbilityAtom(
+        "block",
+        "reduce incoming damage by {block}",
+        LINETYPE_EFFECT,
+        {
+            block: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom(
+        "move",
+        "move {target} from {from} to {to}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+            from: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
+            to: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
+        }
+    ),
+    new AbilityAtom(
+        "scout",
+        "reveal the top {distance} Lands from the Land deck, choose one, put the others on the top and/or bottom of the Land deck in any order, then place the chosen one faceup on top. This is the Scouted Land.",
+        LINETYPE_EFFECT,
+        {
+            distance: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+];
