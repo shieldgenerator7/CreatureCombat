@@ -355,7 +355,7 @@ export function makeUserFacing(str) {
     return capitalizeFirstLetters(str.replaceAll("-", " "));
 }
 
-export function capitalizeFirstLetters(str, all=true, count =1) {
+export function capitalizeFirstLetters(str, all = true, count = 1) {
     return str
         .split(" ")
         .map((word, i) =>
