@@ -1,6 +1,6 @@
 "use strict";
 
-import { capitalizeFirstLetters } from "../../Utility/Utility";
+import { capitalizeFirstLetters, isNumber } from "../../Utility/Utility";
 import { abilityAtoms } from "../AbilityData";
 import AbilityLine from "../AbilityLine";
 
@@ -33,7 +33,7 @@ class Ability {
     get FullText() {
         let sentenceStart = true;
         let reminders = {};
-        let text =`*${this.name}*   `+
+        let text =`*${this.name}* — `+
             this.lines.map((line, i, arr) => {
             let atom = line.atom;
             if (!atom) {
@@ -44,18 +44,48 @@ class Ability {
                     case DISPLAY_LINE_FULL:
                         segment = atom.text.trim();
                         break;
-                    case DISPLAY_LINE_KEYWORD_WITH_REMINDER:
-                        let name = `*${atom.name.trim()}*`;
+                    case DISPLAY_LINE_KEYWORD_WITH_REMINDER: {
+                        let name = `*${capitalizeFirstLetters( atom.name.trim())}`;
+                        let reminder = atom.text.trim();
+                        Object.entries(atom.params).forEach(([key, value], j) => {
+                            let number = this.params[i]?.[j];
+                            if (isNumber(number)) {
+                                name += ` ${number}`;
+                            }
+                            reminder = reminder.replaceAll(`{${key}}`, number);
+                        })
+                        name += "*";
+                        reminders[name] = reminder;
                         segment = name;
-                        reminders[name] = atom.text.trim();
-                        break;
-                    case DISPLAY_LINE_KEYWORD_ONLY:
-                        segment = `*${atom.name.trim()}*`;
-                        break;
+                    } break;
+                    case DISPLAY_LINE_KEYWORD_ONLY: {
+                        let name = `*${ atom.name.trim()}`;
+                        let reminder = atom.text.trim();
+                        Object.entries(atom.params).forEach(([key, value], j) => {
+                            let number = this.params[i]?.[j];
+                            if (isNumber(number)) {
+                                name += ` ${number}`;
+                            }
+                        })
+                        name += "*";
+                        segment = name;
+                    } break;
                 }
             let j = 0;
+            //console.log("params", this.params);
             for (const [key, value] of Object.entries(atom.params)) {
-                segment = segment.replaceAll(`{${key}}`, this.params[i]?.[j]);
+                //  console.log("key,value", key, value);
+                switch (this.lineDisplayOptions[i]) {
+                    case DISPLAY_LINE_FULL:
+                        segment = segment.replaceAll(`{${key}}`, this.params[i]?.[j]);
+                        break;
+                    case DISPLAY_LINE_KEYWORD_WITH_REMINDER:
+                        // segment = [segment, ...this.params[i].filter(v => isNumber(v))].join(" ");
+                        break;
+                    case DISPLAY_LINE_KEYWORD_ONLY:
+                        // segment = [segment, ...this.params[i].filter(v => isNumber(v))].join(" ");
+                        break;
+                }
                 j++;
             }
             if (sentenceStart) {
@@ -71,7 +101,7 @@ class Ability {
             })
             .concat(
                 Object.entries(reminders).map(([key, value]) => {
-                    return `_${capitalizeFirstLetters( key)}: ${capitalizeFirstLetters(value,false)}._`;
+                    return `_(${capitalizeFirstLetters( key)}: ${capitalizeFirstLetters(value,false)})_`;
                 })
         )
             .flat(Infinity)
