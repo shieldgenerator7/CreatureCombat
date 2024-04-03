@@ -401,7 +401,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "scout",
-        "reveal the top {distance} Lands from the Land deck, choose one, put the others on the top and/or bottom of the Land deck in any order, then place the chosen one faceup on top. This is the Scouted Land",
+        "reveal the top {distance} Lands from the Land deck, choose one to be the scouted Land, put the others on the top and/or bottom of the Land deck in any order, then place the scouted Land faceup on top",
         LINETYPE_EFFECT,
         {
             distance: TYPE_PARAM_NUMBER_WHOLE,
@@ -409,7 +409,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "land-biome-add",
-        "{target} Land gains the biome {biome}",
+        "{target} Land gains the {biome} biome",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_LAND,
@@ -418,7 +418,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "land-biome-remove",
-        "{target} Land loses the biome {biome}",
+        "{target} Land loses the {biome} biome",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_LAND,

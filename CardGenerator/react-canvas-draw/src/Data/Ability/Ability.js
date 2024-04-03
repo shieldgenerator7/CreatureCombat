@@ -30,7 +30,7 @@ class Ability {
             let segment = atom.text.trim();
             let j = 0;
             for (const [key, value] of Object.entries(atom.params)) {
-                segment.replace(`{${key}}`, this.params[i]?.[j]);
+                segment = segment.replaceAll(`{${key}}`, this.params[i]?.[j]);
                 j++;
             }
             if (sentenceStart) {
