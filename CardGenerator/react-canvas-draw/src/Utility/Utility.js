@@ -355,10 +355,14 @@ export function makeUserFacing(str) {
     return capitalizeFirstLetters(str.replaceAll("-", " "));
 }
 
-export function capitalizeFirstLetters(str) {
+export function capitalizeFirstLetters(str, all=true, count =1) {
     return str
         .split(" ")
-        .map(word => word.substring(0, 1).toUpperCase() + word.substring(1))
+        .map((word, i) =>
+            (all || i == 0)
+                ? word.substring(0, count).toUpperCase() + word.substring(count)
+                : word
+        )
         .join(" ");
 }
 

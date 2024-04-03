@@ -5,6 +5,7 @@ import { abilityAtoms, abilityTokens } from "../Data/AbilityData";
 import SearchSelect from "./SearchSelect";
 import { TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";
 import Counter from "./Counter";
+import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
 
 function AbilityPanel({ ability, setAbility, updateAbility }) {
     return (<div className="abilityArea">
@@ -82,9 +83,19 @@ function AbilityPanel({ ability, setAbility, updateAbility }) {
                         ></SearchSelect>)
                     })
                 }
-                {line.getString()}
+                {
+                    <SearchSelect
+                        option={ability.lineDisplayOptions[i]}
+                        options={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
+                        setOption={(o) => {
+                            ability.lineDisplayOptions[i] = o;
+                            updateAbility(ability);
+                        }}
+                    ></SearchSelect>
+                }
+                {/* {line.getString()} */}
             </div>);
         })}
-    </div>);
+    </div >);
 }
 export default AbilityPanel;
