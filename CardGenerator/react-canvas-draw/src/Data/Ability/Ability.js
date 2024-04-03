@@ -25,7 +25,8 @@ class Ability {
 
     get FullText() {
         let sentenceStart = true;
-        let text = this.lines.map((line, i, arr) => {
+        let text =`*${this.name}*   `+
+            this.lines.map((line, i, arr) => {
             let atom = line.atom;
             if (!atom) {
                 return `[Unknown atom: "${line.atomName}"]`;

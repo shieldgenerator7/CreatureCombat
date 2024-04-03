@@ -36,12 +36,12 @@ function Counter({ value, setValue, allowNegative = false, inline = false, max =
                 value={`${value}`}></input>
             <button
                 onClick={(e) => {
-                    set(value + 1);
+                    set((value * 1) + 1);
                 }}
                 onContextMenu={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    set(value - 1);
+                    set((value * 1) - 1);
                 }}
             >
                 + -
