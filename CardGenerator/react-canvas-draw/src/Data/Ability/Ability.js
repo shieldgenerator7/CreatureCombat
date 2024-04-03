@@ -1,6 +1,7 @@
 "use strict";
 
 import { capitalizeFirstLetters, isNumber } from "../../Utility/Utility";
+import { LINETYPE_EFFECT } from "../AbilityConstants";
 import { abilityAtoms } from "../AbilityData";
 import AbilityLine from "../AbilityLine";
 
@@ -27,13 +28,14 @@ class Ability {
             .split("\n")
             .slice(1)
             .map(line => new AbilityLine(line));
+        this.colonIndex = this.lines.indexOf(this.lines.find(l => l.type == LINETYPE_EFFECT)) - 1;
         this.lineDisplayOptions ??= this.lines.map(l => DISPLAY_LINE_FULL);
     }
 
     get FullText() {
         let sentenceStart = true;
         let reminders = {};
-        let text =`*${this.name}* — `+
+        let text = `*${this.name}* — ` +
             this.lines.map((line, i, arr) => {
             let atom = line.atom;
             if (!atom) {
@@ -89,19 +91,19 @@ class Ability {
                 j++;
             }
             if (sentenceStart) {
-                segment = capitalizeFirstLetters(segment, false, segment.match(/[a-zA-Z0-9\-]/).index+1);
+                segment = capitalizeFirstLetters(segment, false, segment.match(/[a-zA-Z0-9\-]/).index + 1);
                 sentenceStart = false;
             }
             let sentenceEnd = true;//TODO: make this check current and next line
             if (sentenceEnd) {
-                segment += ".";
+                segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
                 sentenceStart = true;
             }
             return segment;
             })
             .concat(
                 Object.entries(reminders).map(([key, value]) => {
-                    return `_(${capitalizeFirstLetters( key)}: ${capitalizeFirstLetters(value,false)})_`;
+                    return `_(${capitalizeFirstLetters(key)}: ${capitalizeFirstLetters(value, false)})_`;
                 })
         )
             .flat(Infinity)
