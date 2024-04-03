@@ -42,5 +42,16 @@ class AbilityLine {
             .filter(token => token);
 
     }
+
+    getString() {
+        let symbol = "";
+        switch (this.type) {
+            case LINETYPE_COST: symbol = "$"; break;
+            case LINETYPE_TRIGGER: symbol = "!"; break;
+            case LINETYPE_REQUIREMENT: symbol = "?"; break;
+            case LINETYPE_EFFECT: symbol = ">"; break;
+        }
+        return `${symbol} ${this.atomName}${(this.params.length > 0) ? `: ${this.params.join(", ")}` : ""} `;
+    }
 }
 export default AbilityLine;

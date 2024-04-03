@@ -36,14 +36,12 @@ class Creature {
 
         this.abilityTest = newAbility(
             "test",
-            `
-                Reality Bend
-                $ exhaust: 4
-                ? once
-                > scout: 3
-                > land-biome-remove: any, all
-                > land-biome-add: scouted
-            `,
+            `Reality Bend
+            $ exhaust: 4
+            ? once
+            > scout: 3
+            > land-biome-remove: any, all
+            > land-biome-add: that, scouted`,
             [[4],
             ["activate"],
             [3],
@@ -213,14 +211,12 @@ export function backwardsCompatifyCreature(creature) {
 
     creature.abilityTest ??= newAbility(
         "test",
-        `
-            Reality Bend
-            $ exhaust: 4
-            ? once
-            > scout: 3
-            > land-biome-remove: any, all
-            > land-biome-add: scouted
-        `,
+        `Reality Bend
+        $ exhaust: 4
+        ? once
+        > scout: 3
+        > land-biome-remove: any, all
+        > land-biome-add: that, scouted`,
         [[4],
         ["activate"],
         [3],
