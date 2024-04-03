@@ -1,8 +1,10 @@
 "use strict";
 
 import { isNumber } from "../Utility/Utility";
+import AbilityAtom2 from "./Ability/AbilityAtom";
 import AbilityAtom from "./AbilityAtom";
-import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM } from "./AbilityConstants";
+import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_NUMBER_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM } from "./AbilityConstants";
+import AbilityToken from "./AbilityToken";
 
 const topList = [
     "custom",
@@ -257,6 +259,7 @@ export const abilityTokens = [
             "none",
             "that",
             "specific",
+            "scouted",
         ]
     ),
     new AbilityToken(
@@ -300,7 +303,7 @@ export const abilityTokens = [
 export const abilityAtoms = [
 
     //costs
-    new AbilityAtom(
+    new AbilityAtom2(
         "exhaust",
         "reduce this Creature's base power by {cost}",
         LINETYPE_COST,
@@ -308,7 +311,7 @@ export const abilityAtoms = [
             cost: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "rest",
         "add {rest} rest counters to this Creature",
         LINETYPE_COST,
@@ -318,19 +321,19 @@ export const abilityAtoms = [
     ),
 
     //triggers
-    new AbilityAtom(
+    new AbilityAtom2(
         "ambush",
         "when an enemy Creature is played",
         LINETYPE_TRIGGER,
         {}
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "greeting",
         "when an ally Creature is played",
         LINETYPE_TRIGGER,
         {}
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "battlecry",
         "when this Creature is played",
         LINETYPE_TRIGGER,
@@ -338,13 +341,13 @@ export const abilityAtoms = [
     ),
 
     //requirements
-    new AbilityAtom(
+    new AbilityAtom2(
         "home",
         "this Creature must be in a home biome",
         LINETYPE_REQUIREMENT,
         {}
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "once",
         "this ability may only {actionWord} once per battle",
         LINETYPE_REQUIREMENT,
@@ -352,13 +355,13 @@ export const abilityAtoms = [
             actionWord: ["activate", "trigger"],
         }
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "channel",
         "if this Creature takes damage before this ability effect resolves, the effect is canceled",
         LINETYPE_REQUIREMENT,
         {}
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "social",
         "this Creature must have {count} allies that share a type with it",
         LINETYPE_REQUIREMENT,
@@ -368,7 +371,7 @@ export const abilityAtoms = [
     ),
 
     //effects
-    new AbilityAtom(
+    new AbilityAtom2(
         "attack",
         "deal {damage} damage to {team}{target}",
         LINETYPE_EFFECT,
@@ -378,7 +381,7 @@ export const abilityAtoms = [
             target: TYPE_PARAM_CREATURE,
         }
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "block",
         "reduce incoming damage by {block}",
         LINETYPE_EFFECT,
@@ -386,7 +389,7 @@ export const abilityAtoms = [
             block: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "move",
         "move {target} from {from} to {to}",
         LINETYPE_EFFECT,
@@ -396,12 +399,30 @@ export const abilityAtoms = [
             to: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
         }
     ),
-    new AbilityAtom(
+    new AbilityAtom2(
         "scout",
-        "reveal the top {distance} Lands from the Land deck, choose one, put the others on the top and/or bottom of the Land deck in any order, then place the chosen one faceup on top. This is the Scouted Land.",
+        "reveal the top {distance} Lands from the Land deck, choose one, put the others on the top and/or bottom of the Land deck in any order, then place the chosen one faceup on top. This is the Scouted Land",
         LINETYPE_EFFECT,
         {
             distance: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom2(
+        "land-biome-add",
+        "{target} Land gains the biome {biome}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_LAND,
+            biome: TYPE_PARAM_BIOME,
+        }
+    ),
+    new AbilityAtom2(
+        "land-biome-remove",
+        "{target} Land loses the biome {biome}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_LAND,
+            biome: TYPE_PARAM_BIOME,
         }
     ),
 ];

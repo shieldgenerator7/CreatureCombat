@@ -10,3 +10,4 @@ class AbilityToken{
         this.defaultOption = defaultOption ?? options[0];
     }
 }
+export default AbilityToken;

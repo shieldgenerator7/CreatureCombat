@@ -23,12 +23,16 @@ class Ability {
     get FullText() {
         let sentenceStart = true;
         let text = this.lines.map((line, i, arr) => {
-            let atom = abilityAtoms[line.atom];
+            let atom = line.atom;
+            if (!atom) {
+                return `[Unknown atom: "${line.atomName}"]`;
+            }
             let segment = atom.text.trim();
-            //Object.getOwnPropertyNames().forEach();
-            atom.params.forEach(([key, value], j) => {
-                segment.replace(`{${key}}`, params[i][j]);
-            })
+            let j = 0;
+            for (const [key, value] of Object.entries(atom.params)) {
+                segment.replace(`{${key}}`, this.params[i]?.[j]);
+                j++;
+            }
             if (sentenceStart) {
                 segment = segment.substring(0, 1).toUpperCase() + segment.substring(1);
                 sentenceStart = false;
@@ -41,6 +45,10 @@ class Ability {
             return segment;
         })
             .join(" ");
+        return text;
     }
 }
 export default Ability;
+export function newAbility(name, codeText, params) {
+    return new Ability(name, codeText, params);
+}
