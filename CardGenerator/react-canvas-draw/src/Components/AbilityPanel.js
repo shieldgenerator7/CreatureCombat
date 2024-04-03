@@ -44,8 +44,6 @@ function AbilityPanel({ ability, setAbility, updateAbility }) {
                 {
 
                     Object.entries(line.atom?.params).map(([key, value], j) => {
-                        // return `${key}: ${value} (${j}: ${line.params[i]?.[j]})`;
-
 
                         //Number
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {
@@ -65,11 +63,6 @@ function AbilityPanel({ ability, setAbility, updateAbility }) {
                         }
 
                         //Option List
-                        // let token = abilityTokens.find(token => token.name == value);
-                        // if (!token) {
-                        //     console.error("unable to find token!", value);
-                        //     return (<>value</>);
-                        // }
                         let optionList = [value]
                             .flat(Infinity)
                             .map(v => abilityTokens.find(token => token.name == v)?.options ?? v)
@@ -88,20 +81,7 @@ function AbilityPanel({ ability, setAbility, updateAbility }) {
                             }}
                         ></SearchSelect>)
                     })
-                    //  console.log("key,value", key, value);
-                    // segment = segment.replaceAll(`{${key}}`, line.params[i]?.[j]);
-
                 }
-                {/* {line.atom.type != TYPE_PARAM_NUMBER_WHOLE &&
-                   (<input type="text" onChange={(e) => {
-                    ability.params = e.target.value;
-                    updateAbility(ability);
-                }}
-                    value={ability.name}
-                >
-                </input>)
-
-                } */}
                 {line.getString()}
             </div>);
         })}
