@@ -50,6 +50,14 @@ class Ability {
             .join(" ");
         return text;
     }
+    updateDNA() {
+        console.log("updateDNA_1", this.codeText);
+        this.codeText = `${this.name}
+        ${this.lines.map((line, i) =>
+            line.getString()
+        ).join("\n")}`;
+        console.log("updateDNA_2", this.codeText);
+    }
 }
 export default Ability;
 export function newAbility(name, codeText, params) {

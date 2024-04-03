@@ -135,6 +135,11 @@
     background-color: #85abfc;
 }
 
+.abilityAtomSelect{
+    background-color: #303030;
+    color: white;
+}
+
 .listItem button {
     border: none;
     font-size: large;

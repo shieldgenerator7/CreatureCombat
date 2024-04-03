@@ -51,7 +51,19 @@ class AbilityLine {
             case LINETYPE_REQUIREMENT: symbol = "?"; break;
             case LINETYPE_EFFECT: symbol = ">"; break;
         }
-        return `${symbol} ${this.atomName}${(this.params.length > 0) ? `: ${this.params.join(", ")}` : ""} `;
+        return `${symbol} ${this.atomName}${(this.params?.length > 0) ? `: ${this.params.join(", ")}` : ""} `;
+    }
+
+    setAtom(name) {
+        this.atomName = name;
+        this.atom = abilityAtoms.find(atom => atom.name == this.atomName && atom.type == this.type)
+            ?? abilityAtoms.find(atom => atom.name == this.atomName);
+        if (!this.atom) {
+            console.error("unable to find atom!", this.atomName, this.atom);
+            return;
+        }
+        this.type = this.atom.type;
+        console.log("setAtom", this.atomName, this.type, this.atom);
     }
 }
 export default AbilityLine;
