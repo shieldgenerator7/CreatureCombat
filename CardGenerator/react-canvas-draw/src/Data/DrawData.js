@@ -209,6 +209,7 @@ export function generateCardSkin(width, height, margin, padding) {
                     });
                 return [
                     restLine,
+                    card.abilityTest.FullText,
                     abilityLines,
                     flavorLine
                 ]

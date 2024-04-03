@@ -13,11 +13,14 @@ class Ability {
     constructor(name, codeText, params) {
         this.name = name;
         this.codeText = codeText;
+        this.params = params;
+        this.init();
+    }
+    init() {
         this.lines = this.codeText
             .split("\n")
             .slice(1)
             .map(line => new AbilityLine(line));
-        this.params = params;
     }
 
     get FullText() {
@@ -51,4 +54,9 @@ class Ability {
 export default Ability;
 export function newAbility(name, codeText, params) {
     return new Ability(name, codeText, params);
+}
+
+export function inflateAbility(ability) {
+    Object.setPrototypeOf(ability, Ability.prototype);
+    ability.init();
 }

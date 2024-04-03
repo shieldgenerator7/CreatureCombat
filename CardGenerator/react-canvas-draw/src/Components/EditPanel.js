@@ -7,6 +7,7 @@ import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
 import { capitalizeFirstLetters, makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
+import AbilityPanel from './AbilityPanel';
 
 function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
     return (
@@ -101,6 +102,13 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
             {/* Abilities */}
             Ability
+            <AbilityPanel
+                ability={card.abilityTest}
+                updateAbility={(a) => {
+                    card.abilityTest = a;
+                    updateCard(card);
+                }}
+            ></AbilityPanel>
             <div className='info'>
                 Show Reminder Text
                 <input type="checkbox" checked={card.showReminderText}
