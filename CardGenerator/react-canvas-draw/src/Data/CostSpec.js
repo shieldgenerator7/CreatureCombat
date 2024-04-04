@@ -89,24 +89,35 @@ function defaultCostDict() {
 
         //costs
         "exhaust": new AbilityCost(
-            (args, table, cost) => {
-                let bpcost = args.cost;
-                return cost - bpcost;
-            }
+            (args, table, cost) => cost - args.cost
+        ),
+        "rest": new AbilityCost(
+            (args, table, cost) => cost * 1 / (args.rest + 1)
         ),
 
         //triggers
         "ambush": new AbilityCost(
-            (args, table, cost) => {
-                return cost * 0.1;
-            }
+            (args, table, cost) => cost * 0.1
+        ),
+        "greeting": new AbilityCost(
+            (args, table, cost) => cost * 0.1
+        ),
+        "battlecry": new AbilityCost(
+            (args, table, cost) => cost * 0.1
         ),
 
         //requirements
+        "home": new AbilityCost(
+            (args, table, cost) => cost * 0.25
+        ),
         "once": new AbilityCost(
-            (args, table, cost) => {
-                return cost * 0.3;
-            }
+            (args, table, cost) => cost * 0.3
+        ),
+        "channel": new AbilityCost(
+            (args, table, cost) => cost * 0.3
+        ),
+        "social": new AbilityCost(
+            (args, table, cost) => cost - (args.count * 0.35)
         ),
 
         //effects
@@ -149,6 +160,115 @@ function defaultCostDict() {
         ),
         "block": new AbilityCost(
             (args) => args.block
+        ),
+        "move": new AbilityCost(
+            (args, table) => {
+                let team = args[TYPE_PARAM_TEAM];
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(team, target);
+                return 10 * targetMx;
+            },
+            new Table(
+                [
+                    "all-teams",
+                    "ally",
+                    "enemy",
+                    "neutral",
+                    "target-team",
+                    "that-team",
+                ],
+                [
+                    "target",
+                    "all",
+                    "self",
+                    "nonself",
+                    "triggering",
+                    "that",
+                ],
+                [
+                    [1, 1, -1, 1.5, 1, 1],
+                    [-1, -3, -1, -2, -1, -1],
+                    [1, 3, undefined, 3, 1, 1],
+                    [1, 1, -1, 1, 1, 1],
+                    [1, 3, -1, 3, 1, 1],
+                    [1, 3, -1, 3, 1, 1],
+                ]
+            ),
+        ),
+        "scout": new AbilityCost(
+            (args) => Math.max(1, args.distance - 1) * 2
+        ),
+        "land-biome-add": new AbilityCost(
+            (args, table) => {
+                let target = args.target;
+                let biome = args.biome;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(target, biome);
+                return 10 * targetMx;
+            },
+            new Table(
+                [
+                    "target",
+                    "all",
+                    "none",
+                    "that",
+                    "specific",
+                    "scouted",
+                ],
+                [
+                    "target",
+                    "all",
+                    "this",
+                    "that",
+                    "scouted",
+                ],
+                [
+                    [1, 3, 1, 1, undefined],
+                    [3, 5, 2, 3, undefined],
+                    [0, 0, 0, 0, undefined],
+                    [1, 3, 1, 1, undefined],
+                    [2, 5, 2, 2, undefined],
+                    [0.5, 1.5, 0.5, 0.5, undefined],
+                ]
+            )
+        ),
+        "land-biome-remove": new AbilityCost(
+            (args, table) => {
+                let target = args.target;
+                let biome = args.biome;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(target, biome);
+                return 10 * targetMx;
+            },
+            new Table(
+                [
+                    "target",
+                    "all",
+                    "none",
+                    "that",
+                    "specific",
+                    "scouted",
+                ],
+                [
+                    "target",
+                    "all",
+                    "this",
+                    "that",
+                    "scouted",
+                ],
+                [
+                    [1, 3, 1, 1, undefined],
+                    [3, 5, 2, 3, undefined],
+                    [0, 0, 0, 0, undefined],
+                    [1, 3, 1, 1, undefined],
+                    [2, 5, 2, 2, undefined],
+                    [0.5, 1.5, 0.5, 0.5, undefined],
+                ]
+            )
         ),
     }
     Object.entries(costDict).forEach(([key, value]) => {
