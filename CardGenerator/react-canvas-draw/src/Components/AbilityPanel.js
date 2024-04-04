@@ -6,6 +6,7 @@ import SearchSelect from "./SearchSelect";
 import { TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";
 import Counter from "./Counter";
 import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
+import AbilityLine from "../Data/AbilityLine";
 
 function AbilityPanel({ ability, setAbility, updateAbility }) {
     return (<div className="abilityArea">
@@ -93,9 +94,22 @@ function AbilityPanel({ ability, setAbility, updateAbility }) {
                         }}
                     ></SearchSelect>
                 }
+                {/* Remove Button */}
+                <button onClick={() => {
+                    ability.lines.splice(i, 1);
+                    ability.updateDNA();
+                    updateAbility(ability);
+                }}>X</button>
                 {/* {line.getString()} */}
             </div>);
         })}
+        {/* Add Button */}
+        <button className='action' onClick={() => {
+            ability.lines.push(new AbilityLine("> attack: 1"));
+            ability.updateDNA();
+            updateAbility(ability);
+        }}>Add Ability Line</button>
+
     </div >);
 }
 export default AbilityPanel;
