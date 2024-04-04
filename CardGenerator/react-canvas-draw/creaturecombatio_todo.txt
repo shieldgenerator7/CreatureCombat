@@ -2,11 +2,9 @@ allow multiple cards to be picked in the upload .card dialogue
 
 errors in rendering should not crash the whole app!
 
-feature: search creautre list
+feature: search creature list
 
 feature: copy+paste biome modifiers or other stuff
-
-bug: sometimes Counter concatenates "1" instead of adding 1
 
 keywords:
 -Territorial X (the enemy Creatures must share a total of at least X unique types with this Creature in order to play it)(total power 0 unless there are X enemies that share a type with it)
@@ -30,8 +28,6 @@ effect:
 -Mentor X Y (target Creature with base power X or less gets +Y base power
 
 bug: area around Counter component can be right clicked
-
-name: assignmentzone? (zone where creatures are assigned to land, but not ther eyt, and not in ready pile) -> deploy zone
 
 feature: make predefined list of types as suggestion (list of ones already created)
 also include count of other creatures of the type in your deck / library
