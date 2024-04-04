@@ -441,11 +441,8 @@ abilityAtoms
                 let token = abilityTokens.find(t => t.name == tokenName);
                 if (!token) { return; }//it's ok, there could be non-tokens in the list
                 if (token.subtokenname) {
-                    atom.params[token.subtokenname] = subtokenname;
+                    atom.params[token.subtokenname] = token.subtokenname;
                 }
-            })
-
-        })
-        let subtoken = abilityTokens.find(t => t.name == token.subtokenname);
-        token.init(subtoken);
+            });
+        });
     });

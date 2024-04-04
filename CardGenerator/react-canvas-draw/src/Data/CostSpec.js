@@ -87,7 +87,7 @@ export default CostSpec;
 function defaultCostDict() {
     let costDict = {
         "attack": new AbilityCost(
-            (c, a, table, args) => {
+            (args, table) => {
                 let damage = args.damage;
                 let team = args[TYPE_PARAM_TEAM];
                 let target = args.target;
@@ -122,6 +122,9 @@ function defaultCostDict() {
                     [1, 3, -1, 3, 1, 1],
                 ]
             ),
+        ),
+        "block": new AbilityCost(
+            (args) => args.block
         ),
     }
     Object.entries(costDict).forEach(([key, value]) => {

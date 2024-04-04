@@ -8,7 +8,7 @@ import AbilityAtom2 from "./AbilityAtom";
 class AbilityCost{
     /**
      *
-     * @param {(c: Creature, a: Ability, t: Table, p: object) => number} costFunc
+     * @param {(p: object, t: Table) => number} costFunc
      * @param {number[]} [table=[[1,1][1,1]]]
      */
     constructor(costFunc, table=[[1,1][1,1]]) {
@@ -19,9 +19,9 @@ class AbilityCost{
         this.atom = atom;
     }
 
-    getCost(card, ability, ...params) {
+    getCost(...params) {
         let args = this._getArgs(params);
-        return this.costFunc(card, ability, table, args);
+        return this.costFunc(args, this.table);
     }
 
     _getArgs(...params) {
