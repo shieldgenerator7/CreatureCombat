@@ -407,7 +407,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "scout",
-        "reveal the top {distance} Lands from the Land deck, choose one to be the scouted Land, put the others on the top and/or bottom of the Land deck in any order, then place the scouted Land faceup on top",
+        "reveal the top {distance} Lands from the Land deck, choose one to be the scouted Land, place it faceup on top, and put the others on the bottom in any order",
         LINETYPE_EFFECT,
         {
             distance: TYPE_PARAM_NUMBER_WHOLE,
