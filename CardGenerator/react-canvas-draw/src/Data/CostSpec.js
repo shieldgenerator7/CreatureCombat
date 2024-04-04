@@ -2,6 +2,7 @@
 
 import { arraySum } from "../Utility/Utility";
 import AbilityCost from "./Ability/AbilityCost";
+import { TYPE_PARAM_TEAM } from "./AbilityConstants";
 import { abilityAtoms, abilityCosts, abilityEffects, abilityRequirements } from "./AbilityData";
 import Table from "./Table";
 
@@ -88,7 +89,7 @@ function defaultCostDict() {
         "attack": new AbilityCost(
             (c, a, table, args) => {
                 let damage = args.damage;
-                let team = args.team;
+                let team = args[TYPE_PARAM_TEAM];
                 let target = args.target;
                 //calc per 1 use
                 //assume 3v3

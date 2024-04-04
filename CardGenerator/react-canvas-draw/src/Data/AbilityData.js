@@ -228,7 +228,8 @@ export const abilityTokens = [
             "nonself",
             "triggering",
             "that",
-        ]
+        ],
+        TYPE_PARAM_TEAM
     ),
     new AbilityToken(
         TYPE_PARAM_TEAM,
@@ -299,6 +300,12 @@ export const abilityTokens = [
         ]
     ),
 ];
+abilityTokens
+    .filter(token => token.subtokenname)
+    .forEach(token => {
+        let subtoken = abilityTokens.find(t => t.name == token.subtokenname);
+        token.init(subtoken);
+    });
 
 export const abilityAtoms = [
 
@@ -425,3 +432,20 @@ export const abilityAtoms = [
         }
     ),
 ];
+abilityAtoms
+    .filter(atom => Object.entries(atom.params).length > 0)
+    .forEach(atom => {
+        Object.entries(atom.params).forEach(([key, value]) => {
+            let tokenNames = [value].flat(Infinity);
+            tokenNames.forEach(tokenName => {
+                let token = abilityTokens.find(t => t.name == tokenName);
+                if (!token) { return; }//it's ok, there could be non-tokens in the list
+                if (token.subtokenname) {
+                    atom.params[token.subtokenname] = subtokenname;
+                }
+            })
+
+        })
+        let subtoken = abilityTokens.find(t => t.name == token.subtokenname);
+        token.init(subtoken);
+    });
