@@ -1,33 +1,32 @@
 "use strict";
 
 import Creature from "../Creature";
+import Table from "../Table";
 import Ability from "./Ability";
 import AbilityAtom2 from "./AbilityAtom";
 
 class AbilityCost{
     /**
      *
-     * @param {number} baseCost
-     * @param {(c: Creature, a: Ability, p: object) => number} costFunc
+     * @param {(c: Creature, a: Ability, t: Table, p: object) => number} costFunc
+     * @param {number[]} [table=[[1,1][1,1]]]
      */
-    constructor(baseCost, costFunc) {
-        this.atom = undefined;
-        this.baseCost = baseCost;
+    constructor(costFunc, table=[[1,1][1,1]]) {
+        this.table = table;
         this.costFunc = costFunc;
     }
     init(atom) {
         this.atom = atom;
-        this.params = atom.params;
     }
 
     getCost(card, ability, ...params) {
         let args = this._getArgs(params);
-        return this.costFunc(card, ability, args);
+        return this.costFunc(card, ability, table, args);
     }
 
     _getArgs(...params) {
         let obj = {};
-        Object.entries(this.params).forEach(([key, value],i) => {
+        Object.entries(this.atom.params).forEach(([key, value],i) => {
             obj[key] = params[i];
         });
         return obj;

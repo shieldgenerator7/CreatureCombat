@@ -3,6 +3,7 @@
 import { arraySum } from "../Utility/Utility";
 import AbilityCost from "./Ability/AbilityCost";
 import { abilityAtoms, abilityCosts, abilityEffects, abilityRequirements } from "./AbilityData";
+import Table from "./Table";
 
 /**
  * Stores data needed to calculate the point cost of a card
@@ -85,25 +86,42 @@ export default CostSpec;
 function defaultCostDict() {
     let costDict = {
         "attack": new AbilityCost(
-            0,
-            (c, a, args) => {
+            (c, a, table, args) => {
                 let damage = args.damage;
                 let team = args.team;
                 let target = args.target;
                 //calc per 1 use
                 //assume 3v3
-                let targetMx = 1;
-                switch (target) {
-                    case "any": break;
-                    case "all": targetMx = 1; break;
-                    case "self": targetMx = -1; break;
-                    case "nonself": break;
-                    case "triggering": break;
-                    case "that": break;
-                }
-
-            }
-        )
+                let targetMx = table.get(team, target);
+                return damage * targetMx;
+            },
+            new Table(
+                [
+                    "all-teams",
+                    "ally",
+                    "enemy",
+                    "neutral",
+                    "target-team",
+                    "that-team",
+                ],
+                [
+                    "target",
+                    "all",
+                    "self",
+                    "nonself",
+                    "triggering",
+                    "that",
+                ],
+                [
+                    [1, 1, -1, 1.5, 1, 1],
+                    [-1, -3, -1, -2, -1, -1],
+                    [1, 3, undefined, 3, 1, 1],
+                    [1, 1, -1, 1, 1, 1],
+                    [1, 3, -1, 3, 1, 1],
+                    [1, 3, -1, 3, 1, 1],
+                ]
+            ),
+        ),
     }
     Object.entries(costDict).forEach(([key, value]) => {
         let atom = abilityAtoms.find(a => a.name == key);
