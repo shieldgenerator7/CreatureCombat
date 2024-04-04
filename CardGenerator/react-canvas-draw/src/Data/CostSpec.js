@@ -86,6 +86,30 @@ export default CostSpec;
 
 function defaultCostDict() {
     let costDict = {
+
+        //costs
+        "exhaust": new AbilityCost(
+            (args, table, cost) => {
+                let bpcost = args.cost;
+                return cost - bpcost;
+            }
+        ),
+
+        //triggers
+        "ambush": new AbilityCost(
+            (args, table, cost) => {
+                return cost * 0.1;
+            }
+        ),
+
+        //requirements
+        "once": new AbilityCost(
+            (args, table, cost) => {
+                return cost * 0.3;
+            }
+        ),
+
+        //effects
         "attack": new AbilityCost(
             (args, table) => {
                 let damage = args.damage;
