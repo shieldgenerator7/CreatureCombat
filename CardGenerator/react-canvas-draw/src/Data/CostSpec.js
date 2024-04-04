@@ -1,7 +1,8 @@
 "use strict";
 
 import { arraySum } from "../Utility/Utility";
-import { abilityCosts, abilityEffects, abilityRequirements } from "./AbilityData";
+import AbilityCost from "./Ability/AbilityCost";
+import { abilityAtoms, abilityCosts, abilityEffects, abilityRequirements } from "./AbilityData";
 
 /**
  * Stores data needed to calculate the point cost of a card
@@ -12,6 +13,8 @@ class CostSpec {
         this.basePowerFunc = (v) => v * 2;
         this.biomeModifierFunc = (v) => v / 2;
 
+        this.costDict = defaultCostDict();
+
         this.restFunc = (v) => {
             if (v <= 0) { return 0; }
             const restSqr = Math.pow(v, 2);
@@ -19,6 +22,7 @@ class CostSpec {
         }
 
         this.abilityPointCostFactor = 3;
+
         this.abilityReqFunc = (n, v, c) => {
             return abilityRequirements.find(a => a.name == n)?.getCost(v, c) ?? 0;
         }
@@ -77,3 +81,33 @@ class CostSpec {
     }
 }
 export default CostSpec;
+
+function defaultCostDict() {
+    let costDict = {
+        "attack": new AbilityCost(
+            0,
+            (c, a, args) => {
+                let damage = args.damage;
+                let team = args.team;
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = 1;
+                switch (target) {
+                    case "any": break;
+                    case "all": targetMx = 1; break;
+                    case "self": targetMx = -1; break;
+                    case "nonself": break;
+                    case "triggering": break;
+                    case "that": break;
+                }
+
+            }
+        )
+    }
+    Object.entries(costDict).forEach(([key, value]) => {
+        let atom = abilityAtoms.find(a => a.name == key);
+        value.init(atom);
+    });
+    return costDict;
+}

@@ -373,11 +373,10 @@ export const abilityAtoms = [
     //effects
     new AbilityAtom2(
         "attack",
-        "deal {damage} damage to {team}{target}",
+        "deal {damage} damage to {target}",
         LINETYPE_EFFECT,
         {
             damage: TYPE_PARAM_NUMBER_WHOLE,
-            team: TYPE_PARAM_TEAM,
             target: TYPE_PARAM_CREATURE,
         }
     ),
