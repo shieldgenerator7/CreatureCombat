@@ -11,7 +11,7 @@ import { costSpec } from "../Data/CostSpec";
 function AbilityPanel({ ability, setAbility, updateAbility }) {
     return (<div className="abilityArea">
         {/* Ability Name */}
-        {ability.name || "Ability Name"} ({costSpec.abilityFunc(ability)}pts)
+        {ability.name || "Ability Name"} ({Math.ceil(costSpec.abilityFunc(ability))}pts)
         <input type="text" className="field" onChange={(e) => {
             ability.name = e.target.value;
             updateAbility(ability);
