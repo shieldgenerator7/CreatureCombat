@@ -114,144 +114,15 @@ function EditPanel({ card, setCard, updateCard}) {
             </div>
             {
                 card.abilities.map((ability, i) => {
-                    const reqFunc = (e) => {
-                        let req = e.target.value;
-                        ability.requirementName = req;
-                        updateCard(card);
-                    };
-                    const costFunc = (e) => {
-                        let cost = e.target.value;
-                        ability.costName = cost;
-                        updateCard(card);
-                    };
-                    const effectFunc = (e) => {
-                        let effect = e.target.value;
-                        ability.effectName = effect;
-                        updateCard(card);
-                    };
-                    const reqHasNumber = ability.abilityRequirement?.symbol.includes("X");
-                    const costHasNumber = ability.abilityCost?.symbol.includes("X");
-                    const effectHasNumber = ability.abilityEffect?.text.includes("X");
-
-                    const abilityName = ability.name.trim();
-
                     return (
-                        <div className='abilityArea' key={`ability_${i}`}>
-                            {/* Ability Header */}
-                            <div>
-                                {`${abilityName || `Ability ${i + 1}`} (${ability.TotalCost}pts)`}
-                                {/* Remove Button */}
-                                <button onClick={() => {
-                                    card.abilities.splice(i, 1);
-                                    updateCard(card);
-                                }}>X</button>
-                            </div>
-                            {/* Ability Name */}
-                            <div>
-                                <span>Name</span>
-                                <input type="text" onChange={(e) => {
-                                    ability.name = e.target.value;
-                                    updateCard(card);
-                                }}
-                                    value={ability.name}
-                                ></input>
-                            </div>
-                            {/* Ability Requirement */}
-                            <div>
-                                <span>Req</span>
-                                <select value={ability.requirementName} onChange={reqFunc}>
-                                    {
-                                        abilityRequirements
-                                            .map(r => r.name)
-                                            // .filter(r => !ability.hasRequirement(r) || bm.biome == b)
-                                            .map(r => (
-                                                <option value={r} key={r}>{makeUserFacing(r)}</option>
-                                            ))
-                                    }
-                                </select>
-                                {reqHasNumber && (
-                                    <Counter
-                                        value={ability.requirementX}
-                                        setValue={(v) => {
-                                            ability.requirementX = v;
-                                            updateCard(card);
-                                        }}
-                                        inline={true}
-                                    ></Counter>
-                                )}
-                            </div>
-                            {/* Ability Cost */}
-                            <div>
-                                <span>Cost</span>
-                                <select value={ability.costName} onChange={costFunc}>
-                                    {
-                                        abilityCosts
-                                            .map(c => c.name)
-                                            // .filter(r => !ability.hasCost(c) || bm.biome == b)
-                                            .map(c => (
-                                                <option value={c} key={c}>{makeUserFacing(c)}</option>
-                                            ))
-                                    }
-                                </select>
-                                {costHasNumber && (
-                                    <Counter
-                                        value={ability.costX}
-                                        setValue={(v) => {
-                                            ability.costX = v;
-                                            updateCard(card);
-                                        }}
-                                        inline={true}
-                                    ></Counter>
-                                )}
-                            </div>
-                            {/* Ability Effect */}
-                            <div>
-                                <span>Effect</span>
-                                <select value={ability.effectName} onChange={effectFunc}>
-                                    {
-                                        abilityEffects
-                                            .map(f => f.name)
-                                            // .filter(r => !ability.hasCost(f) || bm.biome == b)
-                                            .map(f => (
-                                                <option value={f} key={f}>{makeUserFacing(f)}</option>
-                                            ))
-                                    }
-                                </select>
-                                {effectHasNumber && (
-                                    <Counter
-                                        value={ability.effectX}
-                                        setValue={(v) => {
-                                            ability.effectX = v;
-                                            updateCard(card);
-                                        }}
-                                        inline={true}
-                                    ></Counter>
-                                )}
-                            </div>
-                            {ability.effectName == "custom" && (<>
-                                <div>
-                                    <span>Effect Point Cost</span>
-                                    <Counter
-                                        value={ability.effectCost}
-                                        setValue={(v) => {
-                                            ability.effectCost = v;
-                                            updateCard(card);
-                                        }}
-                                        inline={true}
-                                    ></Counter>
-                                </div>
-                                <div>
-                                    <span>Effect</span>
-                                    <textarea className="field multiline" onChange={(e) => {
-                                        ability.effectText = e.target.value;
-                                        updateCard(card);
-                                    }}
-                                        rows="5"
-                                        value={ability.effectText}
-                                    ></textarea>
-                                </div>
-                            </>)}
-                        </div>
+                        <AbilityPanel
+                            ability={ability}
+                            updateAbility={(a) => {
+                                card.abilities[i] = a;
+                                card.abilities.filter(a => a);
+                                updateCard(card);
+                            }}
+                        ></AbilityPanel>
                     );
                 })
             }

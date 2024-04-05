@@ -194,20 +194,10 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(margin, markersY[2] + rowheight * 0.2),
             new Vector2(marginWidth, rowheight * 3.2),
             (card) => {
-                let remindersSeen = [];
-                let showReminders = card.showReminderText;
                 let restLine = card.getRestText(card.showReminderText);
                 let flavorLine = `_${card.flavorText.trim()}_`;
                 let abilityLines;
-                abilityLines = card.abilities
-                    .map(ability => {
-                        let reqsym = ability.RequirementSymbol;
-                        if (showReminders && reqsym && !remindersSeen.includes(reqsym)) {
-                            remindersSeen.push(reqsym);
-                            return ability.FullTextWithReminders;
-                        }
-                        return ability.FullText;
-                    });
+                abilityLines = card.abilities.map(ability => ability.FullText);
                 return [
                     restLine,
                     abilityLines,

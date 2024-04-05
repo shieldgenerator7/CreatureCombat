@@ -8,10 +8,17 @@ import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH
 import AbilityLine from "../Data/AbilityLine";
 import { costSpec } from "../Data/CostSpec";
 
-function AbilityPanel({ ability, setAbility, updateAbility }) {
+function AbilityPanel({ ability, updateAbility }) {
     return (<div className="abilityArea">
         {/* Ability Name */}
         {ability.name || "Ability Name"} ({Math.ceil(costSpec.abilityFunc(ability))}pts)
+
+        {/* Remove Button */}
+        <button onClick={() => {
+            updateAbility(undefined);
+        }}>X</button>
+
+        {/* Name Input */}
         <input type="text" className="field" onChange={(e) => {
             ability.name = e.target.value;
             updateAbility(ability);
@@ -19,6 +26,8 @@ function AbilityPanel({ ability, setAbility, updateAbility }) {
             value={ability.name}
         >
         </input>
+
+        {/* Ability Lines */}
         {ability.lines.map((line, i) => {
             return (<div>
                 {/* <Select className="abilityAtomSelect"

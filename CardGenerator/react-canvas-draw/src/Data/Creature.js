@@ -162,7 +162,7 @@ export function inflateCreature(creature, updateCard) {
         Object.setPrototypeOf(bm, BiomeModifier.prototype);
     });
     creature.abilities.forEach(ability => {
-        Object.setPrototypeOf(ability, Ability.prototype);
+        inflateAbility(ability);
     });
 
     //Portrait
