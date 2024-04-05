@@ -120,7 +120,7 @@ function EditPanel({ card, setCard, updateCard}) {
                             ability={ability}
                             updateAbility={(a) => {
                                 card.abilities[i] = a;
-                                card.abilities.filter(a => a);
+                                card.abilities = card.abilities.filter(a => a);
                                 updateCard(card);
                             }}
                         ></AbilityPanel>

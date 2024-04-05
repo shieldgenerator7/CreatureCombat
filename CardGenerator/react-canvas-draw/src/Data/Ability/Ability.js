@@ -29,6 +29,10 @@ class Ability {
             .slice(1)
             .map(line => new AbilityLine(line))
             ?? [];
+        this.params ??= [];
+        this.lines.forEach((l, i) => {
+            this.params[i] ??= l.params ?? [];
+        })
         this.colonIndex = this.lines.indexOf(this.lines.find(l => l.type == LINETYPE_EFFECT)) - 1;
         this.lineDisplayOptions ??= this.lines.map(l => DISPLAY_LINE_FULL);
     }
@@ -97,7 +101,7 @@ class Ability {
                     segment = capitalizeFirstLetters(segment, false, match.index + 1);
                     sentenceStart = false;
                     }
-                    else {
+                    else if (segment){
                         console.error("segment doesnt match!", segment);
                     }
                 }

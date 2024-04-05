@@ -54,7 +54,7 @@ function AbilityPanel({ ability, updateAbility }) {
                 ></SearchSelect>
                 {
 
-                    Object.entries(line.atom?.params).map(([key, value], j) => {
+                    Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
 
                         //Number
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {

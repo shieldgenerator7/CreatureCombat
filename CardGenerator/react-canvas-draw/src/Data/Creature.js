@@ -161,6 +161,7 @@ export function inflateCreature(creature, updateCard) {
     creature.biomeModifiers.forEach(bm => {
         Object.setPrototypeOf(bm, BiomeModifier.prototype);
     });
+    creature.abilities = creature.abilities.filter(a => a);
     creature.abilities.forEach(ability => {
         inflateAbility(ability);
     });
