@@ -103,13 +103,6 @@ function EditPanel({ card, setCard, updateCard}) {
 
             {/* Abilities */}
             Ability
-            <AbilityPanel
-                ability={card.abilityTest}
-                updateAbility={(a) => {
-                    card.abilityTest = a;
-                    updateCard(card);
-                }}
-            ></AbilityPanel>
             <div className='info'>
                 Show Reminder Text
                 <input type="checkbox" checked={card.showReminderText}

@@ -33,21 +33,6 @@ class Creature {
 
         this.rest = 1;
 
-        this.abilityTest = new Ability(
-            "test",
-            `Reality Bend
-            $ exhaust: 4
-            ? once
-            > scout: 3
-            > land-biome-remove: target, all
-            > land-biome-add: that, scouted`,
-            [[4],
-            ["activate"],
-            [3],
-            ["target", "all"],
-            ["that", "scouted"]
-            ]
-        );
         this.abilities = [];
         this.showReminderText = true;
         this.flavorText = "";
@@ -189,8 +174,6 @@ export function inflateCreature(creature, updateCard) {
             updateCard?.(creature);
         }
     }
-
-    inflateAbility(creature.abilityTest);
 }
 
 export function backwardsCompatifyCreature(creature) {
@@ -214,19 +197,4 @@ export function backwardsCompatifyCreature(creature) {
     //Change: add showReminderText
     creature.showReminderText ??= true;
 
-    creature.abilityTest ??= new Ability(
-        "test",
-        `Reality Bend
-        $ exhaust: 4
-        ? once
-        > scout: 3
-        > land-biome-remove: target, all
-        > land-biome-add: that, scouted`,
-        [[4],
-        ["activate"],
-        [3],
-        ["target", "all"],
-        ["that", "scouted"]
-        ]
-    );
 }
