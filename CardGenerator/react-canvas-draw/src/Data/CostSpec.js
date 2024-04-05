@@ -2,8 +2,8 @@
 
 import { arraySum } from "../Utility/Utility";
 import AbilityCost from "./Ability/AbilityCost";
-import { TYPE_PARAM_TEAM } from "./AbilityConstants";
-import { abilityAtoms, abilityCosts, abilityEffects, abilityRequirements } from "./AbilityData";
+import { LINETYPE_EFFECT, TYPE_PARAM_TEAM } from "./AbilityConstants";
+import { abilityAtoms } from "./AbilityData";
 import Table from "./Table";
 
 /**
@@ -25,25 +25,26 @@ class CostSpec {
 
         this.abilityPointCostFactor = 3;
 
-        this.abilityReqFunc = (n, v, c) => {
-            return abilityRequirements.find(a => a.name == n)?.getCost(v, c) ?? 0;
-        }
-        this.abilityCostFunc = (n, v, c) => {
-            return abilityCosts.find(a => a.name == n)?.getCost(v, c) ?? 0;
-        }
-        this.abilityEffectFunc = (n, v) => {
-            return (abilityEffects.find(a => a.name == n)?.getCost(v) ?? 0) * this.abilityPointCostFactor;
-        }
         this.abilityFunc = (a) => {
-            let effectCost = this.abilityEffectXFunc(a.effectName, a.effectX);
-            let reqCost = this.abilityReqFunc(a.requirementName, effectCost) || effectCost;
-            let costCost = this.abilityCostFunc(a.costName, reqCost) || reqCost;
-            return costCost;
+            let cost = 0;
+            for (let i = a.lines.length - 1; i >= 0; i--) {
+                let line = a.lines[i];
+                let atom = line.atom;
+                if (!atom) {
+                    console.error("cant find atom", line.atomName, atom);
+                    continue;
+                }
+                if (atom.type == LINETYPE_EFFECT) {
+                    cost += this.getCost(atom.name, line.params) * this.abilityPointCostFactor;
+                }
+                else {
+                    cost = this.getDiscount(atom.name, cost, line.params);
+                }
+            }
+            return cost;
         }
 
-        this.discountFunc = (c) => {
-            return -(c / 10);
-        }
+        this.discountFunc = (c) => c / 10;
 
         this.totalCost = (card) => {
             let cost = 0;
@@ -67,7 +68,7 @@ class CostSpec {
             cost += this.restFunc(card.rest);
 
             //Discount
-            cost += this.discountFunc(cost);
+            cost += -this.discountFunc(cost);
 
             //Finalize
             cost = Math.round(cost);
@@ -81,8 +82,18 @@ class CostSpec {
     getTotalCost(card) {
         return this.totalCost(card);
     }
+
+    getCost(name, ...params) {
+        let ac = this.costDict[name];
+        return ac.getCost(params);
+    }
+    getDiscount(name, cost, ...params) {
+        let ac = this.costDict[name];
+        return ac.getDiscount(cost, params);
+    }
 }
 export default CostSpec;
+export const costSpec = new CostSpec();
 
 function defaultCostDict() {
     let costDict = {

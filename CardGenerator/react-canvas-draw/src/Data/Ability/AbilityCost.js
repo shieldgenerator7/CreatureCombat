@@ -23,6 +23,10 @@ class AbilityCost{
         let args = this._getArgs(params);
         return this.costFunc(args, this.table);
     }
+    getDiscount(cost, ...params) {
+        let args = this._getArgs(params);
+        return this.costFunc(args, this.table, cost);
+    }
 
     _getArgs(...params) {
         let obj = {};
