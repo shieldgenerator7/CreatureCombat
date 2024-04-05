@@ -1,6 +1,7 @@
 "use strict";
 
 import { arrayMax, arraySort, getLines } from "../Utility/Utility";
+import { costSpec } from "./CostSpec";
 import DrawLayer, { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_LAYERS, DRAWLAYER_TEXT } from "./DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "./Vector2";
 
@@ -149,7 +150,7 @@ export function generateCardSkin(width, height, margin, padding) {
             'black',
             new Vector2(margin, margin + rowheight * 0.3),
             new Vector2(marginWidth, rowheight * 0.7),
-            (card) => card.getFinalCost(),
+            (card) => costSpec.getTotalCost(card),
             (card) => card.colors[3],
             (card) => {
                 return {
@@ -167,7 +168,7 @@ export function generateCardSkin(width, height, margin, padding) {
             'black',
             new Vector2(margin, margin + rowheight * 0.8),
             new Vector2(marginWidth, rowheight * 1.5),
-            (card) => "★ ".repeat(card.getStarCount()).trim(),
+            (card) => "★ ".repeat(costSpec.getStarCount(card)).trim(),
             (card) => card.colors[3],
             (card) => {
                 return {

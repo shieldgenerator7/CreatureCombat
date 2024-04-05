@@ -4,6 +4,7 @@
 import React, { useRef, useEffect } from 'react';
 import { RESOLUTION, renderCard } from '../Utility/Render';
 import { generateCardSkin } from '../Data/DrawData';
+import { costSpec } from '../Data/CostSpec';
 
 const width = 2.5 * RESOLUTION;
 const height = 3.5 * RESOLUTION;
@@ -26,7 +27,7 @@ function Canvas({ card, autoDownload }) {
 
         const link = document.createElement('a');
         link.href = dataUrl;
-        let cardName = `${card.getNameText(false, true) || "card"}`.trim().replaceAll(" ", "");
+        let cardName = `${card.getNameText(false, true, costSpec) || "card"}`.trim().replaceAll(" ", "");
         link.download = `${cardName}.png`;
         link.click();
     };

@@ -90,13 +90,16 @@ class Creature {
         this.abilities.push(ability);
     }
 
-    getNameText(display, points) {
+    getNameText(display, points, costSpec) {
         const connector = (display) ? ", " : "_";
-        let finalCost = this.getFinalCost();
-        finalCost += (finalCost != 1) ? "pts" : "pt";
-        const pointStr = (points)
-            ? (display) ? ` (${finalCost})` : `_${finalCost}`
-            : "";
+        const pointStr = "";
+        if (points) {
+            let finalCost = costSpec.getTotalCost(this);
+            finalCost += (finalCost != 1) ? "pts" : "pt";
+            pointStr = (display)
+                ? ` (${finalCost})`
+                : `_${finalCost}`;
+        }
         let nameStr;
         if (this.name && this.species) {
             nameStr = `${this.species}${connector}${this.name}`;
@@ -127,6 +130,7 @@ class Creature {
     }
 
     getTotalCost() {
+        console.error("DONT CALL THIS METHOD (call costSpec.getTotalCost() instead)");
         let cost = 0;
         //Base Power
         cost += Math.max(0, Math.ceil(this.basePower)) * 2;
@@ -153,12 +157,14 @@ class Creature {
     }
 
     getFinalCost() {
+        console.error("DONT CALL THIS METHOD (call costSpec.getTotalCost() instead)");
         let total = this.getTotalCost();
         let discount = total / 10;
         return Math.ceil(total - discount);
     }
 
     getStarCount() {
+        console.error("DONT CALL THIS METHOD (call costSpec.getStarCount() instead)");
         let total = this.getTotalCost();
         return Math.ceil(Math.sqrt(total * 0.75));
     }

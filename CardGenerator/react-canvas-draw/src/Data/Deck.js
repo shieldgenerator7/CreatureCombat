@@ -20,8 +20,7 @@ class Deck {
     get TotalCost() {
         return arraySum(
             this._cardList,
-            obj => obj.card.getFinalCost() * obj.count
-            // obj => this.costSpec.getTotalCost(obj.card) * obj.count
+            obj => this.costSpec.getTotalCost(obj.card) * obj.count
         );
     }
 }

@@ -82,6 +82,10 @@ class CostSpec {
     getTotalCost(card) {
         return this.totalCost(card);
     }
+    getStarCount(card) {
+        let total = this.getTotalCost(card);
+        return Math.ceil(Math.sqrt(total * 0.75));
+    }
 
     getCost(name, ...params) {
         let ac = this.costDict[name];

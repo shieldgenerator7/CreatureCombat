@@ -8,6 +8,7 @@ import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/Abili
 import { capitalizeFirstLetters, makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
+import { costSpec } from '../Data/CostSpec';
 
 function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
     return (
@@ -374,7 +375,7 @@ function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
 
 
                     const link = document.createElement('a');
-                    let cardName = `${card.getNameText(false, true) || "card"}`.trim().replaceAll(" ", "");
+                    let cardName = `${card.getNameText(false, true, costSpec) || "card"}`.trim().replaceAll(" ", "");
                     link.download = `${cardName}.card`;
 
                     //2024-03-17: copied from https://stackoverflow.com/a/30800715/2336212

@@ -1,5 +1,6 @@
 "use strict";
 
+import { costSpec } from "../Data/CostSpec";
 import Creature, { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
 import { UploadFromFilePicker } from "../Utility/Upload";
 import { arraySort, arraySum } from "../Utility/Utility";
@@ -11,14 +12,14 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
             <div className="listInfo">
                 <p> Creature List</p>
                 <p> Count: {cardList.length}</p>
-                <p> Total Cost: {arraySum(cardList, card => card.getFinalCost() * card.count)}</p>
+                <p> Total Cost: {arraySum(cardList, card => costSpec.getTotalCost(card) * card.count)}</p>
                 <p> Sort:
                     <select onChange={(e) => {
                         let value = e.target.value;
                         let mf = (a) => a;//"map func"
                         let mfname = (a) => a.getNameText(true, false) || "[creature]";
-                        let mfcost = (a) => a.getFinalCost();
-                        let mfstars = (a) => a.getStarCount();
+                        let mfcost = (a) => costSpec.getTotalCost(a);
+                        let mfstars = (a) => costSpec.getStarCount(a);
                         let mfpowerbase = (a) => a.basePower;
                         let mfcount = (a) => a.count;
                         let mfdatecreation = (a) => a.creationDate;
@@ -54,7 +55,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                 {
                     cardList.map((card, i) => {
                         let cardName = card.getNameText(true, false) || "[creature]";
-                        let cardCost = card.getFinalCost();
+                        let cardCost = costSpec.getTotalCost(card);
                         cardCost += (cardCost != 1) ? "pts" : "pt";
                         let className = "listItem" + ((card == currentCard) ? " select" : "");
                         let countClassName = (card == currentCard) ? "select" : "";
