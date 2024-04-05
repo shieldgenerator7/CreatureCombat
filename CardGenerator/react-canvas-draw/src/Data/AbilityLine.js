@@ -26,17 +26,17 @@ class AbilityLine {
         }
 
         //determine which atom
-        this.atomName = tokens[1]?.match(/[a-zA-Z\-]+/)[0] ?? "attack";
+        this.atomName = tokens[1]?.match(/[a-zA-Z\-]+/)?.[0] ?? "attack";
         this.atom = abilityAtoms.find(atom => atom.name == this.atomName && atom.type == this.type);
         if (!this.atom) {
             console.error("unable to find atom!", this.atomName, this.atom);
-            return;
+            return this;
         }
 
         //load in params
         this.params = tokens.slice(2)
             .map(token => token
-                ?.match(/[a-zA-Z0-9]+/)[0]
+                ?.match(/[a-zA-Z0-9]+/)?.[0]
                 ?.trim()
             )
             .filter(token => token);
