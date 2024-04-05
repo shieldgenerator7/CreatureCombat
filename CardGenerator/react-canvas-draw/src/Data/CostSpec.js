@@ -300,7 +300,7 @@ function defaultCostDict() {
     return costDict;
 }
 
-export function costDisplay(value, allowNegative = false, allowPositive = true) {
+export function costDisplay(value, allowNegative = false, allowPositive = true, includeSign = true) {
     value = Math.ceil(value);
     if (!allowNegative) {
         value = Math.max(0, value);
@@ -309,5 +309,5 @@ export function costDisplay(value, allowNegative = false, allowPositive = true) 
         value = Math.min(0, value);
     }
     let plural = value != 1;
-    return `(${(value > 0) ? "+" : ""}${value}${(plural) ? "pts" : "pt"})`;
+    return `(${(value > 0 && includeSign) ? "+" : ""}${value}${(plural) ? "pts" : "pt"})`;
 }

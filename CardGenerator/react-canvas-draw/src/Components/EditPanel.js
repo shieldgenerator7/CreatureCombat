@@ -13,6 +13,10 @@ import { costDisplay, costSpec } from '../Data/CostSpec';
 function EditPanel({ card, setCard, updateCard }) {
     return (
         <div className="editPanel">
+
+            {/* Header */}
+            <div>{card.getNameText(true)} {costDisplay(costSpec.getTotalCost(card),false,true,false)}</div>
+
             {/* Name */}
             Name
             <input type="text" className="field" onChange={(e) => {

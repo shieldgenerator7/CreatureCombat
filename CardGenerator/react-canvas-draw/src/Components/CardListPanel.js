@@ -1,6 +1,6 @@
 "use strict";
 
-import { costSpec } from "../Data/CostSpec";
+import { costDisplay, costSpec } from "../Data/CostSpec";
 import Creature, { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
 import { UploadFromFilePicker } from "../Utility/Upload";
 import { arraySort, arraySum } from "../Utility/Utility";
@@ -55,15 +55,13 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                 {
                     cardList.map((card, i) => {
                         let cardName = card.getNameText(true, false) || "[creature]";
-                        let cardCost = costSpec.getTotalCost(card);
-                        cardCost += (cardCost != 1) ? "pts" : "pt";
                         let className = "listItem" + ((card == currentCard) ? " select" : "");
                         let countClassName = (card == currentCard) ? "select" : "";
                         return (
                             <div key={`divCard${i}`}
                                 className={className} onClick={() => setCard(card)}
                             >
-                                <span>{cardName} ({cardCost})</span>
+                                <span>{cardName} {costDisplay(costSpec.getTotalCost(card),false,true,false)}</span>
                                 <button className={countClassName}
                                     onClick={e => {
                                         card.count++;
