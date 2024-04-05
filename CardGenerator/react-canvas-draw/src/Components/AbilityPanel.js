@@ -29,7 +29,7 @@ function AbilityPanel({ ability, updateAbility }) {
 
         {/* Ability Lines */}
         {ability.lines.map((line, i) => {
-            return (<div>
+            return (<div key={`_ability_line_${i}`}>
                 {/* <Select className="abilityAtomSelect"
                     defaultValue={line.atomName}
                     options={abilityAtoms.map(a => {
@@ -60,6 +60,7 @@ function AbilityPanel({ ability, updateAbility }) {
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {
                             return (
                                 <Counter
+                                key={`_ability_line_${i}_input_${j}`}
                                     value={line.params[j] ?? 0}
                                     setValue={(v) => {
                                         line.params[j] = v;
@@ -81,6 +82,7 @@ function AbilityPanel({ ability, updateAbility }) {
                             .filter(o => o);
                         let defaultOption = optionList[0];
                         return (<SearchSelect
+                            key={`_ability_line_${i}_input_${j}`}
                             option={line.params[j] ?? defaultOption}
                             options={optionList}
                             setOption={(o) => {

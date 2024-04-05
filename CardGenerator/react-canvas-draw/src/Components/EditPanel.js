@@ -116,6 +116,7 @@ function EditPanel({ card, setCard, updateCard}) {
                 card.abilities.map((ability, i) => {
                     return (
                         <AbilityPanel
+                            key={`_ability_${i}`}
                             ability={ability}
                             updateAbility={(a) => {
                                 card.abilities[i] = a;
