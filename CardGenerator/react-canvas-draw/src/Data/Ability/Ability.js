@@ -40,7 +40,7 @@ class Ability {
     }
 
     addLine(line) {
-        line ??= new AbilityLine("> attack: 1");
+        line ??= new AbilityLine("> choose");
         this.lines.push(line);
         this.lineDisplayOptions.push(DISPLAY_LINE_FULL);
         //

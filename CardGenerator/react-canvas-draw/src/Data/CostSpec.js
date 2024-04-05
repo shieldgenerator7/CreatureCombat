@@ -109,6 +109,11 @@ export const costSpec = new CostSpec();
 function defaultCostDict() {
     let costDict = {
 
+        // custom / choose
+        "choose": new AbilityCost(
+            (args, table, cost) => 0
+        ),
+
         //costs
         "exhaust": new AbilityCost(
             (args, table, cost) => args.cost

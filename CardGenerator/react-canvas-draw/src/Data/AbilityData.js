@@ -309,6 +309,14 @@ abilityTokens
 
 export const abilityAtoms = [
 
+    //custom / choose
+    new AbilityAtom2(
+        "choose",
+        "",
+        LINETYPE_EFFECT,
+        {}
+    ),
+
     //costs
     new AbilityAtom2(
         "exhaust",

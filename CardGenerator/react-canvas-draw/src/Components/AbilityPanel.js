@@ -7,6 +7,7 @@ import Counter from "./Counter";
 import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
 import AbilityLine from "../Data/AbilityLine";
 import { costDisplay, costSpec } from "../Data/CostSpec";
+import { capitalizeFirstLetters } from "../Utility/Utility";
 
 function AbilityPanel({ ability, updateAbility }) {
     return ability && (<div className="abilityArea">
@@ -43,6 +44,7 @@ function AbilityPanel({ ability, updateAbility }) {
                     }}
 
                 ></Select> */}
+                {line.atomName == "choose" &&
                 <SearchSelect
                     option={line.atomName}
                     options={abilityAtoms.map(a => a.name)}
@@ -52,10 +54,12 @@ function AbilityPanel({ ability, updateAbility }) {
                         updateAbility(ability);
                     }}
                 ></SearchSelect>
+                }
+                {line.atomName != "choose" && (<span>{capitalizeFirstLetters(line.atomName, true)}:</span>)}
                 {
 
                     Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
-                        let keyLabel = `${key?.replaceAll("_", "")}:`;
+                        let keyLabel = `${key?.replaceAll("_", "")}`;
                         //Number
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {
                             return (<>
