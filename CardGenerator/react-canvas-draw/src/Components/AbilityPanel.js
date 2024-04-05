@@ -2,16 +2,16 @@
 
 import { abilityAtoms, abilityTokens } from "../Data/AbilityData";
 import SearchSelect from "./SearchSelect";
-import { TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";
+import { LINETYPE_EFFECT, TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";
 import Counter from "./Counter";
 import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
 import AbilityLine from "../Data/AbilityLine";
-import { costSpec } from "../Data/CostSpec";
+import { costDisplay, costSpec } from "../Data/CostSpec";
 
 function AbilityPanel({ ability, updateAbility }) {
     return ability && (<div className="abilityArea">
         {/* Ability Name */}
-        {ability.name || "Ability Name"} ({Math.ceil(costSpec.abilityFunc(ability))}pts)
+        {ability.name || "Ability Name"} {costDisplay(costSpec.abilityFunc(ability))}
 
         {/* Remove Button */}
         <button onClick={() => {
@@ -107,7 +107,7 @@ function AbilityPanel({ ability, updateAbility }) {
                 }
 
                 {/* Line Point Cost */}
-                ({Math.ceil(line.cachedCost)}pts)
+                {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
 
                 {/* Remove Button */}
                 <button onClick={() => {

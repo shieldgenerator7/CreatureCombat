@@ -15,6 +15,11 @@ class CostSpec {
         this.basePowerFunc = (v) => v * 2;
         this.biomeModifierFunc = (v) => v / 2;
 
+        this.biomeModifierAllFunc = (bmList) => arraySum(
+            bmList,
+            bm => this.biomeModifierFunc(bm.modifier)
+        );
+
         this.costDict = defaultCostDict();
 
         this.restFunc = (v) => {
@@ -47,6 +52,11 @@ class CostSpec {
             return Math.max(0, cost);
         }
 
+        this.abilityAllFunc = (aList) => arraySum(
+            aList,
+            a => Math.max(0, this.abilityFunc(a))
+        );
+
         this.discountFunc = (c) => c / 10;
 
         this.totalCost = (card) => {
@@ -56,16 +66,10 @@ class CostSpec {
             cost += Math.max(0, this.basePowerFunc(card.basePower));
 
             //Biome Modifiers
-            cost += arraySum(
-                card.biomeModifiers,
-                bm => this.biomeModifierFunc(bm.modifier)
-            );
+            cost += this.biomeModifierAllFunc(card.biomeModifiers);
 
             //Abilities
-            cost += arraySum(
-                card.abilities,
-                a => Math.max(0, this.abilityFunc(a))
-            );
+            cost += this.abilityAllFunc(card.abilities);
 
             //Rest
             cost += this.restFunc(card.rest);
@@ -294,4 +298,16 @@ function defaultCostDict() {
         value.init(atom);
     });
     return costDict;
+}
+
+export function costDisplay(value, allowNegative = false, allowPositive = true) {
+    value = Math.ceil(value);
+    if (!allowNegative) {
+        value = Math.max(0, value);
+    }
+    if (!allowPositive) {
+        value = Math.min(0, value);
+    }
+    let plural = value != 1;
+    return `(${(value > 0) ? "+" : ""}${value}${(plural) ? "pts" : "pt"})`;
 }

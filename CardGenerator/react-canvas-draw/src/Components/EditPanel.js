@@ -8,7 +8,7 @@ import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/Abili
 import { makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
-import { costSpec } from '../Data/CostSpec';
+import { costDisplay, costSpec } from '../Data/CostSpec';
 
 function EditPanel({ card, setCard, updateCard }) {
     return (
@@ -39,7 +39,7 @@ function EditPanel({ card, setCard, updateCard }) {
                 value={card.tags.join(", ")}></input>
 
             {/* Base Power */}
-            Base Power
+            Base Power {costDisplay(costSpec.basePowerFunc(card.basePower))}
             <Counter
                 value={card.basePower}
                 setValue={(v) => {
@@ -48,7 +48,7 @@ function EditPanel({ card, setCard, updateCard }) {
                 }}></Counter>
 
             {/* Rest Count */}
-            Rest Count
+            Rest Count {costDisplay(costSpec.restFunc(card.rest), true, false)}
             <Counter
                 value={card.rest}
                 setValue={(v) => {
@@ -57,7 +57,7 @@ function EditPanel({ card, setCard, updateCard }) {
                 }}></Counter>
 
             {/* Biome Modifiers */}
-            Biome Modifiers
+            Biome Modifiers {costDisplay(costSpec.biomeModifierAllFunc(card.biomeModifiers), true)}
             {
                 card.biomeModifiers.map((bm, i) => {
                     const biomeFunc = (e) => {
@@ -85,6 +85,10 @@ function EditPanel({ card, setCard, updateCard }) {
                             allowNegative={true}
                             inline={true}
                         ></Counter>
+
+                        {/* Biome Modifier Point Cost */}
+                        {costDisplay(costSpec.biomeModifierFunc(bm.modifier), true)}
+
                         {/* Remove Button */}
                         <button onClick={() => {
                             card.biomeModifiers.splice(i, 1);
@@ -102,7 +106,7 @@ function EditPanel({ card, setCard, updateCard }) {
             )}
 
             {/* Abilities */}
-            Ability
+            Abilities {costDisplay(costSpec.abilityAllFunc(card.abilities))}
             <div className='info'>
                 Show Reminder Text
                 <input type="checkbox" checked={card.showReminderText}
