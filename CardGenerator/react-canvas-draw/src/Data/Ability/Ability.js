@@ -25,9 +25,10 @@ class Ability {
     }
     init() {
         this.lines = this.codeText
-            .split("\n")
+            ?.split("\n")
             .slice(1)
-            .map(line => new AbilityLine(line));
+            .map(line => new AbilityLine(line))
+            ?? [];
         this.colonIndex = this.lines.indexOf(this.lines.find(l => l.type == LINETYPE_EFFECT)) - 1;
         this.lineDisplayOptions ??= this.lines.map(l => DISPLAY_LINE_FULL);
     }

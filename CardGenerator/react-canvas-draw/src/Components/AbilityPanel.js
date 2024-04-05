@@ -9,7 +9,7 @@ import AbilityLine from "../Data/AbilityLine";
 import { costSpec } from "../Data/CostSpec";
 
 function AbilityPanel({ ability, updateAbility }) {
-    return (<div className="abilityArea">
+    return ability && (<div className="abilityArea">
         {/* Ability Name */}
         {ability.name || "Ability Name"} ({Math.ceil(costSpec.abilityFunc(ability))}pts)
 
