@@ -2,8 +2,7 @@
 
 import { arraySum, getDateString, isImage } from "../Utility/Utility";
 import { VERSION } from "../Version";
-import Ability from "./Ability";
-import { inflateAbility, newAbility } from "./Ability/Ability";
+import Ability, {  inflateAbility } from "./Ability/Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
 
 export const FIT_WHOLE = 0;
@@ -34,7 +33,7 @@ class Creature {
 
         this.rest = 1;
 
-        this.abilityTest = newAbility(
+        this.abilityTest = new Ability(
             "test",
             `Reality Bend
             $ exhaust: 4
@@ -215,7 +214,7 @@ export function backwardsCompatifyCreature(creature) {
     //Change: add showReminderText
     creature.showReminderText ??= true;
 
-    creature.abilityTest ??= newAbility(
+    creature.abilityTest ??= new Ability(
         "test",
         `Reality Bend
         $ exhaust: 4

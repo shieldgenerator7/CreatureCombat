@@ -1,6 +1,6 @@
 "use strict";
 
-import Ability from "../Data/Ability";
+import Ability from "../Data/Ability/Ability";
 import { abilityCosts, abilityEffects, abilityRequirements } from "../Data/AbilityData";
 import Creature from "../Data/Creature";
 

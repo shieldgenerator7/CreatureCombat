@@ -9,7 +9,6 @@ import CardListPanel from './Components/CardListPanel';
 import Storage from './Utility/Storage';
 import { VERSION } from './Version';
 import { isImage } from './Utility/Utility';
-import { newAbility } from './Data/Ability/Ability';
 
 function App() {
     //Storage
@@ -85,8 +84,6 @@ function App() {
         setAutoDownload(false);
         setPasteString("");
     }
-    //
-    window.newAbility = newAbility;
 
     useEffect(() => {
         let cardName = card?.getNameText(true, false);

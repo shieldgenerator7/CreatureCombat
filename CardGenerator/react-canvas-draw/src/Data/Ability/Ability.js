@@ -126,9 +126,6 @@ class Ability {
     }
 }
 export default Ability;
-export function newAbility(name, codeText, params) {
-    return new Ability(name, codeText, params);
-}
 
 export function inflateAbility(ability) {
     Object.setPrototypeOf(ability, Ability.prototype);
