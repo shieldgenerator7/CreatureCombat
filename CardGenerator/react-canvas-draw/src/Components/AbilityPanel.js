@@ -55,7 +55,7 @@ function AbilityPanel({ ability, updateAbility }) {
                 {
 
                     Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
-                        let keyLabel = `${key}:`;
+                        let keyLabel = `${key?.replaceAll("_", "")}:`;
                         //Number
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {
                             return (<>
