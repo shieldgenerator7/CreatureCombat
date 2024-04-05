@@ -34,12 +34,15 @@ class CostSpec {
                     console.error("cant find atom", line.atomName, atom);
                     continue;
                 }
+                let lineCost = 0;
                 if (atom.type == LINETYPE_EFFECT) {
-                    cost += this.getCost(atom.name, line.params) * this.abilityPointCostFactor;
+                    lineCost = this.getCost(atom.name, line.params) * this.abilityPointCostFactor;
                 }
                 else {
-                    cost = this.getDiscount(atom.name, cost, line.params);
+                    lineCost = -this.getDiscount(atom.name, cost, line.params);
                 }
+                line.cachedCost = lineCost;
+                cost += lineCost;
             }
             return Math.max(0, cost);
         }

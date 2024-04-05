@@ -105,6 +105,10 @@ function AbilityPanel({ ability, updateAbility }) {
                         }}
                     ></SearchSelect>
                 }
+
+                {/* Line Point Cost */}
+                ({Math.ceil(line.cachedCost)}pts)
+
                 {/* Remove Button */}
                 <button onClick={() => {
                     ability.removeLine(i);
