@@ -112,11 +112,11 @@ class Ability {
                 }
                 if (sentenceStart) {
                     let match = segment.match(/[a-zA-Z0-9\-]/);
-                    if (match){
-                    segment = capitalizeFirstLetters(segment, false, match.index + 1);
-                    sentenceStart = false;
+                    if (match) {
+                        segment = capitalizeFirstLetters(segment, false, match.index + 1);
+                        sentenceStart = false;
                     }
-                    else if (segment){
+                    else if (segment) {
                         console.error("segment doesnt match!", segment);
                     }
                 }

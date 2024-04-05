@@ -2,7 +2,7 @@
 
 import { arraySum, getDateString, isImage } from "../Utility/Utility";
 import { VERSION } from "../Version";
-import Ability, {  inflateAbility } from "./Ability/Ability";
+import Ability, { inflateAbility } from "./Ability/Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
 
 export const FIT_WHOLE = 0;

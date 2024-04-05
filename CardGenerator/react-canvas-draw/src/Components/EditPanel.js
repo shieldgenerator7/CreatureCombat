@@ -10,7 +10,7 @@ import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
 import { costSpec } from '../Data/CostSpec';
 
-function EditPanel({ card, setCard, updateCard}) {
+function EditPanel({ card, setCard, updateCard }) {
     return (
         <div className="editPanel">
             {/* Name */}

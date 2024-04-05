@@ -60,7 +60,7 @@ function AbilityPanel({ ability, updateAbility }) {
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {
                             return (
                                 <Counter
-                                key={`_ability_line_${i}_input_${j}`}
+                                    key={`_ability_line_${i}_input_${j}`}
                                     value={line.params[j] ?? 0}
                                     setValue={(v) => {
                                         line.params[j] = v;

@@ -110,7 +110,7 @@ function defaultCostDict() {
             (args, table, cost) => args.cost
         ),
         "rest": new AbilityCost(
-            (args, table, cost) => cost * (1-(1 / (args.rest + 1) ))
+            (args, table, cost) => cost * (1 - (1 / (args.rest + 1)))
         ),
 
         //triggers
