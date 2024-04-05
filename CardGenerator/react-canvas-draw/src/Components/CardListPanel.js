@@ -48,7 +48,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                 </p>
             </div>
             {/* Deck Stats (Behind) */}
-            <div className ="listInfoFiller">
+            <div className="listInfoFiller">
             </div>
             {/* Card List */}
             <div className="list">
@@ -61,7 +61,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                             <div key={`divCard${i}`}
                                 className={className} onClick={() => setCard(card)}
                             >
-                                <span>{cardName} {costDisplay(costSpec.getTotalCost(card),false,true,false)}</span>
+                                <span>{cardName} {costDisplay(costSpec.getTotalCost(card), false, true, false)}</span>
                                 <button className={countClassName}
                                     onClick={e => {
                                         card.count++;

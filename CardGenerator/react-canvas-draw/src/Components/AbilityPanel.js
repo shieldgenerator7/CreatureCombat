@@ -45,15 +45,15 @@ function AbilityPanel({ ability, updateAbility }) {
 
                 ></Select> */}
                 {line.atomName == "choose" &&
-                <SearchSelect
-                    option={line.atomName}
-                    options={abilityAtoms.map(a => a.name)}
-                    setOption={(o) => {
-                        line.setAtom(o);
-                        ability.updateDNA();
-                        updateAbility(ability);
-                    }}
-                ></SearchSelect>
+                    <SearchSelect
+                        option={line.atomName}
+                        options={abilityAtoms.map(a => a.name)}
+                        setOption={(o) => {
+                            line.setAtom(o);
+                            ability.updateDNA();
+                            updateAbility(ability);
+                        }}
+                    ></SearchSelect>
                 }
                 {line.atomName != "choose" && (<span>{capitalizeFirstLetters(line.atomName, true)}:</span>)}
                 {
@@ -100,15 +100,15 @@ function AbilityPanel({ ability, updateAbility }) {
                         ></SearchSelect></>)
                     })
                 }
-                    detail:
-                    <SearchSelect
-                        option={ability.lineDisplayOptions[i]}
-                        options={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
-                        setOption={(o) => {
-                            ability.lineDisplayOptions[i] = o;
-                            updateAbility(ability);
-                        }}
-                    ></SearchSelect>
+                detail:
+                <SearchSelect
+                    option={ability.lineDisplayOptions[i]}
+                    options={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
+                    setOption={(o) => {
+                        ability.lineDisplayOptions[i] = o;
+                        updateAbility(ability);
+                    }}
+                ></SearchSelect>
 
                 {/* Line Point Cost */}
                 {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
