@@ -277,7 +277,7 @@ function defaultCostDict() {
                 ],
                 [
                     [1, 3, 1, 1, undefined],
-                    [3, 5, 2, 3, undefined],
+                    [1, 3, 1, 1, undefined],
                     [0, 0, 0, 0, undefined],
                     [1, 3, 1, 1, undefined],
                     [2, 5, 2, 2, undefined],
