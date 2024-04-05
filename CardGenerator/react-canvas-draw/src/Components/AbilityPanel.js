@@ -107,8 +107,7 @@ function AbilityPanel({ ability, updateAbility }) {
                 }
                 {/* Remove Button */}
                 <button onClick={() => {
-                    ability.lines.splice(i, 1);
-                    ability.updateDNA();
+                    ability.removeLine(i);
                     updateAbility(ability);
                 }}>X</button>
                 {/* {line.getString()} */}
@@ -116,8 +115,7 @@ function AbilityPanel({ ability, updateAbility }) {
         })}
         {/* Add Button */}
         <button className='action' onClick={() => {
-            ability.lines.push(new AbilityLine("> attack: 1"));
-            ability.updateDNA();
+            ability.addLine();//use default new line
             updateAbility(ability);
         }}>Add Ability Line</button>
 

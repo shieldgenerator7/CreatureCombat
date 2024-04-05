@@ -17,10 +17,9 @@ export const DISPLAY_LINE_KEYWORD_ONLY = "keyword only";
 
 class Ability {
     constructor(name, codeText, params) {
-        this.name = name;
-        this.codeText = codeText;
-        this.params = params;
-        this.lineDisplayOptions = undefined;
+        this.name = name ?? "";
+        this.codeText = codeText ?? name;
+        this.params = params ?? [];
         this.init();
     }
     init() {
@@ -34,7 +33,23 @@ class Ability {
             this.params[i] ??= l.params ?? [];
         })
         this.colonIndex = this.lines.indexOf(this.lines.find(l => l.type == LINETYPE_EFFECT)) - 1;
-        this.lineDisplayOptions ??= this.lines.map(l => DISPLAY_LINE_FULL);
+        this.lineDisplayOptions ??= [];
+        this.lines.forEach((l, i) => {
+            this.lineDisplayOptions[i] ??= DISPLAY_LINE_FULL;
+        })
+    }
+
+    addLine(line) {
+        line ??= new AbilityLine("> attack: 1");
+        this.lines.push(line);
+        this.lineDisplayOptions.push(DISPLAY_LINE_FULL);
+        //
+        this.updateDNA();
+    }
+    removeLine(index = this.lines.length - 1) {
+        this.lines.splice(index, 1);
+        //
+        this.updateDNA();
     }
 
     get FullText() {
