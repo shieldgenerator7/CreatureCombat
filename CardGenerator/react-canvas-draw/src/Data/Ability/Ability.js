@@ -12,8 +12,8 @@ const stringifyAbility = [
 ]
 
 export const DISPLAY_LINE_FULL = "full";
-export const DISPLAY_LINE_KEYWORD_WITH_REMINDER = "keyword with reminder";
-export const DISPLAY_LINE_KEYWORD_ONLY = "keyword only";
+export const DISPLAY_LINE_KEYWORD_WITH_REMINDER = "reminder";
+export const DISPLAY_LINE_KEYWORD_ONLY = "keyword";
 
 class Ability {
     constructor(name, codeText, params) {
