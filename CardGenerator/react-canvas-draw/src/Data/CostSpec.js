@@ -41,7 +41,7 @@ class CostSpec {
                     cost = this.getDiscount(atom.name, cost, line.params);
                 }
             }
-            return cost;
+            return Math.max(0, cost);
         }
 
         this.discountFunc = (c) => c / 10;
