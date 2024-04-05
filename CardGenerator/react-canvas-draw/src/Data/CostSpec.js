@@ -107,35 +107,35 @@ function defaultCostDict() {
 
         //costs
         "exhaust": new AbilityCost(
-            (args, table, cost) => cost - args.cost
+            (args, table, cost) => args.cost
         ),
         "rest": new AbilityCost(
-            (args, table, cost) => cost * 1 / (args.rest + 1)
+            (args, table, cost) => cost * (1-(1 / (args.rest + 1) ))
         ),
 
         //triggers
         "ambush": new AbilityCost(
-            (args, table, cost) => cost * 0.1
+            (args, table, cost) => cost * 0.9
         ),
         "greeting": new AbilityCost(
-            (args, table, cost) => cost * 0.1
+            (args, table, cost) => cost * 0.9
         ),
         "battlecry": new AbilityCost(
-            (args, table, cost) => cost * 0.1
+            (args, table, cost) => cost * 0.9
         ),
 
         //requirements
         "home": new AbilityCost(
-            (args, table, cost) => cost * 0.25
+            (args, table, cost) => cost * 0.75
         ),
         "once": new AbilityCost(
-            (args, table, cost) => cost * 0.3
+            (args, table, cost) => cost * 0.7
         ),
         "channel": new AbilityCost(
-            (args, table, cost) => cost * 0.3
+            (args, table, cost) => cost * 0.7
         ),
         "social": new AbilityCost(
-            (args, table, cost) => cost - (args.count * 0.35)
+            (args, table, cost) => args.count * 0.35
         ),
 
         //effects
