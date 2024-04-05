@@ -6,11 +6,12 @@ import { TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";
 import Counter from "./Counter";
 import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
 import AbilityLine from "../Data/AbilityLine";
+import { costSpec } from "../Data/CostSpec";
 
 function AbilityPanel({ ability, setAbility, updateAbility }) {
     return (<div className="abilityArea">
         {/* Ability Name */}
-        Ability Name
+        {ability.name || "Ability Name"} ({costSpec.abilityFunc(ability)}pts)
         <input type="text" className="field" onChange={(e) => {
             ability.name = e.target.value;
             updateAbility(ability);
