@@ -222,7 +222,7 @@ export const abilityTokens = [
     new AbilityToken(
         TYPE_PARAM_CREATURE,
         [
-            "any",
+            "target",
             "all",
             "self",
             "nonself",
@@ -238,14 +238,14 @@ export const abilityTokens = [
             "ally",
             "enemy",
             "neutral",
-            "any",
+            "target",
             "that",
         ]
     ),
     new AbilityToken(
         TYPE_PARAM_LAND,
         [
-            "any",
+            "target",
             "all",
             "this",
             "that",
@@ -255,7 +255,7 @@ export const abilityTokens = [
     new AbilityToken(
         TYPE_PARAM_BIOME,
         [
-            "any",
+            "target",
             "all",
             "none",
             "that",
@@ -266,7 +266,7 @@ export const abilityTokens = [
     new AbilityToken(
         TYPE_PARAM_BIOMEMOD,
         [
-            "any",
+            "target",
             "all",
             "none",
             "that",
@@ -276,7 +276,7 @@ export const abilityTokens = [
     new AbilityToken(
         TYPE_PARAM_LOCATION,
         [
-            "any",
+            "target",
             "all",
             "land",
             "ready",
@@ -292,7 +292,7 @@ export const abilityTokens = [
     new AbilityToken(
         TYPE_PARAM_TYPE,
         [
-            "any",
+            "target",
             "all",
             "none",
             "that",

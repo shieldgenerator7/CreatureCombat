@@ -29,6 +29,9 @@ class AbilityCost{
     }
 
     _getArgs(...params) {
+        //
+        params = params.flat(Infinity);
+        //
         let obj = {};
         Object.entries(this.atom.params).forEach(([key, value],i) => {
             obj[key] = params[i];

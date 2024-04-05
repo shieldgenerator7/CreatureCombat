@@ -11,7 +11,7 @@ import { abilityAtoms } from "./AbilityData";
 class AbilityLine {
     constructor(line) {
 
-        //ex: > attack: 3, any, any
+        //ex: > attack: 3, target, any
         this.line = line.trim().toLowerCase();
         let tokens = line.split(" ").map(t => t.trim()).filter(t => t);
 

@@ -40,12 +40,12 @@ class Creature {
             $ exhaust: 4
             ? once
             > scout: 3
-            > land-biome-remove: any, all
+            > land-biome-remove: target, all
             > land-biome-add: that, scouted`,
             [[4],
             ["activate"],
             [3],
-            ["any", "all"],
+            ["target", "all"],
             ["that", "scouted"]
             ]
         );
@@ -221,12 +221,12 @@ export function backwardsCompatifyCreature(creature) {
         $ exhaust: 4
         ? once
         > scout: 3
-        > land-biome-remove: any, all
+        > land-biome-remove: target, all
         > land-biome-add: that, scouted`,
         [[4],
         ["activate"],
         [3],
-        ["any", "all"],
+        ["target", "all"],
         ["that", "scouted"]
         ]
     );
