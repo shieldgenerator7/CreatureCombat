@@ -221,7 +221,7 @@ function defaultCostDict() {
                 let biome = args.biome;
                 //calc per 1 use
                 //assume 3v3
-                let targetMx = table.get(target, biome);
+                let targetMx = table.get(biome, target);
                 return 10 * targetMx;
             },
             new Table(
@@ -256,7 +256,7 @@ function defaultCostDict() {
                 let biome = args.biome;
                 //calc per 1 use
                 //assume 3v3
-                let targetMx = table.get(target, biome);
+                let targetMx = table.get(biome, target);
                 return 10 * targetMx;
             },
             new Table(
