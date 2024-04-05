@@ -1,6 +1,5 @@
 "use strict";
 
-import Select from "react-select";
 import { abilityAtoms, abilityTokens } from "../Data/AbilityData";
 import SearchSelect from "./SearchSelect";
 import { TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";

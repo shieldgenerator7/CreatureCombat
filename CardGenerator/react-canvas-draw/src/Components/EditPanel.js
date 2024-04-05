@@ -1,16 +1,16 @@
 "use strict"
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
-import Creature, { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from '../Data/Creature';
+import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
-import { capitalizeFirstLetters, makeUserFacing } from '../Utility/Utility';
+import { makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
 import { costSpec } from '../Data/CostSpec';
 
-function EditPanel({ card, setCard, updateCard, pasteString, setPasteString }) {
+function EditPanel({ card, setCard, updateCard}) {
     return (
         <div className="editPanel">
             {/* Name */}
