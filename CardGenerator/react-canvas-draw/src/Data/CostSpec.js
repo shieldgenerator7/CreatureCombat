@@ -143,7 +143,7 @@ function defaultCostDict() {
                 let target = args.target;
                 //calc per 1 use
                 //assume 3v3
-                let targetMx = table.get(team, target);
+                let targetMx = table.get(team, target) ?? 1;
                 return damage * targetMx;
             },
             new Table(
@@ -182,7 +182,7 @@ function defaultCostDict() {
                 let target = args.target;
                 //calc per 1 use
                 //assume 3v3
-                let targetMx = table.get(team, target);
+                let targetMx = table.get(team, target) ?? 1;
                 return 10 * targetMx;
             },
             new Table(
@@ -221,7 +221,7 @@ function defaultCostDict() {
                 let biome = args.biome;
                 //calc per 1 use
                 //assume 3v3
-                let targetMx = table.get(biome, target);
+                let targetMx = table.get(biome, target) ?? 1;
                 return 10 * targetMx;
             },
             new Table(
@@ -256,7 +256,7 @@ function defaultCostDict() {
                 let biome = args.biome;
                 //calc per 1 use
                 //assume 3v3
-                let targetMx = table.get(biome, target);
+                let targetMx = table.get(biome, target) ?? 1;
                 return 10 * targetMx;
             },
             new Table(

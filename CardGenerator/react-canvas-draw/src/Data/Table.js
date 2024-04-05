@@ -20,7 +20,10 @@ class Table{
     get(rowName, colName) {
         let rowIndex = this.rowHeaders.indexOf(rowName);
         let colIndex = this.colHeaders.indexOf(colName);
-        return this.table[rowIndex, colIndex];
+        if (!(rowIndex >= 0) || !(colIndex >= 0)) {
+            return undefined;
+        }
+        return this.table[rowIndex][colIndex];
     }
 }
 export default Table;

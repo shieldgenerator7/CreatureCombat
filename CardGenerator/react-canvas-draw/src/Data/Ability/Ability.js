@@ -91,8 +91,14 @@ class Ability {
                     j++;
                 }
                 if (sentenceStart) {
-                    segment = capitalizeFirstLetters(segment, false, segment.match(/[a-zA-Z0-9\-]/).index + 1);
+                    let match = segment.match(/[a-zA-Z0-9\-]/);
+                    if (match){
+                    segment = capitalizeFirstLetters(segment, false, match.index + 1);
                     sentenceStart = false;
+                    }
+                    else {
+                        console.error("segment doesnt match!", segment);
+                    }
                 }
                 let sentenceEnd = true;//TODO: make this check current and next line
                 if (sentenceEnd) {
