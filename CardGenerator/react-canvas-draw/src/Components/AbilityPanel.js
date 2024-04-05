@@ -55,10 +55,11 @@ function AbilityPanel({ ability, updateAbility }) {
                 {
 
                     Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
-
+                        let keyLabel = `${key}:`;
                         //Number
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {
-                            return (
+                            return (<>
+                                {keyLabel}
                                 <Counter
                                     key={`_ability_line_${i}_input_${j}`}
                                     value={line.params[j] ?? 0}
@@ -71,7 +72,7 @@ function AbilityPanel({ ability, updateAbility }) {
                                     }}
                                     inline={true}
                                 ></Counter>
-                            )
+                            </>)
                         }
 
                         //Option List
@@ -81,7 +82,7 @@ function AbilityPanel({ ability, updateAbility }) {
                             .flat(Infinity)
                             .filter(o => o);
                         let defaultOption = optionList[0];
-                        return (<SearchSelect
+                        return (<>{keyLabel}<SearchSelect
                             key={`_ability_line_${i}_input_${j}`}
                             option={line.params[j] ?? defaultOption}
                             options={optionList}
@@ -92,10 +93,10 @@ function AbilityPanel({ ability, updateAbility }) {
                                 ability.updateDNA();
                                 updateAbility(ability);
                             }}
-                        ></SearchSelect>)
+                        ></SearchSelect></>)
                     })
                 }
-                {
+                    detail:
                     <SearchSelect
                         option={ability.lineDisplayOptions[i]}
                         options={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
@@ -104,7 +105,6 @@ function AbilityPanel({ ability, updateAbility }) {
                             updateAbility(ability);
                         }}
                     ></SearchSelect>
-                }
 
                 {/* Line Point Cost */}
                 {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
