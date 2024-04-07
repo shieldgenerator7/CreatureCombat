@@ -48,6 +48,7 @@ class Ability {
     }
     removeLine(index = this.lines.length - 1) {
         this.lines.splice(index, 1);
+        this.lineDisplayOptions.splice(index, 1);
         //
         this.updateDNA();
     }
@@ -58,6 +59,10 @@ class Ability {
         let swap = this.lines[fromIndex];
         this.lines[fromIndex] = this.lines[toIndex];
         this.lines[toIndex] = swap;
+        //
+        let swap2 = this.lineDisplayOptions[fromIndex];
+        this.lineDisplayOptions[fromIndex] = this.lineDisplayOptions[toIndex];
+        this.lineDisplayOptions[toIndex] = swap2;
         //
         this.updateDNA();
     }
