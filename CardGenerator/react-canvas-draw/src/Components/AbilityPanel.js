@@ -118,6 +118,7 @@ function AbilityPanel({ ability, updateAbility }) {
             ability.addLine();//use default new line
             updateAbility(ability);
         }}>Add Ability Line</button>
+        <div>{ ability.FullTextHtml}</div>
 
     </div >);
 }
