@@ -15,7 +15,7 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
         <div className="editPanel">
 
             {/* Header */}
-            <div>{card.getNameText(true)} {costDisplay(costSpec.getTotalCost(card),false,true,false)}</div>
+            <div>{card.getNameText(true)} {costDisplay(costSpec.getTotalCost(card), false, true, false)}</div>
 
             {/* Name */}
             Name

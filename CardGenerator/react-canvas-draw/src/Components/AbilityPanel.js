@@ -33,19 +33,6 @@ function AbilityPanel({ ability, updateAbility }) {
         {/* Ability Lines */}
         {ability.lines.map((line, i) => {
             return (<div key={`_ability_line_${i}`}>
-                {/* <Select className="abilityAtomSelect"
-                    defaultValue={line.atomName}
-                    options={abilityAtoms.map(a => {
-                        return { value: a.name, label: a.name };
-                    })}
-                    styles={{
-                        control: (base, state) => ({
-                            color: "white",
-                            "background-color": "#303030",
-                        }),
-                    }}
-
-                ></Select> */}
                 {line.atomName == "choose" &&
                     <SearchSelect
                         option={line.atomName}

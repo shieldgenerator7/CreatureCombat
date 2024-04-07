@@ -125,8 +125,6 @@ function App() {
                     card={card}
                     setCard={setCard}
                     updateCard={updateCard}
-                    pasteString={pasteString}
-                    setPasteString={setPasteString}
                     openPanel={openPanel}
                 ></EditPanel>
 
