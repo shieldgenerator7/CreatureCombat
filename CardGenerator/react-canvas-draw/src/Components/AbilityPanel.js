@@ -8,6 +8,7 @@ import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH
 import AbilityLine from "../Data/AbilityLine";
 import { costDisplay, costSpec } from "../Data/CostSpec";
 import { capitalizeFirstLetters } from "../Utility/Utility";
+import AbilityAtomOption from "./AbilityAtomOption";
 
 function AbilityPanel({ ability, updateAbility }) {
     return ability && (<div className="abilityArea">
@@ -60,44 +61,34 @@ function AbilityPanel({ ability, updateAbility }) {
 
                     Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
                         let keyLabel = `${key?.replaceAll("_", "")}`;
-                        //Number
+                        let option;
+                        let optionList;
                         if (value == TYPE_PARAM_NUMBER_WHOLE) {
-                            return (<>
-                                {keyLabel}
-                                <Counter
-                                    key={`_ability_line_${i}_input_${j}`}
-                                    value={line.params[j] ?? 0}
-                                    setValue={(v) => {
-                                        line.params[j] = v;
-                                        ability.params[i] ??= [];
-                                        ability.params[i][j] = v;
-                                        ability.updateDNA();
-                                        updateAbility(ability);
-                                    }}
-                                    inline={true}
-                                ></Counter>
-                            </>)
+                            option = line.params[j] ?? 0;
                         }
-
-                        //Option List
-                        let optionList = [value]
-                            .flat(Infinity)
-                            .map(v => abilityTokens.find(token => token.name == v)?.options ?? v)
-                            .flat(Infinity)
-                            .filter(o => o);
-                        let defaultOption = optionList[0];
-                        return (<>{keyLabel}<SearchSelect
-                            key={`_ability_line_${i}_input_${j}`}
-                            option={line.params[j] ?? defaultOption}
-                            options={optionList}
-                            setOption={(o) => {
-                                line.params[j] = o;
-                                ability.params[i] ??= [];
-                                ability.params[i][j] = o;
-                                ability.updateDNA();
-                                updateAbility(ability);
-                            }}
-                        ></SearchSelect></>)
+                        else {
+                            optionList = [value]
+                                .flat(Infinity)
+                                .map(v => abilityTokens.find(token => token.name == v)?.options ?? v)
+                                .flat(Infinity)
+                                .filter(o => o);
+                            option = line.params[j] ?? optionList[0];
+                        }
+                        return (
+                            <AbilityAtomOption
+                                optionName={keyLabel}
+                                type={value}
+                                option={option}
+                                optionList={optionList}
+                                setOption={(o) => {
+                                    line.params[j] = o;
+                                    ability.params[i] ??= [];
+                                    ability.params[i][j] = o;
+                                    ability.updateDNA();
+                                    updateAbility(ability);
+                                }}
+                            ></AbilityAtomOption>
+                        );
                     })
                 }
                 detail:

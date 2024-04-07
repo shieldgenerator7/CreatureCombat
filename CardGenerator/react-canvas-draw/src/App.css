@@ -215,6 +215,9 @@
 .abilityArea div div {
     display: block;
 }
+.abilityAtomOption div{
+    display: block;
+}
 .info {
     font-size: medium;
 }
