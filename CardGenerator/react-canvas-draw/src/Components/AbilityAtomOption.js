@@ -7,7 +7,7 @@ import SearchSelect from "./SearchSelect";
 function AbilityAtomOption({ optionName, type, option, optionList, setOption }) {
     let keyName = `_ability_line_${optionName}`;
     return (
-        <span className="abilityAtomOption">
+        <span className="abilityAtomOption bufferOnRight">
             <div>{`${optionName}:`}</div>
             <div>
                 {type == TYPE_PARAM_NUMBER_WHOLE && (

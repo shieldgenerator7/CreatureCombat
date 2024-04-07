@@ -197,7 +197,10 @@
 }
 .abilityArea {
     border: #bbbbbb 1px solid;
-    padding: 2px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
 }
 /* .abilityArea div {
     margin: 0px;
@@ -223,6 +226,8 @@
 .abilityLineArea {
     border: 1px solid rgb(100, 100, 100);
     padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 .abilityAtomName {
     display: block;
@@ -239,11 +244,14 @@
     font-size: medium; */
     font-size: medium;
 }
-.abilityAtomOption div {
+/* .abilityAtomOption div {
     display: block;
-}
-.abilityPreview{
+} */
+.abilityPreview {
     font-size: medium;
+    margin-top: 10px;
+    border: 2px solid rgb(100, 100, 100);
+    padding: 5px;
 }
 .info {
     font-size: medium;
@@ -267,7 +275,7 @@
 }
 .inline {
     display: inline;
-    margin-left: 5px;
+    /* margin-left: 5px; */
     margin-right: 5px;
 }
 
@@ -276,6 +284,10 @@
 }
 .i {
     font-style: italic;
+}
+
+.bufferOnRight {
+    margin-right: 10px;
 }
 
 .ex {
