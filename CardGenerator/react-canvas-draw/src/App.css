@@ -39,8 +39,9 @@
 
 .overPanel {
     z-index: 10;
-    border: 2px white solid;
+    border-left: 2px white solid;
     background-color: #303030;
+    max-width: 500px;
 }
 
 .editPanel {
@@ -242,4 +243,11 @@
     display: inline;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.b {
+    font-weight: bold;
+}
+.i {
+    font-style: italic;
 }

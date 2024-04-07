@@ -91,15 +91,16 @@ function AbilityPanel({ ability, updateAbility }) {
                         );
                     })
                 }
-                detail:
-                <SearchSelect
+                <AbilityAtomOption
+                    optionName={"detail"}
+                    type={"display"}
                     option={ability.lineDisplayOptions[i]}
-                    options={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
+                    optionList={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
                     setOption={(o) => {
                         ability.lineDisplayOptions[i] = o;
                         updateAbility(ability);
                     }}
-                ></SearchSelect>
+                ></AbilityAtomOption>
 
                 {/* Line Point Cost */}
                 {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}

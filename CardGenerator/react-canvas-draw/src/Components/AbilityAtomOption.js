@@ -8,7 +8,7 @@ function AbilityAtomOption({ optionName, type, option, optionList, setOption }) 
     let keyName = `_ability_line_${optionName}`;
     return (
         <span className="abilityAtomOption">
-            <div>{optionName}</div>
+            <div>{`${optionName}:`}</div>
             <div>
                 {type == TYPE_PARAM_NUMBER_WHOLE && (
                     <Counter
