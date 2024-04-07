@@ -12,7 +12,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
             <div className="listInfo">
                 <p> Creature List</p>
                 <p> Count: {cardList.length}</p>
-                <p> Total Cost: {arraySum(cardList, card => costSpec.getTotalCost(card) * card.count)}</p>
+                <p> Total Cost: ({arraySum(cardList, card => costSpec.getTotalCost(card) * card.count)}/100pts)</p>
                 <p> Sort:
                     <select onChange={(e) => {
                         let value = e.target.value;
