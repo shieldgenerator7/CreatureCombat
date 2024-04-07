@@ -94,7 +94,7 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                         {costDisplay(costSpec.biomeModifierFunc(bm.modifier), true)}
 
                         {/* Remove Button */}
-                        <button onClick={() => {
+                        <button className="ex" onClick={() => {
                             card.biomeModifiers.splice(i, 1);
                             updateCard(card);
                         }}>X</button>
@@ -121,7 +121,7 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                 />
             </div>
             <div>
-                <button onClick={(e) => {
+                <button className='action' onClick={(e) => {
                     openPanel("ability", true);
                 }}>Edit Abilities</button>
             </div>
@@ -188,7 +188,7 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                         <div className='info'>
                             {card.imageFileName ?? "Portrait"}
                             {/* Remove Button */}
-                            <button onClick={() => {
+                            <button className="ex" onClick={() => {
                                 card.imageURL = undefined;
                                 card.imageFileName = undefined;
                                 card.imgPortrait = undefined;

@@ -49,9 +49,13 @@
     top: 0px;
     right: 0px;
     height: 100%;
-    background: "black";
     overflow-y: auto;
     overflow-x: hidden;
+    border-left: 1px rgb(119, 119, 119) solid;
+    background-color: #303030;
+    z-index: 1;
+    padding-left:10px;
+    padding-right:10px;
 }
 
 .field {
@@ -250,4 +254,25 @@
 }
 .i {
     font-style: italic;
+}
+
+.ex{
+    border: white 1px solid;
+    color: white;
+    background-color: black;
+    margin-left:5px;
+}
+.ex:hover {
+    color: black;
+    background-color: white;
+}
+
+.plusMinus{
+    border: white 1px solid;
+    color: white;
+    background-color: black;
+}
+.plusMinus:hover {
+    color: black;
+    background-color: white;
 }

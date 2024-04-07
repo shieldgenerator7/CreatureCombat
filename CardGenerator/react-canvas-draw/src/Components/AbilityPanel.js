@@ -17,7 +17,7 @@ function AbilityPanel({ ability, updateAbility }) {
         {ability.name || "Ability Name"} {costDisplay(costSpec.abilityFunc(ability))}
 
         {/* Remove Button */}
-        <button onClick={() => {
+        <button className="ex" onClick={() => {
             updateAbility(undefined);
         }}>X</button>
 
@@ -107,7 +107,7 @@ function AbilityPanel({ ability, updateAbility }) {
                 {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
 
                 {/* Remove Button */}
-                <button onClick={() => {
+                <button className="ex" onClick={() => {
                     ability.removeLine(i);
                     updateAbility(ability);
                 }}>X</button>

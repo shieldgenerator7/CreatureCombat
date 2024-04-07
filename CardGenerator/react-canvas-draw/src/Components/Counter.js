@@ -34,7 +34,7 @@ function Counter({ value, setValue, allowNegative = false, inline = false, max =
                 set(v);
             }}
                 value={`${value}`}></input>
-            <button
+            <button className="plusMinus"
                 onClick={(e) => {
                     set((value * 1) + 1);
                 }}

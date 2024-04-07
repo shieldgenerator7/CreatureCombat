@@ -133,7 +133,7 @@ function App() {
                 {/* Ability Panel */}
                 {panelList.includes("ability") &&
                     <div className='editPanel overPanel'>
-                        <button onClick={(e) => openPanel("ability", false)}>{"<- Back"}</button>
+                        <button className='action' onClick={(e) => openPanel("ability", false)}>{"<- Back"}</button>
                         {card.abilities.map((ability, i) => (
                             <AbilityPanel
                                 key={`_ability_${i}`}
