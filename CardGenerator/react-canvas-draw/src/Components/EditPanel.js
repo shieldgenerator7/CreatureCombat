@@ -121,26 +121,27 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
 
             {/* Abilities */}
             Abilities {costDisplay(costSpec.abilityAllFunc(card.abilities))}
+            {
+                card.abilities.map((ability, i) => {
+                    return (
+                        <div className='info'>{ability.name} {costDisplay(costSpec.abilityFunc(ability))}</div>
+                        // <AbilityPanel
+                        //     key={`_ability_${i}`}
+                        //     ability={ability}
+                        //     updateAbility={(a) => {
+                        //         card.abilities[i] = a;
+                        //         card.abilities = card.abilities.filter(a => a);
+                        //         updateCard(card);
+                        //     }}
+                        // ></AbilityPanel>
+                    );
+                })
+            }
             <div>
                 <button className='action' onClick={(e) => {
                     openPanel("ability", true);
                 }}>Edit Abilities</button>
             </div>
-            {
-                // card.abilities.map((ability, i) => {
-                //     return (
-                //         <AbilityPanel
-                //             key={`_ability_${i}`}
-                //             ability={ability}
-                //             updateAbility={(a) => {
-                //                 card.abilities[i] = a;
-                //                 card.abilities = card.abilities.filter(a => a);
-                //                 updateCard(card);
-                //             }}
-                //         ></AbilityPanel>
-                //     );
-                // })
-            }
             {/* Add Button */}
             {card.abilities.length < 2 && (
                 <button className='action' onClick={() => {
