@@ -10,7 +10,7 @@ import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
 import { costDisplay, costSpec } from '../Data/CostSpec';
 
-function EditPanel({ card, setCard, updateCard }) {
+function EditPanel({ card, setCard, updateCard, openPanel }) {
     return (
         <div className="editPanel">
 
@@ -120,20 +120,25 @@ function EditPanel({ card, setCard, updateCard }) {
                     }}
                 />
             </div>
+            <div>
+                <button onClick={(e) => {
+                    openPanel("ability", true);
+                }}>Edit Abilities</button>
+            </div>
             {
-                card.abilities.map((ability, i) => {
-                    return (
-                        <AbilityPanel
-                            key={`_ability_${i}`}
-                            ability={ability}
-                            updateAbility={(a) => {
-                                card.abilities[i] = a;
-                                card.abilities = card.abilities.filter(a => a);
-                                updateCard(card);
-                            }}
-                        ></AbilityPanel>
-                    );
-                })
+                // card.abilities.map((ability, i) => {
+                //     return (
+                //         <AbilityPanel
+                //             key={`_ability_${i}`}
+                //             ability={ability}
+                //             updateAbility={(a) => {
+                //                 card.abilities[i] = a;
+                //                 card.abilities = card.abilities.filter(a => a);
+                //                 updateCard(card);
+                //             }}
+                //         ></AbilityPanel>
+                //     );
+                // })
             }
             {/* Add Button */}
             {card.abilities.length < 2 && (

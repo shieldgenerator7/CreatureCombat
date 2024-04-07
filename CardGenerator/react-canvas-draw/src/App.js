@@ -8,7 +8,8 @@ import { parsePasteFromExcel } from './Utility/Parser';
 import CardListPanel from './Components/CardListPanel';
 import Storage from './Utility/Storage';
 import { VERSION } from './Version';
-import { isImage } from './Utility/Utility';
+import { arrayRemove, isImage } from './Utility/Utility';
+import AbilityPanel from './Components/AbilityPanel';
 
 function App() {
     //Storage
@@ -84,6 +85,21 @@ function App() {
         setAutoDownload(false);
         setPasteString("");
     }
+    //Panel List
+    let panelList = [];
+    let setPanelList = (list) => { panelList = list; }
+    [panelList, setPanelList] = useState([]);
+    const openPanel = (panel, open) => {
+        if (open) {
+            if (!panelList.includes(panel)) {
+                panelList.push(panel);
+            }
+        }
+        else {
+            arrayRemove(panelList, panel);
+        }
+        setPanelList([...panelList]);
+    }
 
     useEffect(() => {
         let cardName = card?.getNameText(true, false);
@@ -111,7 +127,26 @@ function App() {
                     updateCard={updateCard}
                     pasteString={pasteString}
                     setPasteString={setPasteString}
+                    openPanel={openPanel}
                 ></EditPanel>
+
+                {/* Ability Panel */}
+                {panelList.includes("ability") &&
+                    <div className='editPanel overPanel'>
+                        <button onClick={(e) => openPanel("ability", false)}>{"<- Back"}</button>
+                        {card.abilities.map((ability, i) => (
+                            <AbilityPanel
+                                key={`_ability_${i}`}
+                                ability={ability}
+                                updateAbility={(a) => {
+                                    card.abilities[i] = a;
+                                    card.abilities = card.abilities.filter(a => a);
+                                    updateCard(card);
+                                }}
+                            ></AbilityPanel>
+                        ))}
+                    </div>
+                }
             </header>
         </div>
     );
