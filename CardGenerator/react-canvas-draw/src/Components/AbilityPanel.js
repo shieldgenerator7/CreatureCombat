@@ -9,6 +9,7 @@ import AbilityLine from "../Data/AbilityLine";
 import { costDisplay, costSpec } from "../Data/CostSpec";
 import { capitalizeFirstLetters } from "../Utility/Utility";
 import AbilityAtomOption from "./AbilityAtomOption";
+import { Markup } from 'interweave';
 
 function AbilityPanel({ ability, updateAbility }) {
     return ability && (<div className="abilityArea">
@@ -118,7 +119,7 @@ function AbilityPanel({ ability, updateAbility }) {
             ability.addLine();//use default new line
             updateAbility(ability);
         }}>Add Ability Line</button>
-        <div>{ ability.FullTextHtml}</div>
+        <div><Markup content={ability.FullTextHtml}></Markup></div>
 
     </div >);
 }

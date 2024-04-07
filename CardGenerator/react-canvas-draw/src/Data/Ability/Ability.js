@@ -138,8 +138,8 @@ class Ability {
     }
     get FullTextHtml() {
         return this.FullText
-            .replaceAll(/\*([^\*]*)\*/g, "<span className='b'>$1</span>")
-            .replaceAll(/\_(.*)\_/g, "<span className='i'>$1</span>");
+            .replaceAll(/\*([^\*]*)\*/g, "<span class='b'>$1</span>")
+            .replaceAll(/\_(.*)\_/g, "<span class='i'>$1</span>");
     }
     updateDNA() {
         console.log("updateDNA_1", this.codeText);
