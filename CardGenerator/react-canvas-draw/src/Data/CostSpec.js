@@ -313,6 +313,7 @@ export function costDisplay(value, allowNegative = false, allowPositive = true, 
     if (!allowPositive) {
         value = Math.min(0, value);
     }
+    value ||= 0;//NaN prevention
     let plural = value != 1;
     return `(${(value > 0 && includeSign) ? "+" : ""}${value}${(plural) ? "pts" : "pt"})`;
 }
