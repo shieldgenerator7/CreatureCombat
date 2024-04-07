@@ -1,6 +1,6 @@
 "use strict";
 
-import { capitalizeFirstLetters, isNumber } from "../../Utility/Utility";
+import { capitalizeFirstLetters, clamp, isNumber } from "../../Utility/Utility";
 import { LINETYPE_EFFECT } from "../AbilityConstants";
 import { abilityAtoms } from "../AbilityData";
 import AbilityLine from "../AbilityLine";
@@ -48,6 +48,16 @@ class Ability {
     }
     removeLine(index = this.lines.length - 1) {
         this.lines.splice(index, 1);
+        //
+        this.updateDNA();
+    }
+    moveLine(fromIndex, toIndex) {
+        fromIndex = clamp(fromIndex, 0, this.lines.length - 1);
+        toIndex = clamp(toIndex, 0, this.lines.length - 1);
+        //
+        let swap = this.lines[fromIndex];
+        this.lines[fromIndex] = this.lines[toIndex];
+        this.lines[toIndex] = swap;
         //
         this.updateDNA();
     }

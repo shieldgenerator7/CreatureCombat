@@ -51,12 +51,24 @@ function AbilityPanel({ ability, updateAbility }) {
                         {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
                     </span>
 
+                    <span>
+                    {/* Move Down Button */}
+                    <button className="ex" onClick={() => {
+                        ability.moveLine(i, i + 1);
+                        updateAbility(ability);
+                    }}>\/</button>
+                    {/* Move Up Button */}
+                    <button className="ex" onClick={() => {
+                        ability.moveLine(i, i - 1);
+                        updateAbility(ability);
+                    }}>/\</button>
 
                     {/* Remove Button */}
                     <button className="ex" onClick={() => {
                         ability.removeLine(i);
                         updateAbility(ability);
                     }}>X</button>
+                    </span>
                 </div>
                 <div className="abilityAtomLine">
                 {
