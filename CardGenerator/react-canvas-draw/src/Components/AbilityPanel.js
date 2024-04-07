@@ -35,85 +35,85 @@ function AbilityPanel({ ability, updateAbility }) {
             return (<div className="abilityLineArea" key={`_ability_line_${i}`}>
                 <div className="abilityAtomName">
                     <span>
-                {line.atomName == "choose" &&
-                    <SearchSelect
-                        option={line.atomName}
-                        options={abilityAtoms.map(a => a.name)}
-                        setOption={(o) => {
-                            line.setAtom(o);
-                            ability.updateDNA();
-                            updateAbility(ability);
-                        }}
-                    ></SearchSelect>
-                }
-                {line.atomName != "choose" && (<span>{capitalizeFirstLetters(line.atomName, true)} </span>)}
+                        {line.atomName == "choose" &&
+                            <SearchSelect
+                                option={line.atomName}
+                                options={abilityAtoms.map(a => a.name)}
+                                setOption={(o) => {
+                                    line.setAtom(o);
+                                    ability.updateDNA();
+                                    updateAbility(ability);
+                                }}
+                            ></SearchSelect>
+                        }
+                        {line.atomName != "choose" && (<span>{capitalizeFirstLetters(line.atomName, true)} </span>)}
                         {/* Line Point Cost */}
                         {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
                     </span>
 
                     <span>
-                    {/* Move Down Button */}
-                    <button className="ex" onClick={() => {
-                        ability.moveLine(i, i + 1);
-                        updateAbility(ability);
-                    }}>\/</button>
-                    {/* Move Up Button */}
-                    <button className="ex" onClick={() => {
-                        ability.moveLine(i, i - 1);
-                        updateAbility(ability);
-                    }}>/\</button>
+                        {/* Move Down Button */}
+                        <button className="ex" onClick={() => {
+                            ability.moveLine(i, i + 1);
+                            updateAbility(ability);
+                        }}>\/</button>
+                        {/* Move Up Button */}
+                        <button className="ex" onClick={() => {
+                            ability.moveLine(i, i - 1);
+                            updateAbility(ability);
+                        }}>/\</button>
 
-                    {/* Remove Button */}
-                    <button className="ex" onClick={() => {
-                        ability.removeLine(i);
-                        updateAbility(ability);
-                    }}>X</button>
+                        {/* Remove Button */}
+                        <button className="ex" onClick={() => {
+                            ability.removeLine(i);
+                            updateAbility(ability);
+                        }}>X</button>
                     </span>
                 </div>
                 <div className="abilityAtomLine">
-                {
-                    Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
-                        let keyLabel = `${key?.replaceAll("_", "")}`;
-                        let option;
-                        let optionList;
-                        if (value == TYPE_PARAM_NUMBER_WHOLE) {
-                            option = line.params[j] ?? 0;
-                        }
-                        else {
-                            optionList = [value]
-                                .flat(Infinity)
-                                .map(v => abilityTokens.find(token => token.name == v)?.options ?? v)
-                                .flat(Infinity)
-                                .filter(o => o);
-                            option = line.params[j] ?? optionList[0];
-                        }
-                        return (
-                            <AbilityAtomOption
-                                optionName={keyLabel}
-                                type={value}
-                                option={option}
-                                optionList={optionList}
-                                setOption={(o) => {
-                                    line.params[j] = o;
-                                    ability.params[i] ??= [];
-                                    ability.params[i][j] = o;
-                                    ability.updateDNA();
-                                    updateAbility(ability);
-                                }}
-                            ></AbilityAtomOption>
-                        );
-                    })
-                }
-                <AbilityAtomOption
-                    optionName={"detail"}
-                    type={"display"}
-                    option={ability.lineDisplayOptions[i]}
-                    optionList={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
-                    setOption={(o) => {
-                        ability.lineDisplayOptions[i] = o;
-                        updateAbility(ability);
-                    }}
-                ></AbilityAtomOption>
+                    {
+                        Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
+                            let keyLabel = `${key?.replaceAll("_", "")}`;
+                            let option;
+                            let optionList;
+                            if (value == TYPE_PARAM_NUMBER_WHOLE) {
+                                option = line.params[j] ?? 0;
+                            }
+                            else {
+                                optionList = [value]
+                                    .flat(Infinity)
+                                    .map(v => abilityTokens.find(token => token.name == v)?.options ?? v)
+                                    .flat(Infinity)
+                                    .filter(o => o);
+                                option = line.params[j] ?? optionList[0];
+                            }
+                            return (
+                                <AbilityAtomOption
+                                    optionName={keyLabel}
+                                    type={value}
+                                    option={option}
+                                    optionList={optionList}
+                                    setOption={(o) => {
+                                        line.params[j] = o;
+                                        ability.params[i] ??= [];
+                                        ability.params[i][j] = o;
+                                        ability.updateDNA();
+                                        updateAbility(ability);
+                                    }}
+                                ></AbilityAtomOption>
+                            );
+                        })
+                    }
+                    <AbilityAtomOption
+                        optionName={"detail"}
+                        type={"display"}
+                        option={ability.lineDisplayOptions[i]}
+                        optionList={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
+                        setOption={(o) => {
+                            ability.lineDisplayOptions[i] = o;
+                            updateAbility(ability);
+                        }}
+                    ></AbilityAtomOption>
 
                 </div>
                 {/* {line.getString()} */}
