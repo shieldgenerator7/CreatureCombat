@@ -53,12 +53,22 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
 
             {/* Rest Count */}
             Rest Count {costDisplay(costSpec.restFunc(card.rest), true, false)}
+            <div className='info'>
+                Show Reminder Text
+                <input type="checkbox" checked={card.showReminderText}
+                    onChange={() => {
+                        card.showReminderText = !card.showReminderText;
+                        updateCard(card);
+                    }}
+                />
+            </div>
             <Counter
                 value={card.rest}
                 setValue={(v) => {
                     card.rest = v;
                     updateCard(card);
-                }}></Counter>
+                }}
+            ></Counter>
 
             {/* Biome Modifiers */}
             Biome Modifiers {costDisplay(costSpec.biomeModifierAllFunc(card.biomeModifiers), true)}
@@ -111,15 +121,6 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
 
             {/* Abilities */}
             Abilities {costDisplay(costSpec.abilityAllFunc(card.abilities))}
-            <div className='info'>
-                Show Reminder Text
-                <input type="checkbox" checked={card.showReminderText}
-                    onChange={() => {
-                        card.showReminderText = !card.showReminderText;
-                        updateCard(card);
-                    }}
-                />
-            </div>
             <div>
                 <button className='action' onClick={(e) => {
                     openPanel("ability", true);
