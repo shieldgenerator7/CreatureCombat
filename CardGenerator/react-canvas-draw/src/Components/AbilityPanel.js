@@ -32,7 +32,9 @@ function AbilityPanel({ ability, updateAbility }) {
 
         {/* Ability Lines */}
         {ability.lines.map((line, i) => {
-            return (<div key={`_ability_line_${i}`}>
+            return (<div className="abilityLineArea" key={`_ability_line_${i}`}>
+                <div className="abilityAtomName">
+                    <span>
                 {line.atomName == "choose" &&
                     <SearchSelect
                         option={line.atomName}
@@ -44,9 +46,20 @@ function AbilityPanel({ ability, updateAbility }) {
                         }}
                     ></SearchSelect>
                 }
-                {line.atomName != "choose" && (<span>{capitalizeFirstLetters(line.atomName, true)}:</span>)}
-                {
+                {line.atomName != "choose" && (<span>{capitalizeFirstLetters(line.atomName, true)} </span>)}
+                        {/* Line Point Cost */}
+                        {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
+                    </span>
 
+
+                    {/* Remove Button */}
+                    <button className="ex" onClick={() => {
+                        ability.removeLine(i);
+                        updateAbility(ability);
+                    }}>X</button>
+                </div>
+                <div className="abilityAtomLine">
+                {
                     Object.entries(line.atom?.params ?? {}).map(([key, value], j) => {
                         let keyLabel = `${key?.replaceAll("_", "")}`;
                         let option;
@@ -90,14 +103,7 @@ function AbilityPanel({ ability, updateAbility }) {
                     }}
                 ></AbilityAtomOption>
 
-                {/* Line Point Cost */}
-                {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
-
-                {/* Remove Button */}
-                <button className="ex" onClick={() => {
-                    ability.removeLine(i);
-                    updateAbility(ability);
-                }}>X</button>
+                </div>
                 {/* {line.getString()} */}
             </div>);
         })}
@@ -106,7 +112,7 @@ function AbilityPanel({ ability, updateAbility }) {
             ability.addLine();//use default new line
             updateAbility(ability);
         }}>Add Ability Line</button>
-        <div><Markup content={ability.FullTextHtml}></Markup></div>
+        <div className="abilityPreview"><Markup content={ability.FullTextHtml}></Markup></div>
 
     </div >);
 }

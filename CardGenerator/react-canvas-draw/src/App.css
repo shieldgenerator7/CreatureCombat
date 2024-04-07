@@ -199,7 +199,7 @@
     border: #bbbbbb 1px solid;
     padding: 2px;
 }
-.abilityArea div {
+/* .abilityArea div {
     margin: 0px;
     display: flex;
     text-align: justify;
@@ -219,9 +219,31 @@
 }
 .abilityArea div div {
     display: block;
+} */
+.abilityLineArea {
+    border: 1px solid rgb(100, 100, 100);
+    padding: 5px;
+}
+.abilityAtomName {
+    display: block;
+    font-size: large;
+    display: flex;
+    text-align: justify;
+    justify-content: space-between;
+}
+.abilityAtomLine {
+    margin: 0px;
+    display: flex;
+    text-align: left;
+    /* justify-content: space-between;
+    font-size: medium; */
+    font-size: medium;
 }
 .abilityAtomOption div {
     display: block;
+}
+.abilityPreview{
+    font-size: medium;
 }
 .info {
     font-size: medium;
