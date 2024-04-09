@@ -41,13 +41,13 @@ class Ability {
 
     addLine(line) {
         line ??= new AbilityLine("> choose");
-        this.lines.push(line);
-        this.lineDisplayOptions.push(DISPLAY_LINE_FULL);
+        this._updateLine(this.lines.length, line, [], DISPLAY_LINE_FULL);
         //
         this.updateDNA();
     }
     removeLine(index = this.lines.length - 1) {
         this.lines.splice(index, 1);
+        this.params.splice(index, 1);
         this.lineDisplayOptions.splice(index, 1);
         //
         this.updateDNA();
@@ -56,15 +56,21 @@ class Ability {
         fromIndex = clamp(fromIndex, 0, this.lines.length - 1);
         toIndex = clamp(toIndex, 0, this.lines.length - 1);
         //
-        let swap = this.lines[fromIndex];
-        this.lines[fromIndex] = this.lines[toIndex];
-        this.lines[toIndex] = swap;
-        //
-        let swap2 = this.lineDisplayOptions[fromIndex];
-        this.lineDisplayOptions[fromIndex] = this.lineDisplayOptions[toIndex];
-        this.lineDisplayOptions[toIndex] = swap2;
+        let swap = "swap";
+        this._updateLine(swap, this.lines[fromIndex], this.params[fromIndex], this.displayOptions[fromIndex]);
+        this._updateLine(fromIndex, this.lines[toIndex], this.params[toIndex], this.displayOptions[toIndex]);
+        this._updateLine(toIndex, this.lines[swap], this.params[swap], this.displayOptions[swap]);
+        // _updateLine(swap, undefined, undefined, undefined);
+        delete this.lines[swap];
+        delete this.params[swap];
+        delete this.displayOptions[swap];
         //
         this.updateDNA();
+    }
+    _updateLine(index, line, params, displayOptions) {
+        this.lines[index] = line;
+        this.params[index] = params;
+        this.lineDisplayOptions[index] = displayOptions;
     }
 
     get FullText() {
