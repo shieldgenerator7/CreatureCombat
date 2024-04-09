@@ -1,5 +1,6 @@
 "use strict";
 
+import { isString } from "../Utility/Utility";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER } from "./AbilityConstants";
 import { abilityAtoms, abilityTokens } from "./AbilityData";
 
@@ -36,10 +37,30 @@ class AbilityLine {
         //load in params
         this.params = tokens.slice(2)
             .map(token => token
-                ?.match(/[a-zA-Z0-9]+/)?.[0]
+                ?.match(/[a-zA-Z0-9\"]+/)?.[0]
                 ?.trim()
             )
             .filter(token => token);
+        //check for quotes
+        let startIndex = undefined;
+        let validStartIndex = () => startIndex >= 0;
+        for (let i = 0; i < this.params.length; i++) {
+            let param = this.params[i];
+            if (!validStartIndex() && param.startsWith("\"")) {
+                startIndex = i;
+            }
+            if (validStartIndex() && param.endsWith("\"")) {
+                if (startIndex != i) {
+                    //combine the elements
+                    let string = this.params
+                        .splice(startIndex, (i - startIndex) + 1)
+                        // .map(str => str.match(/[a-zA-Z0-9"]+/)[0])
+                        .join(" ");
+                    this.params.splice(startIndex, 0, string.match(/[a-zA-Z0-9 ]+/)[0]);
+                }
+                startIndex = undefined;
+            }
+        }
 
     }
 
@@ -51,7 +72,14 @@ class AbilityLine {
             case LINETYPE_REQUIREMENT: symbol = "?"; break;
             case LINETYPE_EFFECT: symbol = ">"; break;
         }
-        return `${symbol} ${this.atomName}${(this.params?.length > 0) ? `: ${this.params.join(", ")}` : ""} `;
+        let paramTexts = this.params.map(param => {
+            //put string in quotes
+            if (isString(param) && param.includes(" ")) {
+                return `"${param}"`;
+            }
+            return param;
+        })
+        return `${symbol} ${this.atomName}${(paramTexts?.length > 0) ? `: ${paramTexts.join(", ")}` : ""} `;
     }
 
     setAtom(name) {

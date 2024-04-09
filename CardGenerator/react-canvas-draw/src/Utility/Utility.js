@@ -14,7 +14,7 @@ function isEmpty(str) {
     return !str || !str.trim();
 }
 
-function isString(s) { return s === "" + s; }
+export function isString(s) { return s === "" + s; }
 
 //2019-10-31: copied from https://stackoverflow.com/a/1421988/2336212
 export function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
