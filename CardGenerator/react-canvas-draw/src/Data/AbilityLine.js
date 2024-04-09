@@ -28,9 +28,14 @@ class AbilityLine {
 
         //determine which atom
         this.atomName = tokens[1]?.match(/[a-zA-Z\-]+/)?.[0] ?? "choose";
+        if (this.atomName == "choose") {
+            this.atom = abilityAtoms.find(atom => atom.name == this.atomName);
+        }
+        else {
         this.atom = abilityAtoms.find(atom => atom.name == this.atomName && atom.type == this.type);
+        }
         if (!this.atom) {
-            console.error("unable to find atom!", this.atomName, this.atom);
+            console.error("unable to find atom!", this.atomName, this.atom, this.type);
             return this;
         }
 
