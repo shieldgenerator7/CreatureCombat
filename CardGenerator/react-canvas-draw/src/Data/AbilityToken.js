@@ -4,10 +4,10 @@
  * A keyword
  */
 class AbilityToken{
-    constructor(name, options, subtokenname="") {
+    constructor(name, defaultOption, options, subtokenname="") {
         this.name = name;
         this.options = options;
-        this.defaultOption = options[0];
+        this.defaultOption = defaultOption ?? options[0];
         this.subtokenname = subtokenname;
     }
     init(subtoken) {

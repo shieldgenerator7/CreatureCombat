@@ -1,7 +1,7 @@
 "use strict";
 
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER } from "./AbilityConstants";
-import { abilityAtoms } from "./AbilityData";
+import { abilityAtoms, abilityTokens } from "./AbilityData";
 
 
 /**
@@ -63,6 +63,16 @@ class AbilityLine {
             return;
         }
         this.type = this.atom.type;
+        //params
+        this.params = Object.entries(this.atom.params).map(([key, value], i) => {
+            let tokenNames = [value].flat(Infinity);
+            return tokenNames.map(tokenName => {
+                let token = abilityTokens.find(t => t.name == tokenName);
+                if (!token) { return tokenName; }//it's ok, there could be non-tokens in the list
+                return token.defaultOption;
+            })[0];
+        });
+        //
         console.log("setAtom", this.atomName, this.type, this.atom);
     }
 }

@@ -221,6 +221,7 @@ export const abilityRequirements = [
 export const abilityTokens = [
     new AbilityToken(
         TYPE_PARAM_CREATURE,
+        undefined,
         [
             "target",
             "all",
@@ -233,6 +234,7 @@ export const abilityTokens = [
     ),
     new AbilityToken(
         TYPE_PARAM_TEAM,
+        undefined,
         [
             "team-all",
             "ally",
@@ -244,6 +246,7 @@ export const abilityTokens = [
     ),
     new AbilityToken(
         TYPE_PARAM_LAND,
+        undefined,
         [
             "target",
             "all",
@@ -254,6 +257,7 @@ export const abilityTokens = [
     ),
     new AbilityToken(
         TYPE_PARAM_BIOME,
+        undefined,
         [
             "target",
             "all",
@@ -265,6 +269,7 @@ export const abilityTokens = [
     ),
     new AbilityToken(
         TYPE_PARAM_BIOMEMOD,
+        undefined,
         [
             "target",
             "all",
@@ -275,6 +280,7 @@ export const abilityTokens = [
     ),
     new AbilityToken(
         TYPE_PARAM_LOCATION,
+        undefined,
         [
             "target",
             "all",
@@ -287,10 +293,12 @@ export const abilityTokens = [
     ),
     new AbilityToken(
         TYPE_PARAM_NUMBER_WHOLE,
+        1,
         (x) => isNumber(x)
     ),
     new AbilityToken(
         TYPE_PARAM_TYPE,
+        undefined,
         [
             "target",
             "all",
