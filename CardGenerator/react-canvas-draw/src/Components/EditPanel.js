@@ -124,7 +124,7 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
             {
                 card.abilities.map((ability, i) => {
                     return (
-                        <div className='info'>{ability.name} {costDisplay(costSpec.abilityFunc(ability))}</div>
+                        <div className='info' key={`ability_${i}`}>{ability.name} {costDisplay(costSpec.abilityFunc(ability))}</div>
                         // <AbilityPanel
                         //     key={`_ability_${i}`}
                         //     ability={ability}

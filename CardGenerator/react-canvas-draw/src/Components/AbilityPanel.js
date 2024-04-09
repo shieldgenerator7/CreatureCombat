@@ -90,6 +90,7 @@ function AbilityPanel({ ability, updateAbility }) {
                             return (
                                 <AbilityAtomOption
                                     optionName={keyLabel}
+                                    key={`ability_option_${i}_${j}`}
                                     type={value}
                                     option={option}
                                     optionList={optionList}
