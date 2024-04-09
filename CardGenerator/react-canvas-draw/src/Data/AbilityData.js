@@ -1,9 +1,9 @@
 "use strict";
 
-import { isNumber } from "../Utility/Utility";
+import { between, isNumber } from "../Utility/Utility";
 import AbilityAtom2 from "./Ability/AbilityAtom";
 import AbilityAtom from "./AbilityAtom";
-import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM, TYPE_PARAM_STRING } from "./AbilityConstants";
+import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM, TYPE_PARAM_STRING, TYPE_PARAM_NUMBER_FRACTION } from "./AbilityConstants";
 import AbilityToken from "./AbilityToken";
 
 const topList = [
@@ -295,6 +295,11 @@ export const abilityTokens = [
         TYPE_PARAM_NUMBER_WHOLE,
         1,
         (x) => isNumber(x)
+    ),
+    new AbilityToken(
+        TYPE_PARAM_NUMBER_FRACTION,
+        0.1,
+        (x) => isNumber(x) && between(x, 0, 1)
     ),
     new AbilityToken(
         TYPE_PARAM_TYPE,

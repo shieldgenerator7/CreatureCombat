@@ -2,7 +2,12 @@
 
 import { clamp, isNumber } from "../Utility/Utility";
 
-function Counter({ value, setValue, allowNegative = false, inline = false, max = 99 }) {
+function Counter({ value, setValue, allowNegative = false, inline = false, max = 99, increment = 1 }) {
+    //input checking
+    if (!(increment > 0)) {
+        console.error("Invalid increment value!", increment, "(resetting to default increment)");
+        increment = 1;//set to default so it can still function
+    }
     //
     function valueAcceptable(v) {
         //
@@ -36,12 +41,12 @@ function Counter({ value, setValue, allowNegative = false, inline = false, max =
                 value={`${value}`}></input>
             <button className="plusMinus"
                 onClick={(e) => {
-                    set((value * 1) + 1);
+                    set((value * 1) + increment);
                 }}
                 onContextMenu={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    set((value * 1) - 1);
+                    set((value * 1) - increment);
                 }}
             >
                 + -

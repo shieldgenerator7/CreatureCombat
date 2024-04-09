@@ -51,7 +51,7 @@ export function clamp(value, min, max) {
     );
 }
 
-let between = function (value, min, max) {
+export function between (value, min, max) {
     return (min <= value && value <= max);
 }
 
