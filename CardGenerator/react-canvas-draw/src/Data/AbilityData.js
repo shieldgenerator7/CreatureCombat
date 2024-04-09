@@ -516,6 +516,56 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
+    new AbilityAtom2(
+        "powerup",
+        "gain {power} bonus power",
+        LINETYPE_EFFECT,
+        {
+            power: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom2(
+        "recovery",
+        "when you use a Land card to recover this creature, remove an additional {rest} Rest counters from it",
+        LINETYPE_EFFECT,
+        {
+            rest: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom2(
+        "stress",
+        "add {rest} Rest counters to {target}",
+        LINETYPE_EFFECT,
+        {
+            rest: TYPE_PARAM_NUMBER_WHOLE,
+            target: TYPE_PARAM_CREATURE,
+        }
+    ),
+    new AbilityAtom2(
+        "negate-biomemod",
+        "negate {target}'s {biomeMod} biome modifier",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+            biomeMod: TYPE_PARAM_BIOMEMOD,
+        }
+    ),
+    new AbilityAtom2(
+        "reveal",
+        "reveal {target}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+        }
+    ),
+    new AbilityAtom2(
+        "ward",
+        "when an enemy Creature targets this Creature, they must pay Exhaust {cost}, or else their ability is cancelled",
+        LINETYPE_EFFECT,
+        {
+            cost: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
 ];
 abilityAtoms
     .filter(atom => Object.entries(atom.params).length > 0)

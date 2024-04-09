@@ -332,6 +332,24 @@ function defaultCostDict() {
                 ]
             )
         ),
+        "powerup": new AbilityCost(
+            (args) => args.power
+        ),
+        "recovery": new AbilityCost(
+            (args) => args.rest - 1
+        ),
+        "stress": new AbilityCost(
+            (args) => args.rest - 1
+        ),
+        "negate-biomemod": new AbilityCost(
+            (args) => 10
+        ),
+        "reveal": new AbilityCost(
+            (args) => 5
+        ),
+        "ward": new AbilityCost(
+            (args) => args.cost * 1.5
+        ),
     }
     Object.entries(costDict).forEach(([key, value]) => {
         let atom = abilityAtoms.find(a => a.name == key);
