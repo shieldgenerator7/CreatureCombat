@@ -335,7 +335,7 @@ export const abilityAtoms = [
         {
             line: TYPE_PARAM_STRING,
             discount: TYPE_PARAM_NUMBER_WHOLE,
-            discountMultiplier: TYPE_PARAM_NUMBER_WHOLE,
+            discountFactor: TYPE_PARAM_NUMBER_FRACTION,
         }
     ),
     new AbilityAtom2(
@@ -345,7 +345,7 @@ export const abilityAtoms = [
         {
             line: TYPE_PARAM_STRING,
             discount: TYPE_PARAM_NUMBER_WHOLE,
-            discountMultiplier: TYPE_PARAM_NUMBER_WHOLE,
+            discountFactor: TYPE_PARAM_NUMBER_FRACTION,
         }
     ),
     new AbilityAtom2(
@@ -355,7 +355,7 @@ export const abilityAtoms = [
         {
             line: TYPE_PARAM_STRING,
             discount: TYPE_PARAM_NUMBER_WHOLE,
-            discountMultiplier: TYPE_PARAM_NUMBER_WHOLE,
+            discountFactor: TYPE_PARAM_NUMBER_FRACTION,
         }
     ),
     new AbilityAtom2(

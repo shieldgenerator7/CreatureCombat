@@ -137,13 +137,13 @@ function defaultCostDict() {
             (args, table, cost) => 0
         ),
         "custom-cost": new AbilityCost(
-            (args, table, cost) => (args.discount * 1) + cost * args.discountMultiplier
+            (args, table, cost) => (args.discount * 1) + cost * args.discountFactor
         ),
         "custom-trigger": new AbilityCost(
-            (args, table, cost) => (args.discount * 1) + cost * args.discountMultiplier
+            (args, table, cost) => (args.discount * 1) + cost * args.discountFactor
         ),
         "custom-requirement": new AbilityCost(
-            (args, table, cost) => (args.discount * 1) + cost * args.discountMultiplier
+            (args, table, cost) => (args.discount * 1) + cost * args.discountFactor
         ),
         "custom-effect": new AbilityCost(
             (args, table, cost) => args.cost
