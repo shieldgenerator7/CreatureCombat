@@ -212,5 +212,9 @@ export function backwardsCompatifyAbility(ability) {
         ability.addLine(line);
     }
     ability.updateDNA();
+    ability.init();
+    ability.lines.forEach((l, i) => {
+        ability.params[i] = l.params ?? [];
+    })
 
 }
