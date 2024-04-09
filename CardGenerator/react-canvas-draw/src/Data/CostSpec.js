@@ -1,6 +1,6 @@
 "use strict";
 
-import { arraySum } from "../Utility/Utility";
+import { arraySum, isNumber } from "../Utility/Utility";
 import AbilityCost from "./Ability/AbilityCost";
 import { LINETYPE_EFFECT, TYPE_PARAM_TEAM } from "./AbilityConstants";
 import { abilityAtoms } from "./AbilityData";
@@ -105,7 +105,12 @@ class CostSpec {
             console.error("unknown cost ability cost!", name);
             return 0;
         }
-        return ac.getCost(params);
+        let cost = ac.getCost(params);
+        if (!isNumber(cost)) {
+            console.error("invalid cost on ability cost!", name, cost);
+            return 0;
+        }
+        return cost;
     }
     getDiscount(name, cost, ...params) {
         let ac = this.costDict[name];
@@ -113,7 +118,12 @@ class CostSpec {
             console.error("unknown discount ability cost!", name);
             return 0;
         }
-        return ac.getDiscount(cost, params);
+        let discount = ac.getDiscount(cost, params);
+        if (!isNumber(discount)) {
+            console.error("invalid discount on ability cost!", name, discount);
+            return 0;
+        }
+        return discount;
     }
 }
 export default CostSpec;
@@ -127,13 +137,13 @@ function defaultCostDict() {
             (args, table, cost) => 0
         ),
         "custom-cost": new AbilityCost(
-            (args, table, cost) => args.discount + cost * args.discountMultiplier
+            (args, table, cost) => (args.discount * 1) + cost * args.discountMultiplier
         ),
         "custom-trigger": new AbilityCost(
-            (args, table, cost) => args.discount + cost * args.discountMultiplier
+            (args, table, cost) => (args.discount * 1) + cost * args.discountMultiplier
         ),
         "custom-requirement": new AbilityCost(
-            (args, table, cost) => args.discount + cost * args.discountMultiplier
+            (args, table, cost) => (args.discount * 1) + cost * args.discountMultiplier
         ),
         "custom-effect": new AbilityCost(
             (args, table, cost) => args.cost
