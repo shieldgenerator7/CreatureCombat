@@ -41,7 +41,7 @@ class Ability {
 
     addLine(line) {
         line ??= new AbilityLine("> choose");
-        this._updateLine(this.lines.length, line, [], DISPLAY_LINE_FULL);
+        this._updateLine(this.lines.length, line, line.params, DISPLAY_LINE_FULL);
         //
         this.updateDNA();
     }
@@ -91,7 +91,8 @@ class Ability {
                         let name = `*${capitalizeFirstLetters(atom.name.trim())}`;
                         let reminder = atom.text.trim();
                         Object.entries(atom.params).forEach(([key, value], j) => {
-                            let number = this.params[i]?.[j];
+                            let param = this.params[i]?.[j] ?? line.params[j];
+                            let number = param;
                             if (isNumber(number)) {
                                 name += ` ${number}`;
                             }
@@ -105,7 +106,8 @@ class Ability {
                         let name = `*${atom.name.trim()}`;
                         let reminder = atom.text.trim();
                         Object.entries(atom.params).forEach(([key, value], j) => {
-                            let number = this.params[i]?.[j];
+                            let param = this.params[i]?.[j] ?? line.params[j];
+                            let number = param;
                             if (isNumber(number)) {
                                 name += ` ${number}`;
                             }
@@ -117,10 +119,11 @@ class Ability {
                 let j = 0;
                 //console.log("params", this.params);
                 for (const [key, value] of Object.entries(atom.params)) {
+                    let param = this.params[i]?.[j] ?? line.params[j];
                     //  console.log("key,value", key, value);
                     switch (this.lineDisplayOptions[i]) {
                         case DISPLAY_LINE_FULL:
-                            segment = segment.replaceAll(`{${key}}`, this.params[i]?.[j]);
+                            segment = segment.replaceAll(`{${key}}`, param);
                             break;
                         case DISPLAY_LINE_KEYWORD_WITH_REMINDER:
                             // segment = [segment, ...this.params[i].filter(v => isNumber(v))].join(" ");
