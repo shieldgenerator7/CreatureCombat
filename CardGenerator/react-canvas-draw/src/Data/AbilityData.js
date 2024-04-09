@@ -314,7 +314,7 @@ export const abilityTokens = [
     ),
     new AbilityToken(
         TYPE_PARAM_STRING,
-        " "
+        "text"
     ),
 ];
 abilityTokens

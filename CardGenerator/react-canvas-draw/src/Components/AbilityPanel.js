@@ -2,7 +2,7 @@
 
 import { abilityAtoms, abilityTokens } from "../Data/AbilityData";
 import SearchSelect from "./SearchSelect";
-import { LINETYPE_EFFECT, TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";
+import { LINETYPE_EFFECT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/AbilityConstants";
 import Counter from "./Counter";
 import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
 import AbilityLine from "../Data/AbilityLine";
@@ -78,6 +78,12 @@ function AbilityPanel({ ability, updateAbility }) {
                             let optionList;
                             if (value == TYPE_PARAM_NUMBER_WHOLE) {
                                 option = line.params[j] ?? 0;
+                            }
+                            else if (value == TYPE_PARAM_NUMBER_FRACTION) {
+                                option = line.params[j] ?? 0.1;
+                            }
+                            else if (value == TYPE_PARAM_STRING) {
+                                option = line.params[j] ?? "text";
                             }
                             else {
                                 optionList = [value]
