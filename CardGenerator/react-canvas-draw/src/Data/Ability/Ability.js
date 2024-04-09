@@ -57,13 +57,13 @@ class Ability {
         toIndex = clamp(toIndex, 0, this.lines.length - 1);
         //
         let swap = "swap";
-        this._updateLine(swap, this.lines[fromIndex], this.params[fromIndex], this.displayOptions[fromIndex]);
-        this._updateLine(fromIndex, this.lines[toIndex], this.params[toIndex], this.displayOptions[toIndex]);
-        this._updateLine(toIndex, this.lines[swap], this.params[swap], this.displayOptions[swap]);
+        this._updateLine(swap, this.lines[fromIndex], this.params[fromIndex], this.lineDisplayOptions[fromIndex]);
+        this._updateLine(fromIndex, this.lines[toIndex], this.params[toIndex], this.lineDisplayOptions[toIndex]);
+        this._updateLine(toIndex, this.lines[swap], this.params[swap], this.lineDisplayOptions[swap]);
         // _updateLine(swap, undefined, undefined, undefined);
         delete this.lines[swap];
         delete this.params[swap];
-        delete this.displayOptions[swap];
+        delete this.lineDisplayOptions[swap];
         //
         this.updateDNA();
     }
