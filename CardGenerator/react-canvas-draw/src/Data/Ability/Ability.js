@@ -1,8 +1,8 @@
 "use strict";
 
 import { capitalizeFirstLetters, clamp, isNumber } from "../../Utility/Utility";
-import { LINETYPE_EFFECT } from "../AbilityConstants";
-import { abilityAtoms } from "../AbilityData";
+import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT } from "../AbilityConstants";
+import { abilityAtoms, findAtom } from "../AbilityData";
 import AbilityLine from "../AbilityLine";
 
 const stringifyAbility = [
@@ -176,4 +176,41 @@ export default Ability;
 export function inflateAbility(ability) {
     Object.setPrototypeOf(ability, Ability.prototype);
     ability.init();
+}
+export function backwardsCompatifyAbility(ability) {
+
+    //Change: ability refactor
+    if (ability.costName) {
+        let atom = findAtom(ability.costName, LINETYPE_COST);
+        let line = new AbilityLine(
+            (atom)
+                ? `$ ${ability.costName}: ${ability.costX}`
+                : `$ custom-cost: "${ability.costName}", ${ability.costX}`
+        );
+        ability.addLine(line);
+    }
+    if (ability.requirementName) {
+        let atom = findAtom(ability.requirementName, LINETYPE_REQUIREMENT);
+        let line = new AbilityLine(
+            (atom)
+                ? `? ${ability.requirementName}: ${ability.requirementX}`
+                : `? custom-requirement: "${ability.requirementName}", ${ability.requirementX}`
+        );
+        ability.addLine(line);
+    }
+    if (ability.effectName) {
+        let atom = findAtom(ability.effectName, LINETYPE_EFFECT);
+        let line = new AbilityLine(
+            (atom)
+                ? `> ${ability.effectName}: ${ability.effectX}`
+                : `> custom-effect: "${ability.effectName}", ${ability.effectX}`
+        );
+        ability.addLine(line);
+    }
+    if (ability.effectText) {
+        let line = new AbilityLine(`> custom-effect: "${ability.effectText}", ${ability.effectCost}`);
+        ability.addLine(line);
+    }
+    ability.updateDNA();
+
 }

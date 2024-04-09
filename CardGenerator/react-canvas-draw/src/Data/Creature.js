@@ -2,7 +2,7 @@
 
 import { getDateString, isImage } from "../Utility/Utility";
 import { VERSION } from "../Version";
-import Ability, { inflateAbility } from "./Ability/Ability";
+import Ability, { backwardsCompatifyAbility, inflateAbility } from "./Ability/Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
 
 export const FIT_WHOLE = 0;
@@ -158,5 +158,10 @@ export function backwardsCompatifyCreature(creature) {
 
     //Change: add showReminderText
     creature.showReminderText ??= true;
+
+    //
+    // Abilities
+    //
+    creature.abilities.forEach(a => backwardsCompatifyAbility(a));
 
 }

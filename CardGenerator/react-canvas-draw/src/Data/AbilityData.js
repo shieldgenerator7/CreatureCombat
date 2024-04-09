@@ -531,3 +531,7 @@ abilityAtoms
             });
         });
     });
+
+export function findAtom(atomName, atomType) {
+    return abilityAtoms.find(a => a.name == atomName && (!atomType || a.type == atomType));
+}
