@@ -184,10 +184,11 @@ export function backwardsCompatifyAbility(ability) {
 
     //Change: ability refactor
     if (ability.costName) {
-        let atom = findAtom(ability.costName, LINETYPE_COST);
+        let atom = findAtom(ability.costName, LINETYPE_COST, true);
+        let extras = (ability.costName == atom.name) ? undefined : ability.costName.split("-").slice(1);
         let line = new AbilityLine(
             (atom)
-                ? `$ ${ability.costName}: ${ability.costX}`
+                ? `$ ${atom.name}: ${ability.costX}${(extras)?", "+extras.join(", "):""}`
                 : `$ custom-cost: "${ability.costName}", ${ability.costX}`
         );
         ability.addLine(line);
@@ -195,10 +196,11 @@ export function backwardsCompatifyAbility(ability) {
         ability.costX = undefined;
     }
     if (ability.requirementName) {
-        let atom = findAtom(ability.requirementName, LINETYPE_REQUIREMENT);
+        let atom = findAtom(ability.requirementName, LINETYPE_REQUIREMENT, true);
+        let extras = (ability.requirementName == atom.name) ? undefined : ability.requirementName.split("-").slice(1);
         let line = new AbilityLine(
             (atom)
-                ? `? ${ability.requirementName}: ${ability.requirementX}`
+                ? `? ${atom.name}: ${ability.requirementX}${(extras)?", "+extras.join(", "):""}`
                 : `? custom-requirement: "${ability.requirementName}", ${ability.requirementX}`
         );
         ability.addLine(line);
@@ -206,10 +208,11 @@ export function backwardsCompatifyAbility(ability) {
         ability.requirementX = undefined;
     }
     if (ability.effectName) {
-        let atom = findAtom(ability.effectName, LINETYPE_EFFECT);
+        let atom = findAtom(ability.effectName, LINETYPE_EFFECT, true);
+        let extras = (ability.effectName == atom.name) ? undefined : ability.effectName.split("-").slice(1);
         let line = new AbilityLine(
             (atom)
-                ? `> ${ability.effectName}: ${ability.effectX}`
+                ? `> ${atom.name}: ${ability.effectX}${(extras)?", "+extras.join(", "):""}`
                 : `> custom-effect: "${ability.effectName}", ${ability.effectX}`
         );
         ability.addLine(line);

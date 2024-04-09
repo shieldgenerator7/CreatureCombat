@@ -532,6 +532,18 @@ abilityAtoms
         });
     });
 
-export function findAtom(atomName, atomType) {
-    return abilityAtoms.find(a => a.name == atomName && (!atomType || a.type == atomType));
+export function findAtom(atomName, atomType, loose= false) {
+    let atom = abilityAtoms.find(a => a.name == atomName && (!atomType || a.type == atomType));
+    if (atom) {
+        return atom;
+    }
+    if (loose) {
+        let split = atomName.split("-");
+        atomName = split[0];
+        atom = abilityAtoms.find(a => a.name == atomName && (!atomType || a.type == atomType));
+        if (atom) {
+            return atom;
+        }
+    }
+    return undefined;
 }
