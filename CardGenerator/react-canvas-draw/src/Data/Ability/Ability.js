@@ -188,6 +188,8 @@ export function backwardsCompatifyAbility(ability) {
                 : `$ custom-cost: "${ability.costName}", ${ability.costX}`
         );
         ability.addLine(line);
+        ability.costName = undefined;
+        ability.costX = undefined;
     }
     if (ability.requirementName) {
         let atom = findAtom(ability.requirementName, LINETYPE_REQUIREMENT);
@@ -197,6 +199,8 @@ export function backwardsCompatifyAbility(ability) {
                 : `? custom-requirement: "${ability.requirementName}", ${ability.requirementX}`
         );
         ability.addLine(line);
+        ability.requirementName = undefined;
+        ability.requirementX = undefined;
     }
     if (ability.effectName) {
         let atom = findAtom(ability.effectName, LINETYPE_EFFECT);
@@ -206,10 +210,14 @@ export function backwardsCompatifyAbility(ability) {
                 : `> custom-effect: "${ability.effectName}", ${ability.effectX}`
         );
         ability.addLine(line);
+        ability.effectName = undefined;
+        ability.effectX = undefined;
     }
     if (ability.effectText) {
         let line = new AbilityLine(`> custom-effect: "${ability.effectText}", ${ability.effectCost}`);
         ability.addLine(line);
+        ability.effectText = undefined;
+        ability.effectCost = undefined;
     }
     ability.updateDNA();
     ability.init();
