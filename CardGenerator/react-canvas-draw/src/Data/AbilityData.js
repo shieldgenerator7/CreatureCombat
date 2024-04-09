@@ -307,6 +307,10 @@ export const abilityTokens = [
             "specific",
         ]
     ),
+    new AbilityToken(
+        TYPE_PARAM_STRING,
+        " "
+    ),
 ];
 abilityTokens
     .filter(token => token.subtokenname)
