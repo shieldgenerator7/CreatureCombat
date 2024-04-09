@@ -3,7 +3,7 @@
 import { isNumber } from "../Utility/Utility";
 import AbilityAtom2 from "./Ability/AbilityAtom";
 import AbilityAtom from "./AbilityAtom";
-import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM } from "./AbilityConstants";
+import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM, TYPE_PARAM_STRING } from "./AbilityConstants";
 import AbilityToken from "./AbilityToken";
 
 const topList = [
@@ -315,6 +315,45 @@ export const abilityAtoms = [
         "",
         LINETYPE_EFFECT,
         {}
+    ),
+    new AbilityAtom2(
+        "custom-cost",
+        "{line}",
+        LINETYPE_COST,
+        {
+            line: TYPE_PARAM_STRING,
+            discount: TYPE_PARAM_NUMBER_WHOLE,
+            discountMultiplier: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom2(
+        "custom-trigger",
+        "{line}",
+        LINETYPE_TRIGGER,
+        {
+            line: TYPE_PARAM_STRING,
+            discount: TYPE_PARAM_NUMBER_WHOLE,
+            discountMultiplier: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom2(
+        "custom-requirement",
+        "{line}",
+        LINETYPE_REQUIREMENT,
+        {
+            line: TYPE_PARAM_STRING,
+            discount: TYPE_PARAM_NUMBER_WHOLE,
+            discountMultiplier: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom2(
+        "custom-effect",
+        "{line}",
+        LINETYPE_EFFECT,
+        {
+            line: TYPE_PARAM_STRING,
+            cost: TYPE_PARAM_NUMBER_WHOLE,
+        }
     ),
 
     //costs

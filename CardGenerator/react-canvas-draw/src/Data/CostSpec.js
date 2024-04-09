@@ -113,6 +113,18 @@ function defaultCostDict() {
         "choose": new AbilityCost(
             (args, table, cost) => 0
         ),
+        "custom-cost": new AbilityCost(
+            (args, table, cost) => args.discount + cost * args.discountMultiplier
+        ),
+        "custom-trigger": new AbilityCost(
+            (args, table, cost) => args.discount + cost * args.discountMultiplier
+        ),
+        "custom-requirement": new AbilityCost(
+            (args, table, cost) => args.discount + cost * args.discountMultiplier
+        ),
+        "custom-effect": new AbilityCost(
+            (args, table, cost) => args.cost
+        ),
 
         //costs
         "exhaust": new AbilityCost(

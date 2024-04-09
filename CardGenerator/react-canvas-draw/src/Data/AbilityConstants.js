@@ -13,3 +13,4 @@ export const TYPE_PARAM_BIOMEMOD = "_biomemod";
 export const TYPE_PARAM_LOCATION = "_location";
 export const TYPE_PARAM_NUMBER_WHOLE = "_numberwhole";
 export const TYPE_PARAM_TYPE = "_type";//specifically creature types
+export const TYPE_PARAM_STRING = "_string";

@@ -1,16 +1,19 @@
 "use strict";
 
-import { TYPE_PARAM_NUMBER_WHOLE } from "../Data/AbilityConstants";
+import { TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/AbilityConstants";
 import Counter from "./Counter";
 import SearchSelect from "./SearchSelect";
 
 function AbilityAtomOption({ optionName, type, option, optionList, setOption }) {
     let keyName = `_ability_line_${optionName}`;
+    let useCounter = type == TYPE_PARAM_NUMBER_WHOLE;
+    let useText = type == TYPE_PARAM_STRING;
+    let useSelect = !useCounter && !useText;
     return (
         <span className="abilityAtomOption bufferOnRight">
             <div>{`${optionName}:`}</div>
             <div>
-                {type == TYPE_PARAM_NUMBER_WHOLE && (
+                {useCounter && (
                     <Counter
                         key={keyName}
                         value={option ?? 0}
@@ -18,7 +21,17 @@ function AbilityAtomOption({ optionName, type, option, optionList, setOption }) 
                         inline={true}
                     ></Counter>
                 )}
-                {type != TYPE_PARAM_NUMBER_WHOLE && (
+                {useText && (
+                    <input
+                        className="field inline multiline"
+                        value={option ?? ""}
+                        onChange={(e) => {
+                            let txt = e.target.value;
+                            setOption(txt);
+                        }}
+                    ></input>
+                )}
+                {useSelect && (
                     <SearchSelect
                         key={keyName}
                         option={option ?? optionList[0]}
