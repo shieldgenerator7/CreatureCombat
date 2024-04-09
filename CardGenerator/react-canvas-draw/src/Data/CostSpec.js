@@ -87,7 +87,12 @@ class CostSpec {
     }
 
     getTotalCost(card) {
-        return this.totalCost(card);
+        let cost = this.totalCost(card);
+        if (!cost) {
+            console.error("Invalid cost on card!", card?.getNameText(), cost);
+            return 1;
+        }
+        return cost;
     }
     getStarCount(card) {
         let total = this.getTotalCost(card);
@@ -96,10 +101,18 @@ class CostSpec {
 
     getCost(name, ...params) {
         let ac = this.costDict[name];
+        if (!ac) {
+            console.error("unknown cost ability cost!", name);
+            return 0;
+        }
         return ac.getCost(params);
     }
     getDiscount(name, cost, ...params) {
         let ac = this.costDict[name];
+        if (!ac) {
+            console.error("unknown discount ability cost!", name);
+            return 0;
+        }
         return ac.getDiscount(cost, params);
     }
 }

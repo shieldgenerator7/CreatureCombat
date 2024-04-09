@@ -114,6 +114,7 @@
 
 .listInfo p {
     margin: 5px;
+    white-space: nowrap;
 }
 
 .list {
