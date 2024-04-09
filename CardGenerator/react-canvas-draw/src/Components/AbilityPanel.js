@@ -111,6 +111,7 @@ function AbilityPanel({ ability, updateAbility }) {
                             );
                         })
                     }
+                    {(line.atom?.settings.keywordable) &&
                     <AbilityAtomOption
                         optionName={"detail"}
                         type={"display"}
@@ -121,6 +122,7 @@ function AbilityPanel({ ability, updateAbility }) {
                             updateAbility(ability);
                         }}
                     ></AbilityAtomOption>
+                    }
 
                 </div>
                 {/* {line.getString()} */}

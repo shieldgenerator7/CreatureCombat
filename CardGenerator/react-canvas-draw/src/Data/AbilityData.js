@@ -331,7 +331,10 @@ export const abilityAtoms = [
         "choose",
         "",
         LINETYPE_EFFECT,
-        {}
+        {},
+        {
+            keywordable: false,
+        }
     ),
     new AbilityAtom2(
         "custom-cost",
@@ -341,6 +344,9 @@ export const abilityAtoms = [
             line: TYPE_PARAM_STRING,
             discount: TYPE_PARAM_NUMBER_WHOLE,
             discountFactor: TYPE_PARAM_NUMBER_WHOLE,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom2(
@@ -351,6 +357,9 @@ export const abilityAtoms = [
             line: TYPE_PARAM_STRING,
             discount: TYPE_PARAM_NUMBER_WHOLE,
             discountFactor: TYPE_PARAM_NUMBER_WHOLE,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom2(
@@ -361,6 +370,9 @@ export const abilityAtoms = [
             line: TYPE_PARAM_STRING,
             discount: TYPE_PARAM_NUMBER_WHOLE,
             discountFactor: TYPE_PARAM_NUMBER_WHOLE,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom2(
@@ -370,6 +382,9 @@ export const abilityAtoms = [
         {
             line: TYPE_PARAM_STRING,
             cost: TYPE_PARAM_NUMBER_WHOLE,
+        },
+        {
+            keywordable: false,
         }
     ),
 
@@ -484,6 +499,9 @@ export const abilityAtoms = [
         {
             target: TYPE_PARAM_LAND,
             biome: TYPE_PARAM_BIOME,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom2(
@@ -493,6 +511,9 @@ export const abilityAtoms = [
         {
             target: TYPE_PARAM_LAND,
             biome: TYPE_PARAM_BIOME,
+        },
+        {
+            keywordable: false,
         }
     ),
 ];

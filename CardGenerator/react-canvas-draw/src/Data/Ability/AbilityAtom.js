@@ -5,11 +5,13 @@
  * Ex: Cost, Trigger, Requirement, Effect
  */
 class AbilityAtom2 {
-    constructor(name, text, type, params) {
+    constructor(name, text, type, params, settings) {
         this.name = name;
         this.text = text;
         this.type = type;
         this.params = params;
+        this.settings = settings ?? {};
+        this.settings.keywordable ??= true;
     }
 
 
