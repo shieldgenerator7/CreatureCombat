@@ -41,16 +41,26 @@ class AbilityLine {
 
         //load in params
         this.params = tokens.slice(2)
-            .map(token => token
-                ?.match(/[a-zA-Z0-9\"]+/)?.[0]
-                ?.trim()
-            )
+            .map(token => {
+                let testToken = token.match(/(\".+\")|(.+\")|(\".+)/)?.[0] ?? "";
+                let newtoken = token
+                ?.match(/[a-zA-Z0-9\"\-]+/)?.[0]
+                ?.trim();
+                if (testToken.endsWith("\"") && !newtoken.endsWith("\"")) {
+                    newtoken += "\"";
+                }
+                return newtoken;
+            })
             .filter(token => token);
         //check for quotes
         let startIndex = undefined;
         let validStartIndex = () => startIndex >= 0;
         for (let i = 0; i < this.params.length; i++) {
             let param = this.params[i];
+            if (!validStartIndex() && param.startsWith("\"") && param.endsWith("\"")) {
+                this.params[i] = param.match(/[a-zA-Z0-9 \-]+/)[0];
+                continue;
+            }
             if (!validStartIndex() && param.startsWith("\"")) {
                 startIndex = i;
             }
@@ -61,7 +71,7 @@ class AbilityLine {
                         .splice(startIndex, (i - startIndex) + 1)
                         // .map(str => str.match(/[a-zA-Z0-9"]+/)[0])
                         .join(" ");
-                    this.params.splice(startIndex, 0, string.match(/[a-zA-Z0-9 ]+/)[0]);
+                    this.params.splice(startIndex, 0, string.match(/[a-zA-Z0-9 \-]+/)[0]);
                 }
                 startIndex = undefined;
             }
