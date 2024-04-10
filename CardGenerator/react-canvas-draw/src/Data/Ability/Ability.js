@@ -188,9 +188,9 @@ export function inflateAbility(ability) {
 export function backwardsCompatifyAbility(ability) {
 
     //Change: ability refactor
-    if (ability.costName) {
+    if (ability.costName && !["none","custom"].includes(ability.costName)) {
         let atom = findAtom(ability.costName, LINETYPE_COST, true);
-        let extras = (ability.costName == atom.name) ? undefined : ability.costName.split("-").slice(1);
+        let extras = (!atom || ability.costName == atom.name) ? undefined : ability.costName.split("-").slice(1);
         let line = new AbilityLine(
             (atom)
                 ? `$ ${atom.name}: ${ability.costX}${(extras)?", "+extras.join(", "):""}`
@@ -200,9 +200,9 @@ export function backwardsCompatifyAbility(ability) {
         ability.costName = undefined;
         ability.costX = undefined;
     }
-    if (ability.requirementName) {
+    if (ability.requirementName && !["none","custom"].includes(ability.requirementName)) {
         let atom = findAtom(ability.requirementName, LINETYPE_REQUIREMENT, true);
-        let extras = (ability.requirementName == atom.name) ? undefined : ability.requirementName.split("-").slice(1);
+        let extras = (!atom || ability.requirementName == atom.name) ? undefined : ability.requirementName.split("-").slice(1);
         let line = new AbilityLine(
             (atom)
                 ? `? ${atom.name}: ${ability.requirementX}${(extras)?", "+extras.join(", "):""}`
@@ -212,9 +212,9 @@ export function backwardsCompatifyAbility(ability) {
         ability.requirementName = undefined;
         ability.requirementX = undefined;
     }
-    if (ability.effectName) {
+    if (ability.effectName && !["none","custom"].includes(ability.effectName)) {
         let atom = findAtom(ability.effectName, LINETYPE_EFFECT, true);
-        let extras = (ability.effectName == atom.name) ? undefined : ability.effectName.split("-").slice(1);
+        let extras = (!atom || ability.effectName == atom.name) ? undefined : ability.effectName.split("-").slice(1);
         let line = new AbilityLine(
             (atom)
                 ? `> ${atom.name}: ${ability.effectX}${(extras)?", "+extras.join(", "):""}`
