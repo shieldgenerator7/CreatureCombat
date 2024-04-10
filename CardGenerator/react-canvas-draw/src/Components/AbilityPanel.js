@@ -32,6 +32,7 @@ function AbilityPanel({ ability, updateAbility }) {
 
         {/* Ability Lines */}
         {ability.lines.map((line, i) => {
+            let j;//used to get around weird react limitations
             return (<div className="abilityLineArea" key={`_ability_line_${i}`}>
                 <div className="abilityAtomName">
                     <span>
@@ -110,6 +111,23 @@ function AbilityPanel({ ability, updateAbility }) {
                                 ></AbilityAtomOption>
                             );
                         })
+                    }
+                    {
+                        line.params.some(p => p == "specific") &&
+                        (j = Object.entries(line.atom?.params ?? {}).length) &&
+                        <AbilityAtomOption
+                            optionName={"specific"}
+                            key={`ability_option_${i}_${j}`}
+                            type={TYPE_PARAM_STRING}
+                            option={line.params[j]}
+                            setOption={(o) => {
+                                line.params[j] = o;
+                                ability.params[i] ??= [];
+                                ability.params[i][j] = o;
+                                ability.updateDNA();
+                                updateAbility(ability);
+                            }}
+                        ></AbilityAtomOption>
                     }
                     {(line.atom?.settings.keywordable) &&
                     <AbilityAtomOption

@@ -139,6 +139,16 @@ class Ability {
                     }
                     j++;
                 }
+                //specific
+                let specificJ = Object.entries(atom.params).length;
+                if (line.params.some(p => p == "specific") || line.params[specificJ]) {
+                    segment = segment.replaceAll("specific", line.params[specificJ]);
+                }
+                //self
+                segment = segment.replaceAll(" self", " this");
+                //team-all
+                segment = segment.replaceAll(" team-all", "");
+                //
                 if (sentenceStart) {
                     let match = segment.match(/[a-zA-Z0-9\-]/);
                     if (match) {
@@ -149,7 +159,7 @@ class Ability {
                         console.error("segment doesnt match!", segment);
                     }
                 }
-                let sentenceEnd = true;//TODO: make this check current and next line
+                let sentenceEnd = segment?.length > 0;//TODO: make this check current and next line
                 if (sentenceEnd) {
                     segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
                     sentenceStart = true;
