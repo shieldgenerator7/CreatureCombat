@@ -160,6 +160,12 @@ function defaultCostDict() {
         "rest": new AbilityCost(
             (args, table, cost) => cost * (1 - (1 / (args.rest + 1)))
         ),
+        "discard": new AbilityCost(
+            (args, table, cost) => cost * (1 - (1 / (args.count + 1)))
+        ),
+        "sacrifice": new AbilityCost(
+            (args, table, cost) => cost * (1 - (1 / (args.count + 1)))
+        ),
 
         //triggers
         "ambush": new AbilityCost(
@@ -184,6 +190,12 @@ function defaultCostDict() {
         ),
         "social": new AbilityCost(
             (args, table, cost) => args.count * 0.35
+        ),
+        "symbiotic": new AbilityCost(
+            (args, table, cost) => cost * 0.75
+        ),
+        "slow": new AbilityCost(
+            (args, table, cost) => cost * 0.5
         ),
 
         //effects

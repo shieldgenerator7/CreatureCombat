@@ -2,6 +2,7 @@
 
 import { between, isNumber } from "../../Utility/Utility";
 import { biomeList } from "../BiomeModifier";
+import Ability from "./Ability";
 import AbilityAtom from "./AbilityAtom";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM, TYPE_PARAM_STRING, TYPE_PARAM_NUMBER_FRACTION } from "./AbilityConstants";
 import AbilityToken from "./AbilityToken";
@@ -294,6 +295,22 @@ export const abilityAtoms = [
             rest: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
+    new AbilityAtom(
+        "discard",
+        "discard {count} cards from your hand",
+        LINETYPE_COST,
+        {
+            count: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom(
+        "sacrifice",
+        "remove {count} of your Creatures from battle",
+        LINETYPE_COST,
+        {
+            count: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
 
     //triggers
     new AbilityAtom(
@@ -343,6 +360,20 @@ export const abilityAtoms = [
         {
             count: TYPE_PARAM_NUMBER_WHOLE,
         }
+    ),
+    new AbilityAtom(
+        "symbiotic",
+        "target Creature must share {homes} home biomes with this Creature",
+        LINETYPE_REQUIREMENT,
+        {
+            homes: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom(
+        "slow",
+        "this ability cannot be used to react to another ability",
+        LINETYPE_REQUIREMENT,
+        {}
     ),
 
     //effects
