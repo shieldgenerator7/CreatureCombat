@@ -58,7 +58,7 @@ class AbilityLine {
         for (let i = 0; i < this.params.length; i++) {
             let param = this.params[i];
             if (!validStartIndex() && param.startsWith("\"") && param.endsWith("\"")) {
-                this.params[i] = param.match(/[a-zA-Z0-9 \-]+/)[0];
+                this.params[i] = param.match(/[a-zA-Z0-9 \-]+/)?.[0] ?? "";
                 continue;
             }
             if (!validStartIndex() && param.startsWith("\"")) {
