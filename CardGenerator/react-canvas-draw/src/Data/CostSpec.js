@@ -45,7 +45,7 @@ class CostSpec {
                 }
                 else {
                     let discount = this.getDiscount(atom.name, cost, line.params);
-                    if (!(discount > 0)){
+                    if (cost > 0 && !(discount > 0)){
                         console.error("invalid discount", discount, a.name);
                     }
                     lineCost = -discount;
