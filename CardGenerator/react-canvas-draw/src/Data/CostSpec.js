@@ -44,7 +44,11 @@ class CostSpec {
                     lineCost = this.getCost(atom.name, line.params) * this.abilityPointCostFactor;
                 }
                 else {
-                    lineCost = -this.getDiscount(atom.name, cost, line.params);
+                    let discount = this.getDiscount(atom.name, cost, line.params);
+                    if (!(discount > 0)){
+                        console.error("invalid discount", discount, a.name);
+                    }
+                    lineCost = -discount;
                 }
                 line.cachedCost = lineCost;
                 cost += lineCost;
@@ -120,7 +124,7 @@ class CostSpec {
         }
         let discount = ac.getDiscount(cost, params);
         if (!isNumber(discount)) {
-            console.error("invalid discount on ability cost!", name, discount);
+            console.error("invalid discount on ability cost!", name, discount, params);
             return 0;
         }
         return discount;
