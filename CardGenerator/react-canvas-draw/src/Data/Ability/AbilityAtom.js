@@ -4,7 +4,7 @@
  * A line that describes ability behaviour
  * Ex: Cost, Trigger, Requirement, Effect
  */
-class AbilityAtom2 {
+class AbilityAtom {
     constructor(name, text, type, params, settings) {
         this.name = name;
         this.text = text;
@@ -16,4 +16,4 @@ class AbilityAtom2 {
 
 
 }
-export default AbilityAtom2;
+export default AbilityAtom;

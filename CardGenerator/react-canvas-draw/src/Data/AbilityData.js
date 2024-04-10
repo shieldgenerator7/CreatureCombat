@@ -1,8 +1,7 @@
 "use strict";
 
 import { between, isNumber } from "../Utility/Utility";
-import AbilityAtom2 from "./Ability/AbilityAtom";
-import AbilityAtom from "./AbilityAtom";
+import AbilityAtom from "./Ability/AbilityAtom";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM, TYPE_PARAM_STRING, TYPE_PARAM_NUMBER_FRACTION } from "./AbilityConstants";
 import AbilityToken from "./AbilityToken";
 
@@ -327,7 +326,7 @@ abilityTokens
 export const abilityAtoms = [
 
     //custom / choose
-    new AbilityAtom2(
+    new AbilityAtom(
         "choose",
         "",
         LINETYPE_EFFECT,
@@ -336,7 +335,7 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "custom-cost",
         "{line}",
         LINETYPE_COST,
@@ -349,7 +348,7 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "custom-trigger",
         "{line}",
         LINETYPE_TRIGGER,
@@ -362,7 +361,7 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "custom-requirement",
         "{line}",
         LINETYPE_REQUIREMENT,
@@ -375,7 +374,7 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "custom-effect",
         "{line}",
         LINETYPE_EFFECT,
@@ -389,7 +388,7 @@ export const abilityAtoms = [
     ),
 
     //costs
-    new AbilityAtom2(
+    new AbilityAtom(
         "exhaust",
         "reduce this Creature's base power by {cost}",
         LINETYPE_COST,
@@ -397,7 +396,7 @@ export const abilityAtoms = [
             cost: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "rest",
         "add {rest} rest counters to this Creature",
         LINETYPE_COST,
@@ -407,19 +406,19 @@ export const abilityAtoms = [
     ),
 
     //triggers
-    new AbilityAtom2(
+    new AbilityAtom(
         "ambush",
         "when an enemy Creature is played",
         LINETYPE_TRIGGER,
         {}
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "greeting",
         "when an ally Creature is played",
         LINETYPE_TRIGGER,
         {}
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "battlecry",
         "when this Creature is played",
         LINETYPE_TRIGGER,
@@ -427,13 +426,13 @@ export const abilityAtoms = [
     ),
 
     //requirements
-    new AbilityAtom2(
+    new AbilityAtom(
         "home",
         "this Creature must be in a home biome",
         LINETYPE_REQUIREMENT,
         {}
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "once",
         "this ability may only {actionWord} once per battle",
         LINETYPE_REQUIREMENT,
@@ -441,13 +440,13 @@ export const abilityAtoms = [
             actionWord: ["activate", "trigger"],
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "channel",
         "if this Creature takes damage before this ability effect resolves, the effect is canceled",
         LINETYPE_REQUIREMENT,
         {}
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "social",
         "this Creature must have {count} allies that share a type with it",
         LINETYPE_REQUIREMENT,
@@ -457,7 +456,7 @@ export const abilityAtoms = [
     ),
 
     //effects
-    new AbilityAtom2(
+    new AbilityAtom(
         "attack",
         "deal {damage} damage to {target} Creature",
         LINETYPE_EFFECT,
@@ -466,7 +465,7 @@ export const abilityAtoms = [
             target: TYPE_PARAM_CREATURE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "block",
         "reduce incoming damage by {block}",
         LINETYPE_EFFECT,
@@ -474,7 +473,7 @@ export const abilityAtoms = [
             block: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "move",
         "move {target} Creature from {from} to {to}",
         LINETYPE_EFFECT,
@@ -484,7 +483,7 @@ export const abilityAtoms = [
             to: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "scout",
         "reveal the top {distance} Lands from the Land deck, choose one to be the scouted Land, place it faceup on top, and put the others on the bottom in any order",
         LINETYPE_EFFECT,
@@ -492,7 +491,7 @@ export const abilityAtoms = [
             distance: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "land-biome-add",
         "{target} Land gains the {biome} biome",
         LINETYPE_EFFECT,
@@ -504,7 +503,7 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "land-biome-remove",
         "{target} Land loses the {biome} biome",
         LINETYPE_EFFECT,
@@ -516,7 +515,7 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "powerup",
         "gain {power} bonus power",
         LINETYPE_EFFECT,
@@ -524,7 +523,7 @@ export const abilityAtoms = [
             power: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "recovery",
         "when you use a Land card to recover this creature, remove an additional {rest} Rest counters from it",
         LINETYPE_EFFECT,
@@ -532,7 +531,7 @@ export const abilityAtoms = [
             rest: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "stress",
         "add {rest} Rest counters to {target} Creature",
         LINETYPE_EFFECT,
@@ -541,7 +540,7 @@ export const abilityAtoms = [
             target: TYPE_PARAM_CREATURE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "negate-biomemod",
         "negate {target} Creature's {biomeMod} biome modifier",
         LINETYPE_EFFECT,
@@ -553,7 +552,7 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "reveal",
         "reveal {target} Creature",
         LINETYPE_EFFECT,
@@ -561,7 +560,7 @@ export const abilityAtoms = [
             target: TYPE_PARAM_CREATURE,
         }
     ),
-    new AbilityAtom2(
+    new AbilityAtom(
         "ward",
         "when an enemy Creature targets this Creature, they must pay Exhaust {cost}, or else their ability is cancelled",
         LINETYPE_EFFECT,

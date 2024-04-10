@@ -3,7 +3,7 @@
 import Creature from "../Creature";
 import Table from "../Table";
 import Ability from "./Ability";
-import AbilityAtom2 from "./AbilityAtom";
+import AbilityAtom from "./AbilityAtom";
 
 class AbilityCost{
     /**
