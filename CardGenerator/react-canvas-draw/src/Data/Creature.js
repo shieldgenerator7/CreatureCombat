@@ -76,7 +76,7 @@ class Creature {
 
     getNameText(display, points, costSpec) {
         const connector = (display) ? ", " : "_";
-        const pointStr = "";
+        let pointStr = "";
         if (points) {
             let finalCost = costSpec.getTotalCost(this);
             finalCost += (finalCost != 1) ? "pts" : "pt";
