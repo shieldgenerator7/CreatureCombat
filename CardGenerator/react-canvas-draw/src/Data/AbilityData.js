@@ -459,7 +459,7 @@ export const abilityAtoms = [
     //effects
     new AbilityAtom2(
         "attack",
-        "deal {damage} damage to {target}",
+        "deal {damage} damage to {target} Creature",
         LINETYPE_EFFECT,
         {
             damage: TYPE_PARAM_NUMBER_WHOLE,
@@ -476,7 +476,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "move",
-        "move {target} from {from} to {to}",
+        "move {target} Creature from {from} to {to}",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -534,7 +534,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "stress",
-        "add {rest} Rest counters to {target}",
+        "add {rest} Rest counters to {target} Creature",
         LINETYPE_EFFECT,
         {
             rest: TYPE_PARAM_NUMBER_WHOLE,
@@ -543,7 +543,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "negate-biomemod",
-        "negate {target}'s {biomeMod} biome modifier",
+        "negate {target} Creature's {biomeMod} biome modifier",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -552,7 +552,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom2(
         "reveal",
-        "reveal {target}",
+        "reveal {target} Creature",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
