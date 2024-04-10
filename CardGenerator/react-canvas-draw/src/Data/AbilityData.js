@@ -548,6 +548,9 @@ export const abilityAtoms = [
         {
             target: TYPE_PARAM_CREATURE,
             biomeMod: TYPE_PARAM_BIOMEMOD,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom2(
