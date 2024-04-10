@@ -489,6 +489,24 @@ export const abilityAtoms = [
             cost: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
+    new AbilityAtom(
+        "block-any",
+        "{target} Creature gains *Block {block}*",
+        LINETYPE_EFFECT,
+        {
+            block: TYPE_PARAM_NUMBER_WHOLE,
+            target: TYPE_PARAM_CREATURE,
+        }
+    ),
+    new AbilityAtom(
+        "ward-any",
+        "{target} Creature gains *Ward {ward}*",
+        LINETYPE_EFFECT,
+        {
+            ward: TYPE_PARAM_NUMBER_WHOLE,
+            target: TYPE_PARAM_CREATURE,
+        }
+    ),
 ].sort(sortFunc);
 abilityAtoms
     .filter(atom => Object.entries(atom.params).length > 0)

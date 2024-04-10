@@ -366,6 +366,12 @@ function defaultCostDict() {
         "ward": new AbilityCost(
             (args) => args.cost * 1.5
         ),
+        "block-any": new AbilityCost(
+            (args) => args.block
+        ),
+        "ward-any": new AbilityCost(
+            (args) => args.ward * 1.5
+        ),
     }
     Object.entries(costDict).forEach(([key, value]) => {
         let atom = abilityAtoms.find(a => a.name == key);
