@@ -355,7 +355,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "social",
-        "this Creature must have {count} allies that share a type with it",
+        "this Creature must have at least {count} allies that share a type with it, including itself",
         LINETYPE_REQUIREMENT,
         {
             count: TYPE_PARAM_NUMBER_WHOLE,
