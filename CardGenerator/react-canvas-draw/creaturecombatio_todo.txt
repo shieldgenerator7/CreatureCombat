@@ -13,10 +13,6 @@ keywords:
 -Afraid (when a creature with higher base power is played, this Creature leaves battle)
 -Indigenous (instead of deploying to deploy zone, play faceup directly at Land)
 
-reqs:
--slow (can't react to other ability)
--symbiotic (must target a creature that shares a Home biome with it)
-
 cost: move off the land
 
 triggers: ambush, greeting, battlecry

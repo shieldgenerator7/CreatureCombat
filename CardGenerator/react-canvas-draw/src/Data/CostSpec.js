@@ -192,7 +192,7 @@ function defaultCostDict() {
             (args, table, cost) => args.count * 0.35
         ),
         "symbiotic": new AbilityCost(
-            (args, table, cost) => cost * 0.75
+            (args, table, cost) => cost * (0.5 + 0.45 * Math.min(args.count,5) / 5)
         ),
         "slow": new AbilityCost(
             (args, table, cost) => cost * 0.5

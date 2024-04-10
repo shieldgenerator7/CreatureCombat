@@ -363,10 +363,10 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "symbiotic",
-        "target Creature must share {homes} home biomes with this Creature",
+        "target Creature must share at least {count} home biomes with this Creature",
         LINETYPE_REQUIREMENT,
         {
-            homes: TYPE_PARAM_NUMBER_WHOLE,
+            count: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
     new AbilityAtom(
