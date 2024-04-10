@@ -104,7 +104,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                 </div>
 
                 {/* Paste Box */}
-                <div className='lowvisibilitylabel'>Paste Box</div>
+                {/* <div className='lowvisibilitylabel'>Paste Box</div>
                 <textarea className="field multiline lowvisibility" onChange={(e) => {
                     //2024-03-03: setup to work with a specific Excel spreadsheet i have
                     let txt = e.target.value;
@@ -114,7 +114,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                     rows="2"
                     placeholder="Paste here from spreadsheet"
                     value={""}
-                ></textarea>
+                ></textarea> */}
             </div>
         </div>
     );
