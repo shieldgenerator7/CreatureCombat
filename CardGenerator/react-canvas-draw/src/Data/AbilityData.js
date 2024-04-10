@@ -7,9 +7,29 @@ import AbilityToken from "./AbilityToken";
 
 const topList = [
     "custom",
+    "custom-cost",
+    "custom-trigger",
+    "custom-requirement",
+    "custom-effect",
     "none",
+    "choose",
+];
+const lineTypeOrder = [
+    LINETYPE_COST,
+    LINETYPE_TRIGGER,
+    LINETYPE_REQUIREMENT,
+    LINETYPE_EFFECT,
 ];
 function sortFunc(_a, _b) {
+    if (_a.name == "choose") {
+        return -1;
+    }
+    if (_b.name == "choose") {
+        return 1;
+    }
+    if (_a.type != _b.type) {
+        return (lineTypeOrder.indexOf(_a.type) - lineTypeOrder.indexOf(_b.type));
+    }
     let a = _a.name;
     let b = _b.name;
     const topA = topList.includes(a);
@@ -568,7 +588,7 @@ export const abilityAtoms = [
             cost: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-];
+].sort(sortFunc);
 abilityAtoms
     .filter(atom => Object.entries(atom.params).length > 0)
     .forEach(atom => {
