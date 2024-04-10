@@ -2,7 +2,7 @@
 
 import { capitalizeFirstLetters, clamp, isNumber } from "../../Utility/Utility";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT } from "../AbilityConstants";
-import { abilityAtoms, findAtom } from "../AbilityData";
+import { abilityAtoms, findAtom, findToken } from "../AbilityData";
 import AbilityLine from "../AbilityLine";
 
 const stringifyAbility = [
@@ -120,6 +120,11 @@ class Ability {
                 //console.log("params", this.params);
                 for (const [key, value] of Object.entries(atom.params)) {
                     let param = this.params[i]?.[j] ?? line.params[j];
+                    let tokens = [findToken(value)].flat(Infinity);
+                    let subtoken = tokens.map(v => v?.subtoken)?.[0]?.name;
+                    if (subtoken) {
+                        segment = segment.replaceAll(`{${key}}`, `{${key}} {${subtoken}}`);
+                    }
                     //  console.log("key,value", key, value);
                     switch (this.lineDisplayOptions[i]) {
                         case DISPLAY_LINE_FULL:

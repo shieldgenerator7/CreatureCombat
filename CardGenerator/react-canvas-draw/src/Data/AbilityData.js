@@ -597,3 +597,9 @@ export function findAtom(atomName, atomType, loose= false) {
     }
     return undefined;
 }
+export function findToken(tokenName) {
+    if (Array.isArray(tokenName)) {
+        return tokenName.map(n => findToken(n)).flat(Infinity);
+    }
+    return abilityTokens.find(t => t.name == tokenName);
+}
