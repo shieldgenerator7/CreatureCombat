@@ -143,6 +143,14 @@ function App() {
                                 }}
                             ></AbilityPanel>
                         ))}
+
+                        {/* Add Button */}
+                        {card.abilities.length < 5 && (
+                            <button className='action' onClick={() => {
+                                card.addAbility();
+                                updateCard(card);
+                            }}>Add Ability</button>
+                        )}
                     </div>
                 }
             </header>

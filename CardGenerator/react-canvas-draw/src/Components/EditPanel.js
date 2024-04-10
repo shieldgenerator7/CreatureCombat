@@ -124,7 +124,7 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
             {
                 card.abilities.map((ability, i) => {
                     return (
-                        <div className='info' key={`ability_${i}`}>{ability.name} {costDisplay(costSpec.abilityFunc(ability))}</div>
+                        <div className='info' key={`ability_${i}`}>{ability.name || `Ability ${i+1}`} {costDisplay(costSpec.abilityFunc(ability))}</div>
                         // <AbilityPanel
                         //     key={`_ability_${i}`}
                         //     ability={ability}
@@ -142,13 +142,6 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                     openPanel("ability", true);
                 }}>Edit Abilities</button>
             </div>
-            {/* Add Button */}
-            {card.abilities.length < 2 && (
-                <button className='action' onClick={() => {
-                    card.addAbility();
-                    updateCard(card);
-                }}>Add Ability</button>
-            )}
 
             {/* Flavor Text */}
             Flavor Text
