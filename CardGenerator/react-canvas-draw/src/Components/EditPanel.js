@@ -4,7 +4,7 @@ import React from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
-import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/AbilityData';
+import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/Ability/AbilityData';
 import { makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';

@@ -1,6 +1,6 @@
 "use strict";
 
-import { TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/AbilityConstants";
+import { TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/Ability/AbilityConstants";
 import Counter from "./Counter";
 import SearchSelect from "./SearchSelect";
 

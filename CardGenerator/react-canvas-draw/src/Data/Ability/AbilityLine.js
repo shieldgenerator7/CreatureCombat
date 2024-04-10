@@ -1,6 +1,6 @@
 "use strict";
 
-import { isString } from "../Utility/Utility";
+import { isString } from "../../Utility/Utility";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER } from "./AbilityConstants";
 import { abilityAtoms, abilityTokens } from "./AbilityData";
 

@@ -2,8 +2,8 @@
 
 import { arraySum, isNumber } from "../Utility/Utility";
 import AbilityCost from "./Ability/AbilityCost";
-import { LINETYPE_EFFECT, TYPE_PARAM_TEAM } from "./AbilityConstants";
-import { abilityAtoms } from "./AbilityData";
+import { LINETYPE_EFFECT, TYPE_PARAM_TEAM } from "./Ability/AbilityConstants";
+import { abilityAtoms } from "./Ability/AbilityData";
 import Table from "./Table";
 
 /**

@@ -1,7 +1,7 @@
 "use strict";
 
 import Ability from "../Data/Ability/Ability";
-import { abilityCosts, abilityEffects, abilityRequirements } from "../Data/AbilityData";
+import { abilityCosts, abilityEffects, abilityRequirements } from "../Data/Ability/AbilityData";
 import Creature from "../Data/Creature";
 
 export function parsePasteFromExcel(pasteString) {

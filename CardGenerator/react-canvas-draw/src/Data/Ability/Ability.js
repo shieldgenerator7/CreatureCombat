@@ -1,9 +1,9 @@
 "use strict";
 
 import { capitalizeFirstLetters, clamp, isNumber } from "../../Utility/Utility";
-import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT } from "../AbilityConstants";
-import { abilityAtoms, findAtom, findToken } from "../AbilityData";
-import AbilityLine from "../AbilityLine";
+import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT } from "./AbilityConstants";
+import { abilityAtoms, findAtom, findToken } from "./AbilityData";
+import AbilityLine from "./AbilityLine";
 
 const stringifyAbility = [
     "name",

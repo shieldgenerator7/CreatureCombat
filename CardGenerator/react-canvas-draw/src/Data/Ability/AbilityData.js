@@ -1,7 +1,7 @@
 "use strict";
 
-import { between, isNumber } from "../Utility/Utility";
-import AbilityAtom from "./Ability/AbilityAtom";
+import { between, isNumber } from "../../Utility/Utility";
+import AbilityAtom from "./AbilityAtom";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM, TYPE_PARAM_STRING, TYPE_PARAM_NUMBER_FRACTION } from "./AbilityConstants";
 import AbilityToken from "./AbilityToken";
 

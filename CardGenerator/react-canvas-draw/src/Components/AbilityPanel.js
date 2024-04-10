@@ -1,11 +1,11 @@
 "use strict";
 
-import { abilityAtoms, abilityTokens } from "../Data/AbilityData";
+import { abilityAtoms, abilityTokens } from "../Data/Ability/AbilityData";
 import SearchSelect from "./SearchSelect";
-import { LINETYPE_EFFECT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/AbilityConstants";
+import { LINETYPE_EFFECT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/Ability/AbilityConstants";
 import Counter from "./Counter";
 import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
-import AbilityLine from "../Data/AbilityLine";
+import AbilityLine from "../Data/Ability/AbilityLine";
 import { costDisplay, costSpec } from "../Data/CostSpec";
 import { capitalizeFirstLetters } from "../Utility/Utility";
 import AbilityAtomOption from "./AbilityAtomOption";
