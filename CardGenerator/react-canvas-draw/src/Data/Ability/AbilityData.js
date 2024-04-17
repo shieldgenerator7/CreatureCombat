@@ -206,7 +206,17 @@ export const abilityTokens = [
         "specific-biome",
         undefined,
         biomeList
-    )
+    ),
+    new AbilityToken(
+        "specific-biomemod",
+        undefined,
+        biomeList
+    ),
+    new AbilityToken(
+        "specific-type",
+        undefined,
+        biomeList
+    ),
 ];
 abilityTokens
     .filter(token => token.subtokenname)
