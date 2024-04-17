@@ -14,6 +14,8 @@ class AbilityAtom {
         this.settings.keywordable ??= true;
     }
 
-
+    get paramValues() {
+        return Object.values(this.params);
+    }
 }
 export default AbilityAtom;

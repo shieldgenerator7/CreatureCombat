@@ -1,7 +1,7 @@
 "use strict";
 
 import { capitalizeFirstLetters, clamp, isNumber } from "../../Utility/Utility";
-import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT } from "./AbilityConstants";
+import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "./AbilityConstants";
 import { abilityAtoms, findAtom, findToken } from "./AbilityData";
 import AbilityLine from "./AbilityLine";
 
@@ -228,6 +228,27 @@ export function backwardsCompatifyAbility(ability) {
     ability.init();
     ability.lines.forEach((l, i) => {
         ability.params[i] = l.params ?? [];
+    });
+
+    //Change: token rename
+    const tokenExclude = [
+        TYPE_PARAM_NUMBER_FRACTION,
+        TYPE_PARAM_NUMBER_WHOLE,
+        TYPE_PARAM_STRING,
+    ];
+    const tokenReplaceFunc = (arr, tokenTypeArr) => {
+        return arr.map((p, i) => {
+            let tokenType = tokenTypeArr[i];
+            if (tokenExclude.includes(tokenType)) { return p; }
+            if (p == "team-all") { return "all-team"; }
+            if (p.includes("-")) { return p; }
+            return `${p}${tokenType}`.replaceAll("_", "-");
+        });
+    };
+    ability.lines.forEach((l, i) => {
+        let paramValues = l.atom.paramValues;
+        l.params = tokenReplaceFunc(l.params, paramValues);
+        ability.params[i] = tokenReplaceFunc(ability.params[i], paramValues);
     });
 
 }
