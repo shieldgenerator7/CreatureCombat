@@ -464,7 +464,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "negate-biomemod",
-        "negate {target}'s {biomeMod}",
+        "negate the {biomeMod} of {target}",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -566,6 +566,8 @@ const strRep = [
     [/the (all|target|that)/g, "$1"],
     [/the none ([a-z]*)/g, "no $1s"],
     [/(creatures|lands) ([a-z]*)s/g, "$1 $2"],
+    ["s's", "s'"],
+    [/(that|target) team/g, "on $1 team"],
     //important words
     [" biomemod", " biome modifier"],
     //capitalize important words
