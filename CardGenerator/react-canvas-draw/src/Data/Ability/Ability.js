@@ -144,10 +144,6 @@ class Ability {
                 if (line.params.some(p => p == "specific") || line.params[specificJ]) {
                     segment = segment.replaceAll("specific", line.params[specificJ]);
                 }
-                //self
-                segment = segment.replaceAll(" self", " this");
-                //team-all
-                segment = segment.replaceAll(" all-team", "");
                 //replacement strings
                 stringReplacements.forEach(rep => {
                     segment = rep.processString(segment);

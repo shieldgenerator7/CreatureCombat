@@ -548,6 +548,9 @@ export function findToken(tokenName) {
 
 
 const strRep = [
+    //misc
+    [" self", " this"],
+    [" all-team", ""],
     //plurals
     [/all-([a-z]+)/g, "all-$1s"],
     //remove dash
@@ -564,9 +567,9 @@ const strRep = [
     [/the none ([a-z]*)/g, "no $1s"],
     [/(creatures|lands) ([a-z]*)s/g, "$1 $2"],
     //important words
-    ["biomemod", "biome modifier"],
+    [" biomemod", " biome modifier"],
     //capitalize important words
-    ["creature", "Creature"],
-    ["land", "Land"],
+    [" creature", " Creature"],
+    [" land", " Land"],
 ];
 export const stringReplacements = strRep.map(entry => new StringReplacement(entry[0], entry[1]));
