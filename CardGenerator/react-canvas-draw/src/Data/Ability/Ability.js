@@ -198,42 +198,26 @@ export function inflateAbility(ability) {
 export function backwardsCompatifyAbility(ability) {
 
     //Change: ability refactor
-    if (ability.costName && !["none","custom"].includes(ability.costName)) {
-        let atom = findAtom(ability.costName, LINETYPE_COST, true);
-        let extras = (!atom || ability.costName == atom.name) ? undefined : ability.costName.split("-").slice(1);
-        let line = new AbilityLine(
-            (atom)
-                ? `$ ${atom.name}: ${ability.costX}${(extras)?", "+extras.join(", "):""}`
-                : `$ custom-cost: "${ability.costName}", ${ability.costX}`
-        );
-        ability.addLine(line);
-        ability.costName = undefined;
-        ability.costX = undefined;
+    const lineBCFunc = (typeName, atomName, typeConst, symbol) => {
+        const keyX = `${typeName}X`;
+        const keyName = `${typeName}Name`;
+        if (atomName && !["none","custom"].includes(atomName)) {
+            let atom = findAtom(atomName, typeConst, true);
+            let extras = (!atom || atomName == atom.name) ? undefined : atomName.split("-").slice(1);
+            let line = new AbilityLine(
+                (atom)
+                    ? `${symbol} ${atom.name}: ${ability[keyX]}${(extras)?", "+extras.join(", "):""}`
+                    : `${symbol} custom-${typeName}: "${ability[keyName]}", ${ability[keyX]}`
+            );
+            ability.addLine(line);
+            ability[keyName] = undefined;
+            ability[keyX] = undefined;
+        }
     }
-    if (ability.requirementName && !["none","custom"].includes(ability.requirementName)) {
-        let atom = findAtom(ability.requirementName, LINETYPE_REQUIREMENT, true);
-        let extras = (!atom || ability.requirementName == atom.name) ? undefined : ability.requirementName.split("-").slice(1);
-        let line = new AbilityLine(
-            (atom)
-                ? `? ${atom.name}: ${ability.requirementX}${(extras)?", "+extras.join(", "):""}`
-                : `? custom-requirement: "${ability.requirementName}", ${ability.requirementX}`
-        );
-        ability.addLine(line);
-        ability.requirementName = undefined;
-        ability.requirementX = undefined;
-    }
-    if (ability.effectName && !["none","custom"].includes(ability.effectName)) {
-        let atom = findAtom(ability.effectName, LINETYPE_EFFECT, true);
-        let extras = (!atom || ability.effectName == atom.name) ? undefined : ability.effectName.split("-").slice(1);
-        let line = new AbilityLine(
-            (atom)
-                ? `> ${atom.name}: ${ability.effectX}${(extras)?", "+extras.join(", "):""}`
-                : `> custom-effect: "${ability.effectName}", ${ability.effectX}`
-        );
-        ability.addLine(line);
-        ability.effectName = undefined;
-        ability.effectX = undefined;
-    }
+    lineBCFunc("cost", ability.costName, LINETYPE_COST, "$");
+    lineBCFunc("requirement", ability.requirementName, LINETYPE_REQUIREMENT, "?");
+    lineBCFunc("effect", ability.effectName, LINETYPE_EFFECT, ">");
+
     if (ability.effectText) {
         let line = new AbilityLine(`> custom-effect: "${ability.effectText}", ${ability.effectCost}`);
         ability.addLine(line);
@@ -244,6 +228,6 @@ export function backwardsCompatifyAbility(ability) {
     ability.init();
     ability.lines.forEach((l, i) => {
         ability.params[i] = l.params ?? [];
-    })
+    });
 
 }
