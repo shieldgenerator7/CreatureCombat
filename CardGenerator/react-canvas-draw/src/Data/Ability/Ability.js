@@ -201,12 +201,12 @@ export function backwardsCompatifyAbility(ability) {
     const lineBCFunc = (typeName, atomName, typeConst, symbol) => {
         const keyX = `${typeName}X`;
         const keyName = `${typeName}Name`;
-        if (atomName && !["none","custom"].includes(atomName)) {
+        if (atomName && !["none", "custom"].includes(atomName)) {
             let atom = findAtom(atomName, typeConst, true);
             let extras = (!atom || atomName == atom.name) ? undefined : atomName.split("-").slice(1);
             let line = new AbilityLine(
                 (atom)
-                    ? `${symbol} ${atom.name}: ${ability[keyX]}${(extras)?", "+extras.join(", "):""}`
+                    ? `${symbol} ${atom.name}: ${ability[keyX]}${(extras) ? ", " + extras.join(", ") : ""}`
                     : `${symbol} custom-${typeName}: "${ability[keyName]}", ${ability[keyX]}`
             );
             ability.addLine(line);

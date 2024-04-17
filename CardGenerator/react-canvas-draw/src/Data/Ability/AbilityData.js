@@ -552,7 +552,7 @@ abilityAtoms
         });
     });
 
-export function findAtom(atomName, atomType, loose= false) {
+export function findAtom(atomName, atomType, loose = false) {
     let atom = abilityAtoms.find(a => a.name == atomName && (!atomType || a.type == atomType));
     if (atom) {
         return atom;

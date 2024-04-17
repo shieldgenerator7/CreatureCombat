@@ -130,16 +130,16 @@ function AbilityPanel({ ability, updateAbility }) {
                         ></AbilityAtomOption>
                     }
                     {(line.atom?.settings.keywordable) &&
-                    <AbilityAtomOption
-                        optionName={"detail"}
-                        type={"display"}
-                        option={ability.lineDisplayOptions[i]}
-                        optionList={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
-                        setOption={(o) => {
-                            ability.lineDisplayOptions[i] = o;
-                            updateAbility(ability);
-                        }}
-                    ></AbilityAtomOption>
+                        <AbilityAtomOption
+                            optionName={"detail"}
+                            type={"display"}
+                            option={ability.lineDisplayOptions[i]}
+                            optionList={[DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER, DISPLAY_LINE_KEYWORD_ONLY]}
+                            setOption={(o) => {
+                                ability.lineDisplayOptions[i] = o;
+                                updateAbility(ability);
+                            }}
+                        ></AbilityAtomOption>
                     }
 
                 </div>
