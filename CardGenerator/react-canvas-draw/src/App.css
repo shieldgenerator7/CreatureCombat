@@ -85,6 +85,15 @@
     color: black;
     background-color: white;
 }
+.danger {
+    border: red 2px solid;
+    color: red;
+    background-color: black;
+}
+.danger:hover {
+    color: black;
+    background-color: red;
+}
 
 .leftPanel {
     position: absolute;

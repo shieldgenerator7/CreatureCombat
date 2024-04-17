@@ -103,7 +103,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                     }}>Upload .card File</button>
                 </div>
                 {currentCard.count == 0 &&
-                    <button className="action listAction" onClick={() => {
+                    <button className="action listAction danger" onClick={() => {
                         let index = cardList.indexOf(currentCard);
                         cardList.splice(index, 1);
                         index = clamp(index, 0, cardList.length - 1);
