@@ -147,7 +147,7 @@ class Ability {
                 //self
                 segment = segment.replaceAll(" self", " this");
                 //team-all
-                segment = segment.replaceAll(" team-all", "");
+                segment = segment.replaceAll(" all-team", "");
                 //replacement strings
                 stringReplacements.forEach(rep => {
                     segment = rep.processString(segment);
@@ -243,9 +243,14 @@ export function backwardsCompatifyAbility(ability) {
     const tokenReplaceFunc = (arr, tokenTypeArr) => {
         return arr.map((p, i) => {
             let tokenType = tokenTypeArr[i];
+            let foundToken = findToken(tokenType);
+            if (!foundToken) { return p; }
+            if (foundToken.length === 0) { return p; }
+            if (foundToken.some?.(t => !t)) { return p; }
             if (tokenExclude.includes(tokenType)) { return p; }
             if (p == "team-all") { return "all-team"; }
             if (p.includes("-")) { return p; }
+
             return `${p}${tokenType}`.replaceAll("_", "-");
         });
     };
