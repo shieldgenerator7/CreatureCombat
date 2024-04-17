@@ -380,7 +380,7 @@ export const abilityAtoms = [
     //effects
     new AbilityAtom(
         "attack",
-        "deal {damage} damage to {target} Creature",
+        "deal {damage} damage to {target}",
         LINETYPE_EFFECT,
         {
             damage: TYPE_PARAM_NUMBER_WHOLE,
@@ -397,7 +397,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "move",
-        "move {target} Creature from {from} to {to}",
+        "move {target} from {from} to {to}",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -415,7 +415,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "land-biome-add",
-        "{target} Land gains the {biome} biome",
+        "{target} gains the {biome}",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_LAND,
@@ -427,7 +427,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "land-biome-remove",
-        "{target} Land loses the {biome} biome",
+        "{target} loses the {biome}",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_LAND,
@@ -455,7 +455,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "stress",
-        "add {rest} Rest counters to {target} Creature",
+        "add {rest} Rest counters to {target}",
         LINETYPE_EFFECT,
         {
             rest: TYPE_PARAM_NUMBER_WHOLE,
@@ -464,7 +464,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "negate-biomemod",
-        "negate {target} Creature's {biomeMod} biome modifier",
+        "negate {target}'s {biomeMod}",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -476,7 +476,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "reveal",
-        "reveal {target} Creature",
+        "reveal {target}",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -492,7 +492,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "block-any",
-        "{target} Creature gains *Block {block}*",
+        "{target} gains *Block {block}*",
         LINETYPE_EFFECT,
         {
             block: TYPE_PARAM_NUMBER_WHOLE,
@@ -501,7 +501,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "ward-any",
-        "{target} Creature gains *Ward {ward}*",
+        "{target} gains *Ward {ward}*",
         LINETYPE_EFFECT,
         {
             ward: TYPE_PARAM_NUMBER_WHOLE,
