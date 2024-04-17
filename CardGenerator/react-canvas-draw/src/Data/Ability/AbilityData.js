@@ -6,6 +6,7 @@ import Ability from "./Ability";
 import AbilityAtom from "./AbilityAtom";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER, TYPE_PARAM_BIOME, TYPE_PARAM_BIOMEMOD, TYPE_PARAM_CREATURE, TYPE_PARAM_LAND, TYPE_PARAM_LOCATION, TYPE_PARAM_TYPE, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_TEAM, TYPE_PARAM_STRING, TYPE_PARAM_NUMBER_FRACTION } from "./AbilityConstants";
 import AbilityToken from "./AbilityToken";
+import StringReplacement from "./StringReplacement";
 
 const topList = [
     "custom",
@@ -544,3 +545,12 @@ export function findToken(tokenName) {
     }
     return abilityTokens.find(t => t.name == tokenName);
 }
+
+
+const strRep = [
+    [/all-([a-z]+)/g, "all-$1s"],
+    [/([a-z]+)-([a-z]+)/g, "$1 $2"],
+    ["creature", "Creature"],
+    ["land", "Land"],
+];
+export const stringReplacements = strRep.map(entry => new StringReplacement(entry[0], entry[1]));

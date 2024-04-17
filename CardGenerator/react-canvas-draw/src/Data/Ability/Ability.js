@@ -2,7 +2,7 @@
 
 import { capitalizeFirstLetters, clamp, isNumber } from "../../Utility/Utility";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "./AbilityConstants";
-import { abilityAtoms, findAtom, findToken } from "./AbilityData";
+import { abilityAtoms, findAtom, findToken, stringReplacements } from "./AbilityData";
 import AbilityLine from "./AbilityLine";
 
 const stringifyAbility = [
@@ -148,6 +148,10 @@ class Ability {
                 segment = segment.replaceAll(" self", " this");
                 //team-all
                 segment = segment.replaceAll(" team-all", "");
+                //replacement strings
+                stringReplacements.forEach(rep => {
+                    segment = rep.processString(segment);
+                });
                 //
                 if (sentenceStart) {
                     let match = segment.match(/[a-zA-Z0-9\-]/);
