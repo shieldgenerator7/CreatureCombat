@@ -3,7 +3,7 @@
 import { costDisplay, costSpec } from "../Data/CostSpec";
 import Creature, { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
 import { UploadFromFilePicker } from "../Utility/Upload";
-import { arraySort, arraySum } from "../Utility/Utility";
+import { arraySort, arraySum, clamp } from "../Utility/Utility";
 
 function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard, setPasteString }) {
     return (
@@ -102,6 +102,19 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                         });
                     }}>Upload .card File</button>
                 </div>
+                {currentCard.count == 0 &&
+                    <button className="action listAction" onClick={() => {
+                        let index = cardList.indexOf(currentCard);
+                        cardList.splice(index, 1);
+                        index = clamp(index, 0, cardList.length - 1);
+                        currentCard = cardList[index];
+                        setCardList([...cardList]);
+                        setCard(currentCard);
+                    }}>
+                        Delete Card
+                    </button>
+                }
+
 
                 {/* Paste Box */}
                 {/* <div className='lowvisibilitylabel'>Paste Box</div>
