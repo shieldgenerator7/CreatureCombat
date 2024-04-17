@@ -548,8 +548,24 @@ export function findToken(tokenName) {
 
 
 const strRep = [
+    //plurals
     [/all-([a-z]+)/g, "all-$1s"],
+    //remove dash
     [/([a-z]+)-([a-z]+)/g, "$1 $2"],
+    //remove unneeded words: team
+    [/(ally|enemy|neutral) team/g, "$1"],
+    //reorder words: team
+    [/creature(s?) *(ally|enemy|neutral)/g, "$2 creature$1"],
+    //remove unneeded words: this
+    [/this [a-z]* creature/g, "this creature"],
+    [" from this land", ""],
+    //fix weird grammar
+    [/the (all|target|that)/g, "$1"],
+    [/the none ([a-z]*)/g, "no $1s"],
+    [/(creatures|lands) ([a-z]*)s/g, "$1 $2"],
+    //important words
+    ["biomemod", "biome modifier"],
+    //capitalize important words
     ["creature", "Creature"],
     ["land", "Land"],
 ];
