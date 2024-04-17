@@ -395,6 +395,9 @@ export const abilityAtoms = [
         {
             damage: TYPE_PARAM_NUMBER_WHOLE,
             target: TYPE_PARAM_CREATURE,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom(
@@ -413,6 +416,9 @@ export const abilityAtoms = [
             target: TYPE_PARAM_CREATURE,
             from: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
             to: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom(
@@ -470,6 +476,9 @@ export const abilityAtoms = [
         {
             rest: TYPE_PARAM_NUMBER_WHOLE,
             target: TYPE_PARAM_CREATURE,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom(
@@ -486,10 +495,13 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "reveal",
-        "reveal {target}",
+        "reveal {target} from target player's hand",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom(
@@ -507,6 +519,9 @@ export const abilityAtoms = [
         {
             block: TYPE_PARAM_NUMBER_WHOLE,
             target: TYPE_PARAM_CREATURE,
+        },
+        {
+            keywordable: false,
         }
     ),
     new AbilityAtom(
@@ -516,6 +531,9 @@ export const abilityAtoms = [
         {
             ward: TYPE_PARAM_NUMBER_WHOLE,
             target: TYPE_PARAM_CREATURE,
+        },
+        {
+            keywordable: false,
         }
     ),
 ].sort(sortFunc);
