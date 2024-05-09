@@ -150,7 +150,7 @@ class Creature {
 
 export default Creature;
 
-export function inflateCreature(creature, updateCard) {
+export function inflateCreature(creature, updateCard = (c) => { }) {
     Object.setPrototypeOf(creature, Creature.prototype);
     creature.biomeModifiers.forEach(bm => {
         Object.setPrototypeOf(bm, BiomeModifier.prototype);
@@ -165,7 +165,7 @@ export function inflateCreature(creature, updateCard) {
         creatureImage.src = creature.imageURL;
         creatureImage.onload = () => {
             creature.imgPortrait = creatureImage;
-            updateCard?.(creature);
+            updateCard(creature);
         }
     }
 }

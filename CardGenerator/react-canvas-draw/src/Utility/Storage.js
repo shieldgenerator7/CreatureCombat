@@ -56,7 +56,9 @@ class Storage {
 
     backwardsCompatifyStorage(storage) {
         //Change: add deckList
-        storage.deckList ??= [];
+        if (!storage.deckList) {
+            storage.deckList = [];
+        }
     }
 
     get cardList() {
