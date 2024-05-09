@@ -349,6 +349,12 @@ function defaultCostDict() {
         "ward-any": new AbilityCost(
             (args) => args.ward * 1.5
         ),
+        "powerup-any": new AbilityCost(
+            (args) => args.power * 3
+        ),
+        "heal-any": new AbilityCost(
+            (args) => args.power * 1
+        ),
         "stun": new AbilityCost(
             (args, table) => {
                 let team = args[TYPE_PARAM_TEAM];

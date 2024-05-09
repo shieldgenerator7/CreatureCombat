@@ -544,6 +544,24 @@ export const abilityAtoms = [
         }
     ),    
     new AbilityAtom(
+        "powerup-any",
+        "{target} gains {power} bonus power",
+        LINETYPE_EFFECT,
+        {
+            power: TYPE_PARAM_NUMBER_WHOLE,
+            target: TYPE_PARAM_CREATURE,
+        }
+    ),
+    new AbilityAtom(
+        "heal-any",
+        "{target} gains {power} bonus power, up to its base power",
+        LINETYPE_EFFECT,
+        {
+            power: TYPE_PARAM_NUMBER_WHOLE,
+            target: TYPE_PARAM_CREATURE,
+        }
+    ),
+    new AbilityAtom(
         "stun",
         "interrupt target activated ability of {target}",
         LINETYPE_EFFECT,
