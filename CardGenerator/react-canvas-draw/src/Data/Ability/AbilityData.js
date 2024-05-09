@@ -52,6 +52,7 @@ function sortFunc(_a, _b) {
     return 0;
 }
 
+//DEPRECATED: don't use!
 export const abilityEffects = [
     new AbilityAtom(
         "attack-type-enemy",
@@ -80,6 +81,7 @@ export const abilityEffects = [
     ),
 ].sort(sortFunc);
 
+//DEPRECATED: don't use!
 export const abilityRequirements = [
     new AbilityAtom(
         "target-rest-count",
@@ -462,6 +464,14 @@ export const abilityAtoms = [
         }
     ),
     new AbilityAtom(
+        "heal",
+        "this creature gains {power} bonus power, up to its base power",
+        LINETYPE_EFFECT,
+        {
+            power: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+    new AbilityAtom(
         "recovery",
         "when you use a Land card to recover this creature, remove an additional {rest} Rest counters from it",
         LINETYPE_EFFECT,
@@ -477,9 +487,6 @@ export const abilityAtoms = [
             rest: TYPE_PARAM_NUMBER_WHOLE,
             target: TYPE_PARAM_CREATURE,
         },
-        {
-            keywordable: false,
-        }
     ),
     new AbilityAtom(
         "negate-biomemod",
@@ -535,6 +542,39 @@ export const abilityAtoms = [
         {
             keywordable: false,
         }
+    ),    
+    new AbilityAtom(
+        "stun",
+        "interrupt target activated ability of {target}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+        },
+    ),
+    new AbilityAtom(
+        "suppress",
+        "triggered abilities of {target} can't be triggered",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+        },
+    ),
+    new AbilityAtom(
+        "silence",
+        "activated abilities of {target} can't be activated",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+        },
+    ),
+    new AbilityAtom(
+        "fear",
+        "return {target} with power {power} or less to its owner's hand",
+        LINETYPE_EFFECT,
+        {
+            power: TYPE_PARAM_NUMBER_WHOLE,
+            target: TYPE_PARAM_CREATURE,
+        },
     ),
 ].sort(sortFunc);
 abilityAtoms
@@ -598,6 +638,10 @@ const strRep = [
     [/(that|target) team/g, "on $1 team"],
     //important words
     [" biomemod", " biome modifier"],
+    [" ready location", " Ready pile"],
+    [" returning location", " Returning pile"],
+    [" resting location", " Resting pile"],
+    [" deploy location", " Deploy pile"],
     //capitalize important words
     [" creature", " Creature"],
     [" land", " Land"],

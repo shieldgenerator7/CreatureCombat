@@ -134,6 +134,33 @@ export default CostSpec;
 export const costSpec = new CostSpec();
 
 function defaultCostDict() {
+    const attackTable = new Table(
+        [
+            "all-teams",
+            "ally",
+            "enemy",
+            "neutral",
+            "target-team",
+            "that-team",
+        ],
+        [
+            "target",
+            "all",
+            "self",
+            "nonself",
+            "triggering",
+            "that",
+        ],
+        [
+            [1, 1, -1, 1.5, 1, 1],
+            [-1, -3, -1, -2, -1, -1],
+            [1, 3, undefined, 3, 1, 1],
+            [1, 1, -1, 1, 1, 1],
+            [1, 3, -1, 3, 1, 1],
+            [1, 3, -1, 3, 1, 1],
+        ]
+    );
+
     let costDict = {
 
         // custom / choose
@@ -209,32 +236,7 @@ function defaultCostDict() {
                 let targetMx = table.get(team, target) ?? 1;
                 return damage * targetMx;
             },
-            new Table(
-                [
-                    "all-teams",
-                    "ally",
-                    "enemy",
-                    "neutral",
-                    "target-team",
-                    "that-team",
-                ],
-                [
-                    "target",
-                    "all",
-                    "self",
-                    "nonself",
-                    "triggering",
-                    "that",
-                ],
-                [
-                    [1, 1, -1, 1.5, 1, 1],
-                    [-1, -3, -1, -2, -1, -1],
-                    [1, 3, undefined, 3, 1, 1],
-                    [1, 1, -1, 1, 1, 1],
-                    [1, 3, -1, 3, 1, 1],
-                    [1, 3, -1, 3, 1, 1],
-                ]
-            ),
+            attackTable
         ),
         "block": new AbilityCost(
             (args) => args.block
@@ -248,32 +250,7 @@ function defaultCostDict() {
                 let targetMx = table.get(team, target) ?? 1;
                 return 10 * targetMx;
             },
-            new Table(
-                [
-                    "all-teams",
-                    "ally",
-                    "enemy",
-                    "neutral",
-                    "target-team",
-                    "that-team",
-                ],
-                [
-                    "target",
-                    "all",
-                    "self",
-                    "nonself",
-                    "triggering",
-                    "that",
-                ],
-                [
-                    [1, 1, -1, 1.5, 1, 1],
-                    [-1, -3, -1, -2, -1, -1],
-                    [1, 3, undefined, 3, 1, 1],
-                    [1, 1, -1, 1, 1, 1],
-                    [1, 3, -1, 3, 1, 1],
-                    [1, 3, -1, 3, 1, 1],
-                ]
-            ),
+            attackTable
         ),
         "scout": new AbilityCost(
             (args) => Math.max(1, args.distance - 1) * 2
@@ -371,6 +348,50 @@ function defaultCostDict() {
         ),
         "ward-any": new AbilityCost(
             (args) => args.ward * 1.5
+        ),
+        "stun": new AbilityCost(
+            (args, table) => {
+                let team = args[TYPE_PARAM_TEAM];
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(team, target) ?? 1;
+                return 1 * targetMx;
+            },
+            attackTable
+        ),
+        "suppress": new AbilityCost(
+            (args, table) => {
+                let team = args[TYPE_PARAM_TEAM];
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(team, target) ?? 1;
+                return 2 * targetMx;
+            },
+            attackTable
+        ),
+        "silence": new AbilityCost(
+            (args, table) => {
+                let team = args[TYPE_PARAM_TEAM];
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(team, target) ?? 1;
+                return 2 * targetMx;
+            },
+            attackTable
+        ),
+        "fear": new AbilityCost(
+            (args, table) => {
+                let team = args[TYPE_PARAM_TEAM];
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(team, target) ?? 1;
+                return args.power * targetMx;
+            },
+            attackTable
         ),
     }
     Object.entries(costDict).forEach(([key, value]) => {
