@@ -6,15 +6,17 @@ function SuggestionList({ suggestionList, onSuggestionTaken, maxShown = 5 }) {
         list = list.slice(0, maxShown);
     }
     return (
-        <>
+        <div>
             {
-                list.map(suggestion => (
-                    <button className="action notwide" onClick={(e) => onSuggestionTaken(suggestion)}>
+                list.map((suggestion, i) => (
+                    <button className="action notwide" key={`suggestion_${i}`}
+                        onClick={(e) => onSuggestionTaken(suggestion)}
+                    >
                         {suggestion}
                     </button>
                 ))
             }
-        </>
+        </div>
     );
 }
 export default SuggestionList;

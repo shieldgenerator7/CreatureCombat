@@ -94,6 +94,10 @@
     color: black;
     background-color: red;
 }
+.notwide {
+    width: auto;
+    display:inline;
+}
 
 .leftPanel {
     position: absolute;

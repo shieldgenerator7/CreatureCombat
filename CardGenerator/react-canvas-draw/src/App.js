@@ -123,6 +123,7 @@ function App() {
                 ></Canvas>
                 <EditPanel
                     card={card}
+                    cardList={cardList}
                     setCard={setCard}
                     updateCard={updateCard}
                     openPanel={openPanel}

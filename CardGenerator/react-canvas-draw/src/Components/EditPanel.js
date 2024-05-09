@@ -5,13 +5,13 @@ import { UploadFromFilePicker } from '../Utility/Upload';
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/Ability/AbilityData';
-import { makeUserFacing } from '../Utility/Utility';
+import { arrayRemoveDuplicates, makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
 import { costDisplay, costSpec } from '../Data/CostSpec';
 import SuggestionList from './SuggestionList';
 
-function EditPanel({ card, setCard, updateCard, openPanel }) {
+function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
     return (
         <div className="editPanel">
 
@@ -42,15 +42,23 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                 updateCard(card);
             }}
                 value={card.tags.join(" ")}></input>
-            <div>
                 <SuggestionList
-                    suggestionList={["Insect", "Cervid", "Robot", "Plant", "Artifact"]}
+                    suggestionList={
+                        arrayRemoveDuplicates(
+                            cardList
+                                .map(card => card.tags)
+                                .flat(Infinity)
+                                .concat(
+                                    ["Insect", "Cervid", "Feline", "Canine", "Robot", "Plant", "Artifact"]
+                                )
+                        )
+                            .filter(tag => !card.tags.includes(tag))
+                    }
                     onSuggestionTaken={(suggestion) => {
                         card.tags.push(suggestion);
                         updateCard(card);
                     }}
                 ></SuggestionList>
-            </div>
 
             {/* Base Power */}
             Base Power {costDisplay(costSpec.basePowerFunc(card.basePower))}
