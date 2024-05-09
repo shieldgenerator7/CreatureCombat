@@ -9,6 +9,7 @@ import { makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
 import { costDisplay, costSpec } from '../Data/CostSpec';
+import SuggestionList from './SuggestionList';
 
 function EditPanel({ card, setCard, updateCard, openPanel }) {
     return (
@@ -41,6 +42,15 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                 updateCard(card);
             }}
                 value={card.tags.join(" ")}></input>
+            <div>
+                <SuggestionList
+                    suggestionList={["Insect", "Cervid", "Robot", "Plant", "Artifact"]}
+                    onSuggestionTaken={(suggestion) => {
+                        card.tags.push(suggestion);
+                        updateCard(card);
+                    }}
+                ></SuggestionList>
+            </div>
 
             {/* Base Power */}
             Base Power {costDisplay(costSpec.basePowerFunc(card.basePower))}
