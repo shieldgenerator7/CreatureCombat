@@ -240,6 +240,24 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                 }
             </div>
 
+            {/* Copy+Paste Color */}
+            <div className='info'>Copy Colors</div>
+            <div>
+                <button className='action' onClick={(e) => {
+                    window.copiedColors = [...card.colors];
+                }}>
+                    Copy Colors
+                </button>
+                {window.copiedColors && (
+                    <button className='action' onClick={(e) => {
+                        card.colors = [...window.copiedColors];
+                        updateCard(card);
+                    }}>
+                        Paste Colors
+                    </button>
+                )}
+            </div>
+
             {/* Download Button */}
             Download File
             <div>
