@@ -5,7 +5,7 @@ import { UploadFromFilePicker } from '../Utility/Upload';
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from '../Data/Creature';
 import { biomeList } from '../Data/BiomeModifier';
 import { abilityCosts, abilityEffects, abilityRequirements } from '../Data/Ability/AbilityData';
-import { arrayRemoveDuplicates, makeUserFacing } from '../Utility/Utility';
+import { arrayRemoveDuplicates, arraySortOnFrequency, makeUserFacing } from '../Utility/Utility';
 import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
 import { costDisplay, costSpec } from '../Data/CostSpec';
@@ -44,7 +44,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                 value={card.tags.join(" ")}></input>
                 <SuggestionList
                     suggestionList={
-                        arrayRemoveDuplicates(
+                        arraySortOnFrequency(
                             cardList
                                 .map(card => card.tags)
                                 .flat(Infinity)

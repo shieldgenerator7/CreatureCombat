@@ -164,6 +164,28 @@ export function arrayRemoveDuplicates(array) {
     return arr;
 }
 
+/**
+ * Returns a new array that has only unique elements from the given array, sorted based on frequency
+ */
+export function arraySortOnFrequency(array) {
+    let dict = {};
+    array.forEach(n => {
+        if (dict[n] != undefined) {
+            dict[n] = dict[n] + 1;
+        }
+        else {
+            dict[n] = 1;
+        }
+    });
+    //2024-05-09: consulted https://stackoverflow.com/a/25500462/2336212
+    return Object.keys(dict)
+        .map(k => {
+            return [k, dict[k]];
+        })
+        .sort((a, b) => b[1] - a[1])
+        .map(([key, value]) => key);
+}
+
 
 /**
  * Returns a random number between min and max, inclusive
