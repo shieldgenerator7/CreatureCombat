@@ -1,8 +1,8 @@
 import logo from './logo.png';
 import './App.css';
+import React, {  useEffect , useState} from 'react';
 import Canvas from './Components/Canvas';
 import Creature, { inflateCreature } from './Data/Creature';
-import { useEffect, useState } from 'react';
 import EditPanel from './Components/EditPanel';
 import { parsePasteFromExcel } from './Utility/Parser';
 import CardListPanel from './Components/CardListPanel';

@@ -1,5 +1,6 @@
 "use strict";
 
+import React from 'react';
 import { clamp, isNumber } from "../Utility/Utility";
 
 function Counter({ value, setValue, allowNegative = false, inline = false, max = 99 }) {

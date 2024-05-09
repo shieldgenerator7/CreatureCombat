@@ -1,5 +1,6 @@
 "use strict";
 
+import React from 'react';
 import Creature, { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
 import { UploadFromFilePicker } from "../Utility/Upload";
 import { arraySort, arraySum } from "../Utility/Utility";
