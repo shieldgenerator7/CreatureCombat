@@ -16,7 +16,10 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
         <div className="editPanel">
 
             {/* Header */}
-            <div>{card.getNameText(true)} {costDisplay(costSpec.getTotalCost(card), false, true, false)}</div>
+            <div>
+                {card.getNameText(true) || `[${[card.tags[0], "creature"].filter(a => a).join(" ")}]`}
+                {costDisplay(costSpec.getTotalCost(card), false, true, false)}
+            </div>
 
             {/* Name */}
             Name
