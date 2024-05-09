@@ -40,7 +40,7 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
                 card.setTags(tags);
                 updateCard(card);
             }}
-                value={card.tags.join(", ")}></input>
+                value={card.tags.join(" ")}></input>
 
             {/* Base Power */}
             Base Power {costDisplay(costSpec.basePowerFunc(card.basePower))}
