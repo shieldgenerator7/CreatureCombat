@@ -275,6 +275,13 @@
     right: 0px;
 }
 
+.colorInput {
+    margin-right: 20px;
+}
+.colorInput input[type=color]{
+    margin-left: 5px;
+}
+
 .counter {
     display: flex;
     margin-bottom: 10px;

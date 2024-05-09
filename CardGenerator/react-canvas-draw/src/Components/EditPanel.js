@@ -208,12 +208,13 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
             }
 
             {/* Text Color */}
-            Text Color
+            Style
+            <div className='info'>Text Color</div>
             <div>
                 {
                     card.colors
                         .filter((c, i) => i >= 3)
-                        .map((color, i) => (<span key={"tc_" + i}>
+                        .map((color, i) => (<span className='colorInput' key={"tc_" + i}>
                             {i + 1}
                             <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
                                 card.colors[i + 3] = e.target.value;
@@ -224,12 +225,12 @@ function EditPanel({ card, setCard, updateCard, openPanel }) {
             </div>
 
             {/* Background Color */}
-            Background Color
+            <div className='info'>Background Color</div>
             <div>
                 {
                     card.colors
                         .filter((c, i) => i < 3)
-                        .map((color, i) => (< span key={"bgc_" + i}>
+                        .map((color, i) => (< span className='colorInput' key={"bgc_" + i}>
                             {i + 1}
                             <input type="color" value={color ?? "#FFFFFF"} onChange={(e) => {
                                 card.colors[i] = e.target.value;
