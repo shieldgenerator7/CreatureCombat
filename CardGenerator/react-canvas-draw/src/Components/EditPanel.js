@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 import React from 'react';
 import { UploadFromFilePicker } from '../Utility/Upload';
@@ -45,23 +45,23 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                 updateCard(card);
             }}
                 value={card.tags.join(" ")}></input>
-                <SuggestionList
-                    suggestionList={
-                        arraySortOnFrequency(
-                            cardList
-                                .map(card => card.tags)
-                                .flat(Infinity)
-                                .concat(
-                                    ["Insect", "Cervid", "Feline", "Canine", "Robot", "Plant", "Artifact"]
-                                )
-                        )
-                            .filter(tag => !card.tags.includes(tag))
-                    }
-                    onSuggestionTaken={(suggestion) => {
-                        card.tags.push(suggestion);
-                        updateCard(card);
-                    }}
-                ></SuggestionList>
+            <SuggestionList
+                suggestionList={
+                    arraySortOnFrequency(
+                        cardList
+                            .map(card => card.tags)
+                            .flat(Infinity)
+                            .concat(
+                                ["Insect", "Cervid", "Feline", "Canine", "Robot", "Plant", "Artifact"]
+                            )
+                    )
+                        .filter(tag => !card.tags.includes(tag))
+                }
+                onSuggestionTaken={(suggestion) => {
+                    card.tags.push(suggestion);
+                    updateCard(card);
+                }}
+            ></SuggestionList>
 
             {/* Base Power */}
             Base Power {costDisplay(costSpec.basePowerFunc(card.basePower))}
@@ -98,7 +98,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                     const biomeFunc = (e) => {
                         bm.biome = e.target.value;
                         updateCard(card);
-                    }
+                    };
                     return (<div className='fieldLine' key={"divBM_" + i}>
                         {/* Biome */}
                         <select className="sltBiome" value={bm.biome} onChange={biomeFunc}>
@@ -137,7 +137,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                 suggestionList={
                     arraySortOnFrequency(
                         cardList
-                            .map(card => card.biomeModifiers.map(bm=>bm.biome))
+                            .map(card => card.biomeModifiers.map(bm => bm.biome))
                             .flat(Infinity)
                             .concat(biomeList)
                     )
@@ -161,7 +161,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
             {
                 card.abilities.map((ability, i) => {
                     return (
-                        <div className='info' key={`ability_${i}`}>{ability.name || `Ability ${i+1}`} {costDisplay(costSpec.abilityFunc(ability))}</div>
+                        <div className='info' key={`ability_${i}`}>{ability.name || `Ability ${i + 1}`} {costDisplay(costSpec.abilityFunc(ability))}</div>
                         // <AbilityPanel
                         //     key={`_ability_${i}`}
                         //     ability={ability}
@@ -205,7 +205,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                                 creatureImage.onload = () => {
                                     card.imgPortrait = creatureImage;
                                     updateCard(card);
-                                }
+                                };
                             }
                             else {
                                 updateCard(card);

@@ -26,7 +26,7 @@ class CostSpec {
             if (v <= 0) { return 0; }
             const restSqr = Math.pow(v, 2);
             return -(Math.min(restSqr, v * 5) + Math.max(1, restSqr * 0.1));
-        }
+        };
 
         this.abilityPointCostFactor = 3;
 
@@ -45,7 +45,7 @@ class CostSpec {
                 }
                 else {
                     let discount = this.getDiscount(atom.name, cost, line.params);
-                    if (cost > 0 && !(discount > 0)){
+                    if (cost > 0 && !(discount > 0)) {
                         console.error("invalid discount", discount, a.name);
                     }
                     lineCost = -discount;
@@ -54,7 +54,7 @@ class CostSpec {
                 cost += lineCost;
             }
             return Math.max(0, cost);
-        }
+        };
 
         this.abilityAllFunc = (aList) => arraySum(
             aList,
@@ -87,7 +87,7 @@ class CostSpec {
 
             //
             return cost;
-        }
+        };
     }
 
     getTotalCost(card) {
@@ -219,7 +219,7 @@ function defaultCostDict() {
             (args, table, cost) => args.count * 0.35
         ),
         "symbiotic": new AbilityCost(
-            (args, table, cost) => cost * (0.5 + 0.45 * Math.min(args.count,5) / 5)
+            (args, table, cost) => cost * (0.5 + 0.45 * Math.min(args.count, 5) / 5)
         ),
         "slow": new AbilityCost(
             (args, table, cost) => cost * 0.5
@@ -399,7 +399,7 @@ function defaultCostDict() {
             },
             attackTable
         ),
-    }
+    };
     Object.entries(costDict).forEach(([key, value]) => {
         let atom = abilityAtoms.find(a => a.name == key);
         value.init(atom);

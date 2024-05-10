@@ -1,6 +1,6 @@
 import logo from './logo.png';
 import './App.css';
-import React, {  useEffect , useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Canvas from './Components/Canvas';
 import Creature, { inflateCreature } from './Data/Creature';
 import EditPanel from './Components/EditPanel';
@@ -43,7 +43,7 @@ function App() {
         //
         setCard(newcard);
         storage.cardList = cardList;
-    }
+    };
     //Paste String
     let pasteString = "";
     let setPasteString = (s) => { pasteString = s; };
@@ -87,7 +87,7 @@ function App() {
     }
     //Panel List
     let panelList = [];
-    let setPanelList = (list) => { panelList = list; }
+    let setPanelList = (list) => { panelList = list; };
     [panelList, setPanelList] = useState([]);
     const openPanel = (panel, open) => {
         if (open) {
@@ -99,7 +99,7 @@ function App() {
             arrayRemove(panelList, panel);
         }
         setPanelList([...panelList]);
-    }
+    };
 
     useEffect(() => {
         let cardName = card?.getNameText(true, false);

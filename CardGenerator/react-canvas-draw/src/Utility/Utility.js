@@ -17,7 +17,7 @@ function isEmpty(str) {
 export function isString(s) { return s === "" + s; }
 
 //2019-10-31: copied from https://stackoverflow.com/a/1421988/2336212
-export function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+export function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0); }
 
 //2023-02-27: constructed after consulting https://stackoverflow.com/q/14636536/2336212
 function isInteger(n) { return isNumber(n) && Math.floor(n) === n; }
@@ -51,7 +51,7 @@ export function clamp(value, min, max) {
     );
 }
 
-export function between (value, min, max) {
+export function between(value, min, max) {
     return (min <= value && value <= max);
 }
 
@@ -59,7 +59,7 @@ export function between (value, min, max) {
 Math.cut = function (value, places = 0) {
     let factor = Math.pow(10, places);
     return Math.round(value * factor) / factor;
-}
+};
 
 //2024-01-30: copied from https://stackoverflow.com/a/9705160/2336212
 function toDegrees(angle) {

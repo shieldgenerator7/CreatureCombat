@@ -34,7 +34,7 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                         let reverseList = [
                             "count",
                             "date_creation",
-                        ]
+                        ];
                         arraySort(cardList, mf, !reverseList.includes(value));
                         setCardList([...cardList]);
                     }}>

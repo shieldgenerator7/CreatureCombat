@@ -32,6 +32,7 @@
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -81,22 +82,26 @@
     width: 100%;
     margin-bottom: 5px;
 }
+
 .action:hover {
     color: black;
     background-color: white;
 }
+
 .danger {
     border: red 2px solid;
     color: red;
     background-color: black;
 }
+
 .danger:hover {
     color: black;
     background-color: red;
 }
+
 .notwide {
     width: auto;
-    display:inline;
+    display: inline;
 }
 
 .leftPanel {
@@ -114,7 +119,9 @@
 
 .listInfoFiller {
     height: 130px;
-} /**/
+}
+
+/**/
 
 .listInfo {
     border-bottom: white 2px solid;
@@ -148,6 +155,7 @@
     text-align: justify;
     justify-content: space-between;
 }
+
 .listItem:hover {
     color: black;
     background-color: rgb(210, 210, 210);
@@ -156,6 +164,7 @@
 .select {
     background-color: #2a4786;
 }
+
 .select:hover {
     background-color: #85abfc;
 }
@@ -173,6 +182,7 @@
     text-align: justify;
     justify-content: space-between;
 }
+
 .listItem button:hover {
     color: black;
     background-color: rgb(255, 255, 255, 0.5);
@@ -202,13 +212,16 @@
 .lowvisibilitylabel {
     color: rgb(77, 77, 77);
 }
+
 .lowvisibility {
     background-color: rgb(77, 77, 77);
     border: none;
 }
+
 .lowvisibility::placeholder {
     background-color: rgb(39, 39, 39);
 }
+
 .abilityArea {
     border: #bbbbbb 1px solid;
     padding: 5px;
@@ -216,6 +229,7 @@
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
+
 /* .abilityArea div {
     margin: 0px;
     display: flex;
@@ -243,6 +257,7 @@
     margin-bottom: 5px;
     margin-top: 5px;
 }
+
 .abilityAtomName {
     display: block;
     font-size: large;
@@ -250,6 +265,7 @@
     text-align: justify;
     justify-content: space-between;
 }
+
 .abilityAtomLine {
     margin: 0px;
     display: flex;
@@ -258,6 +274,7 @@
     font-size: medium; */
     font-size: medium;
 }
+
 /* .abilityAtomOption div {
     display: block;
 } */
@@ -267,12 +284,15 @@
     border: 2px solid rgb(100, 100, 100);
     padding: 5px;
 }
+
 .info {
     font-size: medium;
 }
+
 .info select {
     margin-left: 10px;
 }
+
 .info button {
     margin-left: 10px;
     position: absolute;
@@ -282,7 +302,8 @@
 .colorInput {
     margin-right: 20px;
 }
-.colorInput input[type=color]{
+
+.colorInput input[type=color] {
     margin-left: 5px;
 }
 
@@ -290,10 +311,12 @@
     display: flex;
     margin-bottom: 10px;
 }
+
 .counter input {
     width: 25px;
     text-align: right;
 }
+
 .inline {
     display: inline;
     /* margin-left: 5px; */
@@ -303,6 +326,7 @@
 .b {
     font-weight: bold;
 }
+
 .i {
     font-style: italic;
 }
@@ -317,6 +341,7 @@
     background-color: black;
     margin-left: 5px;
 }
+
 .ex:hover {
     color: black;
     background-color: white;
@@ -327,6 +352,7 @@
     color: white;
     background-color: black;
 }
+
 .plusMinus:hover {
     color: black;
     background-color: white;
