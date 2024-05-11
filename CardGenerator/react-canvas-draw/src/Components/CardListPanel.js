@@ -2,6 +2,7 @@
 
 import { costDisplay, costSpec } from "../Data/CostSpec";
 import Creature, { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
+import { downloadFile } from "../Utility/Download";
 import { UploadFromFilePicker } from "../Utility/Upload";
 import { arraySort, arraySum, clamp } from "../Utility/Utility";
 
@@ -101,6 +102,14 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                             setCard(card);
                         });
                     }}>Upload .card File</button>
+                </div>
+                <div>
+                    <button className="action listAction" onClick={() => {
+                        cardList.forEach(card => {
+                            let cardName = `${card.getNameText(false, true, costSpec) || "card"}`.trim().replaceAll(" ", "");
+                            downloadFile(card, cardName, "card");
+                        });
+                    }}>Download All Cards</button>
                 </div>
                 {currentCard.count == 0 &&
                     <button className="action listAction danger" onClick={() => {
