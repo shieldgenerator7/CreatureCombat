@@ -10,6 +10,7 @@ import Counter from './Counter';
 import AbilityPanel from './AbilityPanel';
 import { costDisplay, costSpec } from '../Data/CostSpec';
 import SuggestionList from './SuggestionList';
+import { downloadFile } from '../Utility/Download';
 
 function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
     return (
@@ -299,22 +300,8 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
             Download File
             <div>
                 <button className='action' onClick={(e) => {
-                    const json = JSON.stringify(card);
-
-
-
-                    const link = document.createElement('a');
                     let cardName = `${card.getNameText(false, true, costSpec) || "card"}`.trim().replaceAll(" ", "");
-                    link.download = `${cardName}.card`;
-
-                    //2024-03-17: copied from https://stackoverflow.com/a/30800715/2336212
-                    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(json);
-                    // var dlAnchorElem = document.getElementById('downloadAnchorElem');
-                    // dlAnchorElem.setAttribute("href", dataStr);
-                    link.href = dataStr;
-                    // dlAnchorElem.setAttribute("download", "scene.json");
-                    // dlAnchorElem.click();
-                    link.click();
+                    downloadFile(card, cardName, "card");
                 }}>
                     Download .card File
                 </button>
