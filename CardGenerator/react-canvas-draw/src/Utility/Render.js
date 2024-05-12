@@ -173,8 +173,12 @@ export function renderCard(card, canvas, drawData) {
                 const bufferY = fontSize;
                 context.fillStyle = draw.getColor(card) ?? draw.color;
                 lines.forEach((line, i) => {
-                    line = `${line}`;
-                    if (!line) { return; }
+                    line = `${line}`.trim();
+                    if (!line) {
+                        bold = false;
+                        italic = false;
+                        return;
+                    }
                     const measurement = context.measureText(
                         line.replaceAll(boldSymbol, "").replaceAll(italicSymbol, "")
                     );
