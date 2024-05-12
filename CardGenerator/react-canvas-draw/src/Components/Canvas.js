@@ -5,6 +5,7 @@ import React, { useRef, useEffect } from 'react';
 import { RESOLUTION, renderCard } from '../Utility/Render';
 import { generateCardSkin } from '../Data/DrawData';
 import { costSpec } from '../Data/CostSpec';
+import { downloadFile } from '../Utility/Download';
 
 const width = 2.5 * RESOLUTION;
 const height = 3.5 * RESOLUTION;
@@ -38,9 +39,18 @@ function Canvas({ card, autoDownload }) {
 
     return (
         <div className='cardPanel'>
+            {/* Canvas */}
             <canvas ref={canvasRef} className='cvsCard' />
+            {/* Save Image Button */}
             <button className='action' onClick={saveImage}>
                 Save Image
+            </button>
+            {/* Download Card Button */}
+            <button className='action' onClick={(e) => {
+                let cardName = `${card.getNameText(false, true, costSpec) || "card"}`.trim().replaceAll(" ", "");
+                downloadFile(card, cardName, "card");
+            }}>
+                Download .card File
             </button>
         </div>
     );

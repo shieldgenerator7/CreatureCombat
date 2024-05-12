@@ -295,17 +295,6 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                     </button>
                 )}
             </div>
-
-            {/* Download Button */}
-            Download File
-            <div>
-                <button className='action' onClick={(e) => {
-                    let cardName = `${card.getNameText(false, true, costSpec) || "card"}`.trim().replaceAll(" ", "");
-                    downloadFile(card, cardName, "card");
-                }}>
-                    Download .card File
-                </button>
-            </div>
         </div>
     );
 }
