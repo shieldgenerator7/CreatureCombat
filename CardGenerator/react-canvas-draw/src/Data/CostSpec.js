@@ -182,7 +182,7 @@ function defaultCostDict() {
 
         //costs
         "exhaust": new AbilityCost(
-            (args, table, cost) => args.cost
+            (args, table, cost) => cost * (1 - (1 / (args.cost + 1)))
         ),
         "rest": new AbilityCost(
             (args, table, cost) => cost * (1 - (1 / (args.rest + 1)))
@@ -196,10 +196,10 @@ function defaultCostDict() {
 
         //triggers
         "ambush": new AbilityCost(
-            (args, table, cost) => cost * 0.9
+            (args, table, cost) => cost * 0.8
         ),
         "greeting": new AbilityCost(
-            (args, table, cost) => cost * 0.9
+            (args, table, cost) => cost * 0.8
         ),
         "battlecry": new AbilityCost(
             (args, table, cost) => cost * 0.9
@@ -216,7 +216,7 @@ function defaultCostDict() {
             (args, table, cost) => cost * 0.7
         ),
         "social": new AbilityCost(
-            (args, table, cost) => args.count * 0.35
+            (args, table, cost) => (args.count - 1) * 0.7
         ),
         "symbiotic": new AbilityCost(
             (args, table, cost) => cost * (0.5 + 0.45 * Math.min(args.count, 5) / 5)
