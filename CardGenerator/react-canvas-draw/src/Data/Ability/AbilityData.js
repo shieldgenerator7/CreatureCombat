@@ -324,6 +324,14 @@ export const abilityAtoms = [
             count: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
+    new AbilityAtom(
+        "tap",
+        "tap {tap} lands",
+        LINETYPE_COST,
+        {
+            tap: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
 
     //triggers
     new AbilityAtom(
@@ -343,6 +351,57 @@ export const abilityAtoms = [
         "when this creature enters the battlefield",
         LINETYPE_TRIGGER,
         {}
+    ),
+    new AbilityAtom(
+        "revenge",
+        "when this creature is reduced to 0 power by damage",
+        LINETYPE_TRIGGER,
+        {}
+    ),
+    new AbilityAtom(
+        "avenge",
+        "when another ally creature is reduced to 0 power by damage",
+        LINETYPE_TRIGGER,
+        {}
+    ),
+    new AbilityAtom(
+        "targeted-by-ally",
+        "when this creature is targeted by another ally's ability",
+        LINETYPE_TRIGGER,
+        {},
+        {
+            keywordable: false,
+        }
+    ),
+    new AbilityAtom(
+        "targeted-by-enemy",
+        "when this creature is targeted by an enemy's ability",
+        LINETYPE_TRIGGER,
+        {},
+        {
+            keywordable: false,
+        }
+    ),
+    new AbilityAtom(
+        "intercept",
+        "when an enemy targets another ally",
+        LINETYPE_TRIGGER,
+        {}
+    ),    
+    new AbilityAtom(
+        "retaliate",
+        "when this creature takes damage",
+        LINETYPE_TRIGGER,
+        {}
+    ),
+    new AbilityAtom(
+        "other-takes-damage",
+        "when another creature takes damage",
+        LINETYPE_TRIGGER,
+        {},
+        {
+            keywordable: false,
+        }
     ),
 
     //requirements
@@ -388,6 +447,15 @@ export const abilityAtoms = [
         LINETYPE_REQUIREMENT,
         {}
     ),
+    new AbilityAtom(
+        "powerful",
+        "this creature must have at least {power} power",
+        LINETYPE_REQUIREMENT,
+        {
+            power: TYPE_PARAM_NUMBER_WHOLE,
+        }
+    ),
+
 
     //effects
     new AbilityAtom(
@@ -592,6 +660,17 @@ export const abilityAtoms = [
         {
             target: TYPE_PARAM_CREATURE,
         },
+    ),
+    new AbilityAtom(
+        "redirect",
+        "change the target of target ability to {target}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+        },
+        {
+            keywordable: false,
+        }
     ),
 ].sort(sortFunc);
 abilityAtoms

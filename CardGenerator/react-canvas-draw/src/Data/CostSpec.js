@@ -193,6 +193,9 @@ function defaultCostDict() {
         "sacrifice": new AbilityCost(
             (args, table, cost) => cost * (1 - (1 / (args.count + 1)))
         ),
+        "tap": new AbilityCost(
+            (args, table, cost) => cost * (1 - (1 / (args.tap + 1)))
+        ),
 
         //triggers
         "ambush": new AbilityCost(
@@ -203,6 +206,27 @@ function defaultCostDict() {
         ),
         "battlecry": new AbilityCost(
             (args, table, cost) => cost * 0.9
+        ),
+        "revenge": new AbilityCost(
+            (args, table, cost) => cost * 0.95
+        ),
+        "avenge": new AbilityCost(
+            (args, table, cost) => cost * 0.9
+        ),
+        "targeted-by-ally": new AbilityCost(
+            (args, table, cost) => cost * 0.5
+        ),
+        "targeted-by-enemy": new AbilityCost(
+            (args, table, cost) => cost * 0.5
+        ),
+        "intercept": new AbilityCost(
+            (args, table, cost) => cost * 0.5
+        ),
+        "retaliate": new AbilityCost(
+            (args, table, cost) => cost * 0.5
+        ),
+        "other-takes-damage": new AbilityCost(
+            (args, table, cost) => cost * 0.3
         ),
 
         //requirements
@@ -223,6 +247,9 @@ function defaultCostDict() {
         ),
         "slow": new AbilityCost(
             (args, table, cost) => cost * 0.5
+        ),
+        "powerful": new AbilityCost(
+            (args, table, cost) => cost * (0.25 + ((args.power - 1) * 0.05))
         ),
 
         //effects
@@ -389,6 +416,17 @@ function defaultCostDict() {
             attackTable
         ),
         "fear": new AbilityCost(
+            (args, table) => {
+                let team = args[TYPE_PARAM_TEAM];
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(team, target) ?? 1;
+                return args.power * targetMx;
+            },
+            attackTable
+        ),
+        "redirect": new AbilityCost(
             (args, table) => {
                 let team = args[TYPE_PARAM_TEAM];
                 let target = args.target;
