@@ -571,7 +571,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "suppress",
-        "triggered abilities of {target} can't be triggered",
+        "triggered abilities of {target} get interrupted automatically",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -579,7 +579,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "silence",
-        "activated abilities of {target} can't be activated",
+        "activated abilities of {target} get interrupted automatically",
         LINETYPE_EFFECT,
         {
             target: TYPE_PARAM_CREATURE,
@@ -587,10 +587,9 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "fear",
-        "return {target} with power {power} or less to its owner's hand",
+        "return {target} to its owner's hand",
         LINETYPE_EFFECT,
         {
-            power: TYPE_PARAM_NUMBER_WHOLE,
             target: TYPE_PARAM_CREATURE,
         },
     ),
