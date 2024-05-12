@@ -117,8 +117,11 @@ export function renderCard(card, canvas, drawData) {
                 );
                 break;
             case DRAWLAYER_TEXT:
-                const text = `${draw.getInfo(card)}`;
+                let text = `${draw.getInfo(card)}`;
                 if (!text) { return; }
+                //compress text to keep keywords together with their number (undone below)
+                text = text.replaceAll(/\*([A-Z][a-z]+) ([0-9]+)\*/g, "*$1$2*");
+                //
                 const format = draw.getFormat(card) ?? {};
                 const padding = format.padding ?? draw.size.y * 0.05;
                 const padLeft = format.padding_left ?? padding;
@@ -154,6 +157,11 @@ export function renderCard(card, canvas, drawData) {
                         context.font = `${fontSize}px Arial`;
                     }
                 }
+                //uncompress text to put space between keywords and their number
+                //this is done to prevent the line break falling between a keyword and its number
+                lines = lines.map(line =>
+                    line.replaceAll(/\*([A-Z][a-z]+)([0-9]+)\*/g, "*$1 $2*")
+                );
                 //
                 const textalign = format.text_align ?? "left";
                 const LINEHEIGHT = 0.1 * RESOLUTION;
