@@ -67,7 +67,7 @@ export function renderCard(card, canvas, drawData) {
                             size.y = newHeight;
                             pos.y = newY;
                         }
-                    }
+                    };
                     const fitHeight = () => {
                         let newWidth = width * hRatio;
                         let newX = pos.x + (size.x - newWidth) / 2;
@@ -80,7 +80,7 @@ export function renderCard(card, canvas, drawData) {
                             size.x = newWidth;
                             pos.x = newX;
                         }
-                    }
+                    };
                     switch (card.imageFit) {
                         case FIT_WHOLE:
                             if (wRatio < hRatio) {
@@ -280,7 +280,7 @@ export function renderCard(card, canvas, drawData) {
             str += ` - ${extra}${current}`;
         }
         return str;
-    }
+    };
     let dateString = oneOrBoth(card.creationDate, getDateString());
     context.fillText(
         `Creation Date: ${dateString}`,

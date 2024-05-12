@@ -20,7 +20,7 @@ function Canvas({ card, autoDownload }) {
         canvas.width = width;
         canvas.height = height;
         renderCard(card, canvas, drawData);
-    }
+    };
 
     const saveImage = () => {
         const canvas = canvasRef.current;

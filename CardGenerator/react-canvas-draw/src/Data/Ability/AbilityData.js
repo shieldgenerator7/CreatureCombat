@@ -610,7 +610,7 @@ export const abilityAtoms = [
         {
             keywordable: false,
         }
-    ),    
+    ),
     new AbilityAtom(
         "powerup-any",
         "{target} gains {power} power",

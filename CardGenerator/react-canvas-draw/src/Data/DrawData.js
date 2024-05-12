@@ -109,7 +109,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 return {
                     padding: 0,
                     padding_left: 15,
-                }
+                };
             },
         ),
         //species
@@ -124,7 +124,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 return {
                     padding: 15,
                     padding_left: 15,
-                }
+                };
             },
         ),
 
@@ -140,7 +140,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 return {
                     padding: 18,
                     padding_left: 15,
-                }
+                };
             },
         ),
 
@@ -158,7 +158,7 @@ export function generateCardSkin(width, height, margin, padding) {
                     padding: 0,
                     padding_left: 15,
                     padding_right: 15,
-                }
+                };
             },
         ),
 
@@ -176,7 +176,7 @@ export function generateCardSkin(width, height, margin, padding) {
                     padding: 25,
                     padding_left: 15,
                     padding_right: 15,
-                }
+                };
             },
         ),
 
@@ -213,7 +213,7 @@ export function generateCardSkin(width, height, margin, padding) {
                     text_align: "left",
                     max_text_height: rowheight * 0.38,
                     padding: 15,
-                }
+                };
             },
         ),
 
@@ -236,7 +236,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 return {
                     text_align: "center",
                     padding: 0,
-                }
+                };
             },
         ),
 
@@ -286,7 +286,7 @@ export function generateCardSkin(width, height, margin, padding) {
                                     text_align: "center",
                                     padding: rowheight * 0.1,
                                     max_text_height: rowheight * 0.25,
-                                }
+                                };
                             },
                         ),
                         new DrawLayer(
@@ -300,7 +300,7 @@ export function generateCardSkin(width, height, margin, padding) {
                                 return {
                                     text_align: "center",
                                     padding: 0,//rowheight * 0.1,
-                                }
+                                };
                             },
                         ),
                     ];
