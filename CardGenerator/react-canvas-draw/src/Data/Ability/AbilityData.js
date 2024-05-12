@@ -294,7 +294,7 @@ export const abilityAtoms = [
     //costs
     new AbilityAtom(
         "exhaust",
-        "reduce this Creature's base power by {cost}",
+        "reduce this creature's power by {cost}",
         LINETYPE_COST,
         {
             cost: TYPE_PARAM_NUMBER_WHOLE,
@@ -310,7 +310,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "discard",
-        "discard {count} cards from your hand",
+        "move {count} cards from your hand to your returning pile",
         LINETYPE_COST,
         {
             count: TYPE_PARAM_NUMBER_WHOLE,
@@ -318,7 +318,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "sacrifice",
-        "remove {count} of your Creatures from battle",
+        "reduce the power of {count} target creatures you control to 0",
         LINETYPE_COST,
         {
             count: TYPE_PARAM_NUMBER_WHOLE,
@@ -328,19 +328,19 @@ export const abilityAtoms = [
     //triggers
     new AbilityAtom(
         "ambush",
-        "when an enemy Creature is played",
+        "when an enemy creature enters the battlefield",
         LINETYPE_TRIGGER,
         {}
     ),
     new AbilityAtom(
         "greeting",
-        "when an ally Creature is played",
+        "when another ally creature enters the battlefield",
         LINETYPE_TRIGGER,
         {}
     ),
     new AbilityAtom(
         "battlecry",
-        "when this Creature is played",
+        "when this creature enters the battlefield",
         LINETYPE_TRIGGER,
         {}
     ),
@@ -348,7 +348,7 @@ export const abilityAtoms = [
     //requirements
     new AbilityAtom(
         "home",
-        "this Creature must be in a home biome",
+        "this creature must be in a home biome",
         LINETYPE_REQUIREMENT,
         {}
     ),
@@ -362,13 +362,13 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "channel",
-        "if this Creature takes damage before this ability effect resolves, the effect is canceled",
+        "if this creature takes damage before this ability effect resolves, the effect is interrupted",
         LINETYPE_REQUIREMENT,
         {}
     ),
     new AbilityAtom(
         "social",
-        "this Creature must have at least {count} allies that share a type with it, including itself",
+        "this creature must have at least {count} allies that share a type with it, including itself",
         LINETYPE_REQUIREMENT,
         {
             count: TYPE_PARAM_NUMBER_WHOLE,
@@ -376,7 +376,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "symbiotic",
-        "target Creature must share at least {count} home biomes with this Creature",
+        "target creature must share at least {count} home biomes with this creature",
         LINETYPE_REQUIREMENT,
         {
             count: TYPE_PARAM_NUMBER_WHOLE,
@@ -425,7 +425,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "scout",
-        "reveal the top {distance} Lands from the Land deck, choose one to be the scouted Land, place it faceup on top, and put the others on the bottom in any order",
+        "reveal the top {distance} lands from the land deck, choose one to be the scouted land, place it faceup on top, and put the others on the bottom in any order",
         LINETYPE_EFFECT,
         {
             distance: TYPE_PARAM_NUMBER_WHOLE,
@@ -457,7 +457,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "powerup",
-        "gain {power} bonus power",
+        "gain {power} power",
         LINETYPE_EFFECT,
         {
             power: TYPE_PARAM_NUMBER_WHOLE,
@@ -465,7 +465,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "heal",
-        "this creature gains {power} bonus power, up to its base power",
+        "this creature gains {power} power, up to its base power",
         LINETYPE_EFFECT,
         {
             power: TYPE_PARAM_NUMBER_WHOLE,
@@ -473,7 +473,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "recovery",
-        "when you use a Land card to recover this creature, remove an additional {rest} Rest counters from it",
+        "when you use a land card to recover this creature, remove an additional {rest} rest counters from it",
         LINETYPE_EFFECT,
         {
             rest: TYPE_PARAM_NUMBER_WHOLE,
@@ -481,7 +481,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "stress",
-        "add {rest} Rest counters to {target}",
+        "add {rest} rest counters to {target}",
         LINETYPE_EFFECT,
         {
             rest: TYPE_PARAM_NUMBER_WHOLE,
@@ -513,7 +513,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "ward",
-        "when an enemy Creature targets this Creature, they must pay Exhaust {cost}, or else their ability is cancelled",
+        "when an enemy creature targets this creature, they must pay Exhaust {cost}, or else their ability is interrupted",
         LINETYPE_EFFECT,
         {
             cost: TYPE_PARAM_NUMBER_WHOLE,
@@ -545,7 +545,7 @@ export const abilityAtoms = [
     ),    
     new AbilityAtom(
         "powerup-any",
-        "{target} gains {power} bonus power",
+        "{target} gains {power} power",
         LINETYPE_EFFECT,
         {
             power: TYPE_PARAM_NUMBER_WHOLE,
@@ -554,7 +554,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "heal-any",
-        "{target} gains {power} bonus power, up to its base power",
+        "{target} gains {power} power, up to its base power",
         LINETYPE_EFFECT,
         {
             power: TYPE_PARAM_NUMBER_WHOLE,
