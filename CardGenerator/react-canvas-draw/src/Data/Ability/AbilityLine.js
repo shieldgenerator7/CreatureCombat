@@ -1,6 +1,6 @@
 "use strict";
 
-import { isString } from "../../Utility/Utility";
+import { ensureQuotes, isString } from "../../Utility/Utility";
 import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, LINETYPE_TRIGGER } from "./AbilityConstants";
 import { abilityAtoms, abilityTokens } from "./AbilityData";
 
@@ -90,7 +90,7 @@ class AbilityLine {
         let paramTexts = this.params.map(param => {
             //put string in quotes
             if (isString(param) && param.includes(" ")) {
-                return `"${param}"`;
+                return ensureQuotes(param);
             }
             return param;
         })

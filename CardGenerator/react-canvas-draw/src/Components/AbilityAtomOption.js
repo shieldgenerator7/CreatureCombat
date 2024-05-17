@@ -1,6 +1,7 @@
 "use strict";
 
 import { TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/Ability/AbilityConstants";
+import { ensureQuotes } from "../Utility/Utility";
 import Counter from "./Counter";
 import SearchSelect from "./SearchSelect";
 
@@ -37,8 +38,8 @@ function AbilityAtomOption({ optionName, type, option, optionList, setOption }) 
                         className="field inline multiline"
                         value={option ?? ""}
                         onChange={(e) => {
-                            let txt = e.target.value;
-                            setOption(txt);
+                            let txt = e.target.value || "";
+                            setOption(ensureQuotes(txt));
                         }}
                     ></input>
                 )}

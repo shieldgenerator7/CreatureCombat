@@ -388,6 +388,21 @@ export function capitalizeFirstLetters(str, all = true, count = 1) {
         .join(" ");
 }
 
+export function ensureQuotes(txt = "", quote = "\"") {
+    if (!txt || txt == "\"") {
+        return "\"\"";//""
+    }
+    let needBeginQuote = !txt.startsWith("\"");
+    let needEndQuote = !txt.endsWith("\"");
+    if (needBeginQuote) {
+        txt = `"${txt}`;
+    }
+    if (needEndQuote) {
+        txt = `${txt}"`;
+    }
+    return txt;
+}
+
 const REGEXP_FLOAT = new RegExp("-?(([0-9]+.?[0-9]*)|([0-9]*.?[0-9]+))", "g");
 function cleanInput(value, regexp = REGEXP_FLOAT) {
     let parts = [];

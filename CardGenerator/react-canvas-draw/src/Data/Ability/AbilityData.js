@@ -712,6 +712,8 @@ export function findToken(tokenName) {
 
 
 const strRep = [
+    //remove quotes
+    [/^\"(.*)\"$/g, "$1"],
     //misc
     [" self", " this"],
     [" all-team", ""],

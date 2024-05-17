@@ -84,7 +84,7 @@ function AbilityPanel({ ability, updateAbility }) {
                                 option = line.params[j] ?? 0.1;
                             }
                             else if (value == TYPE_PARAM_STRING) {
-                                option = line.params[j] ?? "text";
+                                option = line.params[j] ?? "";
                             }
                             else {
                                 optionList = [value]
