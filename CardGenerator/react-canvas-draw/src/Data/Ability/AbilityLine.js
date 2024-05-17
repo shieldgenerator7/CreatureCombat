@@ -32,7 +32,7 @@ class AbilityLine {
             this.atom = abilityAtoms.find(atom => atom.name == this.atomName);
         }
         else {
-        this.atom = abilityAtoms.find(atom => atom.name == this.atomName && atom.type == this.type);
+            this.atom = abilityAtoms.find(atom => atom.name == this.atomName && atom.type == this.type);
         }
         if (!this.atom) {
             console.error("unable to find atom!", this.atomName, this.atom, this.type);
@@ -44,8 +44,8 @@ class AbilityLine {
             .map(token => {
                 let testToken = token.match(/(\".+\")|(.+\")|(\".+)/)?.[0] ?? "";
                 let newtoken = token
-                ?.match(/[a-zA-Z0-9\"\-]+/)?.[0]
-                ?.trim();
+                    ?.match(/[a-zA-Z0-9\"\-]+/)?.[0]
+                    ?.trim();
                 if (testToken.endsWith("\"") && !newtoken.endsWith("\"")) {
                     newtoken += "\"";
                 }
@@ -93,7 +93,7 @@ class AbilityLine {
                 return ensureQuotes(param);
             }
             return param;
-        })
+        });
         return `${symbol} ${this.atomName}${(paramTexts?.length > 0) ? `: ${paramTexts.join(", ")}` : ""} `;
     }
 

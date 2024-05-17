@@ -9,7 +9,7 @@ const stringifyAbility = [
     "name",
     "codeText",
     "params",
-]
+];
 
 export const DISPLAY_LINE_FULL = "full";
 export const DISPLAY_LINE_KEYWORD_WITH_REMINDER = "reminder";
@@ -31,12 +31,12 @@ class Ability {
         this.params ??= [];
         this.lines.forEach((l, i) => {
             this.params[i] ??= l.params ?? [];
-        })
+        });
         this.colonIndex = this.lines.indexOf(this.lines.find(l => l.type == LINETYPE_EFFECT)) - 1;
         this.lineDisplayOptions ??= [];
         this.lines.forEach((l, i) => {
             this.lineDisplayOptions[i] ??= DISPLAY_LINE_FULL;
-        })
+        });
     }
 
     addLine(line) {
@@ -97,7 +97,7 @@ class Ability {
                                 name += ` ${number}`;
                             }
                             reminder = reminder.replaceAll(`{${key}}`, number);
-                        })
+                        });
                         name += "*";
                         reminders[name] = reminder;
                         segment = name;
@@ -111,7 +111,7 @@ class Ability {
                             if (isNumber(number)) {
                                 name += ` ${number}`;
                             }
-                        })
+                        });
                         name += "*";
                         segment = name;
                     } break;
@@ -213,7 +213,7 @@ export function backwardsCompatifyAbility(ability) {
             ability[keyName] = undefined;
             ability[keyX] = undefined;
         }
-    }
+    };
     lineBCFunc("cost", ability.costName, LINETYPE_COST, "$");
     lineBCFunc("requirement", ability.requirementName, LINETYPE_REQUIREMENT, "?");
     lineBCFunc("effect", ability.effectName, LINETYPE_EFFECT, ">");

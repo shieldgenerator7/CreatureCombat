@@ -22,15 +22,15 @@ export function UploadFromFilePicker(filetype, readAsText = true, callback = (re
 }
 
 export function UploadFile(file, readAsText = true, callback = (result, filename) => { }) {
-            //2024-03-14: copied from RoomLayout
-            let reader = new FileReader();
-            if (readAsText) {
-                reader.readAsText(file);
-            }
-            else {
-                reader.readAsDataURL(file);
-            }
-            reader.onloadend = (progressEvent) => {
-                callback(progressEvent.currentTarget.result, file.name);
-            };
+    //2024-03-14: copied from RoomLayout
+    let reader = new FileReader();
+    if (readAsText) {
+        reader.readAsText(file);
+    }
+    else {
+        reader.readAsDataURL(file);
+    }
+    reader.onloadend = (progressEvent) => {
+        callback(progressEvent.currentTarget.result, file.name);
+    };
 }

@@ -18,8 +18,8 @@ class CostSpec {
         this.biomeModifierAllFunc = (bmList, basePower) => Math.max(
             basePower * 5 * this.biomeModifierFunc(-1),
             arraySum(
-            bmList,
-            bm => this.biomeModifierFunc(bm.modifier)
+                bmList,
+                bm => this.biomeModifierFunc(bm.modifier)
             )
         );
 

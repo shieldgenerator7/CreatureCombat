@@ -134,23 +134,23 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                 })
             }
             {card.biomeModifiers.length < 5 && (<>
-            {/* Suggest Biome Modifier */}
-            <SuggestionList
-                suggestionList={
-                    arraySortOnFrequency(
-                        cardList
-                            .map(card => card.biomeModifiers.map(bm => bm.biome))
-                            .flat(Infinity)
-                            .concat(biomeList)
-                    )
-                        .filter(bm => !card.hasBiome(bm))
-                }
-                onSuggestionTaken={(suggestion) => {
-                    card.addBiomeModifier(suggestion, 0);
-                    updateCard(card);
-                }}
-            ></SuggestionList>
-            {/* Add Button */}
+                {/* Suggest Biome Modifier */}
+                <SuggestionList
+                    suggestionList={
+                        arraySortOnFrequency(
+                            cardList
+                                .map(card => card.biomeModifiers.map(bm => bm.biome))
+                                .flat(Infinity)
+                                .concat(biomeList)
+                        )
+                            .filter(bm => !card.hasBiome(bm))
+                    }
+                    onSuggestionTaken={(suggestion) => {
+                        card.addBiomeModifier(suggestion, 0);
+                        updateCard(card);
+                    }}
+                ></SuggestionList>
+                {/* Add Button */}
                 <button className='action' onClick={() => {
                     card.addBiomeModifier("", 0);
                     updateCard(card);

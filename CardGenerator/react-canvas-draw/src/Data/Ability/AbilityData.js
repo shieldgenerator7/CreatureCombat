@@ -231,509 +231,509 @@ export const abilityAtoms = [
 
     //custom / choose
     [
-    new AbilityAtom(
-        "choose",
-        "",
-        LINETYPE_EFFECT,
-        {},
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "custom-cost",
-        "{line}",
-        LINETYPE_COST,
-        {
-            line: TYPE_PARAM_STRING,
-            discount: TYPE_PARAM_NUMBER_WHOLE,
-            discountFactor: TYPE_PARAM_NUMBER_WHOLE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "custom-trigger",
-        "{line}",
-        LINETYPE_TRIGGER,
-        {
-            line: TYPE_PARAM_STRING,
-            discount: TYPE_PARAM_NUMBER_WHOLE,
-            discountFactor: TYPE_PARAM_NUMBER_WHOLE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "custom-requirement",
-        "{line}",
-        LINETYPE_REQUIREMENT,
-        {
-            line: TYPE_PARAM_STRING,
-            discount: TYPE_PARAM_NUMBER_WHOLE,
-            discountFactor: TYPE_PARAM_NUMBER_WHOLE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "custom-effect",
-        "{line}",
-        LINETYPE_EFFECT,
-        {
-            line: TYPE_PARAM_STRING,
-            cost: TYPE_PARAM_NUMBER_WHOLE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
+        new AbilityAtom(
+            "choose",
+            "",
+            LINETYPE_EFFECT,
+            {},
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "custom-cost",
+            "{line}",
+            LINETYPE_COST,
+            {
+                line: TYPE_PARAM_STRING,
+                discount: TYPE_PARAM_NUMBER_WHOLE,
+                discountFactor: TYPE_PARAM_NUMBER_WHOLE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "custom-trigger",
+            "{line}",
+            LINETYPE_TRIGGER,
+            {
+                line: TYPE_PARAM_STRING,
+                discount: TYPE_PARAM_NUMBER_WHOLE,
+                discountFactor: TYPE_PARAM_NUMBER_WHOLE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "custom-requirement",
+            "{line}",
+            LINETYPE_REQUIREMENT,
+            {
+                line: TYPE_PARAM_STRING,
+                discount: TYPE_PARAM_NUMBER_WHOLE,
+                discountFactor: TYPE_PARAM_NUMBER_WHOLE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "custom-effect",
+            "{line}",
+            LINETYPE_EFFECT,
+            {
+                line: TYPE_PARAM_STRING,
+                cost: TYPE_PARAM_NUMBER_WHOLE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
     ],
 
     //costs
     [
-    new AbilityAtom(
-        "exhaust",
-        "reduce this creature's power by {cost}",
-        LINETYPE_COST,
-        {
-            cost: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "rest",
-        "add {rest} rest counters to this Creature",
-        LINETYPE_COST,
-        {
-            rest: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "discard",
-        "move {count} cards from your hand to your returning pile",
-        LINETYPE_COST,
-        {
-            count: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "sacrifice",
-        "reduce the power of {count} target creatures you control to 0",
-        LINETYPE_COST,
-        {
-            count: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "tap",
-        "tap {tap} lands",
-        LINETYPE_COST,
-        {
-            tap: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
+        new AbilityAtom(
+            "exhaust",
+            "reduce this creature's power by {cost}",
+            LINETYPE_COST,
+            {
+                cost: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "rest",
+            "add {rest} rest counters to this Creature",
+            LINETYPE_COST,
+            {
+                rest: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "discard",
+            "move {count} cards from your hand to your returning pile",
+            LINETYPE_COST,
+            {
+                count: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "sacrifice",
+            "reduce the power of {count} target creatures you control to 0",
+            LINETYPE_COST,
+            {
+                count: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "tap",
+            "tap {tap} lands",
+            LINETYPE_COST,
+            {
+                tap: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
     ],
 
     //triggers
     [
-    new AbilityAtom(
-        "ambush",
-        "when an enemy creature enters the battlefield",
-        LINETYPE_TRIGGER,
-        {}
-    ),
-    new AbilityAtom(
-        "greeting",
-        "when another ally creature enters the battlefield",
-        LINETYPE_TRIGGER,
-        {}
-    ),
-    new AbilityAtom(
-        "battlecry",
-        "when this creature enters the battlefield",
-        LINETYPE_TRIGGER,
-        {}
-    ),
-    new AbilityAtom(
-        "revenge",
-        "when this creature is reduced to 0 power",
-        LINETYPE_TRIGGER,
-        {}
-    ),
-    new AbilityAtom(
-        "avenge",
-        "when another ally creature is reduced to 0 power",
-        LINETYPE_TRIGGER,
-        {}
-    ),
-    new AbilityAtom(
-        "targeted-by-ally",
-        "when this creature is targeted by another ally's ability",
-        LINETYPE_TRIGGER,
-        {},
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "targeted-by-enemy",
-        "when this creature is targeted by an enemy's ability",
-        LINETYPE_TRIGGER,
-        {},
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "intercept",
-        "when an ability targets another ally",
-        LINETYPE_TRIGGER,
-        {}
-    ),    
-    new AbilityAtom(
-        "retaliate",
-        "when this creature takes damage",
-        LINETYPE_TRIGGER,
-        {}
-    ),
-    new AbilityAtom(
-        "other-takes-damage",
-        "when another creature takes damage",
-        LINETYPE_TRIGGER,
-        {},
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "dawn",
-        "when the battle begins",
-        LINETYPE_TRIGGER,
-        {}
-    ),
-    new AbilityAtom(
-        "dusk",
-        "when the battle ends",
-        LINETYPE_TRIGGER,
-        {}
-    ),
+        new AbilityAtom(
+            "ambush",
+            "when an enemy creature enters the battlefield",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "greeting",
+            "when another ally creature enters the battlefield",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "battlecry",
+            "when this creature enters the battlefield",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "revenge",
+            "when this creature is reduced to 0 power",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "avenge",
+            "when another ally creature is reduced to 0 power",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "targeted-by-ally",
+            "when this creature is targeted by another ally's ability",
+            LINETYPE_TRIGGER,
+            {},
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "targeted-by-enemy",
+            "when this creature is targeted by an enemy's ability",
+            LINETYPE_TRIGGER,
+            {},
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "intercept",
+            "when an ability targets another ally",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "retaliate",
+            "when this creature takes damage",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "other-takes-damage",
+            "when another creature takes damage",
+            LINETYPE_TRIGGER,
+            {},
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "dawn",
+            "when the battle begins",
+            LINETYPE_TRIGGER,
+            {}
+        ),
+        new AbilityAtom(
+            "dusk",
+            "when the battle ends",
+            LINETYPE_TRIGGER,
+            {}
+        ),
     ],
 
     //requirements
     [
-    new AbilityAtom(
-        "home",
-        "this creature must be in a home biome",
-        LINETYPE_REQUIREMENT,
-        {}
-    ),
-    new AbilityAtom(
-        "once",
-        "this ability may only {actionWord} once per battle",
-        LINETYPE_REQUIREMENT,
-        {
-            actionWord: ["activate", "trigger"],
-        }
-    ),
-    new AbilityAtom(
-        "channel",
-        "if this creature takes damage before this ability effect resolves, the effect is interrupted",
-        LINETYPE_REQUIREMENT,
-        {}
-    ),
-    new AbilityAtom(
-        "social",
-        "this creature must have at least {count} allies that share a type with it, including itself",
-        LINETYPE_REQUIREMENT,
-        {
-            count: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "symbiotic",
-        "target creature must share at least {count} home biomes with this creature",
-        LINETYPE_REQUIREMENT,
-        {
-            count: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "slow",
-        "this ability cannot be used to react to another ability",
-        LINETYPE_REQUIREMENT,
-        {}
-    ),
-    new AbilityAtom(
-        "powerful",
-        "this creature must have at least {power} power",
-        LINETYPE_REQUIREMENT,
-        {
-            power: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
+        new AbilityAtom(
+            "home",
+            "this creature must be in a home biome",
+            LINETYPE_REQUIREMENT,
+            {}
+        ),
+        new AbilityAtom(
+            "once",
+            "this ability may only {actionWord} once per battle",
+            LINETYPE_REQUIREMENT,
+            {
+                actionWord: ["activate", "trigger"],
+            }
+        ),
+        new AbilityAtom(
+            "channel",
+            "if this creature takes damage before this ability effect resolves, the effect is interrupted",
+            LINETYPE_REQUIREMENT,
+            {}
+        ),
+        new AbilityAtom(
+            "social",
+            "this creature must have at least {count} allies that share a type with it, including itself",
+            LINETYPE_REQUIREMENT,
+            {
+                count: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "symbiotic",
+            "target creature must share at least {count} home biomes with this creature",
+            LINETYPE_REQUIREMENT,
+            {
+                count: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "slow",
+            "this ability cannot be used to react to another ability",
+            LINETYPE_REQUIREMENT,
+            {}
+        ),
+        new AbilityAtom(
+            "powerful",
+            "this creature must have at least {power} power",
+            LINETYPE_REQUIREMENT,
+            {
+                power: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
     ],
 
     //effects
     [
-    new AbilityAtom(
-        "attack",
-        "deal {damage} damage to {target}",
-        LINETYPE_EFFECT,
-        {
-            damage: TYPE_PARAM_NUMBER_WHOLE,
-            target: TYPE_PARAM_CREATURE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "block",
-        "reduce incoming damage by {block}",
-        LINETYPE_EFFECT,
-        {
-            block: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "move",
-        "move {target} from {from} to {to}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-            from: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
-            to: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "scout",
-        "reveal the top {distance} lands from the land deck, choose one to be the scouted land, place it faceup on top, and put the others on the bottom in any order",
-        LINETYPE_EFFECT,
-        {
-            distance: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "land-biome-add",
-        "{target} gains the {biome}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_LAND,
-            biome: TYPE_PARAM_BIOME,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "land-biome-remove",
-        "{target} loses the {biome}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_LAND,
-            biome: TYPE_PARAM_BIOME,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "powerup",
-        "gain {power} power",
-        LINETYPE_EFFECT,
-        {
-            power: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "heal",
-        "this creature gains {power} power, up to its base power",
-        LINETYPE_EFFECT,
-        {
-            power: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "recovery",
-        "when you use a land card to recover this creature, remove an additional {rest} rest counters from it",
-        LINETYPE_EFFECT,
-        {
-            rest: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "stress",
-        "add {rest} rest counters to {target}",
-        LINETYPE_EFFECT,
-        {
-            rest: TYPE_PARAM_NUMBER_WHOLE,
-            target: TYPE_PARAM_CREATURE,
-        },
-    ),
-    new AbilityAtom(
-        "negate-biomemod",
-        "negate the {biomeMod} of {target}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-            biomeMod: TYPE_PARAM_BIOMEMOD,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "reveal",
-        "reveal {target} from target player's hand",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "ward",
-        "when an enemy creature targets this creature, they must pay Exhaust {cost}, or else their ability is interrupted",
-        LINETYPE_EFFECT,
-        {
-            cost: TYPE_PARAM_NUMBER_WHOLE,
-        }
-    ),
-    new AbilityAtom(
-        "block-any",
-        "{target} gains *Block {block}*",
-        LINETYPE_EFFECT,
-        {
-            block: TYPE_PARAM_NUMBER_WHOLE,
-            target: TYPE_PARAM_CREATURE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "ward-any",
-        "{target} gains *Ward {ward}*",
-        LINETYPE_EFFECT,
-        {
-            ward: TYPE_PARAM_NUMBER_WHOLE,
-            target: TYPE_PARAM_CREATURE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "powerup-any",
-        "{target} gains {power} power",
-        LINETYPE_EFFECT,
-        {
-            power: TYPE_PARAM_NUMBER_WHOLE,
-            target: TYPE_PARAM_CREATURE,
-        }
-    ),
-    new AbilityAtom(
-        "heal-any",
-        "{target} gains {power} power, up to its base power",
-        LINETYPE_EFFECT,
-        {
-            power: TYPE_PARAM_NUMBER_WHOLE,
-            target: TYPE_PARAM_CREATURE,
-        }
-    ),
-    new AbilityAtom(
-        "stun",
-        "interrupt target activated ability of {target}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-        },
-    ),
-    new AbilityAtom(
-        "suppress",
-        "triggered abilities of {target} get interrupted automatically",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-        },
-    ),
-    new AbilityAtom(
-        "silence",
-        "activated abilities of {target} get interrupted automatically",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-        },
-    ),
-    new AbilityAtom(
-        "fear",
-        "return {target} to its owner's hand",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-        },
-    ),
-    new AbilityAtom(
-        "redirect",
-        "change the target of target ability to {target}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "morph",
-        "this creature gains or loses the {type}",
-        LINETYPE_EFFECT,
-        {
-            type: TYPE_PARAM_TYPE,
-        }
-    ),
-    new AbilityAtom(
-        "morph-any",
-        "{target} gains or loses the {type}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-            type: TYPE_PARAM_TYPE,
-        },
-        {
-            keywordable: false,
-        }
-    ),
-    new AbilityAtom(
-        "adapt",
-        "this creature gains {bonus} in the {biomeMod}",
-        LINETYPE_EFFECT,
-        {
-            bonus: TYPE_PARAM_NUMBER_WHOLE,
-            biomeMod: TYPE_PARAM_BIOMEMOD,
-        }
-    ),
-    new AbilityAtom(
-        "adapt-any",
-        "{target} gains {bonus} in the {biomeMod}",
-        LINETYPE_EFFECT,
-        {
-            target: TYPE_PARAM_CREATURE,
-            bonus: TYPE_PARAM_NUMBER_WHOLE,
-            biomeMod: TYPE_PARAM_BIOMEMOD,
-        },
-        {
-            keywordable: false,
-        }
-    ),
+        new AbilityAtom(
+            "attack",
+            "deal {damage} damage to {target}",
+            LINETYPE_EFFECT,
+            {
+                damage: TYPE_PARAM_NUMBER_WHOLE,
+                target: TYPE_PARAM_CREATURE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "block",
+            "reduce incoming damage by {block}",
+            LINETYPE_EFFECT,
+            {
+                block: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "move",
+            "move {target} from {from} to {to}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+                from: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
+                to: [TYPE_PARAM_LAND, TYPE_PARAM_LOCATION],
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "scout",
+            "reveal the top {distance} lands from the land deck, choose one to be the scouted land, place it faceup on top, and put the others on the bottom in any order",
+            LINETYPE_EFFECT,
+            {
+                distance: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "land-biome-add",
+            "{target} gains the {biome}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_LAND,
+                biome: TYPE_PARAM_BIOME,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "land-biome-remove",
+            "{target} loses the {biome}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_LAND,
+                biome: TYPE_PARAM_BIOME,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "powerup",
+            "gain {power} power",
+            LINETYPE_EFFECT,
+            {
+                power: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "heal",
+            "this creature gains {power} power, up to its base power",
+            LINETYPE_EFFECT,
+            {
+                power: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "recovery",
+            "when you use a land card to recover this creature, remove an additional {rest} rest counters from it",
+            LINETYPE_EFFECT,
+            {
+                rest: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "stress",
+            "add {rest} rest counters to {target}",
+            LINETYPE_EFFECT,
+            {
+                rest: TYPE_PARAM_NUMBER_WHOLE,
+                target: TYPE_PARAM_CREATURE,
+            },
+        ),
+        new AbilityAtom(
+            "negate-biomemod",
+            "negate the {biomeMod} of {target}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+                biomeMod: TYPE_PARAM_BIOMEMOD,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "reveal",
+            "reveal {target} from target player's hand",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "ward",
+            "when an enemy creature targets this creature, they must pay Exhaust {cost}, or else their ability is interrupted",
+            LINETYPE_EFFECT,
+            {
+                cost: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
+            "block-any",
+            "{target} gains *Block {block}*",
+            LINETYPE_EFFECT,
+            {
+                block: TYPE_PARAM_NUMBER_WHOLE,
+                target: TYPE_PARAM_CREATURE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "ward-any",
+            "{target} gains *Ward {ward}*",
+            LINETYPE_EFFECT,
+            {
+                ward: TYPE_PARAM_NUMBER_WHOLE,
+                target: TYPE_PARAM_CREATURE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "powerup-any",
+            "{target} gains {power} power",
+            LINETYPE_EFFECT,
+            {
+                power: TYPE_PARAM_NUMBER_WHOLE,
+                target: TYPE_PARAM_CREATURE,
+            }
+        ),
+        new AbilityAtom(
+            "heal-any",
+            "{target} gains {power} power, up to its base power",
+            LINETYPE_EFFECT,
+            {
+                power: TYPE_PARAM_NUMBER_WHOLE,
+                target: TYPE_PARAM_CREATURE,
+            }
+        ),
+        new AbilityAtom(
+            "stun",
+            "interrupt target activated ability of {target}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+            },
+        ),
+        new AbilityAtom(
+            "suppress",
+            "triggered abilities of {target} get interrupted automatically",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+            },
+        ),
+        new AbilityAtom(
+            "silence",
+            "activated abilities of {target} get interrupted automatically",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+            },
+        ),
+        new AbilityAtom(
+            "fear",
+            "return {target} to its owner's hand",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+            },
+        ),
+        new AbilityAtom(
+            "redirect",
+            "change the target of target ability to {target}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "morph",
+            "this creature gains or loses the {type}",
+            LINETYPE_EFFECT,
+            {
+                type: TYPE_PARAM_TYPE,
+            }
+        ),
+        new AbilityAtom(
+            "morph-any",
+            "{target} gains or loses the {type}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+                type: TYPE_PARAM_TYPE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "adapt",
+            "this creature gains {bonus} in the {biomeMod}",
+            LINETYPE_EFFECT,
+            {
+                bonus: TYPE_PARAM_NUMBER_WHOLE,
+                biomeMod: TYPE_PARAM_BIOMEMOD,
+            }
+        ),
+        new AbilityAtom(
+            "adapt-any",
+            "{target} gains {bonus} in the {biomeMod}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+                bonus: TYPE_PARAM_NUMBER_WHOLE,
+                biomeMod: TYPE_PARAM_BIOMEMOD,
+            },
+            {
+                keywordable: false,
+            }
+        ),
     ],
 ]
     .flat(Infinity)
