@@ -231,6 +231,12 @@ function defaultCostDict() {
         "other-takes-damage": new AbilityCost(
             (args, table, cost) => cost * 0.3
         ),
+        "dawn": new AbilityCost(
+            (args, table, cost) => cost * 0.95
+        ),
+        "dusk": new AbilityCost(
+            (args, table, cost) => cost * 0.95
+        ),
 
         //requirements
         "home": new AbilityCost(

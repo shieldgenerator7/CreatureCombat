@@ -408,6 +408,18 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
+    new AbilityAtom(
+        "dawn",
+        "when the battle begins",
+        LINETYPE_TRIGGER,
+        {}
+    ),
+    new AbilityAtom(
+        "dusk",
+        "when the battle ends",
+        LINETYPE_TRIGGER,
+        {}
+    ),
     ],
 
     //requirements
