@@ -133,6 +133,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                     </div>);
                 })
             }
+            {card.biomeModifiers.length < 5 && (<>
             {/* Suggest Biome Modifier */}
             <SuggestionList
                 suggestionList={
@@ -150,12 +151,11 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                 }}
             ></SuggestionList>
             {/* Add Button */}
-            {card.biomeModifiers.length < 5 && (
                 <button className='action' onClick={() => {
                     card.addBiomeModifier("", 0);
                     updateCard(card);
                 }}>Add Biome Modifier</button>
-            )}
+            </>)}
 
             {/* Abilities */}
             Abilities {costDisplay(costSpec.abilityAllFunc(card.abilities))}
