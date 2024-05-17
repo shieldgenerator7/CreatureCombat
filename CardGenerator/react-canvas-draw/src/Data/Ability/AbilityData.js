@@ -359,13 +359,13 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "revenge",
-        "when this creature is reduced to 0 power by damage",
+        "when this creature is reduced to 0 power",
         LINETYPE_TRIGGER,
         {}
     ),
     new AbilityAtom(
         "avenge",
-        "when another ally creature is reduced to 0 power by damage",
+        "when another ally creature is reduced to 0 power",
         LINETYPE_TRIGGER,
         {}
     ),
@@ -389,7 +389,7 @@ export const abilityAtoms = [
     ),
     new AbilityAtom(
         "intercept",
-        "when an enemy targets another ally",
+        "when an ability targets another ally",
         LINETYPE_TRIGGER,
         {}
     ),    
