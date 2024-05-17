@@ -230,6 +230,7 @@ abilityTokens
 export const abilityAtoms = [
 
     //custom / choose
+    [
     new AbilityAtom(
         "choose",
         "",
@@ -290,8 +291,10 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
+    ],
 
     //costs
+    [
     new AbilityAtom(
         "exhaust",
         "reduce this creature's power by {cost}",
@@ -332,8 +335,10 @@ export const abilityAtoms = [
             tap: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
+    ],
 
     //triggers
+    [
     new AbilityAtom(
         "ambush",
         "when an enemy creature enters the battlefield",
@@ -403,8 +408,10 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
+    ],
 
     //requirements
+    [
     new AbilityAtom(
         "home",
         "this creature must be in a home biome",
@@ -455,9 +462,10 @@ export const abilityAtoms = [
             power: TYPE_PARAM_NUMBER_WHOLE,
         }
     ),
-
+    ],
 
     //effects
+    [
     new AbilityAtom(
         "attack",
         "deal {damage} damage to {target}",
@@ -672,7 +680,10 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
-].sort(sortFunc);
+    ],
+]
+    .flat(Infinity)
+    .sort(sortFunc);
 abilityAtoms
     .filter(atom => Object.entries(atom.params).length > 0)
     .forEach(atom => {
