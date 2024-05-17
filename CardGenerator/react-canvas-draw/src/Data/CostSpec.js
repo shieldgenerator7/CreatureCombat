@@ -15,9 +15,12 @@ class CostSpec {
         this.basePowerFunc = (v) => v * 2;
         this.biomeModifierFunc = (v) => v / 2;
 
-        this.biomeModifierAllFunc = (bmList) => arraySum(
+        this.biomeModifierAllFunc = (bmList, basePower) => Math.max(
+            basePower * 5 * this.biomeModifierFunc(-1),
+            arraySum(
             bmList,
             bm => this.biomeModifierFunc(bm.modifier)
+            )
         );
 
         this.costDict = defaultCostDict();
@@ -70,7 +73,7 @@ class CostSpec {
             cost += Math.max(0, this.basePowerFunc(card.basePower));
 
             //Biome Modifiers
-            cost += this.biomeModifierAllFunc(card.biomeModifiers);
+            cost += this.biomeModifierAllFunc(card.biomeModifiers, card.basePower);
 
             //Abilities
             cost += this.abilityAllFunc(card.abilities);

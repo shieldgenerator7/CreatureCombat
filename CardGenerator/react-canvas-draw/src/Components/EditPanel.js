@@ -93,7 +93,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
             ></Counter>
 
             {/* Biome Modifiers */}
-            Biome Modifiers {costDisplay(costSpec.biomeModifierAllFunc(card.biomeModifiers), true)}
+            Biome Modifiers {costDisplay(costSpec.biomeModifierAllFunc(card.biomeModifiers, card.basePower), true)}
             {
                 card.biomeModifiers.map((bm, i) => {
                     const biomeFunc = (e) => {
