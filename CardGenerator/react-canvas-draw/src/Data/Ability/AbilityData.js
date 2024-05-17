@@ -680,6 +680,48 @@ export const abilityAtoms = [
             keywordable: false,
         }
     ),
+    new AbilityAtom(
+        "morph",
+        "this creature gains or loses the {type}",
+        LINETYPE_EFFECT,
+        {
+            type: TYPE_PARAM_TYPE,
+        }
+    ),
+    new AbilityAtom(
+        "morph-any",
+        "{target} gains or loses the {type}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+            type: TYPE_PARAM_TYPE,
+        },
+        {
+            keywordable: false,
+        }
+    ),
+    new AbilityAtom(
+        "adapt",
+        "this creature gains {bonus} in the {biomeMod}",
+        LINETYPE_EFFECT,
+        {
+            bonus: TYPE_PARAM_NUMBER_WHOLE,
+            biomeMod: TYPE_PARAM_BIOMEMOD,
+        }
+    ),
+    new AbilityAtom(
+        "adapt-any",
+        "{target} gains {bonus} in the {biomeMod}",
+        LINETYPE_EFFECT,
+        {
+            target: TYPE_PARAM_CREATURE,
+            bonus: TYPE_PARAM_NUMBER_WHOLE,
+            biomeMod: TYPE_PARAM_BIOMEMOD,
+        },
+        {
+            keywordable: false,
+        }
+    ),
     ],
 ]
     .flat(Infinity)
