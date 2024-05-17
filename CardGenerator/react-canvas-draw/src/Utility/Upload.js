@@ -14,7 +14,14 @@ export function UploadFromFilePicker(filetype, readAsText = true, callback = (re
         // add first image, if available
         if (el.files.length) {
             let file = el.files[0];
+            UploadFile(file, readAsText, callback);
+        }
+    });
 
+    el.click(); // open
+}
+
+export function UploadFile(file, readAsText = true, callback = (result, filename) => { }) {
             //2024-03-14: copied from RoomLayout
             let reader = new FileReader();
             if (readAsText) {
@@ -26,8 +33,4 @@ export function UploadFromFilePicker(filetype, readAsText = true, callback = (re
             reader.onloadend = (progressEvent) => {
                 callback(progressEvent.currentTarget.result, file.name);
             };
-        }
-    });
-
-    el.click(); // open
 }

@@ -1,9 +1,10 @@
 "use strict";
 
+import Dropzone from "react-dropzone";
 import { costDisplay, costSpec } from "../Data/CostSpec";
 import Creature, { backwardsCompatifyCreature, inflateCreature } from "../Data/Creature";
 import { downloadFile } from "../Utility/Download";
-import { UploadFromFilePicker } from "../Utility/Upload";
+import { UploadFile, UploadFromFilePicker } from "../Utility/Upload";
 import { arraySort, arraySum, clamp } from "../Utility/Utility";
 
 function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard, setPasteString }) {
@@ -123,6 +124,32 @@ function CardListPanel({ cardList, setCardList, currentCard, setCard, updateCard
                         Delete Card
                     </button>
                 }
+
+                {/* Drop Zone */}
+                <Dropzone
+                    onDrop={
+                        files => files.forEach(file =>
+                            UploadFile(
+                                file,
+                                true,
+                                (json) => {
+                                    let card = JSON.parse(decodeURIComponent(json));
+                                    inflateCreature(card);
+                                    backwardsCompatifyCreature(card);
+                                    cardList.push(card);
+                                    setCardList([...cardList]);
+                                    setCard(card);
+                                }
+                            ))
+                    }
+                >
+                    {({ getRootProps, getInputProps }) => (
+                        <div {...getRootProps({ className: "lowvisibilitylabel" })}>
+                            <input {...getInputProps()} />
+                            <p>Drop .card files here</p>
+                        </div>
+                    )}
+                </Dropzone>
 
 
                 {/* Paste Box */}
