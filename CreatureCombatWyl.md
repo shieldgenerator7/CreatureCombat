@@ -23,17 +23,23 @@ One thing I dislike about the MtG rules is that triggered abilities MUST be trig
 
 Theres no stack in this game, at least not like in MtG.
 
+## Player Actions
+
 On each player’s turn, they have 1 action, and they can use it to do any of the following:
 
 -   Play a Creature
 -   Activate a creature’s ability
+-   Fight a creature
 -   Resolve the battle
 
 At each landmark, each player places creatures to be their “hand”. To play a creature, move a creature from your hand to the landmark.
 
 You can activate a creature’s ability, if all conditions are met, and if you pay any costs associated with it.
 
-Resolving the battle means tallying up the total power of all creatures for each player, and the player with the highest total power wins the landmark.
+Fight a creature: Your creature and another creature fight. The creatures with the highest power deal damage to the other creatures without the highest power. The damage dealt is equal to the highest creature’s base power. If the highest power is double the second highest power, the damage is doubled.
+
+Resolving the battle means tallying up the total power of all creatures for each player, and the player with the highest total power wins the landmark. This action is super slow.
+
 # Design Philosophy
 
 1.  Reduce game state that needs to be memorized
@@ -166,9 +172,9 @@ Here’s a list of some keywords in the game. Im sure I have a list of these som
 
 Strategy rock paper scissors (complex):
 
--   Flanking – Finale: Gain bonus power equal to the number of opposing creatures without Flanking, plus the number of opposing creatures with Ranged
--   Flying – Finale: Gain bonus power equal to the number of opposing creatures without Flying, plus the number of opposing creatures with Flanking
--   Ranged – Finale: Gain bonus power equal to the number of opposing creatures without Ranged, plus the number of opposing creatures with Flying
+-   Flanking – Fight, Finale: Gain temp bonus power equal to the number of opposing creatures without Flanking, plus the number of opposing creatures with Ranged.
+-   Flying – Fight, Finale: Gain temp bonus power equal to the number of opposing creatures without Flying, plus the number of opposing creatures with Flanking
+-   Ranged – Fight, Finale: Gain temp bonus power equal to the number of opposing creatures without Ranged, plus the number of opposing creatures with Flying
 
 Requirements:
 
@@ -186,6 +192,7 @@ Ability triggers:
 -   Dawn – When the battle begins, trigger this ability
 -   Deathrattle – When this creature has damage counters equal to its total power, trigger this ability
 -   Dusk – When the battle ends, trigger this ability
+-   Fight – When this creature fights one or more other creatures
 -   Finale – When the battle is resolved, trigger this ability. Resolving a battle happens at super slow speed.
 -   Greeting – When another ally creature arrives, trigger this ability
 -   Intercept – When an enemy ability targets another enemy creature, trigger this ability
@@ -205,6 +212,7 @@ Ability actions:
 -   Scout X – Look at the top X cards from the Landmark deck, choose 1 as the scouted land, put it faceup on top, and put the rest on the bottom in any order
 -   Shield X – Target creature gains X shield counters (default 1)
 -   Stun X – Target creature gains X stun counters (default 1)
+-   Temp X – (Complex) Target creature gains X temp bonus power. At the end of the moment, remove this temp bonus power
 -   Ward X – When an enemy creature targets this creature, it gains X exhaustion counters (default 1)
 
 Standard:
