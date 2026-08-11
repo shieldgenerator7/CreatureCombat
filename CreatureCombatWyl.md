@@ -34,6 +34,17 @@ At each landmark, each player places creatures to be their “hand”. To play a
 You can activate a creature’s ability, if all conditions are met, and if you pay any costs associated with it.
 
 Resolving the battle means tallying up the total power of all creatures for each player, and the player with the highest total power wins the landmark.
+# Design Philosophy
+
+1.  Reduce game state that needs to be memorized
+2.  Make comboing easy and fun
+3.  Reduce frustrating mechanics
+
+One: You don’t want players to have to remember several abilities everytime they do something. Abilities like “other creatures you control get +X/+X” are easy to forget when youre looking at the other creature and not the creature with this ability. Passives are a problem for this reason, they require the player to remember they exist. For that reason, passives are removed, and to do something similar, you have to explicitly define triggers and game state updates. For example, “Battlecry, Once: Power X all creatures you control.” paired with “Greeting: Power X arriving creature.” fills that gap quite nicely, while being optional triggered abilities. Note that the wording makes it a trigger-only ability: “arriving” is not the same as “target”.
+
+Two: I like combo decks, and I dislike when my combos are interrupted with things like counterspell. Also, I hate having to randomly draw my pieces. Figuring out the whole library thing is an extra hurdle on top of figuring out the combo that I don’t want to deal with, because it severely limits what combos are viable. So now, you make a hand manually with cards you choose. I think the queue system also makes comboing more fun, tho I haven’t tested it yet.
+
+Three: nothings more frustrating than having your creatures killed all the time. So in this game, theres no graveyard. Its like pokemon. Your creatures don’t die, they get exhausted. Also, there’s going to be design restrictions around things like canceling abilities. Plus, abilities can usually be activated more than once in a battle, so its not so bad if your super awesome battle gets canceled. Maybe, hopefully.
 
 # Player Guide
 
@@ -113,7 +124,11 @@ Keywords have meaning and mechanics behind them. Each keyword does something dif
 
 Each creature can have abilities. An ability can be activated manually on a player’s turn, starting a moment. An ability can also be triggered by another ability, an action, or the start of a moment. A triggerable ability can still be activated manually, despite specifying a trigger. This is a departure from MtG passives and triggered abilities. “Activated” includes “activated manually” or “triggered”. “Activated” means adding the ability to the queue. “Resolve” means to actually carry out the abilty’s effects.
 
-Some abilities have requirements, which must be satisfied in order for the ability to be resolved. If the ability has at least 1 unsatisfied requirement when it comes up in the queue, then it is canceled. Note that this means you can activate an ability that doesn’t meet the requirements, and if the requirements are met by the time the ability is to resolve, then the ability resolves.
+An ability can have one or more triggers. When the specified event happens, you may choose to activate the ability. This is optional. If it has more than one trigger, only one triggering event has to happen to trigger it.
+
+Some abilities say things such as “arriving” and “triggering” creature. Abilities that say this can still be manually activated, but there will be no arriving or triggering creature, so that part of the ability won’t do anything.
+
+Some abilities have requirements, which must be satisfied in order for the ability to be resolved. If the ability has at least 1 unsatisfied requirement when it comes up in the queue, then it is canceled. Note that this means you can activate an ability that doesn’t meet the requirements, and if the requirements are met by the time the ability is to resolve, then the ability resolves. This also means an ability that doesn’t meet the requirements can still trigger other abilities.
 
 An ability can have costs. These costs must be paid to activate the ability, even if the ability is triggered.
 
