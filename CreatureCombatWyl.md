@@ -61,12 +61,12 @@ Players take their turns in order, play continues to the player on the left (clo
 
 When a player resolves the battle, all players total up their creatures’ combined power. The player with the highest total power wins the battle, and claims the landmark.
 
-Players process their resting creatures:
+Each player processes their resting creatures:
 
-1.  Creatures at the current landmark, including creatures in their hand, gain exhaustion counters equal to their Rest value (default value is its star count)
-2.  Creatures from the current landmark go to the resting zone.
-3.  Creatures in the resting zone lose an exhaustion counter.
-4.  Creatures with no exhaustion counters return to your army.
+1.  Your creatures in the battle zone and creatures in your hand each gain exhaustion counters equal to their Rest value (default value is its star count)
+2.  Your creatures in the battle zone and your creatures in a hand each go to your resting zone.
+3.  Creatures in your resting zone lose an exhaustion counter.
+4.  Creatures in your resting zone with no exhaustion counters return to your army.
 
 The round ends.
 
@@ -79,7 +79,7 @@ There are 3 zones:
 -   Army (each player)
 -   Battle (only 1)
 -   Hand (each player)
--   Rest (each player)
+-   Resting (each player)
 
 Each player has an army zone, which has every creature that a player can deploy to a landmark.
 
