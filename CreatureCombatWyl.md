@@ -277,3 +277,19 @@ Three: nothings more frustrating than having your creatures killed all the time.
 -   There’s no colors in this game like in MtG, but this is this game’s equivalent
 -   Keep in mind that the biome mods are listed in order from highest to lowest
 -   The first biome mod in the list is that creature’s home biome. This is important if the creature is used as a landmark
+
+### Art
+
+Creature art for a card should follow these rules.
+
+The art should depict the creature in its natural habitat, preferably its home biome.
+
+The art should show the creature’s whole body within the frame, and it should not be obscured by the environment, or at most lightly obscured. We want to see what the creature looks like.
+
+There shouldn’t be other creatures in the pic, unless those are essential to the creature the art is for.
+
+If the creature has an ability, the card may show the creature using that ability. Preferably it would not show the target of the ability if its another creature of a different species, but it may if necessary.
+
+Showing multiple of the same creature is ok. Ex: itd be weird if you just saw 1 ant.
+
+Each creature that has a magical ability has a focus that lets them use magic. The art should show the focus glowing that is used by an ability. Ex: a deer using a transformation magic ability should show its antlers glowing. Note that some creatures have more than one focus, and that each focus used by an ability on the card should be glowing. So in effect, a person could look at the drawing of the creature and generally tell what kind of magic its ability is going to use.
