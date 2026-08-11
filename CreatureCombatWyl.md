@@ -168,6 +168,7 @@ Ability triggers:
 Ability costs:
 
 -   Rest X – When this ability is activated, this creature gains X exhaust counters
+-   Harvest X – Use X landmarks that you’ve claimed. Landmarks renew at the start of each round
 
 Ability actions:
 
