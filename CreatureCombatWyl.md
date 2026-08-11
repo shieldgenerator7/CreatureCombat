@@ -109,6 +109,14 @@ Tags are descriptors used to specify what kind of creature it is, and allow play
 
 Keywords have meaning and mechanics behind them. Each keyword does something different. In addition, some creatures care about certain keywords and may have special interactions with creatures that have certain keywords. You can find keywords within the creature’s ability text.
 
+## Abilities
+
+Each creature can have abilities. An ability can be activated manually on a player’s turn, starting a moment. An ability can also be triggered by another ability, an action, or the start of a moment. A triggerable ability can still be activated manually, despite specifying a trigger. This is a departure from MtG passives and triggered abilities. “Activated” includes “activated manually” or “triggered”. “Activated” means adding the ability to the queue. “Resolve” means to actually carry out the abilty’s effects.
+
+Some abilities have requirements, which must be satisfied in order for the ability to be resolved. If the ability has at least 1 unsatisfied requirement when it comes up in the queue, then it is canceled. Note that this means you can activate an ability that doesn’t meet the requirements, and if the requirements are met by the time the ability is to resolve, then the ability resolves.
+
+An ability can have costs. These costs must be paid to activate the ability, even if the ability is triggered.
+
 ## Moments
 
 Each player’s turn is a “moment”. Its like a turn in DnD, it’s a very small amount of time in which a lot can happen. It’s also similar to a stack in MtG, but it works differently.
