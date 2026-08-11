@@ -17,7 +17,7 @@ Plus, you can add tags to each creature based on what kind of focus it uses for 
 
 Battlecry: When this creature arrives (enter the battlefield), it triggers this ability
 
-Landmark – While this creature is the landmark, it is a land of all types it has positive bonuses for. (and each creature here gets bonuses for all those types) Landmarks may also have to be unique. Also, it may have a passive or activatable ability that any applies to all players and/or all players may activate the ability. Rule: the landmark has to be a creature of some type, not just a geographical feature.
+Landmark – While this creature is the landmark, it is a land of all types it has positive bonuses for. (and each creature here gets bonuses for all those types) Landmarks may also have to be unique. Also, it may have an ability that any player may activate. Rule: the landmark has to be a creature of some type, not just a geographical feature.
 
 One thing I dislike about the MtG rules is that triggered abilities MUST be triggered, or its an illegal game state. In CC, the trigger abilities are all optional. Furthermore, triggers are NOT conditions, meaning you can activate a triggerable ability even if it wasn’t triggered. Triggers are still important tho, because they allow you to activate an ability on an opponent’s turn.
 
@@ -100,7 +100,7 @@ Common counters:
 -   Exhaustion counters. After battling, each creature gets exhaustion counters. While a creature has exhaustion counters, it cant be added to your army. Each resting creature loses an exhaustion counter at the end of each round.
 -   Power counters. Each one increases your creature’s bonus power by 1.
 -   Damage counters. Each one decreases your creature’s bonus power by 1. If a creature has damage equal to or greater than their base power, they don’t contribute their power to the combined total.
--   Stun counters. If a creature has any stun counters, it is stunned: its abilities cant be activated, and its passives are inactive. At the start of each player’s turn, they remove a stun counter from each of their creatures.
+-   Stun counters. If a creature has any stun counters, it is stunned: its abilities cant be resolved. At the start of each player’s turn, they remove a stun counter from each of their creatures.
 -   Shield counters. If a creature would gain a damage counter, instead remove a shield counter. Adding a shield counter doesn’t remove existing damage counters.
 
 ## Tags vs Keywords
@@ -116,6 +116,10 @@ Each creature can have abilities. An ability can be activated manually on a play
 Some abilities have requirements, which must be satisfied in order for the ability to be resolved. If the ability has at least 1 unsatisfied requirement when it comes up in the queue, then it is canceled. Note that this means you can activate an ability that doesn’t meet the requirements, and if the requirements are met by the time the ability is to resolve, then the ability resolves.
 
 An ability can have costs. These costs must be paid to activate the ability, even if the ability is triggered.
+
+Abilities are all activatable. There are no passive abilities in this game.
+
+Complex keywords. Some keywords are complex to make up for the lack of passives in this game. If a keyword has an activatable component to it, then it is only accessible through the specified trigger. For example, Flying only triggers when the battle resolves. You may not activate this effect manually.
 
 ## Moments
 
@@ -143,13 +147,13 @@ Abilities and actions have a speed that determine where they get placed in the q
 
 # Keyword Glossary
 
-Here’s a list of some keywords in the game. Im sure I have a list of these somewhere else too.
+Here’s a list of some keywords in the game. Im sure I have a list of these somewhere else too. Complex keywords are ones that contain other keywords.
 
-Strategy rock paper scissors:
+Strategy rock paper scissors (complex):
 
--   Flanking – Gains bonus power equal to the number of opposing creatures without Flanking, plus the number of opposing creatures with Ranged
--   Flying – Gains bonus power equal to the number of opposing creatures without Flying, plus the number of opposing creatures with Flanking
--   Ranged – Gains bonus power equal to the number of opposing creatures without Ranged, plus the number of opposing creatures with Flying
+-   Flanking – Finale: Gain bonus power equal to the number of opposing creatures without Flanking, plus the number of opposing creatures with Ranged
+-   Flying – Finale: Gain bonus power equal to the number of opposing creatures without Flying, plus the number of opposing creatures with Flanking
+-   Ranged – Finale: Gain bonus power equal to the number of opposing creatures without Ranged, plus the number of opposing creatures with Flying
 
 Requirements:
 
