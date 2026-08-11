@@ -63,9 +63,10 @@ When a player resolves the battle, all players total up their creatures’ combi
 
 Players process their resting creatures:
 
-1.  Creatures in the resting zone lose an exhaustion counter.
-2.  Creatures from the current landmark go to the resting zone, and gain exhaustion counters in an amount equal to their rest value. (default rest value is 0)
-3.  Creatures with no exhaustion counters return to your army.
+1.  Creatures at the current landmark gain exhaustion counters equal to their Rest value (default value is its star count)
+2.  Creatures from the current landmark go to the resting zone.
+3.  Creatures in the resting zone lose an exhaustion counter.
+4.  Creatures with no exhaustion counters return to your army.
 
 The round ends.
 
