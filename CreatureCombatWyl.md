@@ -126,6 +126,12 @@ Tags are descriptors used to specify what kind of creature it is, and allow play
 
 Keywords have meaning and mechanics behind them. Each keyword does something different. In addition, some creatures care about certain keywords and may have special interactions with creatures that have certain keywords. You can find keywords within the creature’s ability text.
 
+## Focus
+
+In the Wyl lore, each creature has a differently shaped focus that lets them more easily cast certain types of magic. Each type of magic has an optimal shape for casting, and each focus shape has a name and a symbol associated with it. The name of the shape and/or the symbol can appear on an ability as a tag, allowing special interactions with abilities that use a certain focus.
+
+For example, there will be no creature ability that says “cancel target creature ability”, but there could be “cancel target creature ability using [specific focus type]”
+
 ## Abilities
 
 Each creature can have abilities. An ability can be activated manually on a player’s turn, starting a moment. An ability can also be triggered by another ability, an action, or the start of a moment. A triggerable ability can still be activated manually, despite specifying a trigger. This is a departure from MtG passives and triggered abilities. “Activated” includes “activated manually” or “triggered”. “Activated” means adding the ability to the queue. “Resolve” means to actually carry out the abilty’s effects.
