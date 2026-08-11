@@ -177,7 +177,9 @@ class Ability {
     }
     get FullTextHtml() {
         return this.FullText
+            //bold
             .replaceAll(/\*([^\*]*)\*/g, "<span class='b'>$1</span>")
+            //italics
             .replaceAll(/\_([^\_]*)\_/g, "<span class='i'>$1</span>");
     }
     updateDNA() {
