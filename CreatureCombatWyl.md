@@ -226,7 +226,11 @@ Ability Speed:
 -   (Medium) – This is the default speed. Abilities without Fast or Slow are this speed
 -   Slow – This is the slowest ability speed. When this ability triggers another ability, that triggered ability may go before this ability, unless they also are Slow (the player of the triggered ability decides).
 
-# Design Philosophy
+# Design
+
+This section is for the card designers. I tried to make an app that allows complete customization of a card, including auto-adding a creature’s cost and star count, but its way to complex to do accurately and allow complete freedom. So for now, I’m closing the design to only dedicated card designers, and then hopefully will have some avenue for community-created cards to be made official.
+
+## Philosophy
 
 1.  Reduce game state that needs to be memorized
 2.  Make comboing easy and fun
@@ -237,3 +241,39 @@ One: You don’t want players to have to remember several abilities everytime th
 Two: I like combo decks, and I dislike when my combos are interrupted with things like counterspell. Also, I hate having to randomly draw my pieces. Figuring out the whole library thing is an extra hurdle on top of figuring out the combo that I don’t want to deal with, because it severely limits what combos are viable. So now, you make a hand manually with cards you choose. I think the queue system also makes comboing more fun, tho I haven’t tested it yet.
 
 Three: nothings more frustrating than having your creatures killed all the time. So in this game, theres no graveyard. Its like pokemon. Your creatures don’t die, they get exhausted. Also, there’s going to be design restrictions around things like canceling abilities. Plus, abilities can usually be activated more than once in a battle, so its not so bad if your super awesome battle gets canceled. Maybe, hopefully.
+
+## Rules
+
+### Creature
+
+**Name**: Each creature has a pet name and a species name. The pet name is what this instance of this creature is called, as if it were someone’s pet. Ex: “Spot”. The species name is what this creature is called if you saw a random one out in the wild. Ex: “cat”, “wolf”, “deer”. The pet name is for the player of that instance of the card to write on the card to mark that instance as distinct from the other instances. The species name is to help identify that creature so others players know generally what that card is capable of.
+
+**Points**: The card cost is how many points it costs to put this creature in a player’s deck. The cost is auto-calculated by the creature’s base power and biome mods. It is up to you, the designer, to increase the cost for the creature’s abilities. This number is the main way that you balance a card.
+
+**Star count**: The star count is just a summary of the cost.
+
+**Tags**: The tags are for identifying groups this creature fits into. Ex: a tiger is a feline.
+
+-   You can add as many tags as you want.
+-   Please be careful to add existing tags instead of inventing new ones.
+-   Note that tags have no mechanical function by default. They are there so abilities can use them to do stuff or target creatures with certain tags. Ex: Social cares that other creatures have the same tag, and abilities can say things like “damage all Plant creatures”.
+-   Tags should describe what the creature *is*, not what the creature *does*. Ex: A falcon is a Bird, but it is not a Flying, because that’s not a thing. There’s a keyword Flying instead.
+
+**Art**: Each creature has art for it. The art has its own set of rules.
+
+**Rest value**: This is how many Exhaustion counters to put on a creature after a battle ends. This is another main way for you to balance a card. If you don’t explicitly write this here, the creature’s default rest value is its base power.
+
+**Ability**: Each creature can have about 1-3 abilities. Abilities are optional. Abilities have their own set of rules.
+
+**Flavor text**: Ideally this flavor text tells or hints at part of the story involving this creature, or a specific instance of the creature in the lore. Ex: a deer creature might tell a snippet of Bambi’s story. The story should be set in-universe in the game’s lore. Or, it can just be a description or a quote or something. This one is really up to you.
+
+**Base Power**: This is how much power the creature has no matter what biome it’s in. This is functionally both its attack and defense value. As well as how much “hp” it has. And also its Rest “cost”, if no rest value is explicitly set. It is recommended to set this first to get a sense of the cards power, then balance the card by adjusting the point cost and rest value at the end.
+
+**Biome Mods** (Modifiers): When a creature is in a biome listed here, it gains a biome mod to its power. Ex: when Adir Doe is in a forest, her power is 7, because her base power is 2 and her Forest biome mod is +5. Biome mods with a positive value are called a “biome bonus” and with a negative value its called a “biome penalty”.
+
+-   Creatures usually have about 3-5 biome mods
+-   Biome mods are less costly than base power in the power budget
+-   Biome mods effectively modify a creature’s attack
+-   There’s no colors in this game like in MtG, but this is this game’s equivalent
+-   Keep in mind that the biome mods are listed in order from highest to lowest
+-   The first biome mod in the list is that creature’s home biome. This is important if the creature is used as a landmark
