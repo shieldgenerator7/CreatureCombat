@@ -1,1 +1,228 @@
-{"name":"","species":"Magnimog","tags":["Cervid","Ungulate","Fire","Elemental"],"imageFit":0,"colors":["#592929","#242323","#d70909","#000000","#FFFFFF","#000000"],"basePower":1,"biomeModifiers":[{"biome":"Volcano","modifier":8},{"biome":"Wasteland","modifier":5},{"biome":"Forest","modifier":-1},{"biome":"Mountain","modifier":-1},{"biome":"Plain","modifier":-1}],"rest":3,"abilities":[{"name":"Consume Flesh","params":[[],["1","target-creature","all-team"],["1"]],"lines":[{"line":"$ rest: 1","type":"cost","atomName":"rest","atom":{"name":"rest","text":"add {rest} rest counters to this Creature","type":"cost","params":{"rest":"_numberwhole"},"settings":{"keywordable":true}},"params":["1"],"cachedCost":-5.454545454545454},{"line":"> attack: 1, target-creature, all-team","type":"effect","atomName":"attack","atom":{"name":"attack","text":"deal {damage} damage to {target}","type":"effect","params":{"damage":"_numberwhole","target":"_creature","_team":"_team"},"settings":{"keywordable":false}},"params":["1","target-creature","all-team"],"cachedCost":3},{"line":"> powerup: 1","type":"effect","atomName":"powerup","atom":{"name":"powerup","text":"gain {power} power","type":"effect","params":{"power":"_numberwhole"},"settings":{"keywordable":true}},"params":["1"],"cachedCost":3}],"colonIndex":0,"lineDisplayOptions":["keyword","full","keyword"],"codeText":"Consume Flesh\n        $ rest: 1 \n> attack: 1, target-creature, all-team \n> powerup: 1 "},{"name":"Consume Land","params":[["10"],["\"Choose a biome from among Volcano or Wasteland\"",2],["this-land","that-biome"]],"lines":[{"line":"? powerful: 10","type":"req","atomName":"powerful","atom":{"name":"powerful","text":"this creature must have at least {power} power","type":"req","params":{"power":"_numberwhole"},"settings":{"keywordable":true}},"params":["10"],"cachedCost":-25.2},{"line":"> custom-effect: \"choose a biome from among volcano or wasteland\", 2","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["Choose a biome from among Volcano or Wasteland","2"],"cachedCost":6},{"line":"> land-biome-add: this-land, that-biome","type":"effect","atomName":"land-biome-add","atom":{"name":"land-biome-add","text":"{target} gains the {biome}","type":"effect","params":{"target":"_land","biome":"_biome"},"settings":{"keywordable":false}},"params":["this-land","that-biome"],"cachedCost":30}],"colonIndex":0,"lineDisplayOptions":["reminder","full","full"],"codeText":"Consume Land\n        ? powerful: 10 \n> custom-effect: \"Choose a biome from among Volcano or Wasteland\", 2 \n> land-biome-add: this-land, that-biome "}],"showReminderText":true,"flavorText":"There's such a thing as adapting too far.","id":"","variant":"01/01","editorVersion":"0.012","creationDate":"2024-05-12","count":0}
+{
+    "name": "",
+    "species": "Magnimog",
+    "tags": [
+        "Cervid",
+        "Ungulate",
+        "Fire",
+        "Elemental"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#592929",
+        "#242323",
+        "#d70909",
+        "#000000",
+        "#FFFFFF",
+        "#000000"
+    ],
+    "basePower": 1,
+    "biomeModifiers": [
+        {
+            "biome": "Volcano",
+            "modifier": 8
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": 5
+        },
+        {
+            "biome": "Forest",
+            "modifier": -1
+        },
+        {
+            "biome": "Mountain",
+            "modifier": -1
+        },
+        {
+            "biome": "Plain",
+            "modifier": -1
+        }
+    ],
+    "rest": 3,
+    "abilities": [
+        {
+            "name": "Consume Flesh",
+            "params": [
+                [],
+                [
+                    "1",
+                    "target-creature",
+                    "all-team"
+                ],
+                [
+                    "1"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "$ rest: 1",
+                    "type": "cost",
+                    "atomName": "rest",
+                    "atom": {
+                        "name": "rest",
+                        "text": "add {rest} rest counters to this Creature",
+                        "type": "cost",
+                        "params": {
+                            "rest": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "1"
+                    ],
+                    "cachedCost": -5.454545454545454
+                },
+                {
+                    "line": "> attack: 1, target-creature, all-team",
+                    "type": "effect",
+                    "atomName": "attack",
+                    "atom": {
+                        "name": "attack",
+                        "text": "deal {damage} damage to {target}",
+                        "type": "effect",
+                        "params": {
+                            "damage": "_numberwhole",
+                            "target": "_creature",
+                            "_team": "_team"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "1",
+                        "target-creature",
+                        "all-team"
+                    ],
+                    "cachedCost": 3
+                },
+                {
+                    "line": "> powerup: 1",
+                    "type": "effect",
+                    "atomName": "powerup",
+                    "atom": {
+                        "name": "powerup",
+                        "text": "gain {power} power",
+                        "type": "effect",
+                        "params": {
+                            "power": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "1"
+                    ],
+                    "cachedCost": 3
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "keyword",
+                "full",
+                "keyword"
+            ],
+            "codeText": "Consume Flesh\n        $ rest: 1 \n> attack: 1, target-creature, all-team \n> powerup: 1 "
+        },
+        {
+            "name": "Consume Land",
+            "params": [
+                [
+                    "10"
+                ],
+                [
+                    "\"Choose a biome from among Volcano or Wasteland\"",
+                    2
+                ],
+                [
+                    "this-land",
+                    "that-biome"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "? powerful: 10",
+                    "type": "req",
+                    "atomName": "powerful",
+                    "atom": {
+                        "name": "powerful",
+                        "text": "this creature must have at least {power} power",
+                        "type": "req",
+                        "params": {
+                            "power": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "10"
+                    ],
+                    "cachedCost": -25.2
+                },
+                {
+                    "line": "> custom-effect: \"choose a biome from among volcano or wasteland\", 2",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "Choose a biome from among Volcano or Wasteland",
+                        "2"
+                    ],
+                    "cachedCost": 6
+                },
+                {
+                    "line": "> land-biome-add: this-land, that-biome",
+                    "type": "effect",
+                    "atomName": "land-biome-add",
+                    "atom": {
+                        "name": "land-biome-add",
+                        "text": "{target} gains the {biome}",
+                        "type": "effect",
+                        "params": {
+                            "target": "_land",
+                            "biome": "_biome"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "this-land",
+                        "that-biome"
+                    ],
+                    "cachedCost": 30
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "reminder",
+                "full",
+                "full"
+            ],
+            "codeText": "Consume Land\n        ? powerful: 10 \n> custom-effect: \"Choose a biome from among Volcano or Wasteland\", 2 \n> land-biome-add: this-land, that-biome "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "There's such a thing as adapting too far.",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.012",
+    "creationDate": "2024-05-12",
+    "count": 0
+}

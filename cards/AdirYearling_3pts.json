@@ -1,1 +1,134 @@
-{"name":"","species":"Adir Yearling","tags":["Cervid","Ungulate","Plant"],"imageFit":0,"colors":["#1a4c1f","#512d2a","#d2bc9d","#d2bc9d","#d1bb9c","#000000"],"basePower":3,"biomeModifiers":[{"biome":"Forest","modifier":4},{"biome":"Plain","modifier":3},{"biome":"Mountain","modifier":2},{"biome":"Desert","modifier":-3},{"biome":"Wasteland","modifier":-4}],"rest":2,"abilities":[{"name":"Antler Stab","params":[["1"],[],["target-creature","target-biomemod","all-team"]],"lines":[{"line":"$ rest: 1","type":"cost","atomName":"rest","atom":{"name":"rest","text":"add {rest} rest counters to this Creature","type":"cost","params":{"rest":"_numberwhole"},"settings":{"keywordable":true}},"params":["1"],"cachedCost":-13.636363636363637},{"line":"? slow","type":"req","atomName":"slow","atom":{"name":"slow","text":"this ability cannot be used to react to another ability","type":"req","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-15},{"line":"> negate-biomemod: target-creature, target-biomemod, all-team","type":"effect","atomName":"negate-biomemod","atom":{"name":"negate-biomemod","text":"negate the {biomeMod} of {target}","type":"effect","params":{"target":"_creature","biomeMod":"_biomemod","_team":"_team"},"settings":{"keywordable":false}},"params":["target-creature","target-biomemod","all-team"],"cachedCost":30}],"colonIndex":1,"lineDisplayOptions":["reminder","reminder","full"],"codeText":"Antler Stab\n        $ rest: 1 \n? slow \n> negate-biomemod: target-creature, target-biomemod, all-team "}],"showReminderText":false,"flavorText":"Their antler trees are just starting to grow in, but they already make formidable weapons.","id":"104","variant":"01/01","editorVersion":"0.011","creationDate":"2024-05-10","count":4}
+{
+    "name": "",
+    "species": "Adir Yearling",
+    "tags": [
+        "Cervid",
+        "Ungulate",
+        "Plant"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#1a4c1f",
+        "#512d2a",
+        "#d2bc9d",
+        "#d2bc9d",
+        "#d1bb9c",
+        "#000000"
+    ],
+    "basePower": 3,
+    "biomeModifiers": [
+        {
+            "biome": "Forest",
+            "modifier": 4
+        },
+        {
+            "biome": "Plain",
+            "modifier": 3
+        },
+        {
+            "biome": "Mountain",
+            "modifier": 2
+        },
+        {
+            "biome": "Desert",
+            "modifier": -3
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": -4
+        }
+    ],
+    "rest": 2,
+    "abilities": [
+        {
+            "name": "Antler Stab",
+            "params": [
+                [
+                    "1"
+                ],
+                [],
+                [
+                    "target-creature",
+                    "target-biomemod",
+                    "all-team"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "$ rest: 1",
+                    "type": "cost",
+                    "atomName": "rest",
+                    "atom": {
+                        "name": "rest",
+                        "text": "add {rest} rest counters to this Creature",
+                        "type": "cost",
+                        "params": {
+                            "rest": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "1"
+                    ],
+                    "cachedCost": -13.636363636363637
+                },
+                {
+                    "line": "? slow",
+                    "type": "req",
+                    "atomName": "slow",
+                    "atom": {
+                        "name": "slow",
+                        "text": "this ability cannot be used to react to another ability",
+                        "type": "req",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -15
+                },
+                {
+                    "line": "> negate-biomemod: target-creature, target-biomemod, all-team",
+                    "type": "effect",
+                    "atomName": "negate-biomemod",
+                    "atom": {
+                        "name": "negate-biomemod",
+                        "text": "negate the {biomeMod} of {target}",
+                        "type": "effect",
+                        "params": {
+                            "target": "_creature",
+                            "biomeMod": "_biomemod",
+                            "_team": "_team"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "target-creature",
+                        "target-biomemod",
+                        "all-team"
+                    ],
+                    "cachedCost": 30
+                }
+            ],
+            "colonIndex": 1,
+            "lineDisplayOptions": [
+                "reminder",
+                "reminder",
+                "full"
+            ],
+            "codeText": "Antler Stab\n        $ rest: 1 \n? slow \n> negate-biomemod: target-creature, target-biomemod, all-team "
+        }
+    ],
+    "showReminderText": false,
+    "flavorText": "Their antler trees are just starting to grow in, but they already make formidable weapons.",
+    "id": "104",
+    "variant": "01/01",
+    "editorVersion": "0.011",
+    "creationDate": "2024-05-10",
+    "count": 4
+}

@@ -1,1 +1,176 @@
-{"name":"","species":"Fire Fir","tags":["Plant","Fire","Rock"],"imageFit":0,"colors":["#592929","#242323","#d70909","#000000","#FFFFFF","#000000"],"basePower":1,"biomeModifiers":[{"biome":"Volcano","modifier":1},{"biome":"Wasteland","modifier":1},{"biome":"Jungle","modifier":1},{"biome":"Cloud","modifier":-3},{"biome":"Tundra","modifier":-7}],"rest":0,"abilities":[{"name":"Cinder Roots","params":[[],[]],"lines":[{"line":"! other-takes-damage","type":"trigger","atomName":"other-takes-damage","atom":{"name":"other-takes-damage","text":"when another creature takes damage","type":"trigger","params":{},"settings":{"keywordable":false}},"params":[],"cachedCost":-0.8999999999999999},{"line":"> powerup: 1","type":"effect","atomName":"powerup","atom":{"name":"powerup","text":"gain {power} power","type":"effect","params":{"power":"_numberwhole"},"settings":{"keywordable":true}},"params":["1"],"cachedCost":3}],"colonIndex":0,"lineDisplayOptions":["full","reminder"],"codeText":"Cinder Roots\n        ! other-takes-damage \n> powerup: 1 "},{"name":"Indigenous","params":[[],[],["\"Play this creature at super fast speed\"",5]],"lines":[{"line":"! dawn","type":"trigger","atomName":"dawn","atom":{"name":"dawn","text":"when the battle begins","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-3.5625},{"line":"? home","type":"req","atomName":"home","atom":{"name":"home","text":"this creature must be in a home biome","type":"req","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-11.25},{"line":"> custom-effect: \"play this creature at super fast speed\", 5","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["Play this creature at super fast speed","5"],"cachedCost":15}],"colonIndex":1,"lineDisplayOptions":["reminder","keyword","full"],"codeText":"Indigenous\n        ! dawn \n? home \n> custom-effect: \"Play this creature at super fast speed\", 5 "}],"showReminderText":true,"flavorText":"The ashes of the unfortunate feed the growth of the resilient.","id":"","variant":"01/01","editorVersion":"0.012","creationDate":"2024-05-12","count":0}
+{
+    "name": "",
+    "species": "Fire Fir",
+    "tags": [
+        "Plant",
+        "Fire",
+        "Rock"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#592929",
+        "#242323",
+        "#d70909",
+        "#000000",
+        "#FFFFFF",
+        "#000000"
+    ],
+    "basePower": 1,
+    "biomeModifiers": [
+        {
+            "biome": "Volcano",
+            "modifier": 1
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": 1
+        },
+        {
+            "biome": "Jungle",
+            "modifier": 1
+        },
+        {
+            "biome": "Cloud",
+            "modifier": -3
+        },
+        {
+            "biome": "Tundra",
+            "modifier": -7
+        }
+    ],
+    "rest": 0,
+    "abilities": [
+        {
+            "name": "Cinder Roots",
+            "params": [
+                [],
+                []
+            ],
+            "lines": [
+                {
+                    "line": "! other-takes-damage",
+                    "type": "trigger",
+                    "atomName": "other-takes-damage",
+                    "atom": {
+                        "name": "other-takes-damage",
+                        "text": "when another creature takes damage",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -0.8999999999999999
+                },
+                {
+                    "line": "> powerup: 1",
+                    "type": "effect",
+                    "atomName": "powerup",
+                    "atom": {
+                        "name": "powerup",
+                        "text": "gain {power} power",
+                        "type": "effect",
+                        "params": {
+                            "power": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "1"
+                    ],
+                    "cachedCost": 3
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "full",
+                "reminder"
+            ],
+            "codeText": "Cinder Roots\n        ! other-takes-damage \n> powerup: 1 "
+        },
+        {
+            "name": "Indigenous",
+            "params": [
+                [],
+                [],
+                [
+                    "\"Play this creature at super fast speed\"",
+                    5
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! dawn",
+                    "type": "trigger",
+                    "atomName": "dawn",
+                    "atom": {
+                        "name": "dawn",
+                        "text": "when the battle begins",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -3.5625
+                },
+                {
+                    "line": "? home",
+                    "type": "req",
+                    "atomName": "home",
+                    "atom": {
+                        "name": "home",
+                        "text": "this creature must be in a home biome",
+                        "type": "req",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -11.25
+                },
+                {
+                    "line": "> custom-effect: \"play this creature at super fast speed\", 5",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "Play this creature at super fast speed",
+                        "5"
+                    ],
+                    "cachedCost": 15
+                }
+            ],
+            "colonIndex": 1,
+            "lineDisplayOptions": [
+                "reminder",
+                "keyword",
+                "full"
+            ],
+            "codeText": "Indigenous\n        ! dawn \n? home \n> custom-effect: \"Play this creature at super fast speed\", 5 "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "The ashes of the unfortunate feed the growth of the resilient.",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.012",
+    "creationDate": "2024-05-12",
+    "count": 0
+}

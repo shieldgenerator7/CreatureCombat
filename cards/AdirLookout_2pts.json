@@ -1,1 +1,193 @@
-{"name":"","species":"Adir Lookout","tags":["Cervid","Ungulate","Plant"],"imageFit":0,"colors":["#1a4c1f","#512d2a","#d2bc9d","#d2bc9d","#d1bb9c","#000000"],"basePower":2,"biomeModifiers":[{"biome":"Forest","modifier":3},{"biome":"Mountain","modifier":2},{"biome":"Plain","modifier":1},{"biome":"Desert","modifier":-3},{"biome":"Wasteland","modifier":-5}],"rest":2,"abilities":[{"name":"Eyes Peeled","params":[[],["\"Choose a creature type\"",15]],"lines":[{"line":"! battlecry","type":"trigger","atomName":"battlecry","atom":{"name":"battlecry","text":"when this creature enters the battlefield","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-40.5},{"line":"> custom-effect: \"choose a creature type\", 15","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["Choose a creature type","15"],"cachedCost":45}],"colonIndex":0,"lineDisplayOptions":["reminder","full"],"codeText":"Eyes Peeled\n        ! battlecry \n> custom-effect: \"Choose a creature type\", 15 "},{"name":"Hoof Stomp","params":[[],["\"If the triggering creature is the chosen type\"",0,50],[null,"ally-team"]],"lines":[{"line":"! ambush","type":"trigger","atomName":"ambush","atom":{"name":"ambush","text":"when an enemy creature enters the battlefield","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":0},{"line":"? custom-requirement: \"if the triggering creature is the chosen type\", 0, 50","type":"req","atomName":"custom-requirement","atom":{"name":"custom-requirement","text":"{line}","type":"req","params":{"line":"_string","discount":"_numberwhole","discountFactor":"_numberwhole"},"settings":{"keywordable":false}},"params":["If the triggering creature is the chosen type","0","50"],"cachedCost":0},{"line":"> fear: target-creature, ally-team","type":"effect","atomName":"fear","atom":{"name":"fear","text":"return {target} to its owner's hand","type":"effect","params":{"target":"_creature","_team":"_team"},"settings":{"keywordable":true}},"params":["target-creature","ally-team"],"cachedCost":0}],"colonIndex":1,"lineDisplayOptions":["reminder","full","full"],"codeText":"Hoof Stomp\n        ! ambush \n? custom-requirement: \"If the triggering creature is the chosen type\", 0, 50 \n> fear: target-creature, ally-team "}],"showReminderText":true,"flavorText":"When the wolf siren sounds, it's time to flee.","id":"","variant":"01/01","editorVersion":"0.013","creationDate":"2024-05-17","count":1}
+{
+    "name": "",
+    "species": "Adir Lookout",
+    "tags": [
+        "Cervid",
+        "Ungulate",
+        "Plant"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#1a4c1f",
+        "#512d2a",
+        "#d2bc9d",
+        "#d2bc9d",
+        "#d1bb9c",
+        "#000000"
+    ],
+    "basePower": 2,
+    "biomeModifiers": [
+        {
+            "biome": "Forest",
+            "modifier": 3
+        },
+        {
+            "biome": "Mountain",
+            "modifier": 2
+        },
+        {
+            "biome": "Plain",
+            "modifier": 1
+        },
+        {
+            "biome": "Desert",
+            "modifier": -3
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": -5
+        }
+    ],
+    "rest": 2,
+    "abilities": [
+        {
+            "name": "Eyes Peeled",
+            "params": [
+                [],
+                [
+                    "\"Choose a creature type\"",
+                    15
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! battlecry",
+                    "type": "trigger",
+                    "atomName": "battlecry",
+                    "atom": {
+                        "name": "battlecry",
+                        "text": "when this creature enters the battlefield",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -40.5
+                },
+                {
+                    "line": "> custom-effect: \"choose a creature type\", 15",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "Choose a creature type",
+                        "15"
+                    ],
+                    "cachedCost": 45
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "reminder",
+                "full"
+            ],
+            "codeText": "Eyes Peeled\n        ! battlecry \n> custom-effect: \"Choose a creature type\", 15 "
+        },
+        {
+            "name": "Hoof Stomp",
+            "params": [
+                [],
+                [
+                    "\"If the triggering creature is the chosen type\"",
+                    0,
+                    50
+                ],
+                [
+                    null,
+                    "ally-team"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! ambush",
+                    "type": "trigger",
+                    "atomName": "ambush",
+                    "atom": {
+                        "name": "ambush",
+                        "text": "when an enemy creature enters the battlefield",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": 0
+                },
+                {
+                    "line": "? custom-requirement: \"if the triggering creature is the chosen type\", 0, 50",
+                    "type": "req",
+                    "atomName": "custom-requirement",
+                    "atom": {
+                        "name": "custom-requirement",
+                        "text": "{line}",
+                        "type": "req",
+                        "params": {
+                            "line": "_string",
+                            "discount": "_numberwhole",
+                            "discountFactor": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "If the triggering creature is the chosen type",
+                        "0",
+                        "50"
+                    ],
+                    "cachedCost": 0
+                },
+                {
+                    "line": "> fear: target-creature, ally-team",
+                    "type": "effect",
+                    "atomName": "fear",
+                    "atom": {
+                        "name": "fear",
+                        "text": "return {target} to its owner's hand",
+                        "type": "effect",
+                        "params": {
+                            "target": "_creature",
+                            "_team": "_team"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "target-creature",
+                        "ally-team"
+                    ],
+                    "cachedCost": 0
+                }
+            ],
+            "colonIndex": 1,
+            "lineDisplayOptions": [
+                "reminder",
+                "full",
+                "full"
+            ],
+            "codeText": "Hoof Stomp\n        ! ambush \n? custom-requirement: \"If the triggering creature is the chosen type\", 0, 50 \n> fear: target-creature, ally-team "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "When the wolf siren sounds, it's time to flee.",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.013",
+    "creationDate": "2024-05-17",
+    "count": 1
+}

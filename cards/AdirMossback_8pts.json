@@ -1,1 +1,167 @@
-{"name":"","species":"Adir Mossback","tags":["Cervid","Ungulate","Plant","Poison"],"imageFit":0,"colors":["#1a4c1f","#512d2a","#d2bc9d","#d2bc9d","#d1bb9c","#000000"],"basePower":2,"biomeModifiers":[{"biome":"Forest","modifier":4},{"biome":"Plain","modifier":3},{"biome":"Mountain","modifier":2},{"biome":"Desert","modifier":-2},{"biome":"Wasteland","modifier":-5}],"rest":2,"abilities":[{"name":"Poison Moss","params":[[],["5","triggering-creature","all-team"]],"lines":[{"line":"! retaliate","type":"trigger","atomName":"retaliate","atom":{"name":"retaliate","text":"when this creature takes damage","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-7.5},{"line":"> attack: 5, triggering-creature, all-team","type":"effect","atomName":"attack","atom":{"name":"attack","text":"deal {damage} damage to {target}","type":"effect","params":{"damage":"_numberwhole","target":"_creature","_team":"_team"},"settings":{"keywordable":false}},"params":["5","triggering-creature","all-team"],"cachedCost":15}],"colonIndex":0,"lineDisplayOptions":["reminder","full"],"codeText":"Poison Moss\n        ! retaliate \n> attack: 5, triggering-creature, all-team "},{"name":"Intercept","params":[[],["Change target of that ability to this creature","1"]],"lines":[{"line":"! intercept","type":"trigger","atomName":"intercept","atom":{"name":"intercept","text":"when an ability targets another ally","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-1.5},{"line":"> custom-effect: \"change target of that ability to this creature\", 1","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["Change target of that ability to this creature","1"],"cachedCost":3}],"colonIndex":0,"lineDisplayOptions":["reminder","full"],"codeText":"Intercept\n        ! intercept \n> custom-effect: \"Change target of that ability to this creature\", 1 "}],"showReminderText":false,"flavorText":"Its fuzzy fur is pettable but poisonous.","id":"103","variant":"01/01","editorVersion":"0.011","creationDate":"2024-05-10","count":4}
+{
+    "name": "",
+    "species": "Adir Mossback",
+    "tags": [
+        "Cervid",
+        "Ungulate",
+        "Plant",
+        "Poison"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#1a4c1f",
+        "#512d2a",
+        "#d2bc9d",
+        "#d2bc9d",
+        "#d1bb9c",
+        "#000000"
+    ],
+    "basePower": 2,
+    "biomeModifiers": [
+        {
+            "biome": "Forest",
+            "modifier": 4
+        },
+        {
+            "biome": "Plain",
+            "modifier": 3
+        },
+        {
+            "biome": "Mountain",
+            "modifier": 2
+        },
+        {
+            "biome": "Desert",
+            "modifier": -2
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": -5
+        }
+    ],
+    "rest": 2,
+    "abilities": [
+        {
+            "name": "Poison Moss",
+            "params": [
+                [],
+                [
+                    "5",
+                    "triggering-creature",
+                    "all-team"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! retaliate",
+                    "type": "trigger",
+                    "atomName": "retaliate",
+                    "atom": {
+                        "name": "retaliate",
+                        "text": "when this creature takes damage",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -7.5
+                },
+                {
+                    "line": "> attack: 5, triggering-creature, all-team",
+                    "type": "effect",
+                    "atomName": "attack",
+                    "atom": {
+                        "name": "attack",
+                        "text": "deal {damage} damage to {target}",
+                        "type": "effect",
+                        "params": {
+                            "damage": "_numberwhole",
+                            "target": "_creature",
+                            "_team": "_team"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "5",
+                        "triggering-creature",
+                        "all-team"
+                    ],
+                    "cachedCost": 15
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "reminder",
+                "full"
+            ],
+            "codeText": "Poison Moss\n        ! retaliate \n> attack: 5, triggering-creature, all-team "
+        },
+        {
+            "name": "Intercept",
+            "params": [
+                [],
+                [
+                    "Change target of that ability to this creature",
+                    "1"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! intercept",
+                    "type": "trigger",
+                    "atomName": "intercept",
+                    "atom": {
+                        "name": "intercept",
+                        "text": "when an ability targets another ally",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -1.5
+                },
+                {
+                    "line": "> custom-effect: \"change target of that ability to this creature\", 1",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "Change target of that ability to this creature",
+                        "1"
+                    ],
+                    "cachedCost": 3
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "reminder",
+                "full"
+            ],
+            "codeText": "Intercept\n        ! intercept \n> custom-effect: \"Change target of that ability to this creature\", 1 "
+        }
+    ],
+    "showReminderText": false,
+    "flavorText": "Its fuzzy fur is pettable but poisonous.",
+    "id": "103",
+    "variant": "01/01",
+    "editorVersion": "0.011",
+    "creationDate": "2024-05-10",
+    "count": 4
+}

@@ -1,1 +1,133 @@
-{"name":"","species":"Iguaneous","tags":["Reptile","Stone"],"imageFit":0,"colors":["#592929","#242323","#d70909","#000000","#FFFFFF","#000000"],"basePower":3,"biomeModifiers":[{"biome":"Volcano","modifier":7},{"biome":"Wasteland","modifier":4},{"biome":"Desert","modifier":3},{"biome":"Tundra","modifier":-3},{"biome":"Cloud","modifier":-2}],"rest":2,"abilities":[{"name":"Sunbathe","params":[[],["If triggering Creature is Fire",0,90],[2]],"lines":[{"line":"! retaliate","type":"trigger","atomName":"retaliate","atom":{"name":"retaliate","text":"when this creature takes damage","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-0.2999999999999998},{"line":"? custom-requirement: \"if triggering creature is fire\", 0, 90","type":"req","atomName":"custom-requirement","atom":{"name":"custom-requirement","text":"{line}","type":"req","params":{"line":"_string","discount":"_numberwhole","discountFactor":"_numberwhole"},"settings":{"keywordable":false}},"params":["If triggering Creature is Fire","0","90"],"cachedCost":-5.4},{"line":"> powerup: 2","type":"effect","atomName":"powerup","atom":{"name":"powerup","text":"gain {power} power","type":"effect","params":{"power":"_numberwhole"},"settings":{"keywordable":true}},"params":["2"],"cachedCost":6}],"colonIndex":1,"lineDisplayOptions":["reminder","full","reminder"],"codeText":"Sunbathe\n        ! retaliate \n? custom-requirement: \"If triggering Creature is Fire\", 0, 90 \n> powerup: 2 "}],"showReminderText":true,"flavorText":"It doesn't matter if it's from the sun, molten rock, or a fire-breathing dragon. Heat is heat.","id":"","variant":"01/01","editorVersion":"0.012","creationDate":"2024-05-13","count":1}
+{
+    "name": "",
+    "species": "Iguaneous",
+    "tags": [
+        "Reptile",
+        "Stone"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#592929",
+        "#242323",
+        "#d70909",
+        "#000000",
+        "#FFFFFF",
+        "#000000"
+    ],
+    "basePower": 3,
+    "biomeModifiers": [
+        {
+            "biome": "Volcano",
+            "modifier": 7
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": 4
+        },
+        {
+            "biome": "Desert",
+            "modifier": 3
+        },
+        {
+            "biome": "Tundra",
+            "modifier": -3
+        },
+        {
+            "biome": "Cloud",
+            "modifier": -2
+        }
+    ],
+    "rest": 2,
+    "abilities": [
+        {
+            "name": "Sunbathe",
+            "params": [
+                [],
+                [
+                    "If triggering Creature is Fire",
+                    0,
+                    90
+                ],
+                [
+                    2
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! retaliate",
+                    "type": "trigger",
+                    "atomName": "retaliate",
+                    "atom": {
+                        "name": "retaliate",
+                        "text": "when this creature takes damage",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -0.2999999999999998
+                },
+                {
+                    "line": "? custom-requirement: \"if triggering creature is fire\", 0, 90",
+                    "type": "req",
+                    "atomName": "custom-requirement",
+                    "atom": {
+                        "name": "custom-requirement",
+                        "text": "{line}",
+                        "type": "req",
+                        "params": {
+                            "line": "_string",
+                            "discount": "_numberwhole",
+                            "discountFactor": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "If triggering Creature is Fire",
+                        "0",
+                        "90"
+                    ],
+                    "cachedCost": -5.4
+                },
+                {
+                    "line": "> powerup: 2",
+                    "type": "effect",
+                    "atomName": "powerup",
+                    "atom": {
+                        "name": "powerup",
+                        "text": "gain {power} power",
+                        "type": "effect",
+                        "params": {
+                            "power": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "2"
+                    ],
+                    "cachedCost": 6
+                }
+            ],
+            "colonIndex": 1,
+            "lineDisplayOptions": [
+                "reminder",
+                "full",
+                "reminder"
+            ],
+            "codeText": "Sunbathe\n        ! retaliate \n? custom-requirement: \"If triggering Creature is Fire\", 0, 90 \n> powerup: 2 "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "It doesn't matter if it's from the sun, molten rock, or a fire-breathing dragon. Heat is heat.",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.012",
+    "creationDate": "2024-05-13",
+    "count": 1
+}

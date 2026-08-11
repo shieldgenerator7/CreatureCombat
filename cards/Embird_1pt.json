@@ -1,1 +1,27 @@
-{"name":"","species":"Embird","tags":["stuff"],"imageFit":0,"colors":["#D7D7D7","#717171","#000000","#000000","#FFFFFF","#FFFFFF"],"basePower":1,"biomeModifiers":[],"rest":1,"abilities":[],"showReminderText":true,"flavorText":"","id":"","variant":"01/01","editorVersion":"0.011","creationDate":"2024-05-09","count":1}
+{
+    "name": "",
+    "species": "Embird",
+    "tags": [
+        "stuff"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#D7D7D7",
+        "#717171",
+        "#000000",
+        "#000000",
+        "#FFFFFF",
+        "#FFFFFF"
+    ],
+    "basePower": 1,
+    "biomeModifiers": [],
+    "rest": 1,
+    "abilities": [],
+    "showReminderText": true,
+    "flavorText": "",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.011",
+    "creationDate": "2024-05-09",
+    "count": 1
+}

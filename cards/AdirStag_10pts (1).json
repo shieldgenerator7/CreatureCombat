@@ -1,1 +1,185 @@
-{"name":"","species":"Adir Stag","tags":["Cervid","Ungulate","Plant"],"imageFit":1,"colors":["#1a4c1f","#512d2a","#d2bc9d","#d2bc9d","#d1bb9c","#000000"],"basePower":5,"biomeModifiers":[{"biome":"Forest","modifier":5},{"biome":"Plain","modifier":4},{"biome":"Mountain","modifier":4},{"biome":"Desert","modifier":-5},{"biome":"Wasteland","modifier":-7}],"rest":3,"abilities":[{"name":"Reality  Bend","params":[["activate"],[],["3"],["this-land","all-biome"],["this-land","scouted-biome"]],"lines":[{"line":"? once: activate","type":"req","atomName":"once","atom":{"name":"once","text":"this ability may only {actionWord} once per battle","type":"req","params":{"actionWord":["activate","trigger"]},"settings":{"keywordable":true}},"params":["activate"],"cachedCost":-25.2},{"line":"? slow","type":"req","atomName":"slow","atom":{"name":"slow","text":"this ability cannot be used to react to another ability","type":"req","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-36},{"line":"> scout: 3","type":"effect","atomName":"scout","atom":{"name":"scout","text":"reveal the top {distance} lands from the land deck, choose one to be the scouted land, place it faceup on top, and put the others on the bottom in any order","type":"effect","params":{"distance":"_numberwhole"},"settings":{"keywordable":true}},"params":["3"],"cachedCost":12},{"line":"> land-biome-remove: this-land, all-biome","type":"effect","atomName":"land-biome-remove","atom":{"name":"land-biome-remove","text":"{target} loses the {biome}","type":"effect","params":{"target":"_land","biome":"_biome"},"settings":{"keywordable":false}},"params":["this-land","all-biome"],"cachedCost":30},{"line":"> land-biome-add: this-land, scouted-biome","type":"effect","atomName":"land-biome-add","atom":{"name":"land-biome-add","text":"{target} gains the {biome}","type":"effect","params":{"target":"_land","biome":"_biome"},"settings":{"keywordable":false}},"params":["this-land","scouted-biome"],"cachedCost":30}],"colonIndex":1,"lineDisplayOptions":["keyword","keyword","reminder","full","full"],"codeText":"Reality  Bend\n        ? once: activate \n? slow \n> scout: 3 \n> land-biome-remove: this-land, all-biome \n> land-biome-add: this-land, scouted-biome "}],"showReminderText":false,"flavorText":"Everywhere they go becomes somewhere they've been.","id":"106","variant":"01/01","editorVersion":"0.011","creationDate":"2024-05-10","count":2}
+{
+    "name": "",
+    "species": "Adir Stag",
+    "tags": [
+        "Cervid",
+        "Ungulate",
+        "Plant"
+    ],
+    "imageFit": 1,
+    "colors": [
+        "#1a4c1f",
+        "#512d2a",
+        "#d2bc9d",
+        "#d2bc9d",
+        "#d1bb9c",
+        "#000000"
+    ],
+    "basePower": 5,
+    "biomeModifiers": [
+        {
+            "biome": "Forest",
+            "modifier": 5
+        },
+        {
+            "biome": "Plain",
+            "modifier": 4
+        },
+        {
+            "biome": "Mountain",
+            "modifier": 4
+        },
+        {
+            "biome": "Desert",
+            "modifier": -5
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": -7
+        }
+    ],
+    "rest": 3,
+    "abilities": [
+        {
+            "name": "Reality  Bend",
+            "params": [
+                [
+                    "activate"
+                ],
+                [],
+                [
+                    "3"
+                ],
+                [
+                    "this-land",
+                    "all-biome"
+                ],
+                [
+                    "this-land",
+                    "scouted-biome"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "? once: activate",
+                    "type": "req",
+                    "atomName": "once",
+                    "atom": {
+                        "name": "once",
+                        "text": "this ability may only {actionWord} once per battle",
+                        "type": "req",
+                        "params": {
+                            "actionWord": [
+                                "activate",
+                                "trigger"
+                            ]
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "activate"
+                    ],
+                    "cachedCost": -25.2
+                },
+                {
+                    "line": "? slow",
+                    "type": "req",
+                    "atomName": "slow",
+                    "atom": {
+                        "name": "slow",
+                        "text": "this ability cannot be used to react to another ability",
+                        "type": "req",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -36
+                },
+                {
+                    "line": "> scout: 3",
+                    "type": "effect",
+                    "atomName": "scout",
+                    "atom": {
+                        "name": "scout",
+                        "text": "reveal the top {distance} lands from the land deck, choose one to be the scouted land, place it faceup on top, and put the others on the bottom in any order",
+                        "type": "effect",
+                        "params": {
+                            "distance": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "3"
+                    ],
+                    "cachedCost": 12
+                },
+                {
+                    "line": "> land-biome-remove: this-land, all-biome",
+                    "type": "effect",
+                    "atomName": "land-biome-remove",
+                    "atom": {
+                        "name": "land-biome-remove",
+                        "text": "{target} loses the {biome}",
+                        "type": "effect",
+                        "params": {
+                            "target": "_land",
+                            "biome": "_biome"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "this-land",
+                        "all-biome"
+                    ],
+                    "cachedCost": 30
+                },
+                {
+                    "line": "> land-biome-add: this-land, scouted-biome",
+                    "type": "effect",
+                    "atomName": "land-biome-add",
+                    "atom": {
+                        "name": "land-biome-add",
+                        "text": "{target} gains the {biome}",
+                        "type": "effect",
+                        "params": {
+                            "target": "_land",
+                            "biome": "_biome"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "this-land",
+                        "scouted-biome"
+                    ],
+                    "cachedCost": 30
+                }
+            ],
+            "colonIndex": 1,
+            "lineDisplayOptions": [
+                "keyword",
+                "keyword",
+                "reminder",
+                "full",
+                "full"
+            ],
+            "codeText": "Reality  Bend\n        ? once: activate \n? slow \n> scout: 3 \n> land-biome-remove: this-land, all-biome \n> land-biome-add: this-land, scouted-biome "
+        }
+    ],
+    "showReminderText": false,
+    "flavorText": "Everywhere they go becomes somewhere they've been.",
+    "id": "106",
+    "variant": "01/01",
+    "editorVersion": "0.011",
+    "creationDate": "2024-05-10",
+    "count": 2
+}

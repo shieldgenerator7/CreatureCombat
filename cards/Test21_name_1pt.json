@@ -1,1 +1,29 @@
-{"name":"name","species":"Test 21","tags":["types","and","stuff"],"imageFit":0,"colors":["#824f4f","#3f1818","#d6cd6b","#d6cd6b","#f50000","#000000"],"basePower":1,"biomeModifiers":[],"rest":1,"abilities":[],"showReminderText":true,"flavorText":"","id":"","variant":"01/01","editorVersion":"0.010","creationDate":"2024-05-09","count":1}
+{
+    "name": "name",
+    "species": "Test 21",
+    "tags": [
+        "types",
+        "and",
+        "stuff"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#824f4f",
+        "#3f1818",
+        "#d6cd6b",
+        "#d6cd6b",
+        "#f50000",
+        "#000000"
+    ],
+    "basePower": 1,
+    "biomeModifiers": [],
+    "rest": 1,
+    "abilities": [],
+    "showReminderText": true,
+    "flavorText": "",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.010",
+    "creationDate": "2024-05-09",
+    "count": 1
+}

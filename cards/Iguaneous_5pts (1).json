@@ -1,1 +1,136 @@
-{"name":"","species":"Iguaneous","tags":["Reptile","Stone"],"imageFit":0,"colors":["#592929","#242323","#d70909","#000000","#FFFFFF","#000000"],"basePower":3,"biomeModifiers":[{"biome":"Volcano","modifier":7},{"biome":"Wasteland","modifier":4},{"biome":"Desert","modifier":3},{"biome":"Tundra","modifier":-3},{"biome":"Cloud","modifier":-2}],"rest":2,"abilities":[{"name":"Sunbathe","params":[[],["If triggering Creature is Fire",0,90],[2]],"lines":[{"line":"! retaliate","type":"trigger","atomName":"retaliate","atom":{"name":"retaliate","text":"when this creature takes damage","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-0.2999999999999998},{"line":"? custom-requirement: \"if triggering creature is fire\", 0, 90","type":"req","atomName":"custom-requirement","atom":{"name":"custom-requirement","text":"{line}","type":"req","params":{"line":"_string","discount":"_numberwhole","discountFactor":"_numberwhole"},"settings":{"keywordable":false}},"params":["If triggering Creature is Fire","0","90"],"cachedCost":-5.4},{"line":"> powerup: 2","type":"effect","atomName":"powerup","atom":{"name":"powerup","text":"gain {power} power","type":"effect","params":{"power":"_numberwhole"},"settings":{"keywordable":true}},"params":["2"],"cachedCost":6}],"colonIndex":1,"lineDisplayOptions":["reminder","full","reminder"],"codeText":"Sunbathe\n        ! retaliate \n? custom-requirement: \"If triggering Creature is Fire\", 0, 90 \n> powerup: 2 "}],"showReminderText":true,"flavorText":"It doesn't matter if it's from the sun, molten rock, or a fire-breathing dragon. Heat is heat.","id":"","variant":"01/01","editorVersion":"0.012","creationDate":"2024-05-13","count":1,"imageURL":"data:image/png;base64,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","imageFileName":"gekizard.png","imgPortrait":{}}
+{
+    "name": "",
+    "species": "Iguaneous",
+    "tags": [
+        "Reptile",
+        "Stone"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#592929",
+        "#242323",
+        "#d70909",
+        "#000000",
+        "#FFFFFF",
+        "#000000"
+    ],
+    "basePower": 3,
+    "biomeModifiers": [
+        {
+            "biome": "Volcano",
+            "modifier": 7
+        },
+        {
+            "biome": "Wasteland",
+            "modifier": 4
+        },
+        {
+            "biome": "Desert",
+            "modifier": 3
+        },
+        {
+            "biome": "Tundra",
+            "modifier": -3
+        },
+        {
+            "biome": "Cloud",
+            "modifier": -2
+        }
+    ],
+    "rest": 2,
+    "abilities": [
+        {
+            "name": "Sunbathe",
+            "params": [
+                [],
+                [
+                    "If triggering Creature is Fire",
+                    0,
+                    90
+                ],
+                [
+                    2
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! retaliate",
+                    "type": "trigger",
+                    "atomName": "retaliate",
+                    "atom": {
+                        "name": "retaliate",
+                        "text": "when this creature takes damage",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -0.2999999999999998
+                },
+                {
+                    "line": "? custom-requirement: \"if triggering creature is fire\", 0, 90",
+                    "type": "req",
+                    "atomName": "custom-requirement",
+                    "atom": {
+                        "name": "custom-requirement",
+                        "text": "{line}",
+                        "type": "req",
+                        "params": {
+                            "line": "_string",
+                            "discount": "_numberwhole",
+                            "discountFactor": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "If triggering Creature is Fire",
+                        "0",
+                        "90"
+                    ],
+                    "cachedCost": -5.4
+                },
+                {
+                    "line": "> powerup: 2",
+                    "type": "effect",
+                    "atomName": "powerup",
+                    "atom": {
+                        "name": "powerup",
+                        "text": "gain {power} power",
+                        "type": "effect",
+                        "params": {
+                            "power": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "2"
+                    ],
+                    "cachedCost": 6
+                }
+            ],
+            "colonIndex": 1,
+            "lineDisplayOptions": [
+                "reminder",
+                "full",
+                "reminder"
+            ],
+            "codeText": "Sunbathe\n        ! retaliate \n? custom-requirement: \"If triggering Creature is Fire\", 0, 90 \n> powerup: 2 "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "It doesn't matter if it's from the sun, molten rock, or a fire-breathing dragon. Heat is heat.",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.012",
+    "creationDate": "2024-05-13",
+    "count": 1,
+    "imageURL": "data:image/png;base64,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",
+    "imageFileName": "gekizard.png",
+    "imgPortrait": {}
+}

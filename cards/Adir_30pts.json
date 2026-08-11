@@ -1,1 +1,108 @@
-{"name":"","species":"Adir","tags":[],"imageFit":0,"colors":["#D7D7D7","#717171","#000000","#000000","#FFFFFF","#FFFFFF"],"basePower":1,"biomeModifiers":[{"biome":"Cloud","modifier":0}],"rest":1,"abilities":[{"name":"","params":[["self-creature","ready-location","ready-location","all-team"],["all-creature","enemy-team"]],"lines":[{"line":"> move: self-creature, ready-location, ready-location, all-team","type":"effect","atomName":"move","atom":{"name":"move","text":"move {target} from {from} to {to}","type":"effect","params":{"target":"_creature","from":["_land","_location"],"to":["_land","_location"],"_team":"_team"},"settings":{"keywordable":false}},"params":["self-creature","ready-location","ready-location","all-team"],"cachedCost":30},{"line":"> stun: all-creature, enemy-team","type":"effect","atomName":"stun","atom":{"name":"stun","text":"interrupt target activated ability of {target}","type":"effect","params":{"target":"_creature","_team":"_team"},"settings":{"keywordable":true}},"params":["all-creature","enemy-team"],"cachedCost":3}],"colonIndex":-1,"lineDisplayOptions":["full","full"],"codeText":"\n        > move: self-creature, ready-location, ready-location, all-team \n> stun: all-creature, enemy-team "}],"showReminderText":true,"flavorText":"","id":"","variant":"01/01","editorVersion":"0.011","creationDate":"2024-05-09","count":1}
+{
+    "name": "",
+    "species": "Adir",
+    "tags": [],
+    "imageFit": 0,
+    "colors": [
+        "#D7D7D7",
+        "#717171",
+        "#000000",
+        "#000000",
+        "#FFFFFF",
+        "#FFFFFF"
+    ],
+    "basePower": 1,
+    "biomeModifiers": [
+        {
+            "biome": "Cloud",
+            "modifier": 0
+        }
+    ],
+    "rest": 1,
+    "abilities": [
+        {
+            "name": "",
+            "params": [
+                [
+                    "self-creature",
+                    "ready-location",
+                    "ready-location",
+                    "all-team"
+                ],
+                [
+                    "all-creature",
+                    "enemy-team"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "> move: self-creature, ready-location, ready-location, all-team",
+                    "type": "effect",
+                    "atomName": "move",
+                    "atom": {
+                        "name": "move",
+                        "text": "move {target} from {from} to {to}",
+                        "type": "effect",
+                        "params": {
+                            "target": "_creature",
+                            "from": [
+                                "_land",
+                                "_location"
+                            ],
+                            "to": [
+                                "_land",
+                                "_location"
+                            ],
+                            "_team": "_team"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "self-creature",
+                        "ready-location",
+                        "ready-location",
+                        "all-team"
+                    ],
+                    "cachedCost": 30
+                },
+                {
+                    "line": "> stun: all-creature, enemy-team",
+                    "type": "effect",
+                    "atomName": "stun",
+                    "atom": {
+                        "name": "stun",
+                        "text": "interrupt target activated ability of {target}",
+                        "type": "effect",
+                        "params": {
+                            "target": "_creature",
+                            "_team": "_team"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "all-creature",
+                        "enemy-team"
+                    ],
+                    "cachedCost": 3
+                }
+            ],
+            "colonIndex": -1,
+            "lineDisplayOptions": [
+                "full",
+                "full"
+            ],
+            "codeText": "\n        > move: self-creature, ready-location, ready-location, all-team \n> stun: all-creature, enemy-team "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.011",
+    "creationDate": "2024-05-09",
+    "count": 1
+}

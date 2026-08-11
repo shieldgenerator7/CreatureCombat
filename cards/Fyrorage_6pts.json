@@ -1,1 +1,220 @@
-{"name":"","species":"Fyrorage","tags":["Fire","Elemental"],"imageFit":0,"colors":["#592929","#242323","#d70909","#000000","#FFFFFF","#000000"],"basePower":5,"biomeModifiers":[{"biome":"Volcano","modifier":10},{"biome":"Cloud","modifier":-5},{"biome":"Ocean","modifier":-7},{"biome":"Lake","modifier":-6},{"biome":"Forest","modifier":5}],"rest":1,"abilities":[{"name":"Flash Fire","params":[[],[],["Deal 2 damage to all non-Fire Creatures","3"],["\"If at least 6 damage was dealt\"",0,50],[2]],"lines":[{"line":"$ exhaust: 1","type":"cost","atomName":"exhaust","atom":{"name":"exhaust","text":"reduce this creature's power by {cost}","type":"cost","params":{"cost":"_numberwhole"},"settings":{"keywordable":true}},"params":["1"],"cachedCost":-2.727272727272727},{"line":"? home","type":"req","atomName":"home","atom":{"name":"home","text":"this creature must be in a home biome","type":"req","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-9},{"line":"> custom-effect: \"deal 2 damage to all non-fire creatures\", 3","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["Deal 2 damage to all non-Fire Creatures","3"],"cachedCost":9},{"line":"? custom-requirement: \"if at least 6 damage was dealt\", 0, 50","type":"req","atomName":"custom-requirement","atom":{"name":"custom-requirement","text":"{line}","type":"req","params":{"line":"_string","discount":"_numberwhole","discountFactor":"_numberwhole"},"settings":{"keywordable":false}},"params":["If at least 6 damage was dealt","0","50"],"cachedCost":-3},{"line":"> powerup: 2","type":"effect","atomName":"powerup","atom":{"name":"powerup","text":"gain {power} power","type":"effect","params":{"power":"_numberwhole"},"settings":{"keywordable":true}},"params":["2"],"cachedCost":6}],"colonIndex":1,"lineDisplayOptions":["reminder","keyword","full","full","reminder"],"codeText":"Flash Fire\n        $ exhaust: 1 \n? home \n> custom-effect: \"Deal 2 damage to all non-Fire Creatures\", 3 \n? custom-requirement: \"If at least 6 damage was dealt\", 0, 50 \n> powerup: 2 "},{"name":"Homebound","params":[["\"When not in a Home biome this creature has 0 power\"",0]],"lines":[{"line":"> custom-effect: \"when not in a home biome this creature has 0 power\", 0","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["When not in a Home biome this creature has 0 power","0"],"cachedCost":0}],"colonIndex":-1,"lineDisplayOptions":["full"],"codeText":"Homebound\n        > custom-effect: \"When not in a Home biome this creature has 0 power\", 0 "}],"showReminderText":true,"flavorText":"If it burns, it's food.","id":"","variant":"01/01","editorVersion":"0.012","creationDate":"2024-05-12","count":0}
+{
+    "name": "",
+    "species": "Fyrorage",
+    "tags": [
+        "Fire",
+        "Elemental"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#592929",
+        "#242323",
+        "#d70909",
+        "#000000",
+        "#FFFFFF",
+        "#000000"
+    ],
+    "basePower": 5,
+    "biomeModifiers": [
+        {
+            "biome": "Volcano",
+            "modifier": 10
+        },
+        {
+            "biome": "Cloud",
+            "modifier": -5
+        },
+        {
+            "biome": "Ocean",
+            "modifier": -7
+        },
+        {
+            "biome": "Lake",
+            "modifier": -6
+        },
+        {
+            "biome": "Forest",
+            "modifier": 5
+        }
+    ],
+    "rest": 1,
+    "abilities": [
+        {
+            "name": "Flash Fire",
+            "params": [
+                [],
+                [],
+                [
+                    "Deal 2 damage to all non-Fire Creatures",
+                    "3"
+                ],
+                [
+                    "\"If at least 6 damage was dealt\"",
+                    0,
+                    50
+                ],
+                [
+                    2
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "$ exhaust: 1",
+                    "type": "cost",
+                    "atomName": "exhaust",
+                    "atom": {
+                        "name": "exhaust",
+                        "text": "reduce this creature's power by {cost}",
+                        "type": "cost",
+                        "params": {
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "1"
+                    ],
+                    "cachedCost": -2.727272727272727
+                },
+                {
+                    "line": "? home",
+                    "type": "req",
+                    "atomName": "home",
+                    "atom": {
+                        "name": "home",
+                        "text": "this creature must be in a home biome",
+                        "type": "req",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -9
+                },
+                {
+                    "line": "> custom-effect: \"deal 2 damage to all non-fire creatures\", 3",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "Deal 2 damage to all non-Fire Creatures",
+                        "3"
+                    ],
+                    "cachedCost": 9
+                },
+                {
+                    "line": "? custom-requirement: \"if at least 6 damage was dealt\", 0, 50",
+                    "type": "req",
+                    "atomName": "custom-requirement",
+                    "atom": {
+                        "name": "custom-requirement",
+                        "text": "{line}",
+                        "type": "req",
+                        "params": {
+                            "line": "_string",
+                            "discount": "_numberwhole",
+                            "discountFactor": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "If at least 6 damage was dealt",
+                        "0",
+                        "50"
+                    ],
+                    "cachedCost": -3
+                },
+                {
+                    "line": "> powerup: 2",
+                    "type": "effect",
+                    "atomName": "powerup",
+                    "atom": {
+                        "name": "powerup",
+                        "text": "gain {power} power",
+                        "type": "effect",
+                        "params": {
+                            "power": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [
+                        "2"
+                    ],
+                    "cachedCost": 6
+                }
+            ],
+            "colonIndex": 1,
+            "lineDisplayOptions": [
+                "reminder",
+                "keyword",
+                "full",
+                "full",
+                "reminder"
+            ],
+            "codeText": "Flash Fire\n        $ exhaust: 1 \n? home \n> custom-effect: \"Deal 2 damage to all non-Fire Creatures\", 3 \n? custom-requirement: \"If at least 6 damage was dealt\", 0, 50 \n> powerup: 2 "
+        },
+        {
+            "name": "Homebound",
+            "params": [
+                [
+                    "\"When not in a Home biome this creature has 0 power\"",
+                    0
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "> custom-effect: \"when not in a home biome this creature has 0 power\", 0",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "When not in a Home biome this creature has 0 power",
+                        "0"
+                    ],
+                    "cachedCost": 0
+                }
+            ],
+            "colonIndex": -1,
+            "lineDisplayOptions": [
+                "full"
+            ],
+            "codeText": "Homebound\n        > custom-effect: \"When not in a Home biome this creature has 0 power\", 0 "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "If it burns, it's food.",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.012",
+    "creationDate": "2024-05-12",
+    "count": 0
+}

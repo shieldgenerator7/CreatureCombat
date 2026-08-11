@@ -1,1 +1,128 @@
-{"name":"","species":"Firefly","tags":["Insect","Fire","Light"],"imageFit":0,"colors":["#592929","#242323","#d70909","#000000","#FFFFFF","#000000"],"basePower":1,"biomeModifiers":[{"biome":"Volcano","modifier":1},{"biome":"Mountain","modifier":1},{"biome":"Forest","modifier":1},{"biome":"Plain","modifier":1}],"rest":2,"abilities":[{"name":"Glow","params":[[],["Choose a target creature"],["The next time that creature takes damage increase the damage taken by 2","1"]],"lines":[{"line":"! greeting","type":"trigger","atomName":"greeting","atom":{"name":"greeting","text":"when another ally creature enters the battlefield","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-2.4000000000000004},{"line":"> custom-effect: \"choose a target creature\"","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["Choose a target creature"],"cachedCost":0},{"line":"> custom-effect: \"the next time that creature takes damage increase the damage taken by 2\", 1","type":"effect","atomName":"custom-effect","atom":{"name":"custom-effect","text":"{line}","type":"effect","params":{"line":"_string","cost":"_numberwhole"},"settings":{"keywordable":false}},"params":["The next time that creature takes damage increase the damage taken by 2","1"],"cachedCost":3}],"colonIndex":0,"lineDisplayOptions":["reminder","full","full"],"codeText":"Glow\n        ! greeting \n> custom-effect: \"Choose a target creature\" \n> custom-effect: \"The next time that creature takes damage increase the damage taken by 2\", 1 "}],"showReminderText":true,"flavorText":"If the forest is a body, the fireflies are the t-cells.","id":"","variant":"01/01","editorVersion":"0.012","creationDate":"2024-05-12","count":0}
+{
+    "name": "",
+    "species": "Firefly",
+    "tags": [
+        "Insect",
+        "Fire",
+        "Light"
+    ],
+    "imageFit": 0,
+    "colors": [
+        "#592929",
+        "#242323",
+        "#d70909",
+        "#000000",
+        "#FFFFFF",
+        "#000000"
+    ],
+    "basePower": 1,
+    "biomeModifiers": [
+        {
+            "biome": "Volcano",
+            "modifier": 1
+        },
+        {
+            "biome": "Mountain",
+            "modifier": 1
+        },
+        {
+            "biome": "Forest",
+            "modifier": 1
+        },
+        {
+            "biome": "Plain",
+            "modifier": 1
+        }
+    ],
+    "rest": 2,
+    "abilities": [
+        {
+            "name": "Glow",
+            "params": [
+                [],
+                [
+                    "Choose a target creature"
+                ],
+                [
+                    "The next time that creature takes damage increase the damage taken by 2",
+                    "1"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! greeting",
+                    "type": "trigger",
+                    "atomName": "greeting",
+                    "atom": {
+                        "name": "greeting",
+                        "text": "when another ally creature enters the battlefield",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -2.4000000000000004
+                },
+                {
+                    "line": "> custom-effect: \"choose a target creature\"",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "Choose a target creature"
+                    ],
+                    "cachedCost": 0
+                },
+                {
+                    "line": "> custom-effect: \"the next time that creature takes damage increase the damage taken by 2\", 1",
+                    "type": "effect",
+                    "atomName": "custom-effect",
+                    "atom": {
+                        "name": "custom-effect",
+                        "text": "{line}",
+                        "type": "effect",
+                        "params": {
+                            "line": "_string",
+                            "cost": "_numberwhole"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "The next time that creature takes damage increase the damage taken by 2",
+                        "1"
+                    ],
+                    "cachedCost": 3
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "reminder",
+                "full",
+                "full"
+            ],
+            "codeText": "Glow\n        ! greeting \n> custom-effect: \"Choose a target creature\" \n> custom-effect: \"The next time that creature takes damage increase the damage taken by 2\", 1 "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "If the forest is a body, the fireflies are the t-cells.",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.012",
+    "creationDate": "2024-05-12",
+    "count": 0
+}

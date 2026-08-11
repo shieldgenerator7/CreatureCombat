@@ -1,1 +1,85 @@
-{"name":"","species":"bold test","tags":[],"imageFit":0,"colors":["#D7D7D7","#717171","#000000","#000000","#FFFFFF","#FFFFFF"],"basePower":1,"biomeModifiers":[],"rest":1,"abilities":[{"name":"Hide Young IIIIIIIIIIIIIIIIIIII","params":[[],["2","that-creature","all-team"]],"lines":[{"line":"! greeting","type":"trigger","atomName":"greeting","atom":{"name":"greeting","text":"when another ally creature enters the battlefield","type":"trigger","params":{},"settings":{"keywordable":true}},"params":[],"cachedCost":-7.2},{"line":"> ward-any: 2, that-creature, all-team","type":"effect","atomName":"ward-any","atom":{"name":"ward-any","text":"{target} gains *Ward {ward}*","type":"effect","params":{"ward":"_numberwhole","target":"_creature","_team":"_team"},"settings":{"keywordable":false}},"params":["2","that-creature","all-team"],"cachedCost":9}],"colonIndex":0,"lineDisplayOptions":["reminder","full"],"codeText":"Hide Young IIIIIII\n        ! greeting \n> ward-any: 2, that-creature, all-team "}],"showReminderText":true,"flavorText":"Flavor text *TEST BOLD* yes ok, THIS PART IS NOT BOLDsoijhopijhoifgjhoifgjhoidfgjhdopijfghpodifghoigjdho","id":"","variant":"01/01","editorVersion":"0.012","creationDate":"2024-05-12","count":1}
+{
+    "name": "",
+    "species": "bold test",
+    "tags": [],
+    "imageFit": 0,
+    "colors": [
+        "#D7D7D7",
+        "#717171",
+        "#000000",
+        "#000000",
+        "#FFFFFF",
+        "#FFFFFF"
+    ],
+    "basePower": 1,
+    "biomeModifiers": [],
+    "rest": 1,
+    "abilities": [
+        {
+            "name": "Hide Young IIIIIIIIIIIIIIIIIIII",
+            "params": [
+                [],
+                [
+                    "2",
+                    "that-creature",
+                    "all-team"
+                ]
+            ],
+            "lines": [
+                {
+                    "line": "! greeting",
+                    "type": "trigger",
+                    "atomName": "greeting",
+                    "atom": {
+                        "name": "greeting",
+                        "text": "when another ally creature enters the battlefield",
+                        "type": "trigger",
+                        "params": {},
+                        "settings": {
+                            "keywordable": true
+                        }
+                    },
+                    "params": [],
+                    "cachedCost": -7.2
+                },
+                {
+                    "line": "> ward-any: 2, that-creature, all-team",
+                    "type": "effect",
+                    "atomName": "ward-any",
+                    "atom": {
+                        "name": "ward-any",
+                        "text": "{target} gains *Ward {ward}*",
+                        "type": "effect",
+                        "params": {
+                            "ward": "_numberwhole",
+                            "target": "_creature",
+                            "_team": "_team"
+                        },
+                        "settings": {
+                            "keywordable": false
+                        }
+                    },
+                    "params": [
+                        "2",
+                        "that-creature",
+                        "all-team"
+                    ],
+                    "cachedCost": 9
+                }
+            ],
+            "colonIndex": 0,
+            "lineDisplayOptions": [
+                "reminder",
+                "full"
+            ],
+            "codeText": "Hide Young IIIIIII\n        ! greeting \n> ward-any: 2, that-creature, all-team "
+        }
+    ],
+    "showReminderText": true,
+    "flavorText": "Flavor text *TEST BOLD* yes ok, THIS PART IS NOT BOLDsoijhopijhoifgjhoifgjhoidfgjhdopijfghpodifghoigjdho",
+    "id": "",
+    "variant": "01/01",
+    "editorVersion": "0.012",
+    "creationDate": "2024-05-12",
+    "count": 1
+}
