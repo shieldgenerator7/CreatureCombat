@@ -36,7 +36,7 @@ At each landmark, each player places creatures to be their “hand”. To play a
 
 You can activate a creature’s ability, if all conditions are met, and if you pay any costs associated with it.
 
-Fight a creature: Your creature and another creature fight. The creatures with the highest power deal damage to the other creatures without the highest power. The damage dealt is equal to the highest creature’s base power. If the highest power is double the second highest power, the damage is doubled.
+Fight a creature: Your creature and another creature fight. The creatures with the highest power deal damage to the other creatures without the highest power. The damage dealt is equal to the highest creature’s base power. If the highest power is double the second highest power, the damage is doubled. This action is slow.
 
 Resolving the battle means tallying up the total power of all creatures for each player, and the player with the highest total power wins the landmark. This action is super slow.
 
@@ -95,14 +95,14 @@ There are 3 zones:
 
 -   Army (each player)
 -   Battle (only 1)
--   Hand (each player)
+    -   Hand (each player)
 -   Resting (each player)
 
 Each player has an army zone, which has every creature that a player can deploy to a landmark.
 
 The battle zone includes the current landmark and all creatures at that landmark.
 
-Each player has a hand, which contains all creatures deployed to that landmark but who haven’t arrived yet. When a player plays that creature, that creature arrives at the landmark.
+Each player has a hand, which contains all creatures deployed to that landmark but who haven’t arrived yet. When a player plays that creature, that creature arrives at the landmark. This zone is part of the battle zone.
 
 Each player has a Rest zone, where their creatures go to rest between battles.
 
@@ -142,6 +142,8 @@ Abilities are all activatable. There are no passive abilities in this game.
 
 Complex keywords. Some keywords are complex to make up for the lack of passives in this game. If a keyword has an activatable component to it, then it is only accessible through the specified trigger. For example, Flying only triggers when the battle resolves. You may not activate this effect manually.
 
+General note for triggering events: abilities can be triggered by other abilities, player actions, and moments starting in the same zone as the creature. Creatures cannot interact with creatures in other zones. Moments can only happen in the battle zone. Special rare abilities that can be activated in the rest zone don’t trigger anything, because they don’t make a moment. Abilities can only be activated inside a moment (except the special rare resting zone abilities). For clarification, the following each create a moment: battle beginning, battle resolving, battle ending. The individual steps of the rest process do not create moments.
+
 ## Moments
 
 Each player’s turn is a “moment”. Its like a turn in DnD, it’s a very small amount of time in which a lot can happen. It’s also similar to a stack in MtG, but it works differently.
@@ -156,11 +158,13 @@ One ability per creature per moment: Each creature can only be in the queue once
 
 Creature arrival: abilities can trigger when a creature arrives. If the creature has a battlecry ability, it activates right after it arrives, regardless of the speed of the ability. If the speed matters, it changes when the arrival happens too.
 
+Adjoined action and triggered ability: When a creature reacts to its own action (such as with arriving and Battlecry, fighting and Fight), the action and the trigger are adjoined, mean they happen right after the other. First, the action happens, and then the ability happens, with no other ability from other creatures in between. If the speed of the action and the speed of the ability are different, use the speed of the ability.
+
 ## Speeds
 
 Abilities and actions have a speed that determine where they get placed in the queue. Note that “interrupt” just means “go before it” and does not necessarily mean that the interrupted ability gets canceled.
 
--   Super fast – rare, used for effects that can’t be interrupted. For example, Battlecry is super fast because it needs to happen right after the creature enters.
+-   Super fast – rare, used for effects that can’t be interrupted.
 -   Fast – happens before the triggering ability. Used to make abilities meant to interrupt other creature’s abilities
 -   Medium – this is the default. When an ability or action doesn’t say what speed it is, it goes at this speed.
 -   Slow – other abilities can interrupt it. Used for giant massive game changing abilities.
@@ -189,6 +193,7 @@ Ability triggers:
 -   Ambush – When an enemy creature arrives, trigger this ability
 -   Battlecry – When this creature arrives, trigger this ability
 -   Block – When an enemy ability targets another ally creature, trigger this ability
+-   Brawl – When two or more creatures fight, trigger this ability
 -   Dawn – When the battle begins, trigger this ability
 -   Deathrattle – When this creature has damage counters equal to its total power, trigger this ability
 -   Dusk – When the battle ends, trigger this ability
