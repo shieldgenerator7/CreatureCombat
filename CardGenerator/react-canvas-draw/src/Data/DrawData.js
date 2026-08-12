@@ -50,22 +50,6 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(marginWidth, height - margin * 2),
             (card) => card.imgPortrait,
         ),
-        //background
-        // new DrawLayer(
-        //     DRAWLAYER_BOX,
-        //     'white',
-        //     new Vector2(margin, margin),
-        //     new Vector2(marginWidth, markersY[1] - margin),
-        //     (card) => card.colors[0]
-        // ),
-        //cost circle
-        // new DrawLayer(
-        //     DRAWLAYER_CIRCLE,
-        //     "#00000022",
-        //     new Vector2(width - margin - 45, margin + rowheight * 0.7),
-        //     new Vector2(rowheight * 0.7, rowheight * 0.7),
-        //     (card) => "#FFFFFF22"
-        // ),
         //type bg
         new DrawLayer(
             DRAWLAYER_BOX_ROUND,
@@ -74,13 +58,6 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(boxWidth, boxHeight),
             (card) => card.colors[1],
         ),
-        //text border
-        // new DrawLayer(
-        //     DRAWLAYER_BOX,
-        //     'black',
-        //     new Vector2(margin, markersY[2]),
-        //     new Vector2(marginWidth, rowheight * 0.2)
-        // ),
         //card info bg
         new DrawLayer(
             DRAWLAYER_BOX,
