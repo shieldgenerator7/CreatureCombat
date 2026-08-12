@@ -100,6 +100,10 @@ class Creature {
         return `${nameStr}${pointStr}`;
     }
 
+    getRestValue() {
+        return this.rest ?? this.basePower;
+    }
+
     getRestText(reminder = true) {
         if (!(this.rest > 0)) { return undefined; }
         let text = `*Rest ${this.rest}* `;

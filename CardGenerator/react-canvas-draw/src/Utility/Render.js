@@ -1,7 +1,7 @@
 "use strict";
 
 import { FIT_WHOLE, FIT_WIDTH, FIT_HEIGHT, FIT_FILL } from "../Data/Creature";
-import { DRAWLAYER_BOX, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_LAYERS, DRAWLAYER_TEXT } from "../Data/DrawLayer";
+import { DRAWLAYER_BOX, DRAWLAYER_BOX_ROUND, DRAWLAYER_CIRCLE, DRAWLAYER_IMAGE, DRAWLAYER_LAYERS, DRAWLAYER_TEXT } from "../Data/DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "../Data/Vector2";
 import { VERSION } from "../Version";
 import { arraySort, getDateString, getLines } from "./Utility";
@@ -29,6 +29,12 @@ export function renderCard(card, canvas, drawData) {
             case DRAWLAYER_BOX:
                 context.fillStyle = draw.getInfo(card) ?? draw.color;
                 context.fillRect(draw.position.x, draw.position.y, draw.size.x, draw.size.y);
+                break;
+            case DRAWLAYER_BOX_ROUND:
+                context.fillStyle = draw.getInfo(card) ?? draw.color;
+                context.beginPath();
+                context.roundRect(draw.position.x, draw.position.y, draw.size.x, draw.size.y, 10);
+                context.fill();
                 break;
             case DRAWLAYER_CIRCLE:
                 context.beginPath();
@@ -119,6 +125,9 @@ export function renderCard(card, canvas, drawData) {
             case DRAWLAYER_TEXT:
                 let text = `${draw.getInfo(card)}`;
                 if (!text) { return; }
+                
+                context.fillStyle = draw.getInfo(card) ?? draw.color;
+                context.strokeStyle = draw.getInfo(card) ?? draw.color;
                 //compress text to keep keywords together with their number (undone below)
                 text = text.replaceAll(/\*([A-Z][a-z]+) ([0-9]+)\*/g, "*$1$2*");
                 //
