@@ -112,7 +112,6 @@ Do combat for each Land separately. For each Land:
 1.  Take Battle Actions:
 -   Activate Creature abilities
 -   Play Creature cards from your hand faceup at the Land
-1.  Reveal your Creatures deployed at that Land.
 2.  Count up your Creatures’ total power at that Land.
     1.  A Creature’s power is equal to its Base Power plus its Biome Modifier.
     2.  The Creature’s Biome Modifier is the one that matches the biome of the Land it’s at.
