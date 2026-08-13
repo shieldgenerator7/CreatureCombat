@@ -281,6 +281,8 @@ Three: nothings more frustrating than having your creatures killed all the time.
 
 **Points**: The card cost is how many points it costs to put this creature in a player’s deck. The cost is auto-calculated by the creature’s base power and biome mods. It is up to you, the designer, to increase the cost for the creature’s abilities. This number is the main way that you balance a card.
 
+-   No point cost should evenly divide into 100. 5 and 2 are ok tho. This is to prevent players from running 5 copies of the same 20pt card or 2 copies of the same 50pt card, or 1 copy of a 100pt card. I mean, they still can, but then they will have a deck with a total point cost of less than 100, which is suboptimal. I might rescind this rule in the future, but for now I think this is a good rule.
+
 **Star count**: The star count is just a summary of the cost.
 
 **Tags**: The tags are for identifying groups this creature fits into. Ex: a tiger is a feline.
