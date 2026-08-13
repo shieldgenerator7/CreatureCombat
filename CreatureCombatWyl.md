@@ -46,9 +46,25 @@ Resolving the battle means tallying up the total power of all creatures for each
 
 Claim the most landmarks by the end of the game. The game ends when all landmarks have been claimed.
 
+## Pieces
+
+To play a game of Wyl Creature Combat, each player will need:
+
+-   A deck of creatures totaling 100pts. See Deck Rules below.
+-   A deck of 5 unique landmarks. See Deck Rules below.
+-   A way to keep track of counters. Dice, paper clips, poker chips, pen & paper, a notes app, etc work well for this
+-   A way to hide your initial hand. Holding your deck under the table, a manila folder, some type of divider, etc works well for this
+-   A way to keep track of creatures’ cooldowns. Counters as mentioned above work for this too, but a custom playmat with cooldown tracking zones is recommended
+
+Additionally, collectively you will need:
+
+-   A hard flat surface to play on. A table works well for this
+-   A method to determine who goes first. Dice, rock paper scissors, “youngest goes first”, etc work well for this
+-   A way to remember who’s turn it is. Just remembering it works well for this, but you can also use a stuffed animal to pass around
+
 ## Setup
 
-Shuffle all landmarks into one big pile. Each player brings their own creature deck (called their “army”) that meets the criteria. (see deckbuilding). Players do not need to shuffle their army.
+Shuffle all landmarks into one big pile. Each player sets their creature deck (called their “army”) on the table, and turn a named creature face up on top of it.
 
 ## Round
 
@@ -163,6 +179,21 @@ Abilities and actions have a speed that determine where they get placed in the q
 -   Medium – this is the default. When an ability or action doesn’t say what speed it is, it goes at this speed.
 -   Slow – other abilities can interrupt it. Used for giant massive game changing abilities.
 -   Super slow – rare, used for effects that need to go after slow abilities, like resolving the battle.
+
+# Deck Rules
+
+When you make your own creature deck, here are the rules it must follow:
+
+-   The total point cost of creatures in it must be 100 or less. The point cost is displayed on the bottom right corner of each creature.
+-   You may have any number of copies of a creature
+-   At least one creature in the deck must be named. A named creature is one that has a name written in its pet name field
+-   That’s it
+
+When you make your own landmark deck, here are the rules it must follow:
+
+-   It must contain exactly 5 landmark cards
+-   You may only have 1 copy of each landmark in your deck
+-   Landmarks may share the same terrains
 
 # Keyword Glossary
 
@@ -311,3 +342,6 @@ Most of these ideas come from MtG and are ways that they added an element of sur
 
 Mark Rosewater’s 20 fav MtG mechanics  
 <https://youtu.be/_YvqTR0Zvno?t=3481>
+
+Kohdok’s guide to TCG instructions: pieces needed  
+<https://youtu.be/w6nbElJLud8?t=1044>
