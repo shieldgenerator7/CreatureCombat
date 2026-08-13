@@ -293,3 +293,21 @@ If the creature has an ability, the card may show the creature using that abilit
 Showing multiple of the same creature is ok. Ex: itd be weird if you just saw 1 ant.
 
 Each creature that has a magical ability has a focus that lets them use magic. The art should show the focus glowing that is used by an ability. Ex: a deer using a transformation magic ability should show its antlers glowing. Note that some creatures have more than one focus, and that each focus used by an ability on the card should be glowing. So in effect, a person could look at the drawing of the creature and generally tell what kind of magic its ability is going to use.
+
+## Cards
+
+Each card should have a front and a back. The back should always be the creature combat logo, or whatever the standard back design is. The following is prohibited, due to logistical headaches for publication and player experience:
+
+-   Transforming cards that use the backside of the card as the other form
+-   Combining cards that combine with another separate card to create one big card
+-   Split cards that have two cards printed on them sideways side by side
+-   Cards that rotate 180 degrees to have a different effect
+-   Cards that flip to have different stats or abilities
+-   Cards that rotate to change its stats or abilities
+
+Most of these ideas come from MtG and are ways that they added an element of surprise, novelty, and flexibility to cards. The main way to do this in this game is to have an effect that switches out the current creature with a creature from your army and/or side board. If we have a side board. It can name a specific card if it needs to. I’m aware this might create problems for booster packs where you get one half and not the other. That’s a problem to solve for a different day. Mostly I don’t want to deal with logistical headaches from card layouts.
+
+# References
+
+Mark Rosewater’s 20 fav MtG mechanics  
+<https://youtu.be/_YvqTR0Zvno?t=3481>
