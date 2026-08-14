@@ -273,6 +273,50 @@ Two: I like combo decks, and I dislike when my combos are interrupted with thing
 
 Three: nothings more frustrating than having your creatures killed all the time. So in this game, theres no graveyard. Its like pokemon. Your creatures don’t die, they get exhausted. Also, there’s going to be design restrictions around things like canceling abilities. Plus, abilities can usually be activated more than once in a battle, so its not so bad if your super awesome battle gets canceled. Maybe, hopefully.
 
+## Language
+
+How we talk about the creatures matters, including the diction, grammar construction, and perspective.
+
+In MtG, you are a powerful mage summoning creatures to your aid. But in this game, you as a player do not exist in-game. In Pokemon, youre the trainer, but in this game, you are the observer. You “observe” what the creatures do, by showing what they do by moving for them. You don’t control them, you merely update the board state based on what they would do. The language should reflect that.
+
+Here’s some constructions in MtG and how they would be constructed in WCC:
+
+-   “creature you control” -\> “friendly creature”
+-   “creature you don’t control" -\> "hostile creature"
+-   “target creature” -\> “a creature”
+-   “that creature” -\> “the creature”, “chosen creature” (friendly), “targeted creature” (hostile)
+
+Target one of your creatures: “a friendly creature”
+
+Target an opponent’s creature: “a hostile creature”
+
+Refer to a previously targeted friendly creature: “the chosen creature”
+
+Refer to a previously targeted hostile creature: “the targeted creature”
+
+Creature abilities should be phrased as a command, instead of a statement. The command word should always be the first word.  
+NO: “This creature gives a friendly creature +1”  
+NO: “A friendly creature gets +1”  
+YES: “Give a friendly creature +1”  
+MtG Translation: “Target creature you control gets +X/+X”
+
+To have a temporary effect, add “briefly” at the end of an ability. This means it lasts until the moment ends.  
+“Give a friendly creature +1, briefly”  
+In MtG, they say things like “until end of turn”
+
+Creatures ARE types, DO/CAN DO abilities, DO/CAN DO keywords, HAVE counters, and are NAMED
+
+-   “Transform a friendly creature into an Adir”
+    -   “Target creature you control becomes an Elk in addition to its other types”
+-   “Give a friendly creature +1. If the chosen creature is an Adir, give it +2 instead.”
+    -   “Target creature gets +1/+1. If that creature is an Elk, give it +2/+2 instead.”
+-   “Let friendly Adir creatures do: ‘Fight: Get +2’”
+    -   “Elk creatures you control have ‘When this creature fights another creature, this creature gets +2/+2’”
+-   “Let a friendly creature do Flying, briefly”
+    -   “Target creature you control has Flying until end of turn”
+-   “If a friendly creature has 2 shield counters, give the chosen creature +2”
+    -   “If target creature you control has 2 or more shield counters, that creature gets +2/+2”
+
 ## Rules
 
 ### Creature
