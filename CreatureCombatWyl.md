@@ -197,6 +197,54 @@ When you make your own landmark deck, here are the rules it must follow:
 -   You may only have 1 copy of each landmark in your deck
 -   Landmarks may share the same terrains
 
+# Dictionary
+
+Here’s what these non-keywords words mean.
+
+-   A [creature] – Select a creature.  
+    EX: “Give a creature +1” means select a creature and increase its bonus power value by 1.
+-   Activate – use a creature’s ability. Triggering a creature’s ability as a reaction counts as activating it. Activating an ability adds it to the moment, or creates a new moment if it’s the first activated ability on a player’s turn.
+-   Arrive – a creature arrives when it is played from a hand to the landmark
+-   Army – a pile of creatures from which you may construct a hand for a landmark. It is not ordered and you may look at its contents at any time. You keep this hidden from the other players.
+-   Bad Value – a value that players typically don’t want on their creatures, i.e. they want the value to be 0.
+-   Big – having a high base power
+-   Biome – a type indicator for a landmark.
+-   Biome Bonus – a positive biome mod
+-   Biome Mod – an additional amount of power a creature gets for being in a certain biome. Positive for a home biome, negative for a foreign biome. Default is 0 if the biome is not listed on the creature. Note that the biome mod is printed on the creature, and thus is not a value.
+-   Biome Penalty – a negative biome mod
+-   Bonus Power – the part of the creature’s power that gets added via card effects, and does not come from the creature’s base power or biome mods.
+-   Briefly – until the moment ends
+-   Cancel – cause an ability in the moment to not resolve when it becomes the current processed ability.
+-   Chosen – a friendly creature that was previously selected.  
+    EX: “Give a friendly creature +1. Let the chosen creature fight a hostile creature.”
+-   Claim – take control of a landmark. Claiming landmarks gets you closer to winning the game.
+-   Creature – a card that has a power level and can contribute to the total power at a landmark. All cards are creatures.
+-   Deploy – move a creature from your army to a hand at a landmark
+-   Down – to increase a creature’s Damage value to or past its base power
+-   Downed - a creature is downed while its Damage value is equal to or greater than its base power.
+-   Foreign Biome – a biome in which a creature has a negative biome mod for
+-   Friendly – creatures on the same team are friendly
+-   Good Value – a value that players typically want on their creatures, the higher the better
+-   Hand – a collection of cards that you keep hidden from other players at the table. You play creatures from your hand to the landmark. Each hand is tied to a specific landmark.
+-   Heal – decrease a creature’s Damage value
+-   Healthy – a creature with a Damage value of 0 is healthy
+-   Home Biome – a biome that a creature has a positive biome mod for
+-   Hostile – creatures on the enemy team are hostile
+-   Landmark – a card that is a location where creatures are played to
+-   Moment – when a creature takes an action, it creates a window of time in which other creatures can react. This is called a moment. Triggerable abilities can only trigger during a moment.
+-   Play – to play a creature, move it from your hand to the landmark tied to that hand
+-   Power – a creature’s total power.
+-   Resolve – carry out the effect of the current processed ability in the moment.
+-   Rest Zone – where your creatures go after the battle is over. When a creature is done resting, it returns to your army.
+-   Shielded – a creature with Shield value of 1 or more is shielded
+-   Small – having a low base power
+-   Targeted – a hostile creature that was previously selected.  
+    EX: “Take -1 from a hostile creature. Make the targeted creature fight a friendly creature.”
+-   Total Power – a creature’s power, which is equal to its base power, biome mods, bonus power, and temp bonus power. If a creature’s base power is 0, its total power is 0.
+-   Trigger – to activate an ability when its condition is met
+-   Value – a variable that is used to change the game state. Commonly tracked with counters. Values cannot go below 0. Values default to 0.
+-   Wounded – a creature is wounded while its Damage value is 1 or more.
+
 # Keyword Glossary
 
 Here’s a list of some keywords in the game. Im sure I have a list of these somewhere else too. Complex keywords are ones that contain other keywords.
