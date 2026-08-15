@@ -112,17 +112,19 @@ Each player has a Rest zone, where their creatures go to rest between battles.
 
 Whenever a creature gets put in your hand or your army, it loses all counters.
 
-## Counters
+## Values
 
-Counters are markers you put on creatures to indicate a change in state. Counters stack.
+Values show the state of a creature. Some values are printed on the card, like the Rest value. Many other values are not printed on the card, such as bonus power. These are called “state values”. By default, all state values are 0. Most state values serve a specific function and have mechanics tied to them, but that is not a requirement. State values can only be positive, ranging from 0 to positive infinity. Some state values are beneficial, like bonus power. These are called “good values”. Some state values are harmful, like damage. These are called “bad values”.
 
-Common counters:
+Often these are tracked with physical counters, much like +1/+1 counters in MtG.
 
--   Exhaustion counters. After battling, each creature gets exhaustion counters. While a creature has exhaustion counters, it cant be added to your army. Each resting creature loses an exhaustion counter at the end of each round.
--   Power counters. Each one increases your creature’s bonus power by 1.
--   Damage counters. Each one decreases your creature’s bonus power by 1. If a creature has damage equal to or greater than their base power, they don’t contribute their power to the combined total.
--   Stun counters. If a creature has any stun counters, it is stunned: its abilities cant be resolved. At the start of each player’s turn, they remove a stun counter from each of their creatures.
--   Shield counters. If a creature would gain a damage counter, instead remove a shield counter. Adding a shield counter doesn’t remove existing damage counters.
+Common values:
+
+-   Exhaustion value. After battling, each creature’s exhaustion value increases. While a creature’s exhaustion value is greater than 0, it cant be added to your army. A resting creature’s exhaustion value decreases by 1 at the end of each round.
+-   Bonus Power value. This is added to a creature’s base power and biome mods to get their total power. Note that total power isn’t a value, because it is calculated, not tracked.
+-   Damage value. This represents the amount of damage this creature has taken. This is subtracted from a creature’s power base/mods/values to get their total power. If a creature’s damage value is equal to or greater than their base power, they are “wounded”. A wounded creature doesn’t contribute their power to the combined total in the finale, and can’t join fights.
+-   Stun value. If a creature’s stun value is 1 or more, they are stunned: their abilities cant be resolved. At the end of each player’s turn, they remove a stun counter from each friendly creature.
+-   Shield value. While a creature has a shield value of 1 or more, if a creature’s damage value would increase by 1, instead decrease its shield value by 1. Increasing the shield value doesn’t decrease the existing damage value.
 
 ## Tags vs Keywords
 
@@ -316,6 +318,8 @@ Creatures ARE types, DO/CAN DO abilities, DO/CAN DO keywords, HAVE counters, and
     -   “Target creature you control has Flying until end of turn”
 -   “If a friendly creature has 2 shield counters, give the chosen creature +2”
     -   “If target creature you control has 2 or more shield counters, that creature gets +2/+2”
+
+Don’t refer to ways of tracking game state, just refer to the game state. Don’t say “shield counters”, just say “shields”.
 
 ## Rules
 
