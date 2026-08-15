@@ -245,6 +245,34 @@ Here’s what these non-keywords words mean.
 -   Value – a variable that is used to change the game state. Commonly tracked with counters. Values cannot go below 0. Values default to 0.
 -   Wounded – a creature is wounded while its Damage value is 1 or more.
 
+# MtG Dictionary
+
+Words used in MtG and their WCC equivalent.
+
+-   Artifact - creature
+-   Battle – landmark
+-   Counter - cancel
+-   Creature – creature
+-   Draw - deploy
+-   Enchantment - creature
+-   “Enters the battlefield” – arrives
+-   Exile – no equivalent
+-   Graveyard – downed
+-   Hand – hand
+-   Instant – creature with a fast Battlecry ability
+-   Land – landmark, landmark mana
+-   Library - army
+-   Life total – no equivalent
+-   Mana – mana
+-   Mill – no equivalent
+-   Phase – no equivalent?
+-   Planeswalker - creature
+-   Shuffle – no equivalent for army, shuffle for landmark deck
+-   Sorcery – creature with a slow Battlecry ability or an ability with no trigger at all
+-   Stack – moment / queue
+-   Step – no equivalent?
+-   Tap - tap
+
 # Keyword Glossary
 
 Here’s a list of some keywords in the game. Im sure I have a list of these somewhere else too. Complex keywords are ones that contain other keywords.
