@@ -468,6 +468,26 @@ Each card should have a front and a back. The back should always be the creature
 
 Most of these ideas come from MtG and are ways that they added an element of surprise, novelty, and flexibility to cards. The main way to do this in this game is to have an effect that switches out the current creature with a creature from your army and/or side board. If we have a side board. It can name a specific card if it needs to. I’m aware this might create problems for booster packs where you get one half and not the other. That’s a problem to solve for a different day. Mostly I don’t want to deal with logistical headaches from card layouts.
 
+### Abilities
+
+Here are the rules for the abilities, and some restrictions on what they can or cant do. Note that the guide language for the abilities is in the language section, this section is a guide for the design of the abilities.
+
+-   Abilities can only effect creatures in the same zone.
+    -   Creatures at the landmark can only effect other creatures at the same landmark
+    -   Creatures in the hand at the landmark are fair game
+    -   The exception to this rule is deploy, which lets you move a creature from your army to your hand.
+-   Abilities can’t be passives that need updated constantly
+    -   Its recommended to have them trigger when important  
+        EX: instead of “friendly creatures have +1”, say “Fight, Finale: Give friendly creatures +1, briefly”
+-   Triggered abilities can be activated without the trigger once on a player’s turn. So separate the trigger from the effect.
+-   Requirements are only checked when an ability is about to be resolved. Which means it can be activated without meeting the requirement, but if the requirement is met before it is checked, the ability can resolve
+-   Abilities can’t have an effect that permanently changes the physical card in anyway (no “draw on this card” or “rip this card” effects)
+-   Abilities can check to see if the creature has a pet name (which is a permanent change to the card), and if that pet name matches the pet name on other creatures (used for transformation effects)
+-   Abilities can modify any value.
+-   Abilities cannot modify a creature’s base power. Instead, for attack, increase a creature’s bonus power; for defense, increase a creature’s shield value.
+-   Abilities can refer to a specific card by species name, although it is discouraged. It’s better to refer to a creature’s type
+-   Abilities can refer to a creature’s type
+
 # References
 
 Mark Rosewater’s 20 fav MtG mechanics  
