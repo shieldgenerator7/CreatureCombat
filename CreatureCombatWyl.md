@@ -303,6 +303,7 @@ Ability triggers:
 -   Fight – When this creature fights one or more other creatures
 -   Finale – When the battle is resolved, trigger this ability. Resolving a battle happens at super slow speed.
 -   Greeting – When another ally creature arrives, trigger this ability
+-   Instigate – When this creature takes the fight action
 -   Intercept – When an enemy ability targets another enemy creature, trigger this ability
 -   Retaliate – When this creature gains damage counters, trigger this ability
 -   Watcher – When another creature arrives (possibly with conditions), trigger this ability
@@ -314,7 +315,10 @@ Ability costs:
 
 Ability actions:
 
+-   Cancel [magic genera] – Target activated ability of [magic genera] type doesn’t resolve.
 -   Damage X – Target creature gains X damage counters (default 1)
+-   Deploy – Move a friendly creature from your army to your current hand
+-   Fear – Return a hostile creature to their hand.
 -   Heal X – Target creature loses X damage counters (default 1)
 -   Power X – Target creature gains X power counters (default 1)
 -   Scout X – Look at the top X cards from the Landmark deck, choose 1 as the scouted land, put it faceup on top, and put the rest on the bottom in any order
