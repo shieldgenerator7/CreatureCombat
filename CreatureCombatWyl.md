@@ -172,6 +172,43 @@ Creature arrival: abilities can trigger when a creature arrives. If the creature
 
 Adjoined action and triggered ability: When a creature reacts to its own action (such as with arriving and Battlecry, fighting and Fight), the action and the trigger are adjoined, mean they happen right after the other. First, the action happens, and then the ability happens, with no other ability from other creatures in between. If the speed of the action and the speed of the ability are different, use the speed of the ability.
 
+When a creature reacts to an action or ability of another creature, the action with the higher speed goes first in the queue. If the same speed, other factors decide who goes first:
+
+-   Speed – highest first
+-   Creature base power – lowest first
+-   Player turn order – current first, next player clockwise second, then clockwise around the table
+
+If there’s a tie among two creatures friendly to each other, that player decides which goes first.
+
+### Option 1
+
+When reacting to an ability that is itself reacting to another ability, the second reaction goes in the queue relative to the ability it is reacting to.  
+EX: Embird targets Adir Doe with Flame Spit
+
+Queue: [Embird]
+
+Then Hexantler Buck chooses Adir Doe with Shielding at fast speed.
+
+Queue: [Hexantler], [Embird]
+
+Then a third player’s Fyrorage reacts to Hexantler by amplifying Embird’s damage, at normal speed.
+
+Queue: [Hexantler], [Fyrorage], [Embird]
+
+Fyrorage has higher base power than Embird, so if Fyrorage reacted to Embird, it would go after. Which is pointless, because it wants to damage boost before the damage is dealt.
+
+Queue: [Hexantler], [Embird], [Fyrorage]
+
+But Fyrorage reacted to Hexantler, which reacted to Embird and went before it, so Fyrorage gets to go before Embird.
+
+### Option 2
+
+All abilities get sorted by speed, as computed by the factors listed above. So it doesn’t matter which exact ability they react to, it will end up in the same spot in the queue.
+
+Queue: [Hexantler], [Embird], [Fyrorage]
+
+Hexantler’s ability is Fast, Embird has lower base power, so Fyrorage’s ability goes last. This order would happen no matter who reacted to what.
+
 ## Speeds
 
 Abilities and actions have a speed that determine where they get placed in the queue. Note that “interrupt” just means “go before it” and does not necessarily mean that the interrupted ability gets canceled.
