@@ -26,15 +26,13 @@ Shuffle all landmarks into one big pile. Each player sets their creature deck (c
 
 # Round
 
-At the start of each round, Place a landmark in the center of the table.
+At the start of each round, take the top card off the landmark deck and place it face up in the center of the table.
 
-Players secretly pull creatures from their army to deploy to the landmark.
+Players secretly pull creatures from their army to later deploy to the landmark.
 
 Once all players have pulled creatures, all pulled creatures get deployed to the landmark, getting placed in the player’s hand.
 
-Each player places Native creatures face up at the landmark (this doesn’t trigger battlecry or watcher effects).
-
-The player who pulled the least amount of creatures chooses if they want to go first or not.
+Randomly determine who goes first. For fairness, you can let a player who hasn’t gone first recently or the player with the least amount of landmarks go first.
 
 Players take their turns in order, play continues to the player on the left (clockwise).
 
