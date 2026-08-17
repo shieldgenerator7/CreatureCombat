@@ -38,7 +38,7 @@ On a player’s turn, they may play a creature, activate a creature’s ability,
 
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
-When a player resolves the battle, all players total up their creatures’ combined power. The player with the highest total power wins the battle, and claims the landmark.
+When a player spends their turn to resolve the battle, all players total up their creatures’ combined power. The player with the highest total power wins the battle, and claims the landmark. If there are no landmarks left, the player who claimed the most landmarks wins the game. If there is a tie, the tied player who most recently claimed a landmark wins.
 
 Each player processes their resting creatures:
 
@@ -48,8 +48,6 @@ Each player processes their resting creatures:
 4.  Creatures in your resting zone with an exhaustion value of 0 or less return to your army.
 
 The round ends.
-
-If there are no more landmarks left, the player who claimed the most landmarks wins the game.
 
 # Zones
 
