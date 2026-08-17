@@ -99,7 +99,7 @@ It’s recommend to use something like dice or a tracking app to keep track of e
 Common values:
 
 -   Exhaustion value. After battling, each creature’s exhaustion value increases by its rest cost. While a creature has an exhaustion value, it can’t return to your army. A resting creature’s exhaustion value decreases by 1 at the end of each round.
--   Bonus Power value. This is added to a creature’s base power and biome mods to get their power total. Note that power total isn’t a value, because it is calculated, not tracked.
+-   Bonus Power value. This is added to a creature’s base power and terrain mods to get their power total. Note that power total isn’t a value, because it is calculated, not tracked.
 -   Damage value. This represents the amount of damage this creature has taken. If a creature’s damage value is equal to or greater than their base power, they are “downed”. A downed creature doesn’t contribute their power total to the combined power total in the finale, and can’t join fights.
 -   Stun value. If a creature has a stun value, they are stunned: their abilities do not resolve. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
 -   Shield value. A creature’s shields is equal to its shield value. While a creature has shields, damage is dealt to its shields first. Gaining shields doesn’t heal a creature.
@@ -108,7 +108,7 @@ Common values:
 
 A total is a calculation of values and printed numbers to get a result.
 
-For example, a creature’s power total is equal to its base power plus its bonus power value, plus any biome mods it has.
+For example, a creature’s power total is equal to its base power plus its bonus power value, plus any terrain mods it has.
 
 # Creature Types
 
