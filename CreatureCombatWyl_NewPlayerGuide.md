@@ -114,10 +114,6 @@ If an ability has a cost, it must be paid in full to activate it.
 
 If an ability has a requirement, that requirement must be met for the ability to resolve. An ability with unmet requirements can still be activated, but its requirements must be met by the time it gets processed by the queue.
 
-All abilities are activatable, there are no passive abilities.
-
-Some keywords are entire abilities. These can only be activated when their trigger occurs.
-
 # Moments
 
 A moment is a small period of time in which a lot can happen. Player actions and creature abilities all happen inside a moment.
