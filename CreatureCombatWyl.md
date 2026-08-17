@@ -115,7 +115,10 @@ Words used in MtG and their WCC equivalent.
 -   Sorcery – creature with a slow Battlecry ability or an ability with no trigger at all
 -   Stack – moment / queue
 -   Step – no equivalent?
--   Tap - tap
+-   Tap – tap
+-   Target – a
+-   “you control” – friendly
+-   “you don’t control” - hostile
 
 # Keyword Glossary
 
