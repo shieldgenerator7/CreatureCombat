@@ -73,21 +73,19 @@ Each player has a hand, which contains all creatures deployed to that landmark b
 
 Each player has a Rest zone, where their creatures go to rest between battles.
 
-Whenever a creature gets put in your hand or your army, all of its values reset to 0.
-
 # Values
 
-Values show the state of a creature. Some values are printed on the card, like the Rest value. Many other values are not printed on the card, such as bonus power. These are called “state values”. By default, all state values are 0. Most state values serve a specific function and have mechanics tied to them, but that is not a requirement. State values can only be positive, ranging from 0 to positive infinity. Some state values are beneficial, like bonus power. These are called “good values”. Some state values are harmful, like damage. These are called “bad values”.
+Values show the state of a creature. All values start at 0 and reset to 0. Values can’t be negative. “Good values” are beneficial, like bonus power. “Bad values” are harmful, like damage. A creature “has” a value if that value is greater than 0.
 
-Often these are tracked with physical counters, much like +1/+1 counters in MtG.
+It’s recommend to use something like dice or a tracking app to keep track of each creature’s values.
 
 Common values:
 
--   Exhaustion value. After battling, each creature’s exhaustion value increases. While a creature’s exhaustion value is greater than 0, it cant be added to your army. A resting creature’s exhaustion value decreases by 1 at the end of each round.
+-   Exhaustion value. After battling, each creature’s exhaustion value increases by its rest cost. While a creature has an exhaustion value, it can’t return to your army. A resting creature’s exhaustion value decreases by 1 at the end of each round.
 -   Bonus Power value. This is added to a creature’s base power and biome mods to get their total power. Note that total power isn’t a value, because it is calculated, not tracked.
--   Damage value. This represents the amount of damage this creature has taken. This is subtracted from a creature’s power base/mods/values to get their total power. If a creature’s damage value is equal to or greater than their base power, they are “wounded”. A wounded creature doesn’t contribute their power to the combined total in the finale, and can’t join fights.
--   Stun value. If a creature’s stun value is 1 or more, they are stunned: their abilities cant be resolved. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
--   Shield value. While a creature has a shield value of 1 or more, if a creature’s damage value would increase by 1, instead decrease its shield value by 1. Increasing the shield value doesn’t decrease the existing damage value.
+-   Damage value. This represents the amount of damage this creature has taken. If a creature’s damage value is equal to or greater than their base power, they are “downed”. A downed creature doesn’t contribute their power to the combined total in the finale, and can’t join fights.
+-   Stun value. If a creature has a stun value, they are stunned: their abilities do not resolve. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
+-   Shield value. A creature’s shields is equal to its shield value. While a creature has shields, damage is dealt to its shields first. Gaining shields doesn’t heal a creature.
 
 # Tags vs Keywords
 
