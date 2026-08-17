@@ -512,6 +512,7 @@ Here are the rules for the abilities, and some restrictions on what they can or 
 -   Abilities cannot modify a creature’s base power. Instead, for attack, increase a creature’s bonus power; for defense, increase a creature’s shield value.
 -   Abilities can refer to a specific card by species name, although it is discouraged. It’s better to refer to a creature’s type
 -   Abilities can refer to a creature’s type
+-   “Replacement effects” are banned because they make for messy rules. This includes things like “When a creature would take damage, they heal for that amount instead.” Instead, write something like “Give a creature protection from damage, briefly. The selected creature gains an ability: ‘When I receive damage, I heal for the damage received.’, briefly.”
 
 # References
 
