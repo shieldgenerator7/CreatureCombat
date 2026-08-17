@@ -368,6 +368,8 @@ This section is for the card designers. I tried to make an app that allows compl
 
 ## Philosophy
 
+WARNING: This section is a bit misnamed, and doesn’t represent the core goals of the design. Rather, it is a list of some guiding principles.
+
 1.  Reduce game state that needs to be memorized
 2.  Make comboing easy and fun
 3.  Reduce frustrating mechanics
@@ -376,7 +378,7 @@ One: You don’t want players to have to remember several abilities everytime th
 
 Two: I like combo decks, and I dislike when my combos are interrupted with things like counterspell. Also, I hate having to randomly draw my pieces. Figuring out the whole library thing is an extra hurdle on top of figuring out the combo that I don’t want to deal with, because it severely limits what combos are viable. So now, you make a hand manually with cards you choose. I think the queue system also makes comboing more fun, tho I haven’t tested it yet.
 
-Three: nothings more frustrating than having your creatures killed all the time. So in this game, theres no graveyard. Its like pokemon. Your creatures don’t die, they get exhausted. Also, there’s going to be design restrictions around things like canceling abilities. Plus, abilities can usually be activated more than once in a battle, so its not so bad if your super awesome battle gets canceled. Maybe, hopefully.
+Three: nothings more frustrating than having your creatures killed all the time. So in this game, theres no graveyard. Its like pokemon. Your creatures don’t die, they get exhausted. Also, there’s going to be design restrictions around things like canceling abilities. Plus, abilities can usually be activated more than once in a battle, so its not so bad if your super awesome ability gets canceled. Maybe, hopefully.
 
 ## Language
 
