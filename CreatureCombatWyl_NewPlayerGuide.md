@@ -22,11 +22,43 @@ Additionally, collectively you will need:
 -   A method to determine who goes first. Dice, rock paper scissors, “youngest goes first”, etc work well for this
 -   A way to remember whose turn it is. Just remembering it works well for this, but you can also use a stuffed animal to pass around
 
+# Deck Rules
+
+When you make your own creature deck, here are the rules it must follow:
+
+-   The point cost total of creatures in the deck must be 100 or less. The point cost is displayed on the bottom right corner of each creature.
+-   You may have any number of copies of a creature
+-   At least one creature in the deck must be named. A named creature is one that has a name written in its pet name field
+-   That’s it
+
+When you make your own landmark deck, here are the rules it must follow:
+
+-   It must contain exactly 5 landmark cards
+-   You may only have 1 copy of each landmark in your deck
+-   Landmarks may share the same terrains
+
 # Setup
 
 Shuffle all players’ landmarks into one big pile.
 
 Each player sets their creature deck (called their “army”) on the table, and turns a named creature face up on top of it. A “named creature” is a creature with a name written in the pet name field.
+
+# Zones
+
+There are 3 zones:
+
+-   Army (each player)
+-   Battle (only 1)
+    -   Hand (each player)
+-   Resting (each player)
+
+Each player has an army zone, which has every creature that a player can deploy to a landmark.
+
+The battle zone includes the current landmark and all creatures at that landmark.
+
+Each player has a hand, which contains all creatures deployed to that landmark but who haven’t arrived yet. When a player plays that creature, that creature arrives at the landmark. This zone is part of the battle zone.
+
+Each player has a Rest zone, where their creatures go to rest between battles.
 
 # Round
 
@@ -57,23 +89,6 @@ When the landmark is claimed and the game does not end, each player does the res
 ## End
 
 The round ends.
-
-# Zones
-
-There are 3 zones:
-
--   Army (each player)
--   Battle (only 1)
-    -   Hand (each player)
--   Resting (each player)
-
-Each player has an army zone, which has every creature that a player can deploy to a landmark.
-
-The battle zone includes the current landmark and all creatures at that landmark.
-
-Each player has a hand, which contains all creatures deployed to that landmark but who haven’t arrived yet. When a player plays that creature, that creature arrives at the landmark. This zone is part of the battle zone.
-
-Each player has a Rest zone, where their creatures go to rest between battles.
 
 # Values
 
@@ -121,6 +136,10 @@ Each creature can have abilities. An ability can be activated manually on a play
 If an ability has a cost, it must be paid in full to activate it.
 
 If an ability has a requirement, that requirement must be met for the ability to resolve. An ability with unmet requirements can still be activated, but its requirements must be met by the time it gets processed by the queue.
+
+# Speeds
+
+Abilities and actions have a speed that may allow them to jump ahead in the queue. From fastest to slowest, the speeds are Super Fast, Fast, Normal, Slow, Super Slow. A reacting ability that has a speed faster than the ability it reacts to may go before it in the queue. If an ability does not specify a speed, it is always Normal speed.
 
 # Moments
 
@@ -173,22 +192,3 @@ Queue: Hexantler, Embird
 Queue: Hexantler, Fyrorage, Embird
 
 Fyrorage has higher base power than Embird, so if Fyrorage reacted to Embird, it would go after. Which is pointless, because it wants to damage boost before the damage is dealt. But Fyrorage reacted to Hexantler, which reacted to Embird and went before it, so Fyrorage gets to go before Embird, but after Hexantler.
-
-# Speeds
-
-Abilities and actions have a speed that may allow them to jump ahead in the queue. From fastest to slowest, the speeds are Super Fast, Fast, Normal, Slow, Super Slow. A reacting ability that has a speed faster than the ability it reacts to may go before it in the queue. If an ability does not specify a speed, it is always Normal speed.
-
-# Deck Rules
-
-When you make your own creature deck, here are the rules it must follow:
-
--   The point cost total of creatures in the deck must be 100 or less. The point cost is displayed on the bottom right corner of each creature.
--   You may have any number of copies of a creature
--   At least one creature in the deck must be named. A named creature is one that has a name written in its pet name field
--   That’s it
-
-When you make your own landmark deck, here are the rules it must follow:
-
--   It must contain exactly 5 landmark cards
--   You may only have 1 copy of each landmark in your deck
--   Landmarks may share the same terrains
