@@ -276,7 +276,7 @@ Sentence construction. MtG sometimes writes in third-person present, as if it’
 
 **Flavor text**: Ideally this flavor text tells or hints at part of the story involving this creature, or a specific instance of the creature in the lore. Ex: a deer creature might tell a snippet of Bambi’s story. The story should be set in-universe in the game’s lore. Or, it can just be a description or a quote or something. This one is really up to you.
 
-**Base Power**: This is how much power the creature has no matter what terrain it’s in. This is functionally both its attack and defense value. As well as how much “hp” it has. And also its Rest “cost”, if no rest value is explicitly set. It is recommended to set this first to get a sense of the cards power, then balance the card by adjusting the point cost and rest value at the end.
+**Base Power**: This is how much power the creature has no matter what terrain it’s in. This is functionally both its attack and defense value. As well as how much “hp” it has. And also its rest cost, if no rest cost is explicitly set. It is recommended to set this first to get a sense of the cards power, then balance the card by adjusting the point cost and rest cost at the end.
 
 **Terrain Mods** (Modifiers): When a creature is in a terrain listed in this section, it gains a terrain mod to its power total. Ex: when Adir Doe is in a forest, her power is 7, because her base power is 2 and her Forest terrain mod is +5. Terrain mods with a positive value are called a “terrain bonus” and with a negative value its called a “terrain penalty”.
 
