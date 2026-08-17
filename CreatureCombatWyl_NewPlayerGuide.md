@@ -34,7 +34,9 @@ Once all players have pulled creatures, all pulled creatures get deployed to the
 
 Randomly determine who goes first. For fairness, you can let a player who hasn’t gone first recently or the player with the least amount of landmarks go first.
 
-Players take their turns in order, play continues to the player on the left (clockwise).
+On a player’s turn, they may play a creature, activate a creature’s ability, fight a creature, or resolve the battle. Each of these options starts a moment, in which other players can react to their action.
+
+Ater a player takes their turn, play continues to the player on their left (clockwise).
 
 When a player resolves the battle, all players total up their creatures’ combined power. The player with the highest total power wins the battle, and claims the landmark.
 
