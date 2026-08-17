@@ -341,7 +341,16 @@ Here are the rules for the abilities, and some restrictions on what they can or 
     -   Medium – this is the default. When an ability or action doesn’t say what speed it is, it goes at this speed.
     -   Slow – other abilities can interrupt it. Used for giant massive game changing abilities.
     -   Super slow – rare, used for effects that need to go after slow abilities, like resolving the battle.
--   
+
+### Landmark
+
+Landmarks typically have 3 terrains.
+
+A landmark can have an ability that any player can activate. Still, it can only be activated once per moment.
+
+A landmark has a mana pool which creatures may spend to activate abilities. This usually doesn’t refill, or refills only slowly. So you can adjust this value to effect how long a battle will last here. Lots of mana usually means longer battles.
+
+In addition, a landmark can have a mana refill amount, which is how much mana refills in the pool at the start of each player’s turn. This is another lever that can used to effect the length of battles.
 
 # References
 
