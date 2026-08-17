@@ -1,5 +1,7 @@
 # Wyl Creature Combat New Player Guide
 
+This new player guide is for players who are starting out and have gotten their cards from somewhere other than a starter set.
+
 # Goal
 
 Claim the most landmarks by the end of the game. The game ends when all landmarks have been claimed.
