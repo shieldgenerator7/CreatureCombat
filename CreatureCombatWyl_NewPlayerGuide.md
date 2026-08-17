@@ -22,7 +22,9 @@ Additionally, collectively you will need:
 
 # Setup
 
-Shuffle all landmarks into one big pile. Each player sets their creature deck (called their “army”) on the table, and turn a named creature face up on top of it.
+Shuffle all players’ landmarks into one big pile.
+
+Each player sets their creature deck (called their “army”) on the table, and turns a named creature face up on top of it. A “named creature” is a creature with a name written in the pet name field.
 
 # Round
 
