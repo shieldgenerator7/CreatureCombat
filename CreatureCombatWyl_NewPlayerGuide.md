@@ -1,12 +1,10 @@
 # Wyl Creature Combat New Player Guide
 
-**Player Guide**
-
-**Goal**
+# Goal
 
 Claim the most landmarks by the end of the game. The game ends when all landmarks have been claimed.
 
-**Pieces**
+# Pieces
 
 To play a game of Wyl Creature Combat, each player will need:
 
@@ -22,11 +20,11 @@ Additionally, collectively you will need:
 -   A method to determine who goes first. Dice, rock paper scissors, “youngest goes first”, etc work well for this
 -   A way to remember who’s turn it is. Just remembering it works well for this, but you can also use a stuffed animal to pass around
 
-**Setup**
+# Setup
 
 Shuffle all landmarks into one big pile. Each player sets their creature deck (called their “army”) on the table, and turn a named creature face up on top of it.
 
-**Round**
+# Round
 
 At the start of each round, Place a landmark in the center of the table.
 
@@ -53,7 +51,7 @@ The round ends.
 
 If there are no more landmarks left, the player who claimed the most landmarks wins the game.
 
-**Zones**
+# Zones
 
 There are 3 zones:
 
@@ -72,7 +70,7 @@ Each player has a Rest zone, where their creatures go to rest between battles.
 
 Whenever a creature gets put in your hand or your army, all of its values reset to 0.
 
-**Values**
+# Values
 
 Values show the state of a creature. Some values are printed on the card, like the Rest value. Many other values are not printed on the card, such as bonus power. These are called “state values”. By default, all state values are 0. Most state values serve a specific function and have mechanics tied to them, but that is not a requirement. State values can only be positive, ranging from 0 to positive infinity. Some state values are beneficial, like bonus power. These are called “good values”. Some state values are harmful, like damage. These are called “bad values”.
 
@@ -86,19 +84,19 @@ Common values:
 -   Stun value. If a creature’s stun value is 1 or more, they are stunned: their abilities cant be resolved. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
 -   Shield value. While a creature has a shield value of 1 or more, if a creature’s damage value would increase by 1, instead decrease its shield value by 1. Increasing the shield value doesn’t decrease the existing damage value.
 
-**Tags vs Keywords**
+# Tags vs Keywords
 
 Tags are descriptors used to specify what kind of creature it is, and allow players to determine which creatures are alike by the tags they share. Tags have no meaning by themselves. Some creatures may care about certain tags, and have special interactions with creatures that have certain tags. You can find the tags listed below the creature’s species name.
 
 Keywords have meaning and mechanics behind them. Each keyword does something different. In addition, some creatures care about certain keywords and may have special interactions with creatures that have certain keywords. You can find keywords within the creature’s ability text.
 
-**Focus**
+# Focus
 
 In the Wyl lore, each creature has a differently shaped focus that lets them more easily cast certain types of magic. Each type of magic has an optimal shape for casting, and each focus shape has a name and a symbol associated with it. The name of the shape and/or the symbol can appear on an ability as a tag, allowing special interactions with abilities that use a certain focus.
 
 For example, there will be no creature ability that says “cancel target creature ability”, but there could be “cancel target creature ability using [specific focus type]”
 
-**Abilities**
+# Abilities
 
 Each creature can have abilities. An ability can be activated manually on a player’s turn or triggered by another event. An ability with a trigger can be activated manually, and triggering an ability when its event happens is optional.
 
@@ -110,7 +108,7 @@ All abilities are activatable, there are no passive abilities.
 
 Some keywords are entire abilities. These can only be activated when their trigger occurs.
 
-**Moments**
+# Moments
 
 A moment is a small period of time in which a lot can happen. Player actions and creature abilities all happen inside a moment.
 
@@ -136,7 +134,7 @@ As a reaction, a player may play a creature with a Battlecry ability. The played
 
 When a player action triggers the ability of the acting creature, the action and the reaction happen at the same time, with no other creature’s ability in between. This is called adjoined actions, and they use the speed of the ability, if their speeds are different.
 
-**Example**
+## Example
 
 When reacting to an ability that is itself reacting to another ability, the second reaction goes in the queue relative to the ability it is reacting to.
 
@@ -162,11 +160,11 @@ Queue: Hexantler, Fyrorage, Embird
 
 Fyrorage has higher base power than Embird, so if Fyrorage reacted to Embird, it would go after. Which is pointless, because it wants to damage boost before the damage is dealt. But Fyrorage reacted to Hexantler, which reacted to Embird and went before it, so Fyrorage gets to go before Embird, but after Hexantler.
 
-**Speeds**
+# Speeds
 
 Abilities and actions have a speed that may allow them to jump ahead in the queue. From fastest to slowest, the speeds are Super Fast, Fast, Normal, Slow, Super Slow. A reacting ability that has a speed faster than the ability it reacts to may go before it in the queue. If an ability does not specify a speed, it is always Normal speed.
 
-**Deck Rules**
+# Deck Rules
 
 When you make your own creature deck, here are the rules it must follow:
 
