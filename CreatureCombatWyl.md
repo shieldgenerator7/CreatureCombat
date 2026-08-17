@@ -51,11 +51,11 @@ Here’s what these non-keywords words mean.
 -   Army – a pile of creatures from which you may construct a hand for a landmark. It is not ordered and you may look at its contents at any time. You keep this hidden from the other players.
 -   Bad Value – a value that players typically don’t want on their creatures, i.e. they want the value to be 0.
 -   Big – having a high base power
--   Biome – a type indicator for a landmark.
--   Biome Bonus – a positive biome mod
--   Biome Mod – an additional amount of power a creature gets for being in a certain biome. Positive for a home biome, negative for a foreign biome. Default is 0 if the biome is not listed on the creature. Note that the biome mod is printed on the creature, and thus is not a value.
--   Biome Penalty – a negative biome mod
--   Bonus Power – the part of the creature’s power that gets added via card effects, and does not come from the creature’s base power or biome mods.
+-   Terrain – a part of a landmark that creatures may have modifiers for
+-   Terrain Bonus – a positive terrain mod
+-   Terrain Mod – an additional amount of power a creature gets for being in a certain terrain. Positive for a home terrain, negative for a foreign terrain. Default is 0 if the terrain is not listed on the creature
+-   Terrain Penalty – a negative terrain mod
+-   Bonus Power – the part of the creature’s power that gets added via card effects, and does not come from the creature’s base power or terrain mods.
 -   Briefly – until the moment ends
 -   Cancel – cause an ability in the moment to not resolve when it becomes the current processed ability.
 -   Chosen – a friendly creature that was previously selected.  
@@ -65,15 +65,16 @@ Here’s what these non-keywords words mean.
 -   Deploy – move a creature from your army to a hand at a landmark
 -   Down – to increase a creature’s Damage value to or past its base power
 -   Downed - a creature is downed while its Damage value is equal to or greater than its base power.
--   Foreign Biome – a biome in which a creature has a negative biome mod for
+-   Difficult Terrain – a terrain on which a creature has a negative terrain mod for
+-   Favored Terrain – a terrain on which a creature has a positive terrain mod for
 -   Friendly – creatures on the same team are friendly
 -   Good Value – a value that players typically want on their creatures, the higher the better
 -   Hand – a collection of cards that you keep hidden from other players at the table. You play creatures from your hand to the landmark. Each hand is tied to a specific landmark.
 -   Heal – decrease a creature’s Damage value
 -   Healthy – a creature with a Damage value of 0 is healthy
--   Home Biome – a biome that a creature has a positive biome mod for
+-   Home – a landmark at which a creature has at least one terrain bonus for and no terrain penalties
 -   Hostile – creatures on the enemy team are hostile
--   Landmark – a card that is a location where creatures are played to
+-   Landmark – a card that is a location where creatures are played to and has one or more terrains
 -   Moment – when a creature takes an action, it creates a window of time in which other creatures can react. This is called a moment. Triggerable abilities can only trigger during a moment.
 -   Play – to play a creature, move it from your hand to the landmark tied to that hand
 -   Power – a creature’s total power.
@@ -83,7 +84,7 @@ Here’s what these non-keywords words mean.
 -   Small – having a low base power
 -   Targeted – a hostile creature that was previously selected.  
     EX: “Take -1 from a hostile creature. Make the targeted creature fight a friendly creature.”
--   Total Power – a creature’s power, which is equal to its base power, biome mods, bonus power, and temp bonus power. If a creature’s base power is 0, its total power is 0.
+-   Total Power – a creature’s power, which is equal to its base power, terrain mods, bonus power, and temp bonus power. If a creature’s base power is 0, its total power is 0.
 -   Trigger – to activate an ability when its condition is met
 -   Value – a variable that is used to change the game state. Commonly tracked with counters. Values cannot go below 0. Values default to 0.
 -   Wounded – a creature is wounded while its Damage value is 1 or more.
@@ -128,11 +129,11 @@ Strategy rock paper scissors (complex):
 
 Requirements:
 
--   Home – This creature must be in a home biome (a biome in which it has a biome bonus)
+-   Home – This creature must be at a home landmark
 -   Once – This ability must not have been activated yet during this battle
 -   Powerful X – This creature must have at least X total power in order to activate this ability
 -   Social X – This creature must have X allies that share a type with it (including itself)
--   Symbiotic – The target creature of this ability must share a home biome with this creature
+-   Symbiotic – The target creature of this ability must share a favored terrain with this creature
 
 Ability triggers:
 
@@ -173,7 +174,7 @@ Ability actions:
 Standard:
 
 -   Channel – If this creature takes damage before this ability resolves, this ability is canceled
--   Landmark – This creature is all biome types for which it has a biome bonus (positive biome mod)
+-   Landmark – This creature is all terrain types for which it has a terrain bonus
 -   Native (Indigenous) – This creature starts the battle at the landmark, without triggering on-arrival.
 
 Ability Speed:
@@ -255,7 +256,7 @@ Sentence construction. MtG sometimes writes in third-person present, as if it’
 
 **Name**: Each creature has a pet name and a species name. The pet name is what this instance of this creature is called, as if it were someone’s pet. Ex: “Spot”. The species name is what this creature is called if you saw a random one out in the wild. Ex: “cat”, “wolf”, “deer”. The pet name is for the player of that instance of the card to write on the card to mark that instance as distinct from the other instances. The species name is to help identify that creature so others players know generally what that card is capable of. A species can be represented by multiple different cards.
 
-**Points**: The card cost is how many points it costs to put this creature in a player’s deck. The cost is auto-calculated by the creature’s base power and biome mods. It is up to you, the designer, to increase the cost for the creature’s abilities. This number is the main way that you balance a card.
+**Points**: The card cost is how many points it costs to put this creature in a player’s deck. The cost is auto-calculated by the creature’s base power and terrain mods. It is up to you, the designer, to increase the cost for the creature’s abilities. This number is the main way that you balance a card.
 
 -   No point cost should evenly divide into 100. 5 and 2 are ok tho. This is to prevent players from running 5 copies of the same 20pt card or 2 copies of the same 50pt card, or 1 copy of a 100pt card. I mean, they still can, but then they will have a deck with a total point cost of less than 100, which is suboptimal. I might rescind this rule in the future, but for now I think this is a good rule.
 
@@ -276,22 +277,22 @@ Sentence construction. MtG sometimes writes in third-person present, as if it’
 
 **Flavor text**: Ideally this flavor text tells or hints at part of the story involving this creature, or a specific instance of the creature in the lore. Ex: a deer creature might tell a snippet of Bambi’s story. The story should be set in-universe in the game’s lore. Or, it can just be a description or a quote or something. This one is really up to you.
 
-**Base Power**: This is how much power the creature has no matter what biome it’s in. This is functionally both its attack and defense value. As well as how much “hp” it has. And also its Rest “cost”, if no rest value is explicitly set. It is recommended to set this first to get a sense of the cards power, then balance the card by adjusting the point cost and rest value at the end.
+**Base Power**: This is how much power the creature has no matter what terrain it’s in. This is functionally both its attack and defense value. As well as how much “hp” it has. And also its Rest “cost”, if no rest value is explicitly set. It is recommended to set this first to get a sense of the cards power, then balance the card by adjusting the point cost and rest value at the end.
 
-**Biome Mods** (Modifiers): When a creature is in a biome listed here, it gains a biome mod to its power. Ex: when Adir Doe is in a forest, her power is 7, because her base power is 2 and her Forest biome mod is +5. Biome mods with a positive value are called a “biome bonus” and with a negative value its called a “biome penalty”.
+**Terrain Mods** (Modifiers): When a creature is in a terrain listed in this section, it gains a terrain mod to its power total. Ex: when Adir Doe is in a forest, her power is 7, because her base power is 2 and her Forest terrain mod is +5. Terrain mods with a positive value are called a “terrain bonus” and with a negative value its called a “terrain penalty”.
 
--   Creatures usually have about 3-5 biome mods
--   Biome mods are less costly than base power in the power budget
--   Biome mods effectively modify a creature’s attack
+-   Creatures usually have about 3-5 terrain mods
+-   Terrain mods are less costly than base power in the power budget
+-   Terrain mods effectively modify a creature’s attack
 -   There’s no colors in this game like in MtG, but this is this game’s equivalent
--   Keep in mind that the biome mods are listed in order from highest to lowest
--   The first biome mod in the list is that creature’s home biome. This is important if the creature is used as a landmark
+-   Keep in mind that the terrain mods are listed in order from highest to lowest, not alphabetically
+-   The first terrain mod in the list is that creature’s home terrain. This is important if the creature is used as a landmark
 
 ### Art
 
 Creature art for a card should follow these rules.
 
-The art should depict the creature in its natural habitat, preferably its home biome.
+The art should depict the creature in its natural habitat, preferably in its favored terrain.
 
 The art should show the creature’s whole body within the frame, and it should not be obscured by the environment, or at most lightly obscured. We want to see what the creature looks like.
 
