@@ -87,11 +87,20 @@ Common values:
 -   Stun value. If a creature has a stun value, they are stunned: their abilities do not resolve. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
 -   Shield value. A creature’s shields is equal to its shield value. While a creature has shields, damage is dealt to its shields first. Gaining shields doesn’t heal a creature.
 
-# Tags vs Keywords
+# Creature Types
 
-Tags are descriptors used to specify what kind of creature it is, and allow players to determine which creatures are alike by the tags they share. Tags have no meaning by themselves. Some creatures may care about certain tags, and have special interactions with creatures that have certain tags. You can find the tags listed below the creature’s species name.
+A creature is one or more types.
 
-Keywords have meaning and mechanics behind them. Each keyword does something different. In addition, some creatures care about certain keywords and may have special interactions with creatures that have certain keywords. You can find keywords within the creature’s ability text.
+Types are descriptors used to specify what kind of creature it is, and allow players to determine which creatures are alike by the types they share. Although types have no meaning by themselves, some creatures may have abilities that only work with creatures of a certain type.
+
+# Keywords
+
+A creature and their abilities may have keywords in them. A keyword is a word that is shorthand for a phrase, sentence, or ability.
+
+-   Trigger keywords are shorthand for “When [trigger] happens, you may activate this ability.”
+-   Cost keywords are shorthand for “You must pay [cost] in order to activate this ability.”
+-   Requirement keywords are shorthand for “If [condition] is not met, this ability is canceled.”
+-   Ability keywords can be a mixture of the other kinds of keywords.
 
 # Focus
 
