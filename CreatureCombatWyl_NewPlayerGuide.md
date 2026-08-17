@@ -46,7 +46,7 @@ Ater a player takes their turn, play continues to the player on their left (cloc
 
 ## Battle
 
-When a player spends their turn to resolve the battle, all players total up their creatures’ combined power. The player with the highest total power wins the battle, and claims the landmark. If there are no landmarks left, the player who claimed the most landmarks wins the game. If there is a tie, the tied player who most recently claimed a landmark wins.
+When a player spends their turn to resolve the battle, all players total up their creatures’ combined power. The player with the highest combined power total wins the battle, and claims the landmark. If there are no landmarks left, the player who claimed the most landmarks wins the game. If there is a tie, the tied player who most recently claimed a landmark wins.
 
 ## Rest
 
@@ -82,10 +82,16 @@ It’s recommend to use something like dice or a tracking app to keep track of e
 Common values:
 
 -   Exhaustion value. After battling, each creature’s exhaustion value increases by its rest cost. While a creature has an exhaustion value, it can’t return to your army. A resting creature’s exhaustion value decreases by 1 at the end of each round.
--   Bonus Power value. This is added to a creature’s base power and biome mods to get their total power. Note that total power isn’t a value, because it is calculated, not tracked.
--   Damage value. This represents the amount of damage this creature has taken. If a creature’s damage value is equal to or greater than their base power, they are “downed”. A downed creature doesn’t contribute their power to the combined total in the finale, and can’t join fights.
+-   Bonus Power value. This is added to a creature’s base power and biome mods to get their power total. Note that power total isn’t a value, because it is calculated, not tracked.
+-   Damage value. This represents the amount of damage this creature has taken. If a creature’s damage value is equal to or greater than their base power, they are “downed”. A downed creature doesn’t contribute their power total to the combined power total in the finale, and can’t join fights.
 -   Stun value. If a creature has a stun value, they are stunned: their abilities do not resolve. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
 -   Shield value. A creature’s shields is equal to its shield value. While a creature has shields, damage is dealt to its shields first. Gaining shields doesn’t heal a creature.
+
+# Totals
+
+A total is a calculation of values and printed numbers to get a result.
+
+For example, a creature’s power total is equal to its base power plus its bonus power value, plus any biome mods it has.
 
 # Creature Types
 
@@ -174,7 +180,7 @@ Abilities and actions have a speed that may allow them to jump ahead in the queu
 
 When you make your own creature deck, here are the rules it must follow:
 
--   The total point cost of creatures in it must be 100 or less. The point cost is displayed on the bottom right corner of each creature.
+-   The point cost total of creatures in the deck must be 100 or less. The point cost is displayed on the bottom right corner of each creature.
 -   You may have any number of copies of a creature
 -   At least one creature in the deck must be named. A named creature is one that has a name written in its pet name field
 -   That’s it
