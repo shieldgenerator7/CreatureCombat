@@ -102,11 +102,9 @@ A creature and their abilities may have keywords in them. A keyword is a word th
 -   Requirement keywords are shorthand for “If [condition] is not met, this ability is canceled.”
 -   Ability keywords can be a mixture of the other kinds of keywords.
 
-# Focus
+# Magic Types
 
-In the Wyl lore, each creature has a differently shaped focus that lets them more easily cast certain types of magic. Each type of magic has an optimal shape for casting, and each focus shape has a name and a symbol associated with it. The name of the shape and/or the symbol can appear on an ability as a tag, allowing special interactions with abilities that use a certain focus.
-
-For example, there will be no creature ability that says “cancel target creature ability”, but there could be “cancel target creature ability using [specific focus type]”
+There are different types of magic in Wyl, and each one has its own symbol. This magic symbol is shown next to the ability, if that ability uses magic to achieve its effect.
 
 # Abilities
 
