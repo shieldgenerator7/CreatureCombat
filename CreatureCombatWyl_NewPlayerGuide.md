@@ -26,6 +26,8 @@ Shuffle all landmarks into one big pile. Each player sets their creature deck (c
 
 # Round
 
+## Deploy
+
 At the start of each round, take the top card off the landmark deck and place it face up in the center of the table.
 
 Players secretly pull creatures from their army to later deploy to the landmark.
@@ -34,13 +36,21 @@ Once all players have pulled creatures, all pulled creatures get deployed to the
 
 Randomly determine who goes first. For fairness, you can let a player who hasn’t gone first recently or the player with the least amount of landmarks go first.
 
+## Play
+
 On a player’s turn, they may play a creature, activate a creature’s ability, fight a creature, or resolve the battle. Each of these options starts a moment, in which other players can react to their action.
 
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
+## Battle
+
 When a player spends their turn to resolve the battle, all players total up their creatures’ combined power. The player with the highest total power wins the battle, and claims the landmark. If there are no landmarks left, the player who claimed the most landmarks wins the game. If there is a tie, the tied player who most recently claimed a landmark wins.
 
+## Rest
+
 When the landmark is claimed and the game does not end, each player does the resting process. For each creature at the landmark and in a player’s hand, increase its exhaust value by its rest cost. Then move all creatures from the battlefield to its Resting zone. Finally, decrease the exhaust value of all creatures in the resting zone by 1, and return all creatures that have no exhaustion value to its army.
+
+## End
 
 The round ends.
 
