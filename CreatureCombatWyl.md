@@ -174,7 +174,6 @@ Ability actions:
 Standard:
 
 -   Channel – If this creature takes damage before this ability resolves, this ability is canceled
--   Landmark – This creature is all terrain types for which it has a terrain bonus
 -   Native (Indigenous) – This creature starts the battle at the landmark, without triggering on-arrival.
 
 Ability Speed:
@@ -286,7 +285,6 @@ Sentence construction. MtG sometimes writes in third-person present, as if it’
 -   Terrain mods effectively modify a creature’s attack
 -   There’s no colors in this game like in MtG, but this is this game’s equivalent
 -   Keep in mind that the terrain mods are listed in order from highest to lowest, not alphabetically
--   The first terrain mod in the list is that creature’s home terrain. This is important if the creature is used as a landmark
 
 ### Art
 
