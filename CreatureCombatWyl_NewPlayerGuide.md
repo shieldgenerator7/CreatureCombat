@@ -40,12 +40,7 @@ Ater a player takes their turn, play continues to the player on their left (cloc
 
 When a player spends their turn to resolve the battle, all players total up their creatures’ combined power. The player with the highest total power wins the battle, and claims the landmark. If there are no landmarks left, the player who claimed the most landmarks wins the game. If there is a tie, the tied player who most recently claimed a landmark wins.
 
-Each player processes their resting creatures:
-
-1.  Your creatures in the battle zone and creatures in your hand each increase their exhaustion value by their Rest cost (default value is its base power)
-2.  Your creatures in the battle zone and your creatures in a hand each move to your resting zone.
-3.  Creatures in your resting zone decrease their exhaustion value by 1.
-4.  Creatures in your resting zone with an exhaustion value of 0 or less return to your army.
+When the landmark is claimed and the game does not end, each player does the resting process. For each creature at the landmark and in a player’s hand, increase its exhaust value by its rest cost. Then move all creatures from the battlefield to its Resting zone. Finally, decrease the exhaust value of all creatures in the resting zone by 1, and return all creatures that have no exhaustion value to its army.
 
 The round ends.
 
