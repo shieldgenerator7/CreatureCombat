@@ -177,7 +177,7 @@ Ability actions:
 Standard:
 
 -   Channel – If this creature takes damage before this ability resolves, this ability is canceled
--   Native (Indigenous) – This creature starts the battle at the landmark, without triggering on-arrival.
+-   Indigenous – This creature may start the battle at the landmark, without triggering on-arrival. This only applies if the landmark is a home for the creature.
 
 Ability Speed:
 
