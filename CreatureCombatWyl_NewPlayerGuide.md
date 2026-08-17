@@ -18,7 +18,7 @@ Additionally, collectively you will need:
 
 -   A hard flat surface to play on. A table works well for this
 -   A method to determine who goes first. Dice, rock paper scissors, “youngest goes first”, etc work well for this
--   A way to remember who’s turn it is. Just remembering it works well for this, but you can also use a stuffed animal to pass around
+-   A way to remember whose turn it is. Just remembering it works well for this, but you can also use a stuffed animal to pass around
 
 # Setup
 
