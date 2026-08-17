@@ -21,6 +21,7 @@ Additionally, collectively you will need:
 -   A hard flat surface to play on. A table works well for this
 -   A method to determine who goes first. Dice, rock paper scissors, “youngest goes first”, etc work well for this
 -   A way to remember whose turn it is. Just remembering it works well for this, but you can also use a stuffed animal to pass around
+-   A permanent marker, pen, or other writing utensil used to write on the cards
 
 # Deck Rules
 
@@ -36,6 +37,36 @@ When you make your own landmark deck, here are the rules it must follow:
 -   It must contain exactly 5 landmark cards
 -   You may only have 1 copy of each landmark in your deck
 -   Landmarks may share the same terrains
+
+# What is a Creature
+
+A creature is a living being in card form.
+
+![](media/card_labeled.png)
+
+1.  Pet Name  
+    The name you give this individual creature
+2.  Species Name  
+    The name of this creature’s species
+3.  Types  
+    The type of creature it is
+4.  Base Power  
+    This helps the creature win fights and stay alive. This is the base value for a creature’s power total.
+5.  Terrain Mods  
+    When a creature is in this terrain, it the terrain modifier is added to its base power to get its power total.
+6.  Ability  
+    Creatures can do various things, magical or otherwise.
+    1.  F1. If the ability is magical, the symbol of the magic type is displayed here.
+    2.  F2. The name of the ability
+    3.  F3. The cost must be paid to activate the ability. The trigger is a condition that lets you activate an ability on any player’s turn. The requirement must be met for an ability to resolve. The effect is what the ability does.
+7.  Rest Cost  
+    When the battle ends, this is how long the creature needs to recover.
+8.  Point Cost  
+    This is how much it costs to have this creature in your army.
+9.  Portrait  
+    A picture of the creature.
+10. Flavor Text  
+    Some added info or poetic statement about the creature.
 
 # Setup
 
