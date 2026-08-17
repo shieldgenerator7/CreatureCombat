@@ -51,10 +51,6 @@ Here’s what these non-keywords words mean.
 -   Army – a pile of creatures from which you may construct a hand for a landmark. It is not ordered and you may look at its contents at any time. You keep this hidden from the other players.
 -   Bad Value – a value that players typically don’t want on their creatures, i.e. they want the value to be 0.
 -   Big – having a high base power
--   Terrain – a part of a landmark that creatures may have modifiers for
--   Terrain Bonus – a positive terrain mod
--   Terrain Mod – an additional amount of power a creature gets for being in a certain terrain. Positive for a home terrain, negative for a foreign terrain. Default is 0 if the terrain is not listed on the creature
--   Terrain Penalty – a negative terrain mod
 -   Bonus Power – the part of the creature’s power that gets added via card effects, and does not come from the creature’s base power or terrain mods.
 -   Briefly – until the moment ends
 -   Cancel – cause an ability in the moment to not resolve when it becomes the current processed ability.
@@ -84,6 +80,10 @@ Here’s what these non-keywords words mean.
 -   Small – having a low base power
 -   Targeted – a hostile creature that was previously selected.  
     EX: “Take -1 from a hostile creature. Make the targeted creature fight a friendly creature.”
+-   Terrain – a part of a landmark that creatures may have modifiers for
+-   Terrain Bonus – a positive terrain mod
+-   Terrain Mod – an additional amount of power a creature gets for being in a certain terrain. Positive for a favored terrain, negative for a difficult terrain. Default is 0 if the terrain is not listed on the creature
+-   Terrain Penalty – a negative terrain mod
 -   Total Power – a creature’s power, which is equal to its base power, terrain mods, bonus power, and temp bonus power. If a creature’s base power is 0, its total power is 0.
 -   Trigger – to activate an ability when its condition is met
 -   Value – a variable that is used to change the game state. Commonly tracked with counters. Values cannot go below 0. Values default to 0.
