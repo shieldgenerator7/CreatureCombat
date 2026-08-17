@@ -359,9 +359,10 @@ Standard:
 
 Ability Speed:
 
--   Fast – This is the fastest ability speed. When this ability is triggered, it may go before its triggering ability, unless that triggering ability also is Fast (you decide).
--   (Medium) – This is the default speed. Abilities without Fast or Slow are this speed
--   Slow – This is the slowest ability speed. When this ability triggers another ability, that triggered ability may go before this ability, unless they also are Slow (the player of the triggered ability decides).
+-   Super Fast – This ability may jump ahead of a Fast ability.
+-   Fast – This ability may jump ahead of a normal-speed ability.
+-   Slow – This ability can’t jump ahead of a normal-speed ability.
+-   Super Slow – This ability can’t jump ahead of a Slow ability.
 
 # Design
 
