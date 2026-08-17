@@ -84,7 +84,7 @@ Here’s what these non-keywords words mean.
 -   Terrain Bonus – a positive terrain mod
 -   Terrain Mod – an additional amount of power a creature gets for being in a certain terrain. Positive for a favored terrain, negative for a difficult terrain. Default is 0 if the terrain is not listed on the creature
 -   Terrain Penalty – a negative terrain mod
--   Total Power – a creature’s power, which is equal to its base power, terrain mods, bonus power, and temp bonus power. If a creature’s base power is 0, its total power is 0.
+-   Travel Zone – creatures can move here to be temporarily outside the game. When a new landmark is revealed, you may move any of your creatures in the Travel Zone to the new landmark.
 -   Trigger – to activate an ability when its condition is met
 -   Value – a variable that is used to change the game state. Commonly tracked with counters. Values cannot go below 0. Values default to 0.
 -   Wounded – a creature is wounded while its Damage value is 1 or more.
@@ -100,7 +100,7 @@ Words used in MtG and their WCC equivalent.
 -   Draw - deploy
 -   Enchantment - creature
 -   “Enters the battlefield” – arrives
--   Exile – no equivalent
+-   Exile – Travel Zone
 -   Graveyard – downed
 -   Hand – hand
 -   Instant – creature with a fast Battlecry ability
