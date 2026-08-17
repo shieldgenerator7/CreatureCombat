@@ -142,68 +142,69 @@ For example, there will be no creature ability that says “cancel target creatu
 
 Each creature can have abilities. An ability can be activated manually on a player’s turn or triggered by another event. An ability with a trigger can be activated manually, and triggering an ability when its event happens is optional.
 
+If an ability has a cost, it must be paid in full to activate it.
+
+If an ability has a requirement, that requirement must be met for the ability to resolve. An ability with unmet requirements can still be activated, but its requirements must be met by the time it gets processed by the queue.
+
+All abilities are activatable, there are no passive abilities.
+
+Some keywords are entire abilities. These can only be activated when their trigger occurs.
+
 ## Moments
 
-Each player’s turn is a “moment”. Its like a turn in DnD, it’s a very small amount of time in which a lot can happen. It’s also similar to a stack in MtG, but it works differently.
+A moment is a small period of time in which a lot can happen. Player actions and creature abilities all happen inside a moment.
 
-When a player takes an action on their turn, it starts a moment. Each player may trigger any applicable abilities of their creatures or an applicable triggering ability of the landmark creature. When an ability is triggered, it is put at the back of the queue. The triggered ability can trigger even more abilities, and multiple abilities can trigger from the same triggering ability.
+As a player action, a player can:
 
-Once no more abilities are being triggered, then the queue resolves, from the start to the end.
+-   Play (a creature from their hand to the landmark)
+-   Activate (a creature ability)
+-   Fight (a hostile creature with a friendly creature)
+-   Resolve (the battle)
 
-Ability ordering: A triggered ability can go before its triggering ability, if the triggered ability’s speed is greater than the speed of the triggering ability. If several creatures trigger their ability from the same triggering ability, first order them by the ability’s speed, then by player turn order, with the current player’s triggered abilities going first.
+When a player takes the first action on their turn, it starts a moment. This can trigger abilities of creatures, who can then activate those abilities. And those abilities can trigger other abilities, and so on. When no more creatures are activating their abilities, the moment starts to resolve. Each creature can activate an ability only once per moment.
 
-One ability per creature per moment: Each creature can only be in the queue once per moment, even if several abilities could trigger it, and even if the creature has multiple abilities that could trigger.
+The moment has a queue system that determines the order of the abilities. The abilities are generally ordered by the order they were activated, but an ability can skip ahead in order under certain conditions.
 
-Creature arrival: abilities can trigger when a creature arrives. If the creature has a battlecry ability, it activates right after it arrives, regardless of the speed of the ability. If the speed matters, it changes when the arrival happens too.
+When an ability is triggered, it goes in the queue right behind the action that triggered it. However, the reacting creature (the creature with the triggered ability) may decide to act right before the acting creature (the creature of the action) if any of these conditions are met:
 
-Adjoined action and triggered ability: When a creature reacts to its own action (such as with arriving and Battlecry, fighting and Fight), the action and the trigger are adjoined, mean they happen right after the other. First, the action happens, and then the ability happens, with no other ability from other creatures in between. If the speed of the action and the speed of the ability are different, use the speed of the ability.
+-   The reacting creature has a lower base power than the acting creature
+-   The triggered ability has a faster speed than the action
+-   Both creatures are friendly to each other
+-   It’s the reacting creature’s turn, or the reacting creature will have its turn sooner than the acting creature
 
-When a creature reacts to an action or ability of another creature, the action with the higher speed goes first in the queue. If the same speed, other factors decide who goes first:
+As a reaction, a player may play a creature with a Battlecry ability. The played creature’s arrival and Battlecry ability activation happen together, at the speed of the Battlecry ability.
 
--   Speed – highest first
--   Creature base power – lowest first
--   Player turn order – current first, next player clockwise second, then clockwise around the table
+When a player action triggers the ability of the acting creature, the action and the reaction happen at the same time, with no other creature’s ability in between. This is called adjoined actions, and they use the speed of the ability, if their speeds are different.
 
-If there’s a tie among two creatures friendly to each other, that player decides which goes first.
+### Example
 
-### Option 1
+When reacting to an ability that is itself reacting to another ability, the second reaction goes in the queue relative to the ability it is reacting to.
 
-When reacting to an ability that is itself reacting to another ability, the second reaction goes in the queue relative to the ability it is reacting to.  
-EX: Embird targets Adir Doe with Flame Spit
+Here, he have an Adir Doe and Hexantler Buck against an Embird and a third player with a Fyrorage, and it’s the Embird’s turn.
 
-Queue: [Embird]
+|   | **What each creature does**                                                 | **Queue**                   |
+|---|-----------------------------------------------------------------------------|-----------------------------|
+| 1 | Embird targets Adir Doe with Flame Spit                                     | Embird                      |
+| 2 | Hexantler Buck chooses Adir Doe with Shielding at fast speed                | Hexantler, Embird           |
+| 3 | Fyrorage reacts to Hexantler by amplifying Embird’s damage, at normal speed | Hexantler, Fyrorage, Embird |
 
-Then Hexantler Buck chooses Adir Doe with Shielding at fast speed.
+1\. Embird targets Adir Doe with Flame Spit
 
-Queue: [Hexantler], [Embird]
+Queue: Embird
 
-Then a third player’s Fyrorage reacts to Hexantler by amplifying Embird’s damage, at normal speed.
+2\. Then Hexantler Buck chooses Adir Doe with Shielding. Shielding would go behind Embird’s Flame Spit, but because Shielding has a fast speed and Flame Spit has a normal speed, Shielding goes before Flame Spit.
 
-Queue: [Hexantler], [Fyrorage], [Embird]
+Queue: Hexantler, Embird
 
-Fyrorage has higher base power than Embird, so if Fyrorage reacted to Embird, it would go after. Which is pointless, because it wants to damage boost before the damage is dealt.
+3\. Then a third player’s Fyrorage reacts to Hexantler by amplifying Embird’s damage, at normal speed.
 
-Queue: [Hexantler], [Embird], [Fyrorage]
+Queue: Hexantler, Fyrorage, Embird
 
-But Fyrorage reacted to Hexantler, which reacted to Embird and went before it, so Fyrorage gets to go before Embird.
-
-### Option 2
-
-All abilities get sorted by speed, as computed by the factors listed above. So it doesn’t matter which exact ability they react to, it will end up in the same spot in the queue.
-
-Queue: [Hexantler], [Embird], [Fyrorage]
-
-Hexantler’s ability is Fast, Embird has lower base power, so Fyrorage’s ability goes last. This order would happen no matter who reacted to what.
+Fyrorage has higher base power than Embird, so if Fyrorage reacted to Embird, it would go after. Which is pointless, because it wants to damage boost before the damage is dealt. But Fyrorage reacted to Hexantler, which reacted to Embird and went before it, so Fyrorage gets to go before Embird, but after Hexantler.
 
 ## Speeds
 
-Abilities and actions have a speed that determine where they get placed in the queue. Note that “interrupt” just means “go before it” and does not necessarily mean that the interrupted ability gets canceled.
-
--   Super fast – rare, used for effects that can’t be interrupted.
--   Fast – happens before the triggering ability. Used to make abilities meant to interrupt other creature’s abilities
--   Medium – this is the default. When an ability or action doesn’t say what speed it is, it goes at this speed.
--   Slow – other abilities can interrupt it. Used for giant massive game changing abilities.
--   Super slow – rare, used for effects that need to go after slow abilities, like resolving the battle.
+Abilities and actions have a speed that may allow them to jump ahead in the queue. From fastest to slowest, the speeds are Super Fast, Fast, Normal, Slow, Super Slow. A reacting ability that has a speed faster than the ability it reacts to may go before it in the queue. If an ability does not specify a speed, it is always Normal speed.
 
 # Deck Rules
 
@@ -515,6 +516,13 @@ Here are the rules for the abilities, and some restrictions on what they can or 
 -   Abilities can refer to a specific card by species name, although it is discouraged. It’s better to refer to a creature’s type
 -   Abilities can refer to a creature’s type
 -   “Replacement effects” are banned because they make for messy rules. This includes things like “When a creature would take damage, they heal for that amount instead.” Instead, write something like “Give a creature protection from damage, briefly. The selected creature gains an ability: ‘When I receive damage, I heal for the damage received.’, briefly.”
+-   Ability speed notes (note that “interrupt” just means go before, it does not mean cancel):
+    -   Super fast – rare, used for effects that can’t be interrupted.
+    -   Fast – happens before the triggering ability. Used to make abilities meant to interrupt other creature’s abilities
+    -   Medium – this is the default. When an ability or action doesn’t say what speed it is, it goes at this speed.
+    -   Slow – other abilities can interrupt it. Used for giant massive game changing abilities.
+    -   Super slow – rare, used for effects that need to go after slow abilities, like resolving the battle.
+-   
 
 # References
 
