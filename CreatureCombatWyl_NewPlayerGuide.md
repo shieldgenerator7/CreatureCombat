@@ -107,6 +107,12 @@ Randomly determine who goes first. For fairness, you can let a player who hasn�
 
 On a player’s turn, they may play a creature, activate a creature’s ability, fight a creature, or resolve the battle. Each of these options starts a moment, in which other players can react to their action.
 
+To play a creature, move it from your hand to the landmark.
+
+To activate a creature’s ability, pay its cost, if any, and the ability goes in the queue.
+
+To fight a creature, choose a friendly creature to target a hostile creature. The creature with the highest power total deals damage to the others equal to its base power.
+
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
 ## Battle

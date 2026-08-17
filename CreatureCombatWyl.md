@@ -123,7 +123,7 @@ Words used in MtG and their WCC equivalent.
 
 # Keyword Glossary
 
-Here’s a list of some keywords in the game. Im sure I have a list of these somewhere else too. Complex keywords are ones that contain other keywords.
+Here’s a list of some keywords in the game. Complex keywords are ones that contain other keywords.
 
 Strategy rock paper scissors (complex):
 
@@ -169,6 +169,7 @@ Ability actions:
 -   Fear – Return a hostile creature to their hand.
 -   Heal X – Target creature decreases its damage value by X (default 1)
 -   Power X – Target creature increases its bonus power value by X (default 1)
+-   Retreat – Target creature returns to its hand.
 -   Scout X – Look at the top X cards from the Landmark deck, choose 1 as the scouted land, put it faceup on top, and put the rest on the bottom in any order
 -   Shield X – Target creature increases its shield value by X (default 1)
 -   Stun X – Target creature increases its stun value by X (default 1)
