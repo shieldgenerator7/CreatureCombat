@@ -52,9 +52,9 @@ To play a game of Wyl Creature Combat, each player will need:
 
 -   A deck of creatures totaling 100pts. See Deck Rules below.
 -   A deck of 5 unique landmarks. See Deck Rules below.
--   A way to keep track of counters. Dice, paper clips, poker chips, pen & paper, a notes app, etc work well for this
+-   A way to keep track of values. Dice, paper clips, poker chips, pen & paper, a notes app, etc work well for this
 -   A way to hide your initial hand. Holding your deck under the table, a manila folder, some type of divider, etc works well for this
--   A way to keep track of creatures’ cooldowns. Counters as mentioned above work for this too, but a custom playmat with cooldown tracking zones is recommended
+-   A way to keep track of creatures’ cooldowns. Dice as mentioned above work for this too, but a custom playmat with cooldown tracking zones is recommended
 
 Additionally, collectively you will need:
 
@@ -84,10 +84,10 @@ When a player resolves the battle, all players total up their creatures’ combi
 
 Each player processes their resting creatures:
 
-1.  Your creatures in the battle zone and creatures in your hand each gain exhaustion counters equal to their Rest value (default value is its star count)
-2.  Your creatures in the battle zone and your creatures in a hand each go to your resting zone.
-3.  Creatures in your resting zone lose an exhaustion counter.
-4.  Creatures in your resting zone with no exhaustion counters return to your army.
+1.  Your creatures in the battle zone and creatures in your hand each increase their exhaustion value by their Rest cost (default value is its base power)
+2.  Your creatures in the battle zone and your creatures in a hand each move to your resting zone.
+3.  Creatures in your resting zone decrease their exhaustion value by 1.
+4.  Creatures in your resting zone with an exhaustion value of 0 or less return to your army.
 
 The round ends.
 
@@ -110,7 +110,7 @@ Each player has a hand, which contains all creatures deployed to that landmark b
 
 Each player has a Rest zone, where their creatures go to rest between battles.
 
-Whenever a creature gets put in your hand or your army, it loses all counters.
+Whenever a creature gets put in your hand or your army, all of its values reset to 0.
 
 ## Values
 
@@ -123,7 +123,7 @@ Common values:
 -   Exhaustion value. After battling, each creature’s exhaustion value increases. While a creature’s exhaustion value is greater than 0, it cant be added to your army. A resting creature’s exhaustion value decreases by 1 at the end of each round.
 -   Bonus Power value. This is added to a creature’s base power and biome mods to get their total power. Note that total power isn’t a value, because it is calculated, not tracked.
 -   Damage value. This represents the amount of damage this creature has taken. This is subtracted from a creature’s power base/mods/values to get their total power. If a creature’s damage value is equal to or greater than their base power, they are “wounded”. A wounded creature doesn’t contribute their power to the combined total in the finale, and can’t join fights.
--   Stun value. If a creature’s stun value is 1 or more, they are stunned: their abilities cant be resolved. At the end of each player’s turn, they remove a stun counter from each friendly creature.
+-   Stun value. If a creature’s stun value is 1 or more, they are stunned: their abilities cant be resolved. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
 -   Shield value. While a creature has a shield value of 1 or more, if a creature’s damage value would increase by 1, instead decrease its shield value by 1. Increasing the shield value doesn’t decrease the existing damage value.
 
 ## Tags vs Keywords
@@ -322,34 +322,34 @@ Ability triggers:
 -   Block – When an enemy ability targets another ally creature, trigger this ability
 -   Brawl – When two or more creatures fight, trigger this ability
 -   Dawn – When the battle begins, trigger this ability
--   Deathrattle – When this creature has damage counters equal to its total power, trigger this ability
+-   Deathrattle – When this creature has a damage value equal to its base power, trigger this ability
 -   Dusk – When the battle ends, trigger this ability
 -   Fight – When this creature fights one or more other creatures
 -   Finale – When the battle is resolved, trigger this ability. Resolving a battle happens at super slow speed.
 -   Greeting – When another ally creature arrives, trigger this ability
 -   Instigate – When this creature takes the fight action
 -   Intercept – When an enemy ability targets another enemy creature, trigger this ability
--   Retaliate – When this creature gains damage counters, trigger this ability
+-   Retaliate – When this creature’s damage value increases, trigger this ability
 -   Watcher – When another creature arrives (possibly with conditions), trigger this ability
 
 Ability costs:
 
--   Rest X – When this ability is activated, this creature gains X exhaust counters
+-   Rest X – When this ability is activated, this creature increases its exhaust value by X
 -   Harvest X – Use X landmarks that you’ve claimed. Landmarks renew at the start of each round
 
 Ability actions:
 
 -   Cancel [magic genera] – Target activated ability of [magic genera] type doesn’t resolve.
--   Damage X – Target creature gains X damage counters (default 1)
+-   Damage X – Target creature increases its damage value by X (default 1)
 -   Deploy – Move a friendly creature from your army to your current hand
 -   Fear – Return a hostile creature to their hand.
--   Heal X – Target creature loses X damage counters (default 1)
--   Power X – Target creature gains X power counters (default 1)
+-   Heal X – Target creature decreases its damage value by X (default 1)
+-   Power X – Target creature increases its bonus power value by X (default 1)
 -   Scout X – Look at the top X cards from the Landmark deck, choose 1 as the scouted land, put it faceup on top, and put the rest on the bottom in any order
--   Shield X – Target creature gains X shield counters (default 1)
--   Stun X – Target creature gains X stun counters (default 1)
+-   Shield X – Target creature increases its shield value by X (default 1)
+-   Stun X – Target creature increases its stun value by X (default 1)
 -   Temp X – (Complex) Target creature gains X temp bonus power. At the end of the moment, remove this temp bonus power
--   Ward X – When an enemy creature targets this creature, it gains X exhaustion counters (default 1)
+-   Ward X – As an additional cost to target this creature, a hostile creature increases its exhaust value by X (default 1)
 
 Standard:
 
@@ -412,7 +412,7 @@ To have a temporary effect, add “briefly” at the end of an ability. This mea
 “Give a friendly creature +1, briefly”  
 In MtG, they say things like “until end of turn”
 
-Creatures ARE types, DO/CAN DO abilities, DO/CAN DO keywords, HAVE counters, and are NAMED
+Creatures ARE types, DO/CAN DO abilities, DO/CAN DO keywords, HAVE values, and are NAMED
 
 -   “Transform a friendly creature into an Adir”
     -   “Target creature you control becomes an Elk in addition to its other types”
@@ -422,10 +422,10 @@ Creatures ARE types, DO/CAN DO abilities, DO/CAN DO keywords, HAVE counters, and
     -   “Elk creatures you control have ‘When this creature fights another creature, this creature gets +2/+2’”
 -   “Let a friendly creature do Flying, briefly”
     -   “Target creature you control has Flying until end of turn”
--   “If a friendly creature has 2 shield counters, give the chosen creature +2”
+-   “If a friendly creature has a shield value of 2, give the chosen creature +2”
     -   “If target creature you control has 2 or more shield counters, that creature gets +2/+2”
 
-Don’t refer to ways of tracking game state, just refer to the game state. Don’t say “shield counters”, just say “shields”.
+Don’t refer to ways of tracking game state, just refer to the game state. Don’t say “shield counters”, just say “shield value”.
 
 Sentence construction. MtG sometimes writes in third-person present, as if it’s a novel. “Target creature gets +1/+1” for example. Id say most effects are commands, like “Put a +1/+1 counter on target creature” or “Add G”. WCC effects should always be commands. To that end, when describing something another creature should do, use “let” to say what a friendly creature does, and “make” to say what a hostile creature does. Ex: “Give a friendly creature +1. Take -1 from a hostile creature. Let the chosen creature untap. Make the targeted creature tap.”
 
@@ -450,7 +450,7 @@ Sentence construction. MtG sometimes writes in third-person present, as if it’
 
 **Art**: Each creature has art for it. The art has its own set of rules.
 
-**Rest value**: This is how many Exhaustion counters to put on a creature after a battle ends. This is another main way for you to balance a card. If you don’t explicitly write this here, the creature’s default rest value is its base power.
+**Rest cost**: This is how much the creature increases its exhaust value after a battle ends. This is another main way for you to balance a card. If you don’t explicitly write this here, the creature’s default rest cost is its base power.
 
 **Ability**: Each creature can have about 1-3 abilities. Abilities are optional. Abilities have their own set of rules.
 
