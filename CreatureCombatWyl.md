@@ -73,7 +73,8 @@ Here’s what these non-keywords words mean.
 -   Landmark – a card that is a location where creatures are played to and has one or more terrains
 -   Moment – when a creature takes an action, it creates a window of time in which other creatures can react. This is called a moment. Triggerable abilities can only trigger during a moment.
 -   Play – to play a creature, move it from your hand to the landmark tied to that hand
--   Power – a creature’s total power.
+-   Power – a creature’s might
+-   Power Total– a creature’s power used for fighting and battling, which is equal to the sum of its base power, terrain mods, and bonus power value. A downed creature’s power total is always 0.
 -   Resolve – carry out the effect of the current processed ability in the moment.
 -   Rest Zone – where your creatures go after the battle is over. When a creature is done resting, it returns to your army.
 -   Shielded – a creature with Shield value of 1 or more is shielded
@@ -126,15 +127,15 @@ Here’s a list of some keywords in the game. Im sure I have a list of these som
 
 Strategy rock paper scissors (complex):
 
--   Flanking – Fight, Finale: Gain temp bonus power equal to the number of opposing creatures without Flanking, plus the number of opposing creatures with Ranged.
--   Flying – Fight, Finale: Gain temp bonus power equal to the number of opposing creatures without Flying, plus the number of opposing creatures with Flanking
--   Ranged – Fight, Finale: Gain temp bonus power equal to the number of opposing creatures without Ranged, plus the number of opposing creatures with Flying
+-   Flanking – Fight, Finale: Gain bonus power equal to the number of opposing creatures without Flanking, plus the number of opposing creatures with Ranged, briefly.
+-   Flying – Fight, Finale: Gain bonus power equal to the number of opposing creatures without Flying, plus the number of opposing creatures with Flanking, briefly.
+-   Ranged – Fight, Finale: Gain bonus power equal to the number of opposing creatures without Ranged, plus the number of opposing creatures with Flying, briefly.
 
 Requirements:
 
 -   Home – This creature must be at a home landmark
 -   Once – This ability must not have been activated yet during this battle
--   Powerful X – This creature must have at least X total power in order to activate this ability
+-   Powerful X – This creature must have at least X power total in order to activate this ability
 -   Social X – This creature must have X allies that share a type with it (including itself)
 -   Symbiotic – The target creature of this ability must share a favored terrain with this creature
 
@@ -171,7 +172,6 @@ Ability actions:
 -   Scout X – Look at the top X cards from the Landmark deck, choose 1 as the scouted land, put it faceup on top, and put the rest on the bottom in any order
 -   Shield X – Target creature increases its shield value by X (default 1)
 -   Stun X – Target creature increases its stun value by X (default 1)
--   Temp X – (Complex) Target creature gains X temp bonus power. At the end of the moment, remove this temp bonus power
 -   Ward X – As an additional cost to target this creature, a hostile creature increases its exhaust value by X (default 1)
 
 Standard:
