@@ -268,20 +268,22 @@ Sentence construction. MtG sometimes writes in third-person present, as if it’
 **Tags**: The tags are for identifying groups this creature fits into. Ex: a tiger is a felid.
 
 -   You can add as many tags as you want.
--   Please be careful to add existing tags instead of inventing new ones.
+-   Please be careful to add existing tags instead of inventing new ones, except for the taxonomy rules below.
 -   Note that tags have no mechanical function by default. They are there so abilities can use them to do stuff or target creatures with certain tags. Ex: Social cares that other creatures have the same tag, and abilities can say things like “damage all Plant creatures”.
--   Tags should describe what the creature *is*, not what the creature *does*. Ex: A falcon is a Bird, but it is not a Flying, because that’s not a thing. There’s a keyword Flying instead.
--   Say what the immediate thing is. If something is a cervid, just say “Cervid”, don’t use the whole etymology, don’t say “Cervid, Ungulate, Mammal, Vertebrae, Animal” etc. Just use the immediate one, “Cervid”
--   Use the taxonomy family name for it. Instead of “Deer” say “Cervid”, instead of “cat” say “Felid”, “canid” for dogs, etc.
+-   Tags should describe what the creature *is*, not what the creature *does*. Ex: A falcon is an Aves (Bird), but it is not a Flying.
+-   “Flying” is a keyword, NOT a tag.
+-   Use the taxonomy family name and class name for it. Instead of “Deer” say “Cervid Mammal”, instead of “cat” say “Felid Mammal”, “Canid Mammal” for dogs, etc.
     -   Here’s some google searches for you to find the word you need. Be careful tho, it might give you the wrong answer. The right answer typically ends in “-id”, or “-idae", which is easily shortened to “-id”
         -   “taxonomy family [animal]”
+        -   “taxonomy class [animal]”
         -   “word for member of the [animal] family”
         -   “biological family name for [animal]”
     -   Use the “-id” version, instead of the “-ine” or “-idae" versions. The “-id” version implies the creature is like it, but not necessarily meets the whole criteria. Which makes sense, because these creatures are from another planet.
-    -   Note that these rules might make for a lot of types. For example: Cervids, Bovids, Equids, and Caprids are all hooved animals, but they would be separated into these different types. Same for broad words like “Bird”, separate it into its more specific types.
-        -   There’s precedent for this in TCGs, bc MtG has both “Horse”, “Elk”, and “Goat” as creature types. This might seem less intuitive than just saying “Deer” or “Horse”, but I want to get across that these creatures are NOT the same ones we have on Earth, they just look similar.
-        -   Also, deer are not elk, so it irks me a little bit that MtG calls deer “elk”, like the Sacred White Deer and Golden Hind. I was going to say Jagantha the Wellspring too, but I think that one actually is an elk.
-    -   Also note that these rules probably require you to base your creature designs off real-world animals, or find the closest real-world animal to your design. This is ok.
+    -   Note that these rules might make for a lot of types.
+        -   For example: Cervids, Bovids, Equids, and Caprids are all hooved animals, but they would be separated into these different types. There’s precedent for this in TCGs, bc MtG has both “Horse”, “Elk”, and “Goat” as creature types.
+    -   This might seem less intuitive than just saying “Deer” or “Horse”, but I want to get across that these creatures are NOT the same ones we have on Earth, they just look similar. Thus, the “-id” part of the type.
+    -   Also note that this rule probably requires you to use a real-life creature as a reference.
+    -   It’s ok to use this taxonomy rule to make a new tag if its for a kind of creature that hasn’t been introduced into the game yet
 
 **Art**: Each creature has art for it. The art has its own set of rules.
 
