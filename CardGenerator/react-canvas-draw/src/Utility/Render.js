@@ -116,11 +116,16 @@ export function renderCard(card, canvas, drawData) {
 
                 }
                 //draw
+                try {
                 context.drawImage(
                     img,
                     spos.x, spos.y, ssize.x, ssize.y,
                     pos.x, pos.y, size.x, size.y,
                 );
+                }
+                catch (e) {
+                    console.error("cant draw image: ", img.src, ". ", e);
+                }
                 break;
             case DRAWLAYER_TEXT:
                 let text = `${draw.getInfo(card)}`;
