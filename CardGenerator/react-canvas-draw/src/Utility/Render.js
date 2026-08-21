@@ -87,7 +87,8 @@ export function renderCard(card, canvas, drawData) {
                             pos.x = newX;
                         }
                     };
-                    switch (card.imageFit) {
+                    const imageFit = draw.getFormat(card) ?? card.imageFit;
+                    switch (imageFit) {
                         case FIT_WHOLE:
                             if (wRatio < hRatio) {
                                 fitWidth();

@@ -15,6 +15,7 @@ import ui_bonus_src from "../Images/ui_bonus.png";
 import ui_penalty_src from "../Images/ui_penalty.png";
 import ui_rest_src from "../Images/ui_rest.png";
 import ui_cost_src from "../Images/ui_cost.png";
+import { FIT_WHOLE } from "./Creature";
 
 let UI_BONUS;
 let UI_PENALTY;
@@ -37,6 +38,9 @@ export function generateCardSkin(width, height, margin, padding) {
     const boxX = 150;
     const boxWidth = width - boxX * 2 + 50;
     const boxHeight = 100;
+
+    const rest_size = 3.5;
+    const cost_size = 5.5;
 
     let cardSkin = [
         //black
@@ -61,6 +65,16 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(margin, margin),
             new Vector2(marginWidth, height - margin * 2),
             (card) => card.imgPortrait,
+        ),
+        //cost bg
+        new DrawLayer(
+            DRAWLAYER_IMAGE,
+            undefined,
+            new Vector2(width - (margin * cost_size), height - (margin * cost_size) - 69),
+            new Vector2(margin * cost_size, margin * cost_size),
+            (card) => UI_COST,
+            undefined,
+            (card) => FIT_WHOLE
         ),
         //type bg
         new DrawLayer(
@@ -87,11 +101,13 @@ export function generateCardSkin(width, height, margin, padding) {
         ),
         //rest value circle
         new DrawLayer(
-            DRAWLAYER_CIRCLE,
-            "grey",
-            new Vector2(margin + 50, markersY[3] - 50),
-            new Vector2(rowheight * 0.5, rowheight * 0.5),
-            (card) => card.colors[2],
+            DRAWLAYER_IMAGE,
+            undefined,
+            new Vector2(margin, height - (margin*rest_size) - 70),
+            new Vector2(margin*rest_size, margin*rest_size),
+            (card) => UI_REST,            
+            undefined,
+            (card) => FIT_WHOLE
         ),
 
         //
@@ -284,31 +300,21 @@ export function generateCardSkin(width, height, margin, padding) {
                     const areaSizeHalf = areaSize / 2;
                     const boxLessAmount = 7;
                     return [
-                        //Circle
                         new DrawLayer(
-                            DRAWLAYER_CIRCLE,
-                            "grey",
-                            new Vector2(
-                                startX + areaSizeHalf,
-                                startY + bmHeight * i + markersY[3] - 50,
-                            ),
-                            new Vector2(areaSizeHalf, areaSizeHalf),
-                            (card) => card.colors[2],
-                        ),
-                        //Biome Box
-                        new DrawLayer(
-                            DRAWLAYER_BOX,
-                            "white",
+                            DRAWLAYER_IMAGE,
+                            undefined,
                             new Vector2(
                                 startX,
                                 startY +
                                     bmHeight * i +
                                     markersY[3] -
                                     (50 - boxLessAmount) -
-                                    areaSizeHalf,
+                                    areaSizeHalf-margin*0.1,
                             ),
-                            new Vector2(areaSize, areaSizeHalf - boxLessAmount),
-                            (card) => card.colors[2],
+                            new Vector2(areaSize+margin*0.7, areaSize),
+                            (card) => (bm.modifier >= 0)?UI_BONUS:UI_PENALTY,
+                            undefined,
+                            (card) => FIT_WHOLE
                         ),
                         //Biome
                         new DrawLayer(
