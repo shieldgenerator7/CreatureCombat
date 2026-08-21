@@ -11,8 +11,20 @@ import DrawLayer, {
     DRAWLAYER_TEXT,
 } from "./DrawLayer";
 import Vector2, { VECTOR2_ZERO } from "./Vector2";
+import ui_bonus_src from "../Images/ui_bonus.png";
+import ui_penalty_src from "../Images/ui_penalty.png";
+import ui_rest_src from "../Images/ui_rest.png";
+import ui_cost_src from "../Images/ui_cost.png";
+
+let UI_BONUS;
+let UI_PENALTY;
+let UI_REST;
+let UI_COST;
 
 export function generateCardSkin(width, height, margin, padding) {
+
+    loadUIImages();
+
     const rowheight = height / 17;
     const marginWidth = width - margin * 2;
     const markersY = [
@@ -347,4 +359,19 @@ export function generateCardSkin(width, height, margin, padding) {
         ),
     ];
     return cardSkin;
+}
+
+function loadUIImages() {
+
+    UI_BONUS = new Image();
+    UI_BONUS.src = ui_bonus_src;
+
+    UI_PENALTY = new Image();
+    UI_PENALTY.src = ui_penalty_src;
+    
+    UI_REST = new Image();
+    UI_REST.src = ui_rest_src;
+
+    UI_COST = new Image();
+    UI_COST.src = ui_cost_src;
 }
