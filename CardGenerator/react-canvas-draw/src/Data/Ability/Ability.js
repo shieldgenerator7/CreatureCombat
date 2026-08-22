@@ -18,6 +18,7 @@ export const DISPLAY_LINE_KEYWORD_ONLY = "keyword";
 class Ability {
     constructor(name, codeText, params) {
         this.name = name ?? "";
+        this.magicGenus = "";
         this.codeText = codeText ?? name;
         this.params = params ?? [];
         this.init();

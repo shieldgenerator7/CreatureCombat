@@ -10,6 +10,7 @@ import { costDisplay, costSpec } from "../Data/CostSpec";
 import { capitalizeFirstLetters } from "../Utility/Utility";
 import AbilityAtomOption from "./AbilityAtomOption";
 import { Markup } from 'interweave';
+import { SYMBOL_LIST } from "../Data/DrawData";
 
 function AbilityPanel({ ability, updateAbility }) {
     return ability && (<div className="abilityArea">
@@ -29,6 +30,16 @@ function AbilityPanel({ ability, updateAbility }) {
             value={ability.name}
         >
         </input>
+
+        {/* Magic Genus Input */}
+        <div className="abilityLineArea">
+            <div className="abilityAtomName">Magic Genus</div>
+        <SearchSelect
+            option={ability.magicGenus ?? SYMBOL_LIST[0]}
+            options={SYMBOL_LIST}
+            setOption={(o) => { ability.magicGenus = o; updateAbility(ability); }}
+        ></SearchSelect>
+        </div>
 
         {/* Ability Lines */}
         {ability.lines.map((line, i) => {

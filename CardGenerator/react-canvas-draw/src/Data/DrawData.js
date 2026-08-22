@@ -33,7 +33,7 @@ let SYMBOL_MAGIC_FIROK = "firok";
 let SYMBOL_MAGIC_ASAMA = "asama";
 let SYMBOL_MAGIC_IRFIG = "irfig";
 let SYMBOL_MAGIC_GARDA = "garda";
-let SYMBOL_LIST = [
+export let SYMBOL_LIST = [
     SYMBOL_MAGIC_DETER,
     SYMBOL_MAGIC_FOHLO,
     SYMBOL_MAGIC_FIROK,
