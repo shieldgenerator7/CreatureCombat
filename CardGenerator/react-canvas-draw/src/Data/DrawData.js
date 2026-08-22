@@ -50,6 +50,7 @@ let SYMBOL_SRC_LIST = [
     symbol_magic_garda_src,
 ];
 let SYMBOL_MAP;
+const SYMBOL_COLOR = "rgb(64, 174, 248)";
 
 export function generateCardSkin(width, height, margin, padding) {
 
@@ -419,13 +420,44 @@ function loadUIImages() {
     UI_COST = new Image();
     UI_COST.src = ui_cost_src;
 
+    //2026-08-21: ref: https://stackoverflow.com/a/10652568/2336212
+    const canvas = document.createElement('canvas');
+    canvas.width = 100;
+    canvas.height = 100;
+    const ctx = canvas.getContext("2d");
     SYMBOL_MAP = {};
     for (let i in SYMBOL_LIST) {
         let symbol = SYMBOL_LIST[i];
         let img = new Image();
         img.src = SYMBOL_SRC_LIST[i];
+        img.onload = () => {
+            let c_src = colorSprite(img, SYMBOL_COLOR, canvas, ctx);
+            img.src = c_src;
+            img.onload = () => { };
+        }
         SYMBOL_MAP[symbol] = img;
     }
-    // UI_REST = SYMBOL_MAP[SYMBOL_MAGIC_DETER];
 
+}
+
+function colorSprite(image, color, c, ctx) {
+    //2026-08-21: copied from https://stackoverflow.com/a/45710008/2336212
+    //ref: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
+    //ref: https://stackoverflow.com/a/10257830/2336212
+
+    //clear the canvas    
+    ctx.globalCompositeOperation = "source-over";
+    ctx.clearRect(0, 0, c.width, c.height);
+
+    // draw image
+    ctx.drawImage(image, 0, 0);
+
+    // set composite mode
+    ctx.globalCompositeOperation = "source-in";
+
+    // draw color
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, c.width, c.height);    
+
+    return c.toDataURL();
 }
