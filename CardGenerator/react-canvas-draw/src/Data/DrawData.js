@@ -27,12 +27,29 @@ let UI_BONUS;
 let UI_PENALTY;
 let UI_REST;
 let UI_COST;
-let SYMBOL_MAGIC_DETER;
-let SYMBOL_MAGIC_FOHLO;
-let SYMBOL_MAGIC_FIROK;
-let SYMBOL_MAGIC_ASAMA;
-let SYMBOL_MAGIC_IRFIG;
-let SYMBOL_MAGIC_GARDA;
+let SYMBOL_MAGIC_DETER = "deter";
+let SYMBOL_MAGIC_FOHLO = "fohlo";
+let SYMBOL_MAGIC_FIROK = "firok";
+let SYMBOL_MAGIC_ASAMA = "asama";
+let SYMBOL_MAGIC_IRFIG = "irfig";
+let SYMBOL_MAGIC_GARDA = "garda";
+let SYMBOL_LIST = [
+    SYMBOL_MAGIC_DETER,
+    SYMBOL_MAGIC_FOHLO,
+    SYMBOL_MAGIC_FIROK,
+    SYMBOL_MAGIC_ASAMA,
+    SYMBOL_MAGIC_IRFIG,
+    SYMBOL_MAGIC_GARDA,
+];
+let SYMBOL_SRC_LIST = [
+    symbol_magic_deter_src,
+    symbol_magic_fohlo_src,
+    symbol_magic_firok_src,
+    symbol_magic_asama_src,
+    symbol_magic_irfig_src,
+    symbol_magic_garda_src,
+];
+let SYMBOL_MAP;
 
 export function generateCardSkin(width, height, margin, padding) {
 
@@ -393,22 +410,13 @@ function loadUIImages() {
     UI_COST = new Image();
     UI_COST.src = ui_cost_src;
 
-    SYMBOL_MAGIC_DETER = new Image();
-    SYMBOL_MAGIC_DETER.src = symbol_magic_deter_src;
-
-    SYMBOL_MAGIC_FOHLO = new Image();
-    SYMBOL_MAGIC_FOHLO.src = symbol_magic_fohlo_src;
-
-    SYMBOL_MAGIC_FIROK = new Image();
-    SYMBOL_MAGIC_FIROK.src = symbol_magic_firok_src;
-
-    SYMBOL_MAGIC_ASAMA = new Image();
-    SYMBOL_MAGIC_ASAMA.src = symbol_magic_asama_src;
-
-    SYMBOL_MAGIC_IRFIG = new Image();
-    SYMBOL_MAGIC_IRFIG.src = symbol_magic_irfig_src;
-
-    SYMBOL_MAGIC_GARDA = new Image();
-    SYMBOL_MAGIC_GARDA.src = symbol_magic_garda_src;
+    SYMBOL_MAP = {};
+    for (let i in SYMBOL_LIST) {
+        let symbol = SYMBOL_LIST[i];
+        let img = new Image();
+        img.src = SYMBOL_SRC_LIST[i];
+        SYMBOL_MAP[symbol] = img;
+    }
+    // UI_REST = SYMBOL_MAP[SYMBOL_MAGIC_DETER];
 
 }
