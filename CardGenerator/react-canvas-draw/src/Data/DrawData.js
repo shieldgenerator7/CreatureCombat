@@ -16,11 +16,23 @@ import ui_penalty_src from "../Images/ui_penalty.png";
 import ui_rest_src from "../Images/ui_rest.png";
 import ui_cost_src from "../Images/ui_cost.png";
 import { FIT_WHOLE } from "./Creature";
+import symbol_magic_deter_src from "../Images/symbol_deter.png";
+import symbol_magic_fohlo_src from "../Images/symbol_fohlo.png";
+import symbol_magic_firok_src from "../Images/symbol_firok.png";
+import symbol_magic_asama_src from "../Images/symbol_asama.png";
+import symbol_magic_irfig_src from "../Images/symbol_irfig.png";
+import symbol_magic_garda_src from "../Images/symbol_garda.png";
 
 let UI_BONUS;
 let UI_PENALTY;
 let UI_REST;
 let UI_COST;
+let SYMBOL_MAGIC_DETER;
+let SYMBOL_MAGIC_FOHLO;
+let SYMBOL_MAGIC_FIROK;
+let SYMBOL_MAGIC_ASAMA;
+let SYMBOL_MAGIC_IRFIG;
+let SYMBOL_MAGIC_GARDA;
 
 export function generateCardSkin(width, height, margin, padding) {
 
@@ -380,4 +392,23 @@ function loadUIImages() {
 
     UI_COST = new Image();
     UI_COST.src = ui_cost_src;
+
+    SYMBOL_MAGIC_DETER = new Image();
+    SYMBOL_MAGIC_DETER.src = symbol_magic_deter_src;
+
+    SYMBOL_MAGIC_FOHLO = new Image();
+    SYMBOL_MAGIC_FOHLO.src = symbol_magic_fohlo_src;
+
+    SYMBOL_MAGIC_FIROK = new Image();
+    SYMBOL_MAGIC_FIROK.src = symbol_magic_firok_src;
+
+    SYMBOL_MAGIC_ASAMA = new Image();
+    SYMBOL_MAGIC_ASAMA.src = symbol_magic_asama_src;
+
+    SYMBOL_MAGIC_IRFIG = new Image();
+    SYMBOL_MAGIC_IRFIG.src = symbol_magic_irfig_src;
+
+    SYMBOL_MAGIC_GARDA = new Image();
+    SYMBOL_MAGIC_GARDA.src = symbol_magic_garda_src;
+
 }
