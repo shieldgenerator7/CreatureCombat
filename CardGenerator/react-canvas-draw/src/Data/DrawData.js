@@ -440,6 +440,7 @@ function loadUIImages() {
 
 }
 
+//2026-08-21: TODO: move this function to utility
 function colorSprite(image, color, c, ctx) {
     //2026-08-21: copied from https://stackoverflow.com/a/45710008/2336212
     //ref: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
