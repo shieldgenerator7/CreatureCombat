@@ -440,7 +440,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "channel",
-            "if this creature takes damage before this ability effect resolves, the effect is interrupted",
+            "if this creature takes damage before this ability resolves, cancel the ability",
             LINETYPE_REQUIREMENT,
             {}
         ),
@@ -601,7 +601,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "ward",
-            "when an enemy creature targets this creature, they must pay Exhaust {cost}, or else their ability is interrupted",
+            "when an enemy creature targets this creature, they must pay Exhaust {cost}, or cancel their ability",
             LINETYPE_EFFECT,
             {
                 cost: TYPE_PARAM_NUMBER_WHOLE,
@@ -652,7 +652,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "stun",
-            "interrupt target activated ability of {target}",
+            "cancel target activated ability of {target}",//
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
@@ -660,7 +660,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "suppress",
-            "triggered abilities of {target} get interrupted automatically",
+            "triggered abilities of {target} get canceled automatically",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
@@ -668,7 +668,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "silence",
-            "activated abilities of {target} get interrupted automatically",
+            "activated abilities of {target} get canceled automatically",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
