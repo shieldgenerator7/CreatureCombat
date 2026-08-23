@@ -76,7 +76,7 @@ export const abilityEffects = [
     ),
     new AbilityAtom(
         "ward-any",
-        "Target Creature has Ward X.",
+        "Give target Creature Ward X.",
         (x) => x * 1.1
     ),
 ].sort(sortFunc);
@@ -521,7 +521,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "land-biome-add",
-            "{target} gains the {biome}",
+            "Give {target} the {biome}",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_LAND,
@@ -533,7 +533,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "land-biome-remove",
-            "{target} loses the {biome}",
+            "Remove the {biome} from {target}",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_LAND,
@@ -553,10 +553,10 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "heal",
-            "this creature gains {power} power, up to its base power",
+            "reduce this creature's damage value by {heal}",
             LINETYPE_EFFECT,
             {
-                power: TYPE_PARAM_NUMBER_WHOLE,
+                heal: TYPE_PARAM_NUMBER_WHOLE,
             }
         ),
         new AbilityAtom(
@@ -569,7 +569,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "stress",
-            "add {rest} rest counters to {target}",
+            "Increase {target}'s exhaust value by {rest}",
             LINETYPE_EFFECT,
             {
                 rest: TYPE_PARAM_NUMBER_WHOLE,
@@ -609,7 +609,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "block-any",
-            "{target} gains *Block {block}*",
+            "give {target} *Block {block}*",
             LINETYPE_EFFECT,
             {
                 block: TYPE_PARAM_NUMBER_WHOLE,
@@ -621,7 +621,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "ward-any",
-            "{target} gains *Ward {ward}*",
+            "give {target} *Ward {ward}*",
             LINETYPE_EFFECT,
             {
                 ward: TYPE_PARAM_NUMBER_WHOLE,
@@ -633,19 +633,20 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "powerup-any",
-            "{target} gains {power} power",
+            "Give {target} {power} power",
             LINETYPE_EFFECT,
             {
                 power: TYPE_PARAM_NUMBER_WHOLE,
                 target: TYPE_PARAM_CREATURE,
             }
         ),
+        //2026-08-22: TODO: fix wording issue when it's set to "that-creature" "all-team" "reminder"
         new AbilityAtom(
             "heal-any",
-            "{target} gains {power} power, up to its base power",
+            "reduce {target}'s damage value by {heal}",
             LINETYPE_EFFECT,
             {
-                power: TYPE_PARAM_NUMBER_WHOLE,
+                heal: TYPE_PARAM_NUMBER_WHOLE,
                 target: TYPE_PARAM_CREATURE,
             }
         ),
@@ -694,7 +695,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "morph",
-            "this creature gains or loses the {type}",
+            "transform this creature into or out of the {type}",
             LINETYPE_EFFECT,
             {
                 type: TYPE_PARAM_TYPE,
@@ -702,7 +703,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "morph-any",
-            "{target} gains or loses the {type}",
+            "transform {target} into or out of the {type}",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
@@ -714,7 +715,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "adapt",
-            "this creature gains {bonus} in the {biomeMod}",
+            "Give this creature {bonus} in the {biomeMod}",
             LINETYPE_EFFECT,
             {
                 bonus: TYPE_PARAM_NUMBER_WHOLE,
@@ -723,7 +724,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "adapt-any",
-            "{target} gains {bonus} in the {biomeMod}",
+            "Give {target} {bonus} in the {biomeMod}",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
