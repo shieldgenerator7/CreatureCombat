@@ -808,5 +808,16 @@ const strRep = [
     //capitalize important words
     [" creature", " Creature"],
     [" land", " Land"],
+    //new language rules (similar to Riftbound)
+    ["Target ", "A "],
+    ["target ", "a "],
+    ["Ally ", "Friendly "],
+    ["ally ", "friendly "],
+    ["Enemy ", "Hostile "],
+    ["enemy ", "hostile "],
+    ["Nonself ", "Another "],
+    ["nonself ", "another "],
+    ["Self ", "This "],
+    ["self ", "this "],
 ];
 export const stringReplacements = strRep.map(entry => new StringReplacement(entry[0], entry[1]));
