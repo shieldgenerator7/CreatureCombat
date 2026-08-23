@@ -265,6 +265,7 @@ export function generateCardSkin(width, height, margin, padding) {
                         bmHeight * i -
                         140;
                     const textOffset = 70;
+                    const symbol_x = 14;
                     const symbol_width = margin * 1.75;
 
                     return [
@@ -280,7 +281,7 @@ export function generateCardSkin(width, height, margin, padding) {
                         new DrawLayer(
                             DRAWLAYER_IMAGE,
                             undefined,
-                            new Vector2(startX+14, startY+15),
+                            new Vector2(startX+symbol_x, startY+15),
                             new Vector2(symbol_width, symbol_width),
                             (card) => SYMBOL_MAP[ability.magicGenus],
                         ),
@@ -289,7 +290,7 @@ export function generateCardSkin(width, height, margin, padding) {
                             DRAWLAYER_TEXT,
                             "white",
                             new Vector2(startX + textOffset, startY),
-                            new Vector2(boxWidth, boxHeight),
+                            new Vector2(boxWidth - textOffset, boxHeight),
                             (card) => ability.FullText,
                             (card) => card.colors[4],
                             (card) => {
