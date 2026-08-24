@@ -275,6 +275,30 @@ class Ability {
                 // segment += "\n";
                 return segment;
     }
+    getLineReminder(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL){
+        //2026-08-23: copied from getLineProcessed()
+                let atom = line.atom;
+                if (!atom) {
+                    return `[Unknown atom: "${line.atomName}"]`;
+                }
+                switch (lineDisplayOption) {
+                    case DISPLAY_LINE_FULL:
+                        return undefined;
+                        break;
+                    case DISPLAY_LINE_KEYWORD_WITH_REMINDER: {
+                        let reminder = atom.text.trim();
+                        Object.entries(atom.params).forEach(([key, value], j) => {
+                            let param = params[j] ?? line.params[j];
+                            let number = param;
+                            reminder = reminder.replaceAll(`{${key}}`, number);
+                        });
+                        return reminder;
+                    } break;
+                    case DISPLAY_LINE_KEYWORD_ONLY: {
+                        return undefined;
+                    } break;
+                }
+    }
 
     updateDNA() {
         console.log("updateDNA_1", this.codeText);
