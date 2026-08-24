@@ -1,7 +1,7 @@
 "use strict";
 
 import { capitalizeFirstLetters, clamp, isNumber } from "../../Utility/Utility";
-import { LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "./AbilityConstants";
+import { LINETYPE_TRIGGER, LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "./AbilityConstants";
 import { abilityAtoms, findAtom, findToken, stringReplacements } from "./AbilityData";
 import AbilityLine from "./AbilityLine";
 
@@ -77,7 +77,7 @@ class Ability {
     get FullText() {
         let sentenceStart = true;
         let reminders = {};
-        let text = `*${this.name}* — ` +
+        let text = `*${this.name}*\n` +
             this.lines.map((line, i, arr) => {
                 let reminder = this.getLineReminder(line, this.params[i], this.lineDisplayOptions[i]);
                 if (reminder){
@@ -100,6 +100,17 @@ class Ability {
                     segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
                     sentenceStart = true;
                 }
+                const lineType = line.atom.type;
+                const lineNextType = arr[i+1]?.atom.type;
+
+                if (lineType == LINETYPE_TRIGGER){
+                    segment = `🗲 ${segment}`;
+                }
+
+                if (line.atom.type != LINETYPE_EFFECT && lineNextType && lineType != lineNextType){
+                    segment += "\n";
+                }
+                
                 return segment;
             })
                 .concat(
