@@ -79,93 +79,7 @@ class Ability {
         let reminders = {};
         let text = `*${this.name}* — ` +
             this.lines.map((line, i, arr) => {
-                let atom = line.atom;
-                if (!atom) {
-                    return `[Unknown atom: "${line.atomName}"]`;
-                }
-                let segment = "";
-                switch (this.lineDisplayOptions[i]) {
-                    case DISPLAY_LINE_FULL:
-                        segment = atom.text.trim();
-                        break;
-                    case DISPLAY_LINE_KEYWORD_WITH_REMINDER: {
-                        let name = `*${capitalizeFirstLetters(atom.name.trim())}`;
-                        let reminder = atom.text.trim();
-                        Object.entries(atom.params).forEach(([key, value], j) => {
-                            let param = this.params[i]?.[j] ?? line.params[j];
-                            let number = param;
-                            if (isNumber(number)) {
-                                name += ` ${number}`;
-                            }
-                            reminder = reminder.replaceAll(`{${key}}`, number);
-                        });
-                        name += "*";
-                        reminders[name] = reminder;
-                        segment = name;
-                    } break;
-                    case DISPLAY_LINE_KEYWORD_ONLY: {
-                        let name = `*${atom.name.trim()}`;
-                        let reminder = atom.text.trim();
-                        Object.entries(atom.params).forEach(([key, value], j) => {
-                            let param = this.params[i]?.[j] ?? line.params[j];
-                            let number = param;
-                            if (isNumber(number)) {
-                                name += ` ${number}`;
-                            }
-                        });
-                        name += "*";
-                        segment = name;
-                    } break;
-                }
-                let j = 0;
-                //console.log("params", this.params);
-                for (const [key, value] of Object.entries(atom.params)) {
-                    let param = this.params[i]?.[j] ?? line.params[j];
-                    let tokens = [findToken(value)].flat(Infinity);
-                    let subtoken = tokens.map(v => v?.subtoken)?.[0]?.name;
-                    if (subtoken) {
-                        segment = segment.replaceAll(`{${key}}`, `{${key}} {${subtoken}}`);
-                    }
-                    //  console.log("key,value", key, value);
-                    switch (this.lineDisplayOptions[i]) {
-                        case DISPLAY_LINE_FULL:
-                            segment = segment.replaceAll(`{${key}}`, param);
-                            break;
-                        case DISPLAY_LINE_KEYWORD_WITH_REMINDER:
-                            // segment = [segment, ...this.params[i].filter(v => isNumber(v))].join(" ");
-                            break;
-                        case DISPLAY_LINE_KEYWORD_ONLY:
-                            // segment = [segment, ...this.params[i].filter(v => isNumber(v))].join(" ");
-                            break;
-                    }
-                    j++;
-                }
-                //specific
-                let specificJ = Object.entries(atom.params).length;
-                if (line.params.some(p => p == "specific") || line.params[specificJ]) {
-                    segment = segment.replaceAll("specific", line.params[specificJ]);
-                }
-                //replacement strings
-                stringReplacements.forEach(rep => {
-                    segment = rep.processString(segment);
-                });
-                //
-                if (sentenceStart) {
-                    let match = segment.match(/[a-zA-Z0-9\-]/);
-                    if (match) {
-                        segment = capitalizeFirstLetters(segment, false, match.index + 1);
-                        sentenceStart = false;
-                    }
-                    else if (segment) {
-                        console.error("segment doesnt match!", segment);
-                    }
-                }
-                let sentenceEnd = segment?.length > 0;//TODO: make this check current and next line
-                if (sentenceEnd) {
-                    segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
-                    sentenceStart = true;
-                }
-                return segment;
+                return this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]);
             })
                 .concat(
                     Object.entries(reminders).map(([key, value]) => {
@@ -184,14 +98,14 @@ class Ability {
             .replaceAll(/\_([^\_]*)\_/g, "<span class='i'>$1</span>");
     }
 
-    getLineProcessed(line){
+    getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL){
         //2026-08-23: copied from get FullText()
                 let atom = line.atom;
                 if (!atom) {
                     return `[Unknown atom: "${line.atomName}"]`;
                 }
                 let segment = "";
-                switch (this.lineDisplayOptions[i]) {
+                switch (lineDisplayOption) {
                     case DISPLAY_LINE_FULL:
                         segment = atom.text.trim();
                         break;
@@ -199,7 +113,7 @@ class Ability {
                         let name = `*${capitalizeFirstLetters(atom.name.trim())}`;
                         let reminder = atom.text.trim();
                         Object.entries(atom.params).forEach(([key, value], j) => {
-                            let param = this.params[i]?.[j] ?? line.params[j];
+                            let param = params[j] ?? line.params[j];
                             let number = param;
                             if (isNumber(number)) {
                                 name += ` ${number}`;
@@ -214,7 +128,7 @@ class Ability {
                         let name = `*${atom.name.trim()}`;
                         let reminder = atom.text.trim();
                         Object.entries(atom.params).forEach(([key, value], j) => {
-                            let param = this.params[i]?.[j] ?? line.params[j];
+                            let param = params[j] ?? line.params[j];
                             let number = param;
                             if (isNumber(number)) {
                                 name += ` ${number}`;
@@ -227,22 +141,22 @@ class Ability {
                 let j = 0;
                 //console.log("params", this.params);
                 for (const [key, value] of Object.entries(atom.params)) {
-                    let param = this.params[i]?.[j] ?? line.params[j];
+                    let param = params[j] ?? line.params[j];
                     let tokens = [findToken(value)].flat(Infinity);
                     let subtoken = tokens.map(v => v?.subtoken)?.[0]?.name;
                     if (subtoken) {
                         segment = segment.replaceAll(`{${key}}`, `{${key}} {${subtoken}}`);
                     }
                     //  console.log("key,value", key, value);
-                    switch (this.lineDisplayOptions[i]) {
+                    switch (lineDisplayOption) {
                         case DISPLAY_LINE_FULL:
                             segment = segment.replaceAll(`{${key}}`, param);
                             break;
                         case DISPLAY_LINE_KEYWORD_WITH_REMINDER:
-                            // segment = [segment, ...this.params[i].filter(v => isNumber(v))].join(" ");
+                            // segment = [segment, ...params.filter(v => isNumber(v))].join(" ");
                             break;
                         case DISPLAY_LINE_KEYWORD_ONLY:
-                            // segment = [segment, ...this.params[i].filter(v => isNumber(v))].join(" ");
+                            // segment = [segment, ...params.filter(v => isNumber(v))].join(" ");
                             break;
                     }
                     j++;
