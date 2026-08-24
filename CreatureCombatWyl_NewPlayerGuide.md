@@ -111,13 +111,31 @@ To play a creature, move it from your hand to the landmark.
 
 To activate a creature’s ability, pay its cost, if any, and the ability goes in the queue.
 
-To fight a creature, choose a friendly creature to target a hostile creature. The creature with the highest power total deals damage to the others equal to its base power.
+To fight a creature, choose a friendly creature to target a hostile creature. The creature with the highest power total deals damage to the others equal to its base power. See the Fight section below.
+
+To resolve the battle, declare that you want to resolve the battle. See the Battle section below.
 
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
+## Fight
+
+To fight, choose one of your creatures to fight an opponent’s creature. That opponent has the opportunity to declare a blocker. Your creature then fights the blocker instead.
+
+Note that your attacking creature is spending its action to fight, which means that it can’t activate any of its abilities in this moment. However, if the ability has the 🗲Fight keyword, then it can activate its ability right before the fight is resolved.
+
+Note that the defender has not spent its action to do anything, so it can activate any applicable triggered ability during the moment. However, if the defender is a blocker, then it spent its action to block, and thus cannot activate its abilities. But if the ability has the 🗲Fight keyword, then it may activate that ability, and it will resolve right after the block resolves in the queue.
+
+When the fight resolves, calculate each fighting creature’s power total. The creature with the highest power total is the victor. The victor deals damage equal to its base power to the other fighting creature. If the victor’s power total is double the power total of the loser, then the damage is doubled.
+
+If there’s a tie, then no damage is dealt.
+
+If there’s multiple creatures in a fight, then the victor deals damage to all creatures hostile to it. If there’s a tie for highest power total, but the creatures with the highest power total are all on the same team, then they are each the victor and each deal their damage to the opposing creatures. If the tied creatures are on opposing teams, then no damage is dealt.
+
 ## Battle
 
-When a player spends their turn to resolve the battle, all players total up their creatures’ combined power. The player with the highest combined power total wins the battle, and claims the landmark. If there are no landmarks left, the player who claimed the most landmarks wins the game. If there is a tie, the tied player who most recently claimed a landmark wins.
+When a player spends their turn to resolve the battle, all players calculate their creatures’ combined power total. The player with the highest combined power total wins the battle, and claims the landmark. If there’s a tie for highest power total, then no player claims the landmark and it gets shuffled back into the landmark deck.
+
+At the end of a battle, if there are no landmarks left, the player who claimed the most landmarks wins the game. If there is a tie for most landmarks, the tied player who most recently claimed a landmark wins.
 
 ## Rest
 

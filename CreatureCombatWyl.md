@@ -376,3 +376,6 @@ Mark Rosewater’s 20 fav MtG mechanics
 
 Kohdok’s guide to TCG instructions: pieces needed  
 <https://youtu.be/w6nbElJLud8?t=1044>
+
+PidgiPotato says blocking should be a mechanic, not a keyword  
+<https://youtu.be/JnsM-Rc02kI>
