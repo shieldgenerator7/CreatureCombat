@@ -79,11 +79,32 @@ class Ability {
         let reminders = {};
         let text = `*${this.name}* — ` +
             this.lines.map((line, i, arr) => {
-                return this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]);
+                let reminder = this.getLineReminder(line, this.params[i], this.lineDisplayOptions[i]);
+                if (reminder){
+                    let name = this.getLineName(line, this.params[i]);
+                    reminders[name] = reminder;
+                }
+                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]);
+                if (sentenceStart) {
+                    let match = segment.match(/[a-zA-Z0-9\-]/);
+                    if (match) {
+                        segment = capitalizeFirstLetters(segment, false, match.index + 1);
+                        sentenceStart = false;
+                    }
+                    else if (segment) {
+                        console.error("segment doesnt match!", segment);
+                    }
+                }
+                let sentenceEnd = segment?.length > 0;//TODO: make this check current and next line
+                if (sentenceEnd) {
+                    segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
+                    sentenceStart = true;
+                }
+                return segment;
             })
                 .concat(
                     Object.entries(reminders).map(([key, value]) => {
-                        return `_(${capitalizeFirstLetters(key)}: ${capitalizeFirstLetters(value, false)})_`;
+                        return `_(*${key}*: ${capitalizeFirstLetters(value, false)})_`;
                     })
                 )
                 .flat(Infinity)
@@ -105,37 +126,14 @@ class Ability {
                     return `[Unknown atom: "${line.atomName}"]`;
                 }
                 let segment = "";
+                const linename = this.getLineName(line, params);
                 switch (lineDisplayOption) {
                     case DISPLAY_LINE_FULL:
                         segment = atom.text.trim();
                         break;
-                    case DISPLAY_LINE_KEYWORD_WITH_REMINDER: {
-                        let name = `*${capitalizeFirstLetters(atom.name.trim())}`;
-                        let reminder = atom.text.trim();
-                        Object.entries(atom.params).forEach(([key, value], j) => {
-                            let param = params[j] ?? line.params[j];
-                            let number = param;
-                            if (isNumber(number)) {
-                                name += ` ${number}`;
-                            }
-                            reminder = reminder.replaceAll(`{${key}}`, number);
-                        });
-                        name += "*";
-                        reminders[name] = reminder;
-                        segment = name;
-                    } break;
+                    case DISPLAY_LINE_KEYWORD_WITH_REMINDER:
                     case DISPLAY_LINE_KEYWORD_ONLY: {
-                        let name = `*${atom.name.trim()}`;
-                        let reminder = atom.text.trim();
-                        Object.entries(atom.params).forEach(([key, value], j) => {
-                            let param = params[j] ?? line.params[j];
-                            let number = param;
-                            if (isNumber(number)) {
-                                name += ` ${number}`;
-                            }
-                        });
-                        name += "*";
-                        segment = name;
+                        segment = `*${linename}*`;
                     } break;
                 }
                 let j = 0;
@@ -170,23 +168,6 @@ class Ability {
                 stringReplacements.forEach(rep => {
                     segment = rep.processString(segment);
                 });
-                //
-                if (sentenceStart) {
-                    let match = segment.match(/[a-zA-Z0-9\-]/);
-                    if (match) {
-                        segment = capitalizeFirstLetters(segment, false, match.index + 1);
-                        sentenceStart = false;
-                    }
-                    else if (segment) {
-                        console.error("segment doesnt match!", segment);
-                    }
-                }
-                let sentenceEnd = segment?.length > 0;//TODO: make this check current and next line
-                if (sentenceEnd) {
-                    segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
-                    sentenceStart = true;
-                }
-                // segment += "\n";
                 return segment;
     }
     getLineReminder(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL){
@@ -212,6 +193,22 @@ class Ability {
                         return undefined;
                     } break;
                 }
+    }
+    getLineName(line, params=[]){
+          //2026-08-23: copied from get getLineProcessed()
+                let atom = line.atom;
+                if (!atom) {
+                    return `[Unknown atom: "${line.atomName}"]`;
+                }                
+                let name = `${capitalizeFirstLetters(atom.name.trim())}`;
+                        Object.entries(atom.params).forEach(([key, value], j) => {
+                            let param = params[j] ?? line.params[j];
+                            let number = param;
+                            if (isNumber(number)) {
+                                name += ` ${number}`;
+                            }
+                        });
+                return name;
     }
 
     updateDNA() {
