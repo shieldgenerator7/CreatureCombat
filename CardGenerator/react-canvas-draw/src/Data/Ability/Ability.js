@@ -129,6 +129,22 @@ class Ability {
             //italics
             .replaceAll(/\_([^\_]*)\_/g, "<span class='i'>$1</span>");
     }
+    //**
+    // Returns an array, where each element is [content, size, color]
+    // Atom types in order: trigger, cost, requirement, effect
+    //  */
+    get TextByLineWithFormat() {
+        let processedLines = this.lines.map((line, i) => [
+            ((line.type==LINETYPE_TRIGGER)?"🗲 ":"") + this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),
+            12,
+            this.getLineFormat(line, this.params[i]),
+        ]);
+        return [
+            //name
+            [this.name, 15, "white"],
+            ...processedLines,
+        ]
+    }
 
     getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL){
         //2026-08-23: copied from get FullText()
@@ -220,6 +236,15 @@ class Ability {
                             }
                         });
                 return name;
+    }
+    getLineFormat(line, params = []) {
+        switch (line.type) {
+            case LINETYPE_TRIGGER: return "yellow";
+            case LINETYPE_COST: return "#FF00CC";
+            case LINETYPE_REQUIREMENT: return "#44BB34";
+            case LINETYPE_EFFECT: return "white";
+            default: return "white";
+        }
     }
 
     updateDNA() {

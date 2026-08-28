@@ -286,20 +286,22 @@ export function generateCardSkin(width, height, margin, padding) {
                             (card) => SYMBOL_MAP[ability.magicGenus],
                         ),
                         //Ability text
+                        ...ability.TextByLineWithFormat.map((arr,i)=>
                         new DrawLayer(
                             DRAWLAYER_TEXT,
                             "white",
-                            new Vector2(startX + textOffset, startY),
+                            new Vector2(startX + textOffset, startY + i*15),
                             new Vector2(boxWidth - textOffset, boxHeight),
-                            (card) => ability.FullText,
-                            (card) => card.colors[4],
+                            (card) => arr[0],
+                            (card) => arr[2],
                             (card) => {
                                 return {
                                     text_align: "left",
-                                    max_text_height: rowheight * 0.38,
+                                    max_text_height: arr[1],
                                     padding: 10,
                                 };
                             },
+                            )
                         ),
                     ];
                 }),
