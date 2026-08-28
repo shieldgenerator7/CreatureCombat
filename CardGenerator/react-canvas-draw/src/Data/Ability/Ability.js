@@ -75,7 +75,6 @@ class Ability {
     }
 
     get FullText() {
-        let sentenceStart = true;
         let reminders = {};
         let text = `*${this.name}*\n` +
             this.lines.map((line, i, arr) => {
@@ -84,11 +83,8 @@ class Ability {
                     let name = this.getLineName(line, this.params[i]);
                     reminders[name] = reminder;
                 }
-                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], sentenceStart, true);
-                let sentenceEnd = segment?.length > 0;//TODO: make this check current and next line
-                if (sentenceEnd) {
-                    sentenceStart = true;
-                }
+                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], true, true);
+
                 const lineType = line.atom.type;
                 const lineNextType = arr[i+1]?.atom.type;
 
@@ -131,6 +127,7 @@ class Ability {
         ]
     }
 
+    //2026-08-27a: TODO: put these getLine...() methods in the AbilityLine class
     getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL, capitalize = true, punctuation = true){
         //2026-08-23: copied from get FullText()
                 let atom = line.atom;
