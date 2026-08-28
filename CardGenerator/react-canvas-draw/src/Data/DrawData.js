@@ -50,7 +50,7 @@ let SYMBOL_SRC_LIST = [
     symbol_magic_garda_src,
 ];
 let SYMBOL_MAP;
-const SYMBOL_COLOR = "rgb(64, 174, 248)";
+const SYMBOL_COLOR = "#00D0FF";
 
 export function generateCardSkin(width, height, margin, padding) {
 

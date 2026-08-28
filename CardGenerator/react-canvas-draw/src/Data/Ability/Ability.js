@@ -265,7 +265,7 @@ class Ability {
     }
     getLineFormat(line, params = []) {
         switch (line.type) {
-            case LINETYPE_TRIGGER: return "yellow";
+            case LINETYPE_TRIGGER: return "#FFE97F";
             case LINETYPE_COST: return "#FF00CC";
             case LINETYPE_REQUIREMENT: return "#44BB34";
             case LINETYPE_EFFECT: return "white";
