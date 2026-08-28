@@ -258,12 +258,12 @@ export function generateCardSkin(width, height, margin, padding) {
             (card) =>
                 card.abilities.map((ability, i) => {
                     const startX = boxX;
-                    const bmHeight = boxHeight + margin * 1;
+                    const bmHeight = boxHeight + margin * 0.7;
                     const startY =
                         height -
                         card.abilities.length * bmHeight +
                         bmHeight * i -
-                        140;
+                        130;
                     const textOffset = 70;
                     const symbol_x = 14;
                     const symbol_width = margin * 1.75;
