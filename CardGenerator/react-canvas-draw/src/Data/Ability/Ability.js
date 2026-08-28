@@ -122,7 +122,7 @@ class Ability {
         ]);
         return [
             //name
-            [this.name, 25, "white"],
+            [`*${this.name}*`, 25, "#00D0FF"],
             ...processedLines,
         ]
     }
