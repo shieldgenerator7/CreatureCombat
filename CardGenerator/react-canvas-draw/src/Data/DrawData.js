@@ -243,7 +243,7 @@ export function generateCardSkin(width, height, margin, padding) {
             (card) => {
                 return {
                     text_align: "left",
-                    max_text_height: rowheight * 0.38,
+                    max_text_height: 20,
                     padding: 15,
                 };
             },
@@ -258,7 +258,7 @@ export function generateCardSkin(width, height, margin, padding) {
             (card) =>
                 card.abilities.map((ability, i) => {
                     const startX = boxX;
-                    const bmHeight = boxHeight + margin * 0.5;
+                    const bmHeight = boxHeight + margin * 0.05;
                     const startY =
                         height -
                         card.abilities.length * bmHeight +
