@@ -84,10 +84,9 @@ class Ability {
                     let name = this.getLineName(line, this.params[i]);
                     reminders[name] = reminder;
                 }
-                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], sentenceStart);
+                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], sentenceStart, true);
                 let sentenceEnd = segment?.length > 0;//TODO: make this check current and next line
                 if (sentenceEnd) {
-                    segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
                     sentenceStart = true;
                 }
                 const lineType = line.atom.type;
@@ -132,7 +131,7 @@ class Ability {
         ]
     }
 
-    getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL, capitalize = true){
+    getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL, capitalize = true, punctuation = true){
         //2026-08-23: copied from get FullText()
                 let atom = line.atom;
                 if (!atom) {
@@ -198,6 +197,11 @@ class Ability {
             segment = `${symbol} ${segment}`;
         }
 
+        //punctuation
+        if (punctuation) {
+            segment += this.getLinePunctuation(line);
+        }
+
                 return segment;
     }
     getLineReminder(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL){
@@ -247,6 +251,15 @@ class Ability {
             case LINETYPE_REQUIREMENT: return undefined;
             case LINETYPE_EFFECT: return undefined;
             default: return undefined;
+        }
+    }
+    getLinePunctuation(line) {
+         switch (line.type) {
+            case LINETYPE_TRIGGER: return "";
+            case LINETYPE_COST: return ":";
+            case LINETYPE_REQUIREMENT: return "?";
+            case LINETYPE_EFFECT: return ".";
+            default: return "";
         }
     }
     getLineFormat(line, params = []) {
