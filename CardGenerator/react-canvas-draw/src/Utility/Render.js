@@ -130,6 +130,24 @@ export function renderCard(card, canvas, drawData) {
                                 pos.y += drawformat.offset.y;
                             }
                         }
+                    if (drawformat.scale) {
+                        //x
+                        size.x *= drawformat.scale;
+                        if (size.x > origsize.x) {
+                            const diff = size.x - origsize.x;
+                            spos.x += diff / 2;
+                            ssize.x -= diff;
+                            size.x = origsize.x;
+                        }
+                        //y
+                        size.y *= drawformat.scale;
+                        if (size.y > origsize.y) {
+                            const diff = size.y - origsize.y;
+                            spos.y += diff / 2;
+                            ssize.y -= diff;
+                            size.y = origsize.y;
+                        }
+                    }
 
                 }
                 //draw

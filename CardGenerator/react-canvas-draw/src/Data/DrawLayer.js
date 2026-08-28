@@ -29,7 +29,7 @@ class DrawLayer {
     }
 
     getFormat(card) {
-        //may return an object with {imageFit, offset} or a FIT_ constant
+        //may return an object with {imageFit, offset, scale} or a FIT_ constant
         return this.formatFunc?.(card);
     }
 }

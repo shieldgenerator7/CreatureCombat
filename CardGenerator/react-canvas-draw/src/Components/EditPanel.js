@@ -265,6 +265,19 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                                 max={0}
                                 increment={10}
                             ></Counter>
+                            <div className='info'>Scale</div>                            
+                            <div className='fieldLine'>
+                                <Counter
+                                    value={card.imageScale * 100 || 100}
+                                    setValue={(v) => {
+                                        card.imageScale = v / 100;
+                                        updateCard(card);
+                                    }}
+                                    inline={true}
+                                    max={1000}
+                                    increment={10}
+                                ></Counter>
+                            </div>
                         </div>
                     </div>
                 )

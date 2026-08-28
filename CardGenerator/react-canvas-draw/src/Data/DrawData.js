@@ -100,6 +100,7 @@ export function generateCardSkin(width, height, margin, padding) {
                 return {
                     imageFit: card.imageFit,
                     offset: card.imageOffset.clone(),
+                    scale: card.imageScale || 1,
                 };
             },
         ),

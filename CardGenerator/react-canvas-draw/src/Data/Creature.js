@@ -20,6 +20,7 @@ class Creature {
         this.imageURL = undefined;
         this.imageFit = FIT_WHOLE;
         this.imageOffset = new Vector2(0, 0);
+        this.imageScale = 1;
 
         this.colors = [
             "#D7D7D7",//top bg
@@ -177,5 +178,6 @@ export function backwardsCompatifyCreature(creature) {
 
     //Image Offset
     creature.imageOffset ??= new Vector2(0, 0);
+    creature.imageScale ??= 1;
 
 }
