@@ -146,12 +146,13 @@ export function renderCard(card, canvas, drawData) {
                 let lines = text.split("\n");
                 let prevFontSize = 0;
                 let i = 0;
+                const typeface = "Arial";
                 for (i = 0; i < 1000; i++) {
                     fontSize = Math.min(
                         format.max_text_height || Infinity,
                         (draw.size.y - (padding * 2)) / lines.length
                     );
-                    context.font = `${fontSize}px Arial`;
+                    context.font = `${fontSize}px ${typeface}`;
                     lines = text
                         .split("\n")
                         .map(line => getLines(context, line, MAX_WIDTH_TEXT))
@@ -169,7 +170,7 @@ export function renderCard(card, canvas, drawData) {
                     if (textwidth > drawSizePad) {
                         let ratio = drawSizePad / textwidth;
                         fontSize *= ratio;
-                        context.font = `${fontSize}px Arial`;
+                        context.font = `${fontSize}px ${typeface}`;
                     }
                 }
                 //uncompress text to put space between keywords and their number
@@ -223,7 +224,7 @@ export function renderCard(card, canvas, drawData) {
                             return;
                         }
                         //write char
-                        context.font = `${(bold) ? "bold " : ""}${(italic) ? "italic " : ""}${fontSize}px Arial`;
+                        context.font = `${(bold) ? "bold " : ""}${(italic) ? "italic " : ""}${fontSize}px ${typeface}`;
                         context.fillText(
                             char,
                             x,
