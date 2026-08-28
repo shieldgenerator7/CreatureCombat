@@ -103,10 +103,6 @@ class Ability {
                 const lineType = line.atom.type;
                 const lineNextType = arr[i+1]?.atom.type;
 
-                if (lineType == LINETYPE_TRIGGER){
-                    segment = `🗲 ${segment}`;
-                }
-
                 if (line.atom.type != LINETYPE_EFFECT && lineNextType && lineType != lineNextType){
                     segment += "\n";
                 }
@@ -135,7 +131,7 @@ class Ability {
     //  */
     get TextByLineWithFormat() {
         let processedLines = this.lines.map((line, i) => [
-            ((line.type==LINETYPE_TRIGGER)?"🗲 ":"") + capitalizeFirstLetters(this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),false),
+            capitalizeFirstLetters(this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),false),
             12,
             this.getLineFormat(line, this.params[i]),
         ]);
@@ -195,6 +191,13 @@ class Ability {
                 stringReplacements.forEach(rep => {
                     segment = rep.processString(segment);
                 });
+        
+        //symbol
+        const symbol = this.getLineSymbol(line);
+        if (symbol) {
+            segment = `${symbol} ${segment}`;
+        }
+
                 return segment;
     }
     getLineReminder(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL){
@@ -236,6 +239,15 @@ class Ability {
                             }
                         });
                 return name;
+    }
+    getLineSymbol(line) {
+         switch (line.type) {
+            case LINETYPE_TRIGGER: return "🗲";
+            case LINETYPE_COST: return undefined;
+            case LINETYPE_REQUIREMENT: return undefined;
+            case LINETYPE_EFFECT: return undefined;
+            default: return undefined;
+        }
     }
     getLineFormat(line, params = []) {
         switch (line.type) {
