@@ -714,6 +714,30 @@ export const abilityAtoms = [
             }
         ),
         new AbilityAtom(
+            "morph-into-any",
+            "transform {target} into the {type}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+                type: TYPE_PARAM_TYPE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
+            "morph-outof-any",
+            "transform {target} out of the {type}",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+                type: TYPE_PARAM_TYPE,
+            },
+            {
+                keywordable: false,
+            }
+        ),
+        new AbilityAtom(
             "adapt",
             "Give this creature {bonus} in the {biomeMod}",
             LINETYPE_EFFECT,
