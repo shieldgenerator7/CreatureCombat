@@ -268,13 +268,34 @@ export function generateCardSkin(width, height, margin, padding) {
                     const symbol_x = 14;
                     const symbol_width = margin * 1.75;
 
+                    const abilityLines = ability.TextByLineWithFormat;
+                    const lineYs = [];
+                    let lastSize = 0;
+                    const buffer = 5;
+                    let textHeight = 0;
+                    for (i in abilityLines) {
+                        let arr = abilityLines[i];
+                        if (i == 0) {
+                            lineYs[i] = 0;
+                        }
+                        else {
+                            lineYs[i] = lineYs[i - 1] + lastSize + buffer;
+                            textHeight += buffer;
+                        }
+                        lastSize = arr[1];
+                        textHeight += arr[1];
+                    }
+                    
+                    const minBoxHeight = 80;
+                    let abilityBoxHeight = Math.max(textHeight + 35, minBoxHeight);
+
                     return [
                         //Box
                         new DrawLayer(
                             DRAWLAYER_BOX_ROUND,
                             "white",
                             new Vector2(startX, startY),
-                            new Vector2(boxWidth, boxHeight),
+                            new Vector2(boxWidth, abilityBoxHeight),
                             (card) => card.colors[1],
                         ),
                         //Magic Genus Symbol
@@ -290,7 +311,7 @@ export function generateCardSkin(width, height, margin, padding) {
                         new DrawLayer(
                             DRAWLAYER_TEXT,
                             "white",
-                            new Vector2(startX + textOffset, startY + i*15),
+                            new Vector2(startX + textOffset, startY + lineYs[i]),
                             new Vector2(boxWidth - textOffset, boxHeight),
                             (card) => arr[0],
                             (card) => arr[2],
