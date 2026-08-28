@@ -57,8 +57,9 @@ export function generateCardSkin(width, height, margin, padding) {
     loadUIImages();
 
     const rowheight = height / 17;
+    const infopaneheight = margin * 2;
     const marginWidth = width - margin * 2;
-    const marginHeight = height - margin * 2 - margin;//extra margin for info lines at bottom
+    const marginHeight = height - margin - infopaneheight;//extra margin for info lines at bottom
     const rowY = [
         margin * 1.5,//top of name plate, base power circle
         margin + marginHeight * 0.14,//biome bonus
@@ -419,6 +420,14 @@ export function generateCardSkin(width, height, margin, padding) {
                     ];
                 }),
         ),
+
+        //Info pane
+        new DrawLayer(
+            DRAWLAYER_BOX,
+            "black",
+            new Vector2(0, height - infopaneheight),
+            new Vector2(width, infopaneheight),
+        )
     ];
     return cardSkin;
 }

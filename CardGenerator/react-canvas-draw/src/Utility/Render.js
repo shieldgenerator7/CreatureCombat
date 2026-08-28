@@ -310,7 +310,7 @@ export function renderCard(card, canvas, drawData) {
 
     //Card Info
     let creditsX = 0 + bufferBase * 2.9;
-    let creditsY = height - bufferBase * 1.4;
+    let creditsY = height - bufferBase * 1.1;
     context.fillStyle = 'white';
     fontSize = 0.2;
     context.font = `${textRow * fontSize}px Arial`;
