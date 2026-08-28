@@ -83,7 +83,7 @@ class Ability {
                     let name = this.getLineName(line, this.params[i]);
                     reminders[name] = reminder;
                 }
-                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], true, true);
+                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], true, (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".");
 
                 const lineType = line.atom.type;
                 const lineNextType = arr[i+1]?.atom.type;
@@ -195,8 +195,12 @@ class Ability {
         }
 
         //punctuation
-        if (punctuation) {
+        //can be overridden with a string
+        if (punctuation === true) {
             segment += this.getLinePunctuation(line);
+        }
+        else if (punctuation) {
+            segment += punctuation;
         }
 
                 return segment;
