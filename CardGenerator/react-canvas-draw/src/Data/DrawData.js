@@ -63,8 +63,9 @@ export function generateCardSkin(width, height, margin, padding) {
     const rowY = [
         margin * 1.5,//top of name plate, base power circle
         margin + marginHeight * 0.14,//biome bonus
-        margin + marginHeight * 0.99,//rest, point cost
+        margin + marginHeight * 0.9,//rest, point cost
     ];
+    const floorY = margin + marginHeight * 1;
 
     const boxX = 150;
     const boxWidth = width - boxX * 2 + 50;
@@ -109,7 +110,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_IMAGE,
             undefined,
-            new Vector2(width - (margin * cost_size), height - (margin * cost_size) - 69),
+            new Vector2(width - (margin * cost_size), rowY[2]-30),
             new Vector2(margin * cost_size, margin * cost_size),
             (card) => UI_COST,
             undefined,
@@ -119,7 +120,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_BOX_ROUND,
             "#dbd69e",
-            new Vector2(boxX, margin * 1.5),
+            new Vector2(boxX, rowY[0]),
             new Vector2(boxWidth, boxHeight),
             (card) => card.colors[1],
         ),
@@ -127,7 +128,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_CIRCLE,
             "grey",
-            new Vector2(margin + 60, margin + 60),
+            new Vector2(margin + 60, rowY[0]+47),
             new Vector2(rowheight * 0.8, rowheight * 0.8),
             (card) => card.colors[2],
         ),
@@ -135,7 +136,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_IMAGE,
             undefined,
-            new Vector2(margin, height - (margin*rest_size) - 70),
+            new Vector2(margin, rowY[2]),
             new Vector2(margin*rest_size, margin*rest_size),
             (card) => UI_REST,            
             undefined,
@@ -165,13 +166,13 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "black",
-            new Vector2(boxX, margin),
-            new Vector2(boxWidth, boxHeight * 0.7),
+            new Vector2(boxX, rowY[0]+5),
+            new Vector2(boxWidth, boxHeight * 0.4),
             (card) => card.species?.trim(),
             (card) => card.colors[3],
             (card) => {
                 return {
-                    padding: 15,
+                    padding: 0,
                     padding_left: 15,
                 };
             },
@@ -181,7 +182,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "black",
-            new Vector2(boxX, 75),
+            new Vector2(boxX, rowY[0]+33),
             new Vector2(boxWidth, boxHeight * 0.9),
             (card) =>
                 card.tags
@@ -201,16 +202,17 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "black",
-            new Vector2(margin - 10, rowY[2] - 75),
-            new Vector2(marginWidth, rowheight * 0.7),
+            new Vector2(margin - 10, rowY[2]+35),
+            new Vector2(marginWidth-10, floorY - (rowY[2]+35)),
             (card) => costSpec.getTotalCost(card),
             (card) => card.colors[3],
             (card) => {
                 return {
                     text_align: "right",
                     padding: 0,
-                    padding_left: 15,
-                    padding_right: 15,
+                    padding_left: 0,
+                    padding_right: 0,
+                    max_text_height: 35,
                 };
             },
         ),
@@ -221,15 +223,16 @@ export function generateCardSkin(width, height, margin, padding) {
             "white",
             new Vector2(
                 margin + rowheight * (0.17 + 0.15),
-                rowY[2] - rowheight * 1.25,
+                rowY[2]+35,
             ),
-            new Vector2(rowheight * 1, rowheight * 0.7),
+            new Vector2(rowheight * 1, floorY - (rowY[2]+35)),
             (card) => card.getRestValue(),
             (card) => card.colors[5],
             (card) => {
                 return {
                     text_align: "center",
                     padding: 0,
+                    max_text_height: 35,
                 };
             },
         ),
@@ -238,8 +241,8 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "white",
-            new Vector2(boxX, rowY[2] - rowheight * 1.3),
-            new Vector2(boxWidth, boxHeight),
+            new Vector2(boxX, rowY[2]+10),
+            new Vector2(boxWidth, floorY - rowY[2]),
             (card) => "_" + card.flavorText.trim() + "_",
             (card) => card.colors[5],
             (card) => {

@@ -309,6 +309,7 @@ export function renderCard(card, canvas, drawData) {
     //
 
     //Card Info
+    //2026-08-28: TODO: make these draw layers in DrawData
     let creditsX = 0 + bufferBase * 2.9;
     let creditsY = height - bufferBase * 1.1;
     context.fillStyle = 'white';
