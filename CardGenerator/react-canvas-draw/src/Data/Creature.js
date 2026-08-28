@@ -4,6 +4,7 @@ import { getDateString, isImage } from "../Utility/Utility";
 import { VERSION } from "../Version";
 import Ability, { backwardsCompatifyAbility, inflateAbility } from "./Ability/Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
+import Vector2, { inflateVector2 } from "./Vector2";
 
 export const FIT_WHOLE = 0;
 export const FIT_FILL = 1;
@@ -18,6 +19,7 @@ class Creature {
 
         this.imageURL = undefined;
         this.imageFit = FIT_WHOLE;
+        this.imageOffset = new Vector2(0, 0);
 
         this.colors = [
             "#D7D7D7",//top bg
@@ -140,6 +142,11 @@ export function inflateCreature(creature, updateCard = (c) => { }) {
             updateCard(creature);
         }
     }
+
+    //Image Offset
+    if (creature.imageOffset) {
+        inflateVector2(creature.imageOffset);
+    }
 }
 
 export function backwardsCompatifyCreature(creature) {
@@ -167,5 +174,8 @@ export function backwardsCompatifyCreature(creature) {
     // Abilities
     //
     creature.abilities.forEach(a => backwardsCompatifyAbility(a));
+
+    //Image Offset
+    creature.imageOffset ??= new Vector2(0, 0);
 
 }

@@ -13,3 +13,7 @@ class Vector2 {
 
 export const VECTOR2_ZERO = new Vector2(0, 0);
 export default Vector2;
+
+export function inflateVector2(vector){
+    Object.setPrototypeOf(vector, Vector2.prototype);
+}

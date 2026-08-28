@@ -241,6 +241,31 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                                 <option value={FIT_HEIGHT}>Height</option>
                             </select>
                         </div>
+                        <div className='info'>Offset</div>
+                            <div className='fieldLine'>
+                            <Counter
+                                value={card.imageOffset.x}
+                                setValue={(v) => {
+                                    card.imageOffset.x = v;
+                                    updateCard(card);
+                                }}
+                                inline={true}
+                                allowNegative={true}
+                                max={0}
+                                increment={10}
+                            ></Counter>
+                            <Counter
+                                value={card.imageOffset.y}
+                                setValue={(v) => {
+                                    card.imageOffset.y = v;
+                                    updateCard(card);
+                                }}                                
+                                inline={true}
+                                allowNegative={true}
+                                max={0}
+                                increment={10}
+                            ></Counter>
+                        </div>
                     </div>
                 )
             }
