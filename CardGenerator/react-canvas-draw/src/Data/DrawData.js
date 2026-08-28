@@ -15,7 +15,7 @@ import ui_bonus_src from "../Images/ui_bonus.png";
 import ui_penalty_src from "../Images/ui_penalty.png";
 import ui_rest_src from "../Images/ui_rest.png";
 import ui_cost_src from "../Images/ui_cost.png";
-import { FIT_WHOLE } from "./Creature";
+import { FIT_FILL, FIT_WHOLE } from "./Creature";
 import symbol_magic_deter_src from "../Images/symbol_deter.png";
 import symbol_magic_fohlo_src from "../Images/symbol_fohlo.png";
 import symbol_magic_firok_src from "../Images/symbol_firok.png";
@@ -52,6 +52,14 @@ let SYMBOL_SRC_LIST = [
 let SYMBOL_MAP;
 const SYMBOL_COLOR = "#00D0FF";
 
+/**
+ * 
+ * @param {*} width card width (px)
+ * @param {*} height card height (px)
+ * @param {*} margin card margin (px), this is filled with black space
+ * @param {*} padding how much space (px) to leave between margin and card features
+ * @returns 
+ */
 export function generateCardSkin(width, height, margin, padding) {
 
     loadUIImages();
@@ -61,13 +69,13 @@ export function generateCardSkin(width, height, margin, padding) {
     const marginWidth = width - margin * 2;
     const marginHeight = height - margin - infopaneheight;//extra margin for info lines at bottom
     const columnX = [
-        margin + marginWidth * 0,//base power, bonuses, pet name, rest
+        margin + padding,//base power, bonuses, pet name, rest
         margin + marginWidth * 0.175,//name, types, abilities
         margin + marginWidth * 0.9,//point cost, flavor text
     ];
     const wallRightX = margin + marginWidth * 1;
     const rowY = [
-        margin * 1.5,//top of name plate, base power circle
+        margin + padding,//top of name plate, base power circle
         margin + marginHeight * 0.14,//biome bonus
         margin + marginHeight * 0.9,//rest, point cost
     ];
@@ -77,8 +85,10 @@ export function generateCardSkin(width, height, margin, padding) {
     const boxWidth = columnX[2] - columnX[1];
     const boxHeight = 100;
 
-    const rest_size = columnX[1] - columnX[0]-10;
-    const cost_size = wallRightX - columnX[2] + 20;
+    const power_size = Math.min(columnX[1] - columnX[0]-padding/2,rowY[1]-rowY[0]-5);
+    const rest_size = Math.min(columnX[1] - columnX[0]-10,floorY - rowY[2]);
+    const cost_size = Math.min(wallRightX - columnX[2] + 20,floorY - rowY[2] + 20);
+    console.log("rest", rest_size, "cost", cost_size);
 
     let cardSkin = [
         //black
@@ -134,8 +144,8 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_CIRCLE,
             "grey",
-            new Vector2(columnX[0] + 60, rowY[0]+47),
-            new Vector2(rowheight * 0.8, rowheight * 0.8),
+            new Vector2(columnX[0]+power_size/2, rowY[0]+power_size/2),
+            new Vector2(power_size/2, power_size/2),
             (card) => card.colors[2],
         ),
         //rest value circle
@@ -229,7 +239,7 @@ export function generateCardSkin(width, height, margin, padding) {
             "white",
             new Vector2(
                 columnX[0],
-                rowY[2]+35,
+                rowY[2]+rest_size * 0.3,
             ),
             new Vector2(rest_size, rest_size),
             (card) => card.getRestValue(),
@@ -343,14 +353,14 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "white",
-            new Vector2(margin + rowheight * 0.17 + 10, margin * 1.4 + 10),
-            new Vector2(rowheight * 1.28, rowheight * 0.9),
+            new Vector2(columnX[0], rowY[0]),
+            new Vector2(power_size, power_size*0.75),
             (card) => card.basePower,
             (card) => card.colors[5],
             (card) => {
                 return {
                     text_align: "center",
-                    padding: 0,
+                    padding: 10,
                 };
             },
         ),
@@ -367,11 +377,14 @@ export function generateCardSkin(width, height, margin, padding) {
                     (bm) => bm.modifier * -1,
                 ).map((bm, i) => {
                     const startX = margin;
+                    const textX = columnX[0];
                     const startY = rowY[1];
                     const bmWidth = rowheight * 1.5;
                     const bmHeight = rowheight * 1.5;
                     const areaSize = rowheight * 1.4;
                     const areaSizeHalf = areaSize / 2;
+                    const areaWidth = columnX[1] - margin;
+                    const areaWidthText = Math.min(areaWidth - (textX - startX),100);
                     const boxLessAmount = 7;
                     const color = (bm.modifier >= 0) ? "white" : "#FFB2B2";
                     return [
@@ -383,25 +396,25 @@ export function generateCardSkin(width, height, margin, padding) {
                                 startX,
                                 startY + bmHeight * i,
                             ),
-                            new Vector2(areaSize+margin*0.7, areaSize),
+                            new Vector2(areaWidth, areaSize),
                             (card) => (bm.modifier >= 0)?UI_BONUS:UI_PENALTY,
                             undefined,
-                            (card) => FIT_WHOLE
+                            (card) => FIT_FILL
                         ),
                         //Biome
                         new DrawLayer(
                             DRAWLAYER_TEXT,
                             "white",
                             new Vector2(
-                                startX,
+                                textX,
                                 startY + bmHeight * i,
                             ),
-                            new Vector2(areaSize, areaSizeHalf),
+                            new Vector2(areaWidthText, areaSizeHalf),
                             (card) => bm.biome,
                             (card) => color,
                             (card) => {
                                 return {
-                                    text_align: "center",
+                                    text_align: "left",
                                     padding: rowheight * 0.1,
                                     max_text_height: rowheight * 0.25,
                                 };
@@ -412,16 +425,16 @@ export function generateCardSkin(width, height, margin, padding) {
                             DRAWLAYER_TEXT,
                             "white",
                             new Vector2(
-                                startX + (areaSize - areaSize * 0.75) / 2,
+                                textX+5,
                                 startY + bmHeight * i + 30,
                             ),
-                            new Vector2(areaSize * 0.75, areaSize * 0.4),
+                            new Vector2(areaWidthText, areaSize * 0.4),
                             (card) =>
                                 `${bm.modifier > 0 ? "+" : ""}${bm.modifier}`,
                             (card) => color,
                             (card) => {
                                 return {
-                                    text_align: "center",
+                                    text_align: "left",
                                     padding: 0, //rowheight * 0.1,
                                 };
                             },
