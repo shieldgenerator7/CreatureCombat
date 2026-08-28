@@ -135,7 +135,7 @@ class Ability {
     //  */
     get TextByLineWithFormat() {
         let processedLines = this.lines.map((line, i) => [
-            ((line.type==LINETYPE_TRIGGER)?"🗲 ":"") + this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),
+            ((line.type==LINETYPE_TRIGGER)?"🗲 ":"") + capitalizeFirstLetters(this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),false),
             12,
             this.getLineFormat(line, this.params[i]),
         ]);
