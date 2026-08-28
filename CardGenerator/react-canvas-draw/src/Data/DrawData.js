@@ -370,6 +370,7 @@ export function generateCardSkin(width, height, margin, padding) {
                     const areaSize = rowheight * 1.4;
                     const areaSizeHalf = areaSize / 2;
                     const boxLessAmount = 7;
+                    const color = (bm.modifier >= 0) ? "white" : "#FFB2B2";
                     return [
                         new DrawLayer(
                             DRAWLAYER_IMAGE,
@@ -401,7 +402,7 @@ export function generateCardSkin(width, height, margin, padding) {
                             ),
                             new Vector2(areaSize, areaSizeHalf),
                             (card) => bm.biome,
-                            (card) => card.colors[5],
+                            (card) => color,
                             (card) => {
                                 return {
                                     text_align: "center",
@@ -423,7 +424,7 @@ export function generateCardSkin(width, height, margin, padding) {
                             new Vector2(areaSize * 0.75, areaSize * 0.4),
                             (card) =>
                                 `${bm.modifier > 0 ? "+" : ""}${bm.modifier}`,
-                            (card) => card.colors[5],
+                            (card) => color,
                             (card) => {
                                 return {
                                     text_align: "center",
