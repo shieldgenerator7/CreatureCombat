@@ -9,7 +9,7 @@ import { downloadFile } from '../Utility/Download';
 
 const width = 2.5 * RESOLUTION;
 const height = 3.5 * RESOLUTION;
-const drawData = generateCardSkin(width, height, 0.1 * RESOLUTION, 0.1 * RESOLUTION);
+const drawData = generateCardSkin(width, height, 0.1 * RESOLUTION, 0.04 * RESOLUTION);
 
 function Canvas({ card, autoDownload }) {
 
