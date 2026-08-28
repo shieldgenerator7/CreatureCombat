@@ -95,6 +95,13 @@ export function generateCardSkin(width, height, margin, padding) {
             new Vector2(margin, margin),
             new Vector2(marginWidth, height - margin * 2),
             (card) => card.imgPortrait,
+            undefined,
+            (card) => {
+                return {
+                    imageFit: card.imageFit,
+                    offset: card.imageOffset.clone(),
+                };
+            },
         ),
         //cost bg
         new DrawLayer(

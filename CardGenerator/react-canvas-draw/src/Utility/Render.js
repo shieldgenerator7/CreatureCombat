@@ -54,10 +54,12 @@ export function renderCard(card, canvas, drawData) {
                 //fit picture
                 let pos = draw.position.clone();
                 let size = draw.size.clone();
+                let origsize = size.clone();
                 let width = img.width;
                 let height = img.height;
                 let spos = VECTOR2_ZERO.clone();
                 let ssize = new Vector2(img.width, img.height);
+                const drawformat = draw.getFormat(card) ?? {imageFit: card.imageFit};
                 if (width != size.x || height != size.y) {
                     let wRatio = size.x / width;
                     let hRatio = size.y / height;
@@ -87,7 +89,7 @@ export function renderCard(card, canvas, drawData) {
                             pos.x = newX;
                         }
                     };
-                    const imageFit = draw.getFormat(card) ?? card.imageFit;
+                    const imageFit = drawformat.imageFit ?? drawformat;
                     switch (imageFit) {
                         case FIT_WHOLE:
                             if (wRatio < hRatio) {
@@ -114,6 +116,20 @@ export function renderCard(card, canvas, drawData) {
                         default:
                             console.error("unknown fit:", card.imageFit);
                     }
+                        if (drawformat.offset) {
+                            if (size.x == origsize.x) {
+                                spos.x -= drawformat.offset.x;
+                            }
+                            else {
+                                pos.x += drawformat.offset.x;
+                            }
+                            if (size.y == origsize.y) {
+                                spos.y -= drawformat.offset.y;
+                            }
+                            else {
+                                pos.y += drawformat.offset.y;
+                            }
+                        }
 
                 }
                 //draw
