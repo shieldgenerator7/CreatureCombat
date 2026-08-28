@@ -84,17 +84,7 @@ class Ability {
                     let name = this.getLineName(line, this.params[i]);
                     reminders[name] = reminder;
                 }
-                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]);
-                if (sentenceStart) {
-                    let match = segment.match(/[a-zA-Z0-9\-]/);
-                    if (match) {
-                        segment = capitalizeFirstLetters(segment, false, match.index + 1);
-                        sentenceStart = false;
-                    }
-                    else if (segment) {
-                        console.error("segment doesnt match!", segment);
-                    }
-                }
+                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], sentenceStart);
                 let sentenceEnd = segment?.length > 0;//TODO: make this check current and next line
                 if (sentenceEnd) {
                     segment += (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".";
@@ -131,7 +121,7 @@ class Ability {
     //  */
     get TextByLineWithFormat() {
         let processedLines = this.lines.map((line, i) => [
-            capitalizeFirstLetters(this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),false),
+            this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),
             12,
             this.getLineFormat(line, this.params[i]),
         ]);
@@ -142,7 +132,7 @@ class Ability {
         ]
     }
 
-    getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL){
+    getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL, capitalize = true){
         //2026-08-23: copied from get FullText()
                 let atom = line.atom;
                 if (!atom) {
@@ -191,6 +181,16 @@ class Ability {
                 stringReplacements.forEach(rep => {
                     segment = rep.processString(segment);
                 });
+        
+        if (capitalize) {
+            let match = segment.match(/[a-zA-Z0-9\-]/);
+            if (match) {
+                segment = capitalizeFirstLetters(segment, false, match.index + 1);
+            }
+            else if (segment) {
+                console.error("segment doesnt match!", segment);
+            }
+        }
         
         //symbol
         const symbol = this.getLineSymbol(line);
