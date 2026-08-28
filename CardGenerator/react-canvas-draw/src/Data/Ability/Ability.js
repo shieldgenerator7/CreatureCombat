@@ -117,12 +117,12 @@ class Ability {
     get TextByLineWithFormat() {
         let processedLines = this.lines.map((line, i) => [
             this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),
-            12,
+            25,
             this.getLineFormat(line, this.params[i]),
         ]);
         return [
             //name
-            [this.name, 15, "white"],
+            [this.name, 30, "white"],
             ...processedLines,
         ]
     }

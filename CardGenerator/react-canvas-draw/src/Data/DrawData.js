@@ -236,7 +236,7 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "white",
-            new Vector2(boxX, markersY[3] - rowheight * 1.5),
+            new Vector2(boxX, markersY[3] - rowheight * 1.3),
             new Vector2(boxWidth, boxHeight),
             (card) => "_" + card.flavorText.trim() + "_",
             (card) => card.colors[5],
@@ -258,7 +258,7 @@ export function generateCardSkin(width, height, margin, padding) {
             (card) =>
                 card.abilities.map((ability, i) => {
                     const startX = boxX;
-                    const bmHeight = boxHeight + margin * 0.05;
+                    const bmHeight = boxHeight + margin * 1;
                     const startY =
                         height -
                         card.abilities.length * bmHeight +
