@@ -277,15 +277,51 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
             undefined,
             undefined,
             undefined,
-            (card) =>
-                card.abilities.map((ability, i) => {
+            (card) => {
+
+                //ability sizes
+                const minBoxHeight = textSize * 2.8;
+                const room = textSize;
+                const abilityYs = [];
+                const abilityHeights = [];
+                const boxBuffer = padding;
+                for (let i in card.abilities) {
+                    let ability = card.abilities[i];
+                    //determine Y
+                    if (i == 0) {
+                        abilityYs[i] = 0;
+                    }
+                    else {
+                        abilityYs[i] = abilityYs[i - 1] + abilityHeights[i-1] + boxBuffer;
+                    }
+                    //determine height
+                    const abilityLines = ability.TextByLineWithFormat;
+                    const lineYs = [];
+                    let lastSize = 0;
+                    const buffer = textSize * 0.3;
+                    let textHeight = 0;
+                    for (let j in abilityLines) {
+                        let arr = abilityLines[j];
+                        if (j == 0) {
+                            lineYs[j] = 0;
+                        }
+                        else {
+                            lineYs[j] = lineYs[j - 1] + lastSize + buffer;
+                            textHeight += buffer;
+                        }
+                        lastSize = arr[1];
+                        textHeight += arr[1];
+                    }
+                    textHeight -= buffer*2;
+                    abilityHeights[i] = Math.max(textHeight + room, minBoxHeight);
+                }
+                const blockStartY = rowY[2] - abilityYs.at(-1) - abilityHeights.at(-1) + textSize;
+
+                //ability draw layers
+                return card.abilities.map((ability, i) => {
                     const startX = boxX;
                     const bmHeight = boxHeight + textSize * 0.7;
-                    const startY =
-                        height -
-                        card.abilities.length * bmHeight +
-                        bmHeight * i -
-                        130;
+                    const startY = abilityYs[i] + blockStartY;
                     const textOffset = 70;
                     const symbol_x = 14;
                     const symbol_width = textSize * 1.75;
@@ -293,7 +329,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                     const abilityLines = ability.TextByLineWithFormat;
                     const lineYs = [];
                     let lastSize = 0;
-                    const buffer = 5;
+                    const buffer = textSize * 0.2;
                     let textHeight = 0;
                     for (i in abilityLines) {
                         let arr = abilityLines[i];
@@ -308,8 +344,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                         textHeight += arr[1];
                     }
                     
-                    const minBoxHeight = 80;
-                    let abilityBoxHeight = Math.max(textHeight + 35, minBoxHeight);
+                    let abilityBoxHeight = Math.max(textHeight + textSize, minBoxHeight);
 
                     return [
                         //Box
@@ -324,12 +359,12 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                         new DrawLayer(
                             DRAWLAYER_IMAGE,
                             undefined,
-                            new Vector2(startX+symbol_x, startY+15),
+                            new Vector2(startX + symbol_x, startY + textSize * 0.5),
                             new Vector2(symbol_width, symbol_width),
                             (card) => SYMBOL_MAP[ability.magicGenus],
                         ),
                         //Ability text
-                        ...ability.TextByLineWithFormat.map((arr,i)=>
+                    ...ability.TextByLineWithFormat.map((arr, i) =>
                         new DrawLayer(
                             DRAWLAYER_TEXT,
                             "white",
@@ -347,7 +382,8 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             )
                         ),
                     ];
-                }),
+                });
+            },
         ),
 
         //base power
