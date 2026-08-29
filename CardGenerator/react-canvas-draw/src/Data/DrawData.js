@@ -60,11 +60,10 @@ const SYMBOL_COLOR = "#00D0FF";
  * @param {*} padding how much space (px) to leave between margin and card features
  * @returns 
  */
-export function generateCardSkin(width, height, margin, padding) {
+export function generateCardSkin(width, height, margin, padding, textSize) {
 
     loadUIImages();
 
-    const rowheight = height / 17;
     const infopaneheight = margin * 2;
     const marginWidth = width - margin * 2;
     const marginHeight = height - margin - infopaneheight;//extra margin for info lines at bottom
@@ -167,8 +166,8 @@ export function generateCardSkin(width, height, margin, padding) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "black",
-            new Vector2(margin, margin + rowheight * 0.3),
-            new Vector2(marginWidth, rowheight * 0.7),
+            new Vector2(margin, margin + textSize),
+            new Vector2(marginWidth, textSize),
             (card) => card.name?.trim(),
             (card) => card.colors[3],
             (card) => {
@@ -228,7 +227,7 @@ export function generateCardSkin(width, height, margin, padding) {
                     padding: 0,
                     padding_left: 0,
                     padding_right: 0,
-                    max_text_height: 35,
+                    max_text_height: textSize,
                 };
             },
         ),
@@ -379,14 +378,15 @@ export function generateCardSkin(width, height, margin, padding) {
                     const startX = margin;
                     const textX = columnX[0];
                     const startY = rowY[1];
-                    const bmWidth = rowheight * 1.5;
-                    const bmHeight = rowheight * 1.5;
-                    const areaSize = rowheight * 1.4;
-                    const areaSizeHalf = areaSize / 2;
+                    const textSizeBiome = textSize * 1.2;
+                    const textSizeMod = textSize * 1.25;
+                    const room = textSize*0.7;
+                    const bmHeight = textSizeBiome + textSizeMod + room;
                     const areaWidth = columnX[1] - margin;
-                    const areaWidthText = Math.min(areaWidth - (textX - startX),100);
-                    const boxLessAmount = 7;
+                    const areaWidthText = Math.min(areaWidth - (textX - startX) - textSize*0.5,300);
                     const color = (bm.modifier >= 0) ? "white" : "#FFB2B2";
+                    const boxBuffer = textSize * 0.1;
+                    const rowheight = bmHeight + boxBuffer;
                     return [
                         //back
                         new DrawLayer(
@@ -394,9 +394,9 @@ export function generateCardSkin(width, height, margin, padding) {
                             undefined,
                             new Vector2(
                                 startX,
-                                startY + bmHeight * i,
+                                startY + rowheight * i - boxBuffer,
                             ),
-                            new Vector2(areaWidth, areaSize),
+                            new Vector2(areaWidth, bmHeight),
                             (card) => (bm.modifier >= 0)?UI_BONUS:UI_PENALTY,
                             undefined,
                             (card) => FIT_FILL
@@ -407,16 +407,16 @@ export function generateCardSkin(width, height, margin, padding) {
                             "white",
                             new Vector2(
                                 textX,
-                                startY + bmHeight * i,
+                                startY + rowheight * i - boxBuffer,
                             ),
-                            new Vector2(areaWidthText, areaSizeHalf),
+                            new Vector2(areaWidthText, textSizeBiome),
                             (card) => bm.biome,
                             (card) => color,
                             (card) => {
                                 return {
                                     text_align: "left",
-                                    padding: rowheight * 0.1,
-                                    max_text_height: rowheight * 0.25,
+                                    padding: textSize * 0.2,
+                                    max_text_height: textSizeBiome,
                                 };
                             },
                         ),
@@ -425,17 +425,18 @@ export function generateCardSkin(width, height, margin, padding) {
                             DRAWLAYER_TEXT,
                             "white",
                             new Vector2(
-                                textX+5,
-                                startY + bmHeight * i + 30,
+                                textX,
+                                startY + rowheight * i - boxBuffer + textSizeMod,
                             ),
-                            new Vector2(areaWidthText, areaSize * 0.4),
+                            new Vector2(areaWidthText, textSizeMod),
                             (card) =>
                                 `${bm.modifier > 0 ? "+" : ""}${bm.modifier}`,
                             (card) => color,
                             (card) => {
                                 return {
                                     text_align: "left",
-                                    padding: 0, //rowheight * 0.1,
+                                    padding_left: textSize * 0.2,
+                                    max_text_height: textSizeMod,
                                 };
                             },
                         ),
