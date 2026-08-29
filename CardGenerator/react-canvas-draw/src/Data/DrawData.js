@@ -104,7 +104,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
             DRAWLAYER_BOX,
             "white",
             new Vector2(margin, margin),
-            new Vector2(marginWidth, height - margin * 2),
+            new Vector2(marginWidth, marginHeight),
             (card) => card.colors[0],
         ),
         //image
@@ -112,7 +112,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
             DRAWLAYER_IMAGE,
             undefined,
             new Vector2(margin, margin),
-            new Vector2(marginWidth, height - margin * 2),
+            new Vector2(marginWidth, marginHeight),
             (card) => card.imgPortrait,
             undefined,
             (card) => {
@@ -168,8 +168,8 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
         new DrawLayer(
             DRAWLAYER_TEXT,
             "black",
-            new Vector2(margin, margin + textSize),
-            new Vector2(marginWidth, textSize),
+            new Vector2(columnX[1], rowY[1]),
+            new Vector2([columnX[2] - columnX[1]], textSize),
             (card) => card.name?.trim(),
             (card) => card.colors[3],
             (card) => {
@@ -280,7 +280,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
             (card) =>
                 card.abilities.map((ability, i) => {
                     const startX = boxX;
-                    const bmHeight = boxHeight + margin * 0.7;
+                    const bmHeight = boxHeight + textSize * 0.7;
                     const startY =
                         height -
                         card.abilities.length * bmHeight +
@@ -288,7 +288,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                         130;
                     const textOffset = 70;
                     const symbol_x = 14;
-                    const symbol_width = margin * 1.75;
+                    const symbol_width = textSize * 1.75;
 
                     const abilityLines = ability.TextByLineWithFormat;
                     const lineYs = [];
