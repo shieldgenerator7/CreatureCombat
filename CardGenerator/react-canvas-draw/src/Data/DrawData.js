@@ -398,9 +398,9 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                     const startX = margin;
                     const textX = columnX[0];
                     const startY = rowY[1];
-                    const textSizeBiome = textSize * 1.2;
-                    const textSizeMod = textSize * 1.25;
-                    const room = padding*1.2;
+                    const textSizeBiome = textSize * 1.1;
+                    const textSizeMod = textSize * 1.4;
+                    const room = padding*1.5;
                     const bmHeight = textSizeBiome + textSizeMod + room;
                     const areaWidth = columnX[1] - margin;
                     const areaWidthText = Math.min(areaWidth - (textX - startX) - textSize*0.5,textSize*10);
@@ -434,7 +434,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             (card) => color,
                             (card) => {
                                 return {
-                                    text_align: "left",
+                                    text_align: "center",
                                     padding: textSize * 0.2,
                                     max_text_height: textSizeBiome,
                                 };
@@ -446,7 +446,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             "white",
                             new Vector2(
                                 textX,
-                                startY + rowheight * i + textSizeMod,
+                                startY + rowheight * i + textSizeMod*0.75,
                             ),
                             new Vector2(areaWidthText, textSizeMod),
                             (card) =>
@@ -454,7 +454,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             (card) => color,
                             (card) => {
                                 return {
-                                    text_align: "left",
+                                    text_align: "center",
                                     padding_left: textSize * 0.2,
                                     max_text_height: textSizeMod,
                                 };
