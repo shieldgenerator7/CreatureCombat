@@ -86,7 +86,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
     const boxWidth = columnX[2] - columnX[1];
     const boxHeight = 100;
 
-    const power_size = Math.min(columnX[1] - columnX[0]-padding/2,rowY[1]-rowY[0]-5);
+    const power_size = Math.min(columnX[1] - columnX[0]-padding/2,rowY[1]-rowY[0]-padding/2);
     const rest_size = Math.min(columnX[1] - columnX[0]-10,floorY - rowY[2]);
     const cost_size = Math.min(wallRightX - columnX[2] + 20,floorY - rowY[2] + 20);
     console.log("rest", rest_size, "cost", cost_size);
@@ -382,12 +382,12 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                     const startY = rowY[1];
                     const textSizeBiome = textSize * 1.2;
                     const textSizeMod = textSize * 1.25;
-                    const room = textSize*0.7;
+                    const room = padding*1.2;
                     const bmHeight = textSizeBiome + textSizeMod + room;
                     const areaWidth = columnX[1] - margin;
-                    const areaWidthText = Math.min(areaWidth - (textX - startX) - textSize*0.5,300);
+                    const areaWidthText = Math.min(areaWidth - (textX - startX) - textSize*0.5,textSize*10);
                     const color = (bm.modifier >= 0) ? "white" : "#FFB2B2";
-                    const boxBuffer = textSize * 0.1;
+                    const boxBuffer = padding * 0.5;
                     const rowheight = bmHeight + boxBuffer;
                     return [
                         //back
@@ -396,7 +396,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             undefined,
                             new Vector2(
                                 startX,
-                                startY + rowheight * i - boxBuffer,
+                                startY + rowheight * i,
                             ),
                             new Vector2(areaWidth, bmHeight),
                             (card) => (bm.modifier >= 0)?UI_BONUS:UI_PENALTY,
@@ -409,7 +409,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             "white",
                             new Vector2(
                                 textX,
-                                startY + rowheight * i - boxBuffer,
+                                startY + rowheight * i,
                             ),
                             new Vector2(areaWidthText, textSizeBiome),
                             (card) => bm.biome,
@@ -428,7 +428,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             "white",
                             new Vector2(
                                 textX,
-                                startY + rowheight * i - boxBuffer + textSizeMod,
+                                startY + rowheight * i + textSizeMod,
                             ),
                             new Vector2(areaWidthText, textSizeMod),
                             (card) =>
