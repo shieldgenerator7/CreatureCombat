@@ -87,7 +87,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
     const boxHeight = 100;
 
     const power_size = Math.min(columnX[1] - columnX[0]-padding/2,rowY[1]-rowY[0]-padding/2);
-    const rest_size = Math.min(columnX[1] - columnX[0]-10,floorY - rowY[2]);
+    const rest_size = Math.min(columnX[1] - columnX[0]+padding,floorY - rowY[2]);
     const cost_size = Math.min(wallRightX - columnX[2] + 20,floorY - rowY[2] + 20);
     console.log("rest", rest_size, "cost", cost_size);
 
@@ -153,7 +153,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
         new DrawLayer(
             DRAWLAYER_IMAGE,
             undefined,
-            new Vector2(columnX[0], rowY[2]),
+            new Vector2(columnX[0]-padding, rowY[2]),
             new Vector2(rest_size, rest_size),
             (card) => UI_REST,            
             undefined,
@@ -239,7 +239,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
             DRAWLAYER_TEXT,
             "white",
             new Vector2(
-                columnX[0],
+                columnX[0]-padding,
                 rowY[2]+rest_size * 0.3,
             ),
             new Vector2(rest_size, rest_size),
