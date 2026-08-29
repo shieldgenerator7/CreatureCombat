@@ -1,6 +1,6 @@
 "use strict";
 
-import { arrayMax, arraySort, getLines } from "../Utility/Utility";
+import { arrayMax, arraySort, arraySum, getLines } from "../Utility/Utility";
 import { costSpec } from "./CostSpec";
 import DrawLayer, {
     DRAWLAYER_BOX,
@@ -281,10 +281,12 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
 
                 //ability sizes
                 const minBoxHeight = textSize * 2.8;
-                const room = textSize;
+                const room = textSize*1;
                 const abilityYs = [];
                 const abilityHeights = [];
                 const boxBuffer = padding;
+                const buffer = textSize * 0.2;
+                
                 for (let i in card.abilities) {
                     let ability = card.abilities[i];
                     //determine Y
@@ -296,26 +298,10 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                     }
                     //determine height
                     const abilityLines = ability.TextByLineWithFormat;
-                    const lineYs = [];
-                    let lastSize = 0;
-                    const buffer = textSize * 0.3;
-                    let textHeight = 0;
-                    for (let j in abilityLines) {
-                        let arr = abilityLines[j];
-                        if (j == 0) {
-                            lineYs[j] = 0;
-                        }
-                        else {
-                            lineYs[j] = lineYs[j - 1] + lastSize + buffer;
-                            textHeight += buffer;
-                        }
-                        lastSize = arr[1];
-                        textHeight += arr[1];
-                    }
-                    textHeight -= buffer*2;
-                    abilityHeights[i] = Math.max(textHeight + room, minBoxHeight);
+                    let textHeight = arraySum(abilityLines, (arr) => arr[1]) + abilityLines.length * buffer + room;
+                    abilityHeights[i] = Math.max(textHeight, minBoxHeight);
                 }
-                const blockStartY = rowY[2] - abilityYs.at(-1) - abilityHeights.at(-1) + textSize;
+                const blockStartY = rowY[2] - abilityYs.at(-1) - abilityHeights.at(-1) + boxBuffer;
 
                 //ability draw layers
                 return card.abilities.map((ability, i) => {
@@ -329,22 +315,18 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                     const abilityLines = ability.TextByLineWithFormat;
                     const lineYs = [];
                     let lastSize = 0;
-                    const buffer = textSize * 0.2;
-                    let textHeight = 0;
-                    for (i in abilityLines) {
-                        let arr = abilityLines[i];
-                        if (i == 0) {
-                            lineYs[i] = 0;
+                    for (let j in abilityLines) {
+                        let arr = abilityLines[j];
+                        if (j == 0) {
+                            lineYs[j] = 0;
                         }
                         else {
-                            lineYs[i] = lineYs[i - 1] + lastSize + buffer;
-                            textHeight += buffer;
+                            lineYs[j] = lineYs[j - 1] + lastSize + buffer;
                         }
                         lastSize = arr[1];
-                        textHeight += arr[1];
                     }
                     
-                    let abilityBoxHeight = Math.max(textHeight + textSize, minBoxHeight);
+                    let abilityBoxHeight = Math.max(abilityHeights[i], minBoxHeight);
 
                     return [
                         //Box
