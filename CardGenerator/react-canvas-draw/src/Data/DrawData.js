@@ -64,6 +64,8 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
 
     loadUIImages();
 
+    console.log("width", width, "height", height, "margin", margin, "padding",padding,"textsize",textSize);
+
     const infopaneheight = margin * 2;
     const marginWidth = width - margin * 2;
     const marginHeight = height - margin - infopaneheight;//extra margin for info lines at bottom
