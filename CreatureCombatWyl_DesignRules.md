@@ -178,8 +178,34 @@ Here are the rules for the abilities, and some restrictions on what they can or 
 -   Abilities can’t be passives that need updated constantly
     -   Its recommended to have them trigger when important
         -   EX: instead of “friendly creatures have +1”, say “Fight, Finale: Give friendly creatures +1, briefly”
+-   Abilities can be passives with clear triggers and clear one-off effects
+    -   EX: “Passive: Whenever a friendly creature uses a magic ability, increase my Shield value by 1.”
+    -   Any player may remind about a passive, and it must be processed when reminded about it.
+    -   *It’s optional-ish, bc I don’t want to have “illegal gamestates” like in MtG when players forget a trigger. Here, its optional, so it doesn’t matter that much*
+    -   Passives are for abilities that happens naturally without the creature consciously deciding to do it. For example, a poison frog’s poison skin deals damage when touched or attacked. The frog doesn’t have to activate it.
+    -   Actives (with or without triggers) are things that the creature has to consciously do. EX: attack, cast a magic spell, etc
+    -   Passives happen instantly after their trigger occurs.
+    -   Passives cannot be reacted to
+    -   Usually passives only modify/”target” the creature’s self. Usually, targeting other friendly creatures and/or hostile creatures requires an activatable ability.
+    -   Passives don’t have costs.
+    -   Passives don’t have a magic genus, thus no magic symbol
+    -   Passives cant be canceled
+        -   But they can be suppressed (maybe)
 -   Triggered abilities can be activated without the trigger once on a player’s turn. So separate the trigger from the effect.
 -   Requirements are only checked when an ability is about to be resolved. Which means it can be activated without meeting the requirement, but if the requirement is met before it is checked, the ability can resolve
+-   Costs are state changes a player must make in order to activate a creature’s ability. This is a good way to balance a powerful ability.
+    -   If the cost can’t be paid, the ability does not activate, and nothing is spent for that ability
+        -   If the ability has multiple costs, and all but one cant be paid, the others don’t get spent if the ability doesn’t activate. Reminder that “activate” is not the same thing as “resolve”
+-   Abilities can use magic as a basis
+    -   Magic abilities use mana as a cost. Mana comes from the landmark and is a shared resource pool.
+    -   A creature can use a magic ability even when downed
+    -   Most abilities are magic
+    -   Magic abilities have a magic symbol to show what magic genus it is classified under.
+-   Abilities can be physical as a basis
+    -   EX: attack, move, dodge, travel, communicate
+    -   These abilities usually have no mana cost or other costs
+        -   Thus can be used even when the landmark runs out of mana
+    -   Physical abilities can’t be used if the creature is downed
 -   Abilities can’t have an effect that permanently changes the physical card in anyway (no “draw on this card” or “rip this card” effects)
 -   Abilities can check to see if the creature has a pet name (which is a permanent change to the card), and if that pet name matches the pet name on other creatures (used for transformation effects)
 -   Abilities can modify any value.
