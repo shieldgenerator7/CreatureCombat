@@ -105,15 +105,19 @@ Randomly determine who goes first. For fairness, you can let a player who hasn�
 
 ## Play
 
-On a player’s turn, they may play a creature, activate a creature’s ability, fight a creature, or resolve the battle. Each of these options starts a moment, in which other players can react to their action.
+On a player’s turn, they may take 1 action:
+-   Play a creature
+-   Activate a creature’s ability
+-   Fight a creature
+-   Resolve the battle
 
-To play a creature, move it from your hand to the landmark.
+**Play a creature:** To play a creature, move it from your hand to the landmark.
 
-To activate a creature’s ability, pay its cost, if any, and the ability goes in the queue.
+**Activate a creature’s ability:** To activate a creature’s ability, pay its cost (if any), and declare the ability: “I’m activating [ability name].” Then, when it comes up in the queue, it resolves, and does its effect. See the Moments section below.
 
-To fight a creature, choose a friendly creature to target a hostile creature. The creature with the highest power total deals damage to the others equal to its base power. See the Fight section below.
+**Fight a creature:** To fight a creature, choose a friendly creature (one of your creatures) and target a hostile creature (one of your opponent’s creatures). The creature with the highest power total is the victor, and it deals damage to the other equal to the victor’s base power. See the Fight section below.
 
-To resolve the battle, declare that you want to resolve the battle. See the Battle section below.
+**Resolve the battle:** To resolve the battle, declare that you want to resolve the battle. The player with the highest combined power total claims the land. See the Battle section below.
 
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
