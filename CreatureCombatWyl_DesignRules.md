@@ -229,3 +229,25 @@ A landmark can have an ability that any player can activate. Still, it can only 
 A landmark has a mana pool which creatures may spend to activate abilities. This usually doesn’t refill, or refills only slowly. So you can adjust this value to effect how long a battle will last here. Lots of mana usually means longer battles.
 
 In addition, a landmark can have a mana refill amount, which is how much mana refills in the pool at the start of each player’s turn. This is another lever that can used to effect the length of battles.
+
+## Guide
+
+Here’s a guide on how to create a creature.
+
+1.  Start with the general concept
+    1.  Pick a name. This step can optionally be done at any time later
+    2.  Set the base power (usually 1-5)
+    3.  Set the biome modifiers (usually 3 bonus, 2 penalty)
+    4.  Make 3-5 activatable abilities for the creature (Each instance will usually only have 2 of them)
+        1.  Set the ability effect
+        2.  Add a trigger (optional, this makes it more powerful)
+        3.  Add a requirement (optional, this makes it more situational)
+        4.  If it’s a magic ability,
+            1.  add a mana cost
+            2.  Choose a magic genus for the ability, based on what the effect does
+        5.  Add costs (optional, this balances the ability)
+        6.  Name the ability
+        7.  Adjust the point cost of the ability (added to the overall point cost of the card)
+    5.  Balance the card
+        1.  Adjust the rest cost (it defaults to base power)
+        2.  Adjust the point cost
