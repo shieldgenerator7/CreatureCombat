@@ -106,10 +106,17 @@ Randomly determine who goes first. For fairness, you can let a player who hasn�
 ## Play
 
 On a player’s turn, they may take 1 action:
+
 -   Play a creature
 -   Activate a creature’s ability
 -   Fight a creature
 -   Resolve the battle
+
+When the current player takes an action, it starts a moment, in which other players can react to their action.
+
+Ater a player takes their turn, play continues to the player on their left (clockwise).
+
+### Actions
 
 **Play a creature:** To play a creature, move it from your hand to the landmark.
 
@@ -119,7 +126,6 @@ On a player’s turn, they may take 1 action:
 
 **Resolve the battle:** To resolve the battle, declare that you want to resolve the battle. The player with the highest combined power total claims the land. See the Battle section below.
 
-Ater a player takes their turn, play continues to the player on their left (clockwise).
 
 ## Fight
 
