@@ -112,7 +112,10 @@ On a player’s turn, they may take 1 action:
 -   Fight a creature
 -   Resolve the battle
 
-When the current player takes an action, it starts a moment, in which other players can react to their action.
+When the current player takes an action, it starts a moment, in which other players can react to their action. Each creature (of each player) can take 1 reaction:
+•	Activate an ability
+•	Block an action
+•	Help a creature
 
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
@@ -126,6 +129,18 @@ Ater a player takes their turn, play continues to the player on their left (cloc
 
 **Resolve the battle:** To resolve the battle, declare that you want to resolve the battle. The player with the highest combined power total claims the land. See the Battle section below.
 
+### Reactions
+
+**Activate an ability:** To reactively activate a creature’s ability, it must first have been triggered by another action or reaction it or another creature took. Once triggered, you pay the ability’s cost (if any), and declare that your creature is activating its ability. Then, when it comes up in the queue, it resolves, and does its effect. See the Moments section below.
+
+**Block an action:** If one of your creatures is being targeted by an opposing creature’s action (such as an attack or ability), you may have another creature of yours use its reaction to block the action. The blocking creature then becomes the new target for the action.
+
+**Help a creature:** A creature may use its reaction to help another creature take its action or reaction. Choose one:
+
+-   **Help speed:** Increase the action’s speed by 1
+-   **Help pay:** Contribute 1 to paying the cost, if applicable.
+
+If the cost is increasing exhaust value, for example, the helping creature can increase its exhaust value by 1 so that the acting creature can increase its exhaust value by one less. EX: Starfur activates bright light, which costs Exhaust 3, meaning Starfur has to increase its exhaust value by 3. But then Adir Doe helps pay by increasing its exhaust value by 1, so Starfur only has to increase its Exhaust value by 2.
 
 ## Fight
 
