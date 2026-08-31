@@ -189,6 +189,55 @@ When the landmark is claimed and the game does not end, each player does the res
 
 The round ends.
 
+# Moments
+
+Because creatures can react to actions and multiple actions can happen all at once, there needs to be a way to determine the order of the actions, to determine which happens first. In this game, we use moments to do that.
+
+A moment is a small period of time in which a lot can happen. It has a queue that says what order the actions will be processed in.
+
+When you take the first action on your turn, start a moment and add your action to its queue. If no creature does anything else, resolve that first action and end your turn.
+
+When a player adds an action to the queue, other creatures can react to that by adding their own actions to the queue. When a creature reacts to an action, it adds its reaction to the queue right behind the action it is reacting to. When there are no more reactions to add to the queue, resolve the queue.
+
+To resolve the queue, start with the first action in the queue and resolve it (carry out its effect). Then move to the second action in the queue, and resolve it. Continue doing this for all actions in the queue until all actions have been resolved.
+
+Once all actions have been resolved, the queue is fully resolved. End your turn.
+
+**Ability reactions:** Abilities can only be activated as a reaction if they have a trigger, and the trigger occurs. Activating a triggered ability counts as a creature’s 1 reaction per moment.
+
+## Canceled Actions
+
+An action can be cancelled to make it not resolve. When you try to resolve a cancelled action, instead skip it in the queue, and it does get resolved. When all non-cancelled abilities in the queue are resolved, the turn ends.
+
+## Speed
+
+All actions have a default speed of “normal”. However, some actions have a higher or lower speed.
+
+When a reaction has a higher speed than the action it is reacting to, it may go in the queue directly in front of the action.
+
+When multiple reactions react to the same action, order them by their speed, highest speed goes first. If there’s ties, the creature with the lowest base power goes first. Then if there’s still a tie, the creature friendly to the current player goes first. However, if the creatures are all friendly to each other, then they may decide what order to go in.
+
+You may choose to have an action enter the queue at a speed lower than its usual speed.
+
+Note that reactions go in the queue relative to the action they react to, which means that the queue may not necessarily be ordered from fastest to slowest action.
+
+Note that reactions can react to other reactions, regardless of speed.
+
+### Action Speeds
+
+Each action has a different speed:
+
+-   Play a creature: Normal
+-   Activate a creature ability: the speed of that ability, default Normal
+-   Fight a creature: Slow
+-   Resolve the battle: Super Slow
+
+Each reaction has a different speed:
+
+-   Activate an ability: the speed of that ability, default Normal
+-   Block an action: Super Fast
+-   Help a creature: Super Fast
+
 # Values
 
 Values show the state of a creature, using a number. All values start at 0 and reset to 0. Values can’t be negative. Values have no upper limit. “Good values” are beneficial, like bonus power. “Bad values” are harmful, like damage. A creature “has” a value if that value is greater than 0.
