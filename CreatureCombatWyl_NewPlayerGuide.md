@@ -191,17 +191,19 @@ The round ends.
 
 # Values
 
-Values show the state of a creature. All values start at 0 and reset to 0. Values can’t be negative. “Good values” are beneficial, like bonus power. “Bad values” are harmful, like damage. A creature “has” a value if that value is greater than 0.
+Values show the state of a creature, using a number. All values start at 0 and reset to 0. Values can’t be negative. Values have no upper limit. “Good values” are beneficial, like bonus power. “Bad values” are harmful, like damage. A creature “has” a value if that value is greater than 0.
 
-It’s recommend to use something like dice or a tracking app to keep track of each creature’s values.
+It’s recommend to use something like dice or a tracking app to keep track of each creature’s values. For example, if a creature has a bonus power value of 3, you can track that by putting a die on the creature so the “3” side is face up.
+
+Note: sometimes the word “value” is omitted to save space. EX: “Shield 2 a creature” means increase a creature’s Shield value by 2.
 
 Common values:
 
 -   Exhaustion value. After battling, each creature’s exhaustion value increases by its rest cost. While a creature has an exhaustion value, it can’t return to your army. A resting creature’s exhaustion value decreases by 1 at the end of each round.
 -   Bonus Power value. This is added to a creature’s base power and terrain mods to get their power total. Note that power total isn’t a value, because it is calculated, not tracked.
 -   Damage value. This represents the amount of damage this creature has taken. If a creature’s damage value is equal to or greater than their base power, they are “downed”. A downed creature doesn’t contribute their power total to the combined power total in the finale, and can’t join fights.
--   Stun value. If a creature has a stun value, they are stunned: their abilities do not resolve. At the end of each player’s turn, each friendly creature decreases its stun value by 1.
--   Shield value. A creature’s shields is equal to its shield value. While a creature has shields, damage is dealt to its shields first. Gaining shields doesn’t heal a creature.
+-   Stun value. If a creature has a stun value, they are stunned: their abilities are canceled. At the end of each player’s turn, each creature decreases its stun value by 1.
+-   Shield value. A creature’s shields is equal to its shield value. While a creature has shields, damage is dealt to its shields first. Any left over damage is then applied as increased damage value. Gaining shields doesn’t heal a creature.
 
 # Totals
 
