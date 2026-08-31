@@ -109,6 +109,7 @@ On a player’s turn, they may take 1 action:
 
 -   Play a creature
 -   Activate a creature’s ability
+-   Activate a landmark ability
 -   Fight a creature
 -   Resolve the battle
 
@@ -229,6 +230,7 @@ Each action has a different speed:
 
 -   Play a creature: Normal
 -   Activate a creature ability: the speed of that ability, default Normal
+-   Activate a landmark ability: Super Slow
 -   Fight a creature: Slow
 -   Resolve the battle: Super Slow
 
