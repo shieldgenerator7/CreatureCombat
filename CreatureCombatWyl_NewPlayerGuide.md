@@ -21,7 +21,7 @@ Additionally, collectively you will need:
 -   A hard flat surface to play on. A table works well for this
 -   A method to determine who goes first. Dice, rock paper scissors, “youngest goes first”, etc work well for this
 -   A way to remember whose turn it is. Just remembering it works well for this, but you can also use a stuffed animal to pass around
--   A permanent marker, pen, or other writing utensil used to write on the cards
+-   A permanent marker, pen, or other writing utensil used to write on the cards. This is usually used outside the game before it starts.
 
 # Deck Rules
 
@@ -38,7 +38,7 @@ When you make your own landmark deck, here are the rules it must follow:
 -   You may only have 1 copy of each landmark in your deck
 -   Landmarks may share the same terrains
 
-# What is a Creature
+# Creature Card
 
 A creature is a living being in card form.
 
@@ -53,7 +53,7 @@ A creature is a living being in card form.
 4.  Base Power  
     This helps the creature win fights and stay alive. This is the base value for a creature’s power total.
 5.  Terrain Mods  
-    When a creature is in this terrain, it the terrain modifier is added to its base power to get its power total.
+    When a creature is in this terrain, its terrain modifier is added to its base power to get its power total.
 6.  Ability  
     Creatures can do various things, magical or otherwise.
     1.  F1. If the ability is magical, the symbol of the magic type is displayed here.
