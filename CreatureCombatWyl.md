@@ -55,7 +55,7 @@ Here’s what these non-keywords words mean.
 -   Bonus Power – the part of the creature’s power that gets added via card effects, and does not come from the creature’s base power or terrain mods.
 -   Briefly – until the moment ends
 -   Cancel – cause an ability in the moment to not resolve when it becomes the current processed ability.
--   Chosen – a friendly creature that was previously selected.  
+-   Chosen creature – a friendly creature that was previously selected.  
     EX: “Give a friendly creature +1. Let the chosen creature fight a hostile creature.”
 -   Claim – take control of a landmark. Claiming landmarks gets you closer to winning the game.
 -   Creature – a card that has a power level and can contribute to the total power at a landmark. All cards are creatures.
@@ -83,7 +83,7 @@ Here’s what these non-keywords words mean.
     EX: “Give a creature +1. Shield 1 the selected creature.”
 -   Shielded – a creature with Shield value of 1 or more is shielded
 -   Small – having a low base power
--   Targeted – a hostile creature that was previously selected.  
+-   Targeted creature – a hostile creature that was previously selected.  
     EX: “Take -1 from a hostile creature. Make the targeted creature fight a friendly creature.”
 -   Terrain – a part of a landmark that creatures may have modifiers for
 -   Terrain Bonus – a positive terrain mod
