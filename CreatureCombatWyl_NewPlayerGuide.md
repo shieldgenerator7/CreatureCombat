@@ -118,6 +118,8 @@ When the current player takes an action, it starts a moment, in which other play
 -   Block an action
 -   Help a creature
 
+Creatures can also have passive abilities that may be proc’d.
+
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
 ### Actions
@@ -142,6 +144,14 @@ Ater a player takes their turn, play continues to the player on their left (cloc
 -   **Help pay:** Contribute 1 to paying the cost, if applicable.
 
 If the cost is increasing exhaust value, for example, the helping creature can increase its exhaust value by 1 so that the acting creature can increase its exhaust value by one less. EX: Starfur activates bright light, which costs Exhaust 3, meaning Starfur has to increase its exhaust value by 3. But then Adir Doe helps pay by increasing its exhaust value by 1, so Starfur only has to increase its Exhaust value by 2.
+
+### Passives
+
+Passive abilities specify an action, reaction, or effect to proc on, and when the specified action is taken or the specified effect resolves, the passive procs. A passive procs instantly and does not go in the queue, and therefore it cannot be reacted to by triggered abilities or other passives.
+
+A passive may proc multiple times in the same turn, but only once per specified condition occurrence.
+
+Proc’ing a passive is optional. However, if any player reminds the other players about the passive when it can proc, the passive must be proc’d at that time.
 
 ## Fight
 
