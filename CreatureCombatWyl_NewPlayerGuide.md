@@ -211,12 +211,6 @@ A total is a calculation of values and printed numbers to get a result.
 
 For example, a creature’s power total is equal to its base power plus its bonus power value, plus any terrain mods it has.
 
-# Creature Types
-
-A creature is one or more types.
-
-Types are descriptors used to specify what kind of creature it is, and allow players to determine which creatures are alike by the types they share. Although types have no meaning by themselves, some creatures may have abilities that only work with creatures of a certain type.
-
 # Keywords
 
 A creature and their abilities may have keywords in them. A keyword is a word that is shorthand for a phrase, sentence, or ability.
