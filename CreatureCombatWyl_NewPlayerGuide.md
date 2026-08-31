@@ -240,16 +240,9 @@ Abilities and actions have a speed that may allow them to jump ahead in the queu
 
 A moment is a small period of time in which a lot can happen. Player actions and creature abilities all happen inside a moment.
 
-As a player action, a player can:
+When a player takes the first action on their turn, it starts a moment. This can trigger abilities of creatures, who can then activate those abilities as a reaction. And those triggered abilities can trigger other abilities, which can trigger even more abilities, and so on. When no more creatures are activating their abilities, the moment starts to resolve. Each creature can activate an ability only once per moment.
 
--   Play (a creature from their hand to the landmark)
--   Activate (a creature ability)
--   Fight (a hostile creature with a friendly creature)
--   Resolve (the battle)
-
-When a player takes the first action on their turn, it starts a moment. This can trigger abilities of creatures, who can then activate those abilities. And those abilities can trigger other abilities, and so on. When no more creatures are activating their abilities, the moment starts to resolve. Each creature can activate an ability only once per moment.
-
-The moment has a queue system that determines the order of the abilities. The abilities are generally ordered by the order they were activated, but an ability can skip ahead in order under certain conditions.
+The moment has a queue system that determines the order of the actions. Generally, the first action that entered the queue goes first in the queue. However, an action can skip ahead if it has a higher speed.
 
 When an ability is triggered, it goes in the queue right behind the action that triggered it. However, the reacting creature (the creature with the triggered ability) may decide to act right before the acting creature (the creature of the action) if any of these conditions are met:
 
