@@ -48,6 +48,7 @@ Here’s what these non-keywords words mean.
     EX: “Give a creature +1” means select a creature and increase its bonus power value by 1.
 -   Activate – use a creature’s ability. Triggering a creature’s ability as a reaction counts as activating it. Activating an ability adds it to the moment, or creates a new moment if it’s the first activated ability on a player’s turn.
 -   Arrive – a creature arrives when it is played from a hand to the landmark
+-   Arriving [creature] – a creature is the arriving creature when it is played from a hand to a landmark. This word is used in abilities that react to a creature arriving, such as with the **Greeting** and **Ambush** keyword triggers
 -   Army – a pile of creatures from which you may construct a hand for a landmark. It is not ordered and you may look at its contents at any time. You keep this hidden from the other players.
 -   Bad Value – a value that players typically don’t want on their creatures, i.e. they want the value to be 0.
 -   Big – having a high base power
@@ -70,6 +71,7 @@ Here’s what these non-keywords words mean.
 -   Healthy – a creature with a Damage value of 0 is healthy
 -   Home – a landmark at which a creature has at least one terrain bonus for and no terrain penalties
 -   Hostile – creatures on the enemy team are hostile
+-   Keyword – common ability text shortened to a single word
 -   Landmark – a card that is a location where creatures are played to and has one or more terrains
 -   Moment – when a creature takes an action, it creates a window of time in which other creatures can react. This is called a moment. Triggerable abilities can only trigger during a moment.
 -   Play – to play a creature, move it from your hand to the landmark tied to that hand
@@ -77,6 +79,8 @@ Here’s what these non-keywords words mean.
 -   Power Total– a creature’s power used for fighting and battling, which is equal to the sum of its base power, terrain mods, and bonus power value. A downed creature’s power total is always 0.
 -   Resolve – carry out the effect of the current processed ability in the moment.
 -   Rest Zone – where your creatures go after the battle is over. When a creature is done resting, it returns to your army.
+-   Selected creature – a creature from any team that was previously selected.  
+    EX: “Give a creature +1. Shield 1 the selected creature.”
 -   Shielded – a creature with Shield value of 1 or more is shielded
 -   Small – having a low base power
 -   Targeted – a hostile creature that was previously selected.  
@@ -85,8 +89,11 @@ Here’s what these non-keywords words mean.
 -   Terrain Bonus – a positive terrain mod
 -   Terrain Mod – an additional amount of power a creature gets for being in a certain terrain. Positive for a favored terrain, negative for a difficult terrain. Default is 0 if the terrain is not listed on the creature
 -   Terrain Penalty – a negative terrain mod
+-   Transform into – add a Creature type to a Creature
+-   Transform out of – remove a Creature type from a Creature
 -   Travel Zone – creatures can move here to be temporarily outside the game. When a new landmark is revealed, you may move any of your creatures in the Travel Zone to the new landmark.
 -   Trigger – to activate an ability when its condition is met
+-   Triggering creature – an ability that contains this word uses it to refer to the creature that took the action that triggered the ability
 -   Value – a variable that is used to change the game state. Commonly tracked with counters. Values cannot go below 0. Values default to 0.
 -   Wounded – a creature is wounded while its Damage value is 1 or more.
 
