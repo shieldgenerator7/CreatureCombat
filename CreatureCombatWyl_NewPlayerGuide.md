@@ -113,9 +113,10 @@ On a player’s turn, they may take 1 action:
 -   Resolve the battle
 
 When the current player takes an action, it starts a moment, in which other players can react to their action. Each creature (of each player) can take 1 reaction:
-•	Activate an ability
-•	Block an action
-•	Help a creature
+
+-   Activate an ability
+-   Block an action
+-   Help a creature
 
 Ater a player takes their turn, play continues to the player on their left (clockwise).
 
@@ -131,7 +132,7 @@ Ater a player takes their turn, play continues to the player on their left (cloc
 
 ### Reactions
 
-**Activate an ability:** To reactively activate a creature’s ability, it must first have been triggered by another action or reaction it or another creature took. Once triggered, you pay the ability’s cost (if any), and declare that your creature is activating its ability. Then, when it comes up in the queue, it resolves, and does its effect. See the Moments section below.
+**Activate an ability:** To reactively activate a creature’s ability, it must first have been triggered by another action or reaction it or another creature took. Once triggered, you pay the ability’s cost (if any), and declare that your creature is activating its ability. Then, when it comes up in the queue, it resolves, and does its effect. See the Moments section below. Note that activating a triggered ability is optional, even if its trigger occurs. You may choose to activate a triggered ability or not.
 
 **Block an action:** If one of your creatures is being targeted by an opposing creature’s action (such as an attack or ability), you may have another creature of yours use its reaction to block the action. The blocking creature then becomes the new target for the action.
 
@@ -144,17 +145,25 @@ If the cost is increasing exhaust value, for example, the helping creature can i
 
 ## Fight
 
-To fight, choose one of your creatures to fight an opponent’s creature. That opponent has the opportunity to declare a blocker. Your creature then fights the blocker instead.
+To fight, choose one of your creatures to be the attacking creature and target an opponent’s creature to be the defending creature. The attacking creature fights the defending creature.
 
-Note that your attacking creature is spending its action to fight, which means that it can’t activate any of its abilities in this moment. However, if the ability has the 🗲Fight keyword, then it can activate its ability right before the fight is resolved.
+Calculate the power total of both the attacking creature and the defending creature. The power total of a creature is the sum of its base power, terrain modifiers, and bonus power value. Each terrain modifier of the creature that matches a terrain of the landmark is applied (don’t apply all the terrain modifiers, only the ones that match the landmark).
 
-Note that the defender has not spent its action to do anything, so it can activate any applicable triggered ability during the moment. However, if the defender is a blocker, then it spent its action to block, and thus cannot activate its abilities. But if the ability has the 🗲Fight keyword, then it may activate that ability, and it will resolve right after the block resolves in the queue.
+Once both power totals have been calculated, it’s time to determine the victor. The creature with the highest power total is the victor.
 
-When the fight resolves, calculate each fighting creature’s power total. The creature with the highest power total is the victor. The victor deals damage equal to its base power to the other fighting creature. If the victor’s power total is double the power total of the loser, then the damage is doubled.
+The victor deals damage equal to its base power to the other fighting creature. If the victor’s power total is at least double the power total of the loser, then the damage is also doubled.
 
-If there’s a tie, then no damage is dealt.
+**Blocking:** Any creature can use its reaction to block the attack, becoming the new target of the attack.
 
-If there’s multiple creatures in a fight, then the victor deals damage to all creatures hostile to it. If there’s a tie for highest power total, but the creatures with the highest power total are all on the same team, then they are each the victor and each deal their damage to the opposing creatures. If the tied creatures are on opposing teams, then no damage is dealt.
+**Ties:** If there’s a tie for highest power total, then the fight is a draw, and no damage is dealt.
+
+**Note about attacking creature:** The attacking creature is spending its action to fight, which means that it can’t activate any of its abilities as a reaction. However, if the ability has the 🗲**Fight** trigger keyword, then it may activate its ability right before the fight.
+
+**Note about defending creature:** The defending creature has not spent its action to do anything, so it can activate any applicable triggered ability as a reaction. Especially if that ability has the 🗲**Fight** trigger keyword, which allows the creature to use that ability right before the fight.
+
+**Note about blocking creature:** The blocking creature spent its reaction to block, and thus cannot activate its abilities as a reaction. However, if the ability has the 🗲**Fight** trigger keyword, then it may activate that ability right before the fight.
+
+**Brawl:** If there’s multiple creatures in a fight, then the victor deals damage to all creatures hostile to it. If there’s a tie for highest power total, but the creatures with the highest power total are all on the same team, then each tied creature is a victor and deals its damage to the opposing creatures. If the tied creatures are on opposing teams, then no damage is dealt. If any creature that takes fight damage has power that is half or less of the victor’s power, then that creature takes double damage (the double damage rule applies to each losing creature individually).
 
 ## Battle
 
