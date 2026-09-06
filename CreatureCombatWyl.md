@@ -263,6 +263,38 @@ Abilities are learned, so theyre not part of the DNA. The triggers, costs, requi
 
 Lastly, whether the creature is male or female.
 
+The Magic Genus, if there’s 8, that means 3 bits for the magic genus. 3 ATCGs = 2 magic genus.
+
+Asama = 0 000
+
+Irfig = 1 001
+
+Fohlo = 2 010
+
+Deter = 3 011
+
+Firok = 4 100
+
+? = 5 101
+
+? = 6 110
+
+Garda = 7 111
+
+By default, every creature is female unless it has the male code somewhere. This can be overridden for a species. The male code might also have some additional information, for terrains and magic genus. If it’s female, itll have the species code twice. If its male, itll have the species code once, and then the male species code.
+
+Example:  
+Adir Female = ADIRBUDENCJBC9W8UASADIR  
+Adir Male = ADIRBUDENCJBC9W8UASfDIR
+
+I want to print this code on the card, to uniquely identify the individual creature.
+
+The only I don’t like about this is that if you randomly change one of the ATCGs, it could result in invalid values, and values that are wildly different from their base forms. Like change one bit and the base power jumps up to 23 or something ridiculous. So random mutations cant be truly random, it has to choose from a premade list of available mutations for each species. And then each mutation has a rarity assigned to it.
+
+So theres the default code, which costs 0 mutations. Every individual creature when created has a certain amount of mutation points to spend. “Common” creatures have less points to spend, “Rare” creatures have more points to spend.
+
+Or maybe itll be completely random, with each section being randomly determined independently from the rest. And the rare features just have a 0.01% chance or something. Yeah. Each part has a bank of possibilities, and each possibility is weighted differently. Common possibilities have increased weight, rare possibilities less weight.
+
 # References
 
 Mark Rosewater’s 20 fav MtG mechanics  
