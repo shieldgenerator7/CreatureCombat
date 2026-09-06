@@ -220,6 +220,35 @@ Here are the rules for the abilities, and some restrictions on what they can or 
     -   Slow – other abilities can interrupt it. Used for giant massive game changing abilities.
     -   Super slow – rare, used for effects that need to go after slow abilities, like resolving the battle.
 
+## Mutations
+
+Each creature is unique, even among its species, bc its stats will be slightly different.
+
+Common (almost every card):
+
+-   Plus or minus in an existing terrain mod
+-   Alternate ability
+
+Uncommon (about 30%):
+
+-   Plus or minus in bonus power
+-   Alternate ability trigger
+-   Alternate ability requirement
+-   Plus or minus ability cost
+
+Rare (1 in each pack):
+
+-   Plus or minus rest cost
+-   Plus or minus ability effect value
+-   Rare ability
+
+Very Rare (1 in every 10 packs):
+
+-   Additional terrain mod
+-   Missing terrain mod
+-   Additional ability trigger
+-   Missing ability trigger
+
 ## Landmark
 
 Landmarks typically have 3 terrains.

@@ -194,6 +194,75 @@ Ability Speed:
 -   Slow – This ability can’t jump ahead of a normal-speed ability.
 -   Super Slow – This ability can’t jump ahead of a Slow ability.
 
+# Mutations
+
+This is how mutations work. IRL animals use DNA to determine genetic features, I want to do this too.
+
+The actual DNA strand will have pieces in a line, and each piece can be 1 of 4 values (A T C G). A = 0, T = 1, C = 2, G = 3. Each nucleotide can then be encoded into binary: A = 00, T = 01, C = 10, G = 11. If we have an alphabet with 64 characters (A-Z, a-z, 0-7), we can encode a lot of info into a single character. Ex: J (10) = 001010 = \~\~ACC. This way we can encode an entire codon into a single character. We can then more easily print the entire DNA sequence on the card.
+
+Then, each creature needs a DNA sequence, and the designer needs to design how the ATCGs effect the code. By using DNA instead of just variables, we can have two creatures breed, and produce offspring that’s related to the two parents. Unfortunately, the dna will be predefined, and wont be able to mutate in all the ways irl dna can. But still, it should be interesting.
+
+The first part of the dna should say what creature it is. This way, the dna is unique among all creatures, not just those of the same species. Otherwise youd need to say what kind of creature it is when you type the dna into the website. Im thinking 3-5 characters for the species code. Not sure yet, might depend on how many characters we get for the whole code.
+
+Next would be creature type, but I don’t think I want to have these be changed randomly.
+
+Next is base power. 1 character (1-64, tho most will be 1-5)
+
+Terrain mods. Starts with TTT, ends with TTT. Each terrain mod has 4 bits for saying which terrain it is (one of 16 currently). Then 4 bits for the value (-8 – +8). Hmm… but that’s 8 bits per terrain mod, and id like it to fit into only 6. Or maybe 12?
+
+5 bits of terrain (one of 32) + 7 bits of mod (-64 - +64) = 12 bits = 2 characters.
+
+There we go, I like that better. So each terrain mod is 4 codons. Hmmm… I didn’t mean to make it evenly split in the card encoding. I wanted it evenly split in the ATCGs. But this way its evenly split on the codons, so that’s fine. The only thing it cant do is use TTT as a codon (010101 = “U”), because that signals the end of the terrain mods.
+
+Uz30HrSpLR5U encodes 5 terrains mods, using 12 characters
+
+Next is rest cost = 1 character. Might also have other information that might be used in future expansions.
+
+Point cost is calculated, that’s not part of the DNA
+
+Last is magic focus. Each focus gives you 1 point in being good at a certain kind of magic.
+
+Magic Genus:
+
+-   Programming
+-   Deter (transformation – molecular rearrangement)
+-   Creation (matter synthesis – energy to matter)
+-   Firok (destruction – matter to energy)
+-   Evocation (energy manipulation)
+-   Asama (life – “necromancy”)
+-   Garda (abjuration)
+-   Telekinesis (moving objects around)
+-   Telepathy
+-   Hallucination
+-   Fohlo (illusion)
+-   Irfig (divination)
+
+Revised Magic Genus (reduced down to 8):
+
+-   Deter (transformation)
+-   Evocation (energy manipulation, incl energy to matter, matter to energy)
+-   Gravity (incl telekinesis, portals, force fields)
+-   Asama (programming, life, death)
+-   Garda (abjuration)
+-   Irfig (divination)
+-   Telepathy (incl hallucination)
+-   Fohlo (illusion)
+
+Magic Genus (super reduced)
+
+-   Irfig (divination, telepathy, hallucination)
+-   Asama (programming, life, death, illusion)
+-   Garda (abjuration, gravity, telekinesis, portals, force fields, time)
+-   Deter (transformation, creation, destruction, energy manipulation)
+
+So each ATCG in this section encodes one of the magic genuses. Nah, I think im going to split them into 8. So each magic genus is encoded in two ATCGs. Wait thatd be 16 magic genus. Ok maybe each codon encodes two magic genus. Itd be splitting an ATCG, but that’s ok.
+
+Each time a magic genus is mentioned in the DNA, the better its focus (s) is for that magic genus, potentially increasing its capability if it learns an ability using that magic genus.
+
+Abilities are learned, so theyre not part of the DNA. The triggers, costs, requirements, etc are all learned. However, the magic genus points of the creature in its DNA influence the effect value.
+
+Lastly, whether the creature is male or female.
+
 # References
 
 Mark Rosewater’s 20 fav MtG mechanics  
@@ -204,3 +273,6 @@ Kohdok’s guide to TCG instructions: pieces needed
 
 PidgiPotato says blocking should be a mechanic, not a keyword  
 <https://youtu.be/JnsM-Rc02kI>
+
+DNA  
+<https://en.wikipedia.org/wiki/Genetic_code>
