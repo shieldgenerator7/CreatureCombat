@@ -1,8 +1,8 @@
-**Design**
+# Design
 
 This section is for the card designers. I tried to make an app that allows complete customization of a card, including auto-adding a creature’s cost and star count, but its way to complex to do accurately and allow complete freedom. So for now, I’m closing the design to only dedicated card designers, and then hopefully will have some avenue for community-created cards to be made official.
 
-**Philosophy**
+# Philosophy
 
 WARNING: This section is a bit misnamed, and doesn’t represent the core goals of the design. Rather, it is a list of some guiding principles.
 
@@ -16,7 +16,7 @@ Two: I like combo decks, and I dislike when my combos are interrupted with thing
 
 Three: nothings more frustrating than having your creatures killed all the time. So in this game, theres no graveyard. Its like pokemon. Your creatures don’t die, they get wounded. Also, there’s going to be design restrictions around things like canceling abilities. Plus, abilities can usually be activated more than once in a battle, so its not so bad if your super awesome ability gets canceled. Maybe, hopefully.
 
-**Language**
+# Language
 
 How we talk about the creatures matters, including the diction, grammar construction, and perspective.
 
@@ -64,9 +64,9 @@ Don’t refer to ways of tracking game state, just refer to the game state. Don�
 
 Sentence construction. MtG sometimes writes in third-person present, as if it’s a novel. “Target creature gets +1/+1” for example. Id say most effects are commands, like “Put a +1/+1 counter on target creature” or “Add G”. WCC effects should always be commands. To that end, when describing something another creature should do, use “let” to say what a friendly creature does, and “make” to say what a hostile creature does. Ex: “Give a friendly creature +1. Take -1 from a hostile creature. Let the chosen creature untap. Make the targeted creature tap.”
 
-**Rules**
+# Rules
 
-**Creature**
+## Creature
 
 **Name**: Each creature has a pet name and a species name.
 
@@ -134,7 +134,7 @@ Sentence construction. MtG sometimes writes in third-person present, as if it’
 -   Keep in mind that the terrain mods are listed in order from highest to lowest, not alphabetically
 -   *There’s no colors in this game like in MtG, but this is this game’s equivalent*
 
-**Art**
+## Art
 
 Creature art for a card should follow these rules.
 
@@ -154,7 +154,7 @@ Creature art for a card should follow these rules.
     -   Note that some creatures have more than one focus, and that each focus used by an ability on the card should be glowing.
         -   *So in effect, a person could look at the drawing of the creature and generally tell what kind of magic its ability is going to use.*
 
-**Cards**
+## Cards
 
 Each card should have a front and a back. The back should always be the creature combat logo, or whatever the standard back design is. The following is prohibited, due to logistical headaches for publication and player experience:
 
@@ -165,9 +165,9 @@ Each card should have a front and a back. The back should always be the creature
 -   Cards that flip to have different stats or abilities
 -   Cards that rotate to change its stats or abilities
 
-*Most of these ideas come from MtG and are ways that they added an element of surprise, novelty, and flexibility to cards.* The main way to do this in this game is to have an effect that switches out the current creature with a creature from your army and/or side board. If we have a side board. It can name a specific card if it needs to*. I’m aware this might create problems for booster packs where you get one half and not the other. That’s a problem to solve for a different day. Mostly I don’t want to deal with logistical headaches from card layouts.*
+*Most of these ideas come from MtG and are ways that they added an element of surprise, novelty, and flexibility to cards.* The main way to do this in this game is to have an effect that switches out the current creature with a creature from your army and/or side board. If we have a side board. It can name a specific card if it needs to\*. I’m aware this might create problems for booster packs where you get one half and not the other. That’s a problem to solve for a different day. Mostly I don’t want to deal with logistical headaches from card layouts.\*
 
-**Abilities**
+## Abilities
 
 Here are the rules for the abilities, and some restrictions on what they can or cant do. Note that the guide language for the abilities is in the language section, this section is a guide for the design of the abilities.
 
@@ -220,7 +220,7 @@ Here are the rules for the abilities, and some restrictions on what they can or 
     -   Slow – other abilities can interrupt it. Used for giant massive game changing abilities.
     -   Super slow – rare, used for effects that need to go after slow abilities, like resolving the battle.
 
-**Landmark**
+## Landmark
 
 Landmarks typically have 3 terrains.
 
@@ -230,7 +230,7 @@ A landmark has a mana pool which creatures may spend to activate abilities. This
 
 In addition, a landmark can have a mana refill amount, which is how much mana refills in the pool at the start of each player’s turn. This is another lever that can used to effect the length of battles.
 
-## Guide
+# Guide
 
 Here’s a guide on how to create a creature.
 
