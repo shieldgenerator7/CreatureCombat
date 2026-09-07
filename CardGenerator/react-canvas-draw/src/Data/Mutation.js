@@ -128,7 +128,7 @@ export function createDefaultMutations() {
 export function randomize(card, mutations) {
     for (let pool of mutations) {
         const total = arraySum(pool, (m) => m.weight);
-        let mutationCount = 1;
+        let mutationCount = 5;
         for (let i = 0; i < mutationCount; i++) {
             let index = Math.random() * total;
             for (let m of pool) {
