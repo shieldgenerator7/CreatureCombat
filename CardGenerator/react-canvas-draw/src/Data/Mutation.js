@@ -124,6 +124,16 @@ export function createDefaultMutations() {
         ],
         [
             new Mutation("",900),
+            new Mutation("POWR +1", 20),
+            new Mutation("POWR -1", 20),
+            new Mutation("POWR +2", 5),
+            new Mutation("POWR -2", 5),
+            new Mutation("POWR +3", 2),
+            new Mutation("POWR -3", 2),
+            new Mutation("POWR +4", 1),
+            new Mutation("POWR -4", 1),
+            new Mutation("POWR +5", 1),
+            new Mutation("POWR -5", 1),
             new Mutation("REST +1", 20),
             new Mutation("REST -1", 20),
             new Mutation("REST +2", 5),
@@ -173,6 +183,16 @@ function processMutation(card, change) {
                     default: console.error("Unknown mutation change TTT operator:", split[2][0]);
                 }
             }
+            break;
+        case "POWR":
+            let powrvalue = split[1].substr(1) * 1;
+            switch (split[1][0]) {//get the operator from ex: +3
+                case "+": card.basePower += powrvalue; break;
+                case "-": card.basePower -= powrvalue; break;
+                case "=": card.basePower = powrvalue; break;
+                default: console.error("Unknown mutation change POWR operator:", split[1][0]);
+            }
+            card.basePower = Math.max(card.basePower, 1);
             break;
         case "REST":
             let value = split[1].substr(1) * 1;
