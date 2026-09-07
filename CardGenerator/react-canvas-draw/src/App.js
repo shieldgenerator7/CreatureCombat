@@ -54,6 +54,7 @@ function App() {
     let generateCard = () => {
         let base = card;
         let newcard = copyObject(base);
+        newcard.imgPortrait = base.imgPortrait;
         inflateCreature(newcard);
         randomize(newcard, createDefaultMutations());
         setCardGenerated(newcard);
