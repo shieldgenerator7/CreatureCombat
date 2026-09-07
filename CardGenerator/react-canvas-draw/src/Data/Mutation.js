@@ -145,10 +145,17 @@ export function createDefaultMutations() {
             new Mutation("REST +5", 1),
             new Mutation("REST -5", 1),
         ],
+        [
+            new Mutation("", 100),
+            new Mutation("ABLTY Disguise_Young", 10),
+            new Mutation("ABLTY Hide_Young", 10),
+        ]
     ]
 }
 
 export function randomize(card, mutations) {
+    card.abilityPool = card.abilities;
+    card.abilities = [];
     for (let pool of mutations) {
         const total = arraySum(pool, (m) => m.weight);
         let mutationCount = 5;
@@ -203,6 +210,11 @@ function processMutation(card, change) {
                 default: console.error("Unknown mutation change REST operator:", split[1][0]);
             }
             card.rest = Math.max(card.rest, 0);
+            break;
+        case "ABLTY":
+            let abilityname = split[1].replaceAll("_", " ");
+            if (card.abilities.find(a => a.name == abilityname)) { return; }
+            card.abilities.push(card.abilityPool.find(a => a.name == abilityname));
             break;
         default:
             console.error("Unknown mutation change instruction:", split[0]);
