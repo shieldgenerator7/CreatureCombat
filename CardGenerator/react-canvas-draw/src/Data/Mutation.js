@@ -1,4 +1,5 @@
 import { arraySum } from "../Utility/Utility";
+import { BIOME_MOD_BONUS, BIOME_MOD_PENALTY } from "./BiomeModifier";
 
 
 /** The creature has mutations that change stats and abilities 
@@ -184,8 +185,20 @@ function processMutation(card, change) {
                     break;
                 }
                 switch (split[2][0]) {//get the operator from ex: +3
-                    case "+": bm.modifier += value; break;
-                    case "-": bm.modifier -= value; break;
+                    case "+":
+                        bm.modifier += value;
+                        //dont let this increase penalty above zero
+                        if (bm._type == BIOME_MOD_PENALTY) {
+                            bm.modifier = Math.min(bm.modifier, 0);
+                        }
+                        break;
+                    case "-":
+                        bm.modifier -= value;
+                        //dont let this reduce bonus below zero
+                        if (bm._type == BIOME_MOD_BONUS) {
+                            bm.modifier = Math.max(bm.modifier, 0);
+                        }
+                        break;
                     case "=": bm.modifier = value; break;
                     default: console.error("Unknown mutation change TTT operator:", split[2][0]);
                 }

@@ -116,6 +116,7 @@ function EditPanel({ card, cardList, setCard, updateCard, openPanel }) {
                             value={bm.modifier}
                             setValue={(v) => {
                                 bm.modifier = v;
+                                bm.init();
                                 updateCard(card);
                             }}
                             allowNegative={true}
