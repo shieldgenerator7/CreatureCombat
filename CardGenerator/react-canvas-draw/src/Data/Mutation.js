@@ -134,7 +134,7 @@ export function randomize(card, mutations) {
             for (let m of pool) {
                 index -= m.weight;
                 if (index <= 0) {
-                    processMutation(card, m);
+                    processMutation(card, m.change);
                     break;
                 }
             }
@@ -143,5 +143,25 @@ export function randomize(card, mutations) {
 }
 
 function processMutation(card, change) {
-    card.basePower += 1;
+    let split = change.split(" ");
+    switch (split[0]) {
+        case "TTT":
+            if (/^\#[0-9][0-9]$/.test(split[1])) {//ex: #01
+                let index = split[1].substr(1) * 1;
+                let value = split[2].substr(1) * 1;
+                let bm = card.biomeModifiers[index];
+                if (!bm) {
+                    break;
+                }
+                switch (split[2][0]) {//get the operator from ex: +3
+                    case "+": bm.modifier += value; break;
+                    case "-": bm.modifier -= value; break;
+                    case "=": bm.modifier = value; break;
+                    default: console.error("Unknown mutation change TTT operator:", split[2][0]);
+                }
+            }
+            break;
+        default:
+            console.error("Unknown mutation change instruction:", split[0]);
+    }
 }
