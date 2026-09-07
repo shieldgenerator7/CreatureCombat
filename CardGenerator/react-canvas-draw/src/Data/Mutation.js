@@ -121,7 +121,20 @@ export function createDefaultMutations() {
             new Mutation("TTT #05 -4", 1),
             new Mutation("TTT #05 +5", 1),
             new Mutation("TTT #05 -5", 1),
-        ]
+        ],
+        [
+            new Mutation("",900),
+            new Mutation("REST +1", 20),
+            new Mutation("REST -1", 20),
+            new Mutation("REST +2", 5),
+            new Mutation("REST -2", 5),
+            new Mutation("REST +3", 2),
+            new Mutation("REST -3", 2),
+            new Mutation("REST +4", 1),
+            new Mutation("REST -4", 1),
+            new Mutation("REST +5", 1),
+            new Mutation("REST -5", 1),
+        ],
     ]
 }
 
@@ -160,6 +173,16 @@ function processMutation(card, change) {
                     default: console.error("Unknown mutation change TTT operator:", split[2][0]);
                 }
             }
+            break;
+        case "REST":
+            let value = split[1].substr(1) * 1;
+            switch (split[1][0]) {//get the operator from ex: +3
+                case "+": card.rest += value; break;
+                case "-": card.rest -= value; break;
+                case "=": card.rest = value; break;
+                default: console.error("Unknown mutation change REST operator:", split[1][0]);
+            }
+            card.rest = Math.max(card.rest, 0);
             break;
         default:
             console.error("Unknown mutation change instruction:", split[0]);
