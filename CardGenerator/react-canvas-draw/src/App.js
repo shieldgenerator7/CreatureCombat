@@ -134,6 +134,7 @@ function App() {
                 ></CardListPanel>
                 <Canvas
                     card={cardGenerated ?? card}
+                    useBaseCard={()=>setCardGenerated(undefined)}
                     generateCard={generateCard}
                     autoDownload={autoDownload}
                 ></Canvas>
