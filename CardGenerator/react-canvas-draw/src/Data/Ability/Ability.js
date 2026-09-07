@@ -7,6 +7,7 @@ import AbilityLine from "./AbilityLine";
 
 const stringifyAbility = [
     "name",
+    "magicGenus",
     "codeText",
     "params",
 ];
