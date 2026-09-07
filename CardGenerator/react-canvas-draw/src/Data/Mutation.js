@@ -1,3 +1,4 @@
+import { arraySum } from "../Utility/Utility";
 
 
 /** The creature has mutations that change stats and abilities 
@@ -122,4 +123,25 @@ export function createDefaultMutations() {
             new Mutation("TTT #05 -5", 1),
         ]
     ]
+}
+
+export function randomize(card, mutations) {
+    for (let pool of mutations) {
+        const total = arraySum(pool, (m) => m.weight);
+        let mutationCount = 1;
+        for (let i = 0; i < mutationCount; i++) {
+            let index = Math.random() * total;
+            for (let m of pool) {
+                index -= m.weight;
+                if (index <= 0) {
+                    processMutation(card, m);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+function processMutation(card, change) {
+    card.basePower += 1;
 }

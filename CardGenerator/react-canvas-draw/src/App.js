@@ -10,6 +10,7 @@ import Storage from './Utility/Storage';
 import { VERSION } from './Version';
 import { arrayRemove, copyObject, isImage } from './Utility/Utility';
 import AbilityPanel from './Components/AbilityPanel';
+import { createDefaultMutations, randomize } from './Data/Mutation';
 
 function App() {
     //Storage
@@ -54,7 +55,7 @@ function App() {
         let base = card;
         let newcard = copyObject(base);
         inflateCreature(newcard);
-        newcard.basePower += 1;
+        randomize(newcard, createDefaultMutations());
         setCardGenerated(newcard);
     }
     //Paste String
