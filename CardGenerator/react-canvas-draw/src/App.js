@@ -8,7 +8,7 @@ import { parsePasteFromExcel } from './Utility/Parser';
 import CardListPanel from './Components/CardListPanel';
 import Storage from './Utility/Storage';
 import { VERSION } from './Version';
-import { arrayRemove, isImage } from './Utility/Utility';
+import { arrayRemove, copyObject, isImage } from './Utility/Utility';
 import AbilityPanel from './Components/AbilityPanel';
 
 function App() {
@@ -44,6 +44,19 @@ function App() {
         setCard(newcard);
         storage.cardList = cardList;
     };
+    //Card Generated
+    let cardGenerated = undefined;
+    let setCardGenerated = (cg) => {
+        cardGenerated = cg;
+    }
+    [cardGenerated, setCardGenerated] = useState(undefined);
+    let generateCard = () => {
+        let base = card;
+        let newcard = copyObject(base);
+        inflateCreature(newcard);
+        newcard.basePower += 1;
+        setCardGenerated(newcard);
+    }
     //Paste String
     let pasteString = "";
     let setPasteString = (s) => { pasteString = s; };
@@ -118,7 +131,8 @@ function App() {
                     setPasteString={setPasteString}
                 ></CardListPanel>
                 <Canvas
-                    card={card}
+                    card={cardGenerated ?? card}
+                    generateCard={generateCard}
                     autoDownload={autoDownload}
                 ></Canvas>
                 <EditPanel

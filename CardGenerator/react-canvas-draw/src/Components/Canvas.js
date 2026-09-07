@@ -11,7 +11,7 @@ const width = 2.5 * RESOLUTION;
 const height = 3.5 * RESOLUTION;
 const drawData = generateCardSkin(width, height, 0.1 * RESOLUTION, 0.04 * RESOLUTION, 0.1 * RESOLUTION);
 
-function Canvas({ card, autoDownload }) {
+function Canvas({ card, generateCard, autoDownload }) {
 
     const canvasRef = useRef(null);
 
@@ -44,6 +44,10 @@ function Canvas({ card, autoDownload }) {
         <div className='cardPanel'>
             {/* Canvas */}
             <canvas ref={canvasRef} className='cvsCard' />
+            {/* Generate Button */}
+            <button className='action' onClick={generateCard}>
+                Generate
+            </button>
             {/* Save Image Button */}
             <button className='action' onClick={saveImage}>
                 Save Image
