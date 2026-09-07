@@ -392,7 +392,7 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
             undefined,
             (card) =>
                 arraySort(
-                    [...card.biomeModifiers],
+                    [...card.biomeModifiers.filter(bm=>bm.modifier != 0)],
                     (bm) => bm.modifier * -1,
                 ).map((bm, i) => {
                     const startX = margin;
