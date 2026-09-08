@@ -2,6 +2,8 @@ import { arraySum } from "../Utility/Utility";
 import { BIOME_MOD_BONUS, BIOME_MOD_PENALTY } from "./BiomeModifier";
 
 
+const regexIndex = /^\#[0-9][0-9]$/;//ex: #01
+
 /** The creature has mutations that change stats and abilities 
  * Mutations are randomly selected and applied, changing a card's stats when it gets created
  * Each printed creature will be unique because of mutations
@@ -148,6 +150,8 @@ export function createDefaultMutations() {
         ],
         [
             new Mutation("", 100),
+            new Mutation("ABLTY #01", 10),
+            new Mutation("ABLTY #02", 10),
             new Mutation("ABLTY Disguise_Young", 10),
             new Mutation("ABLTY Hide_Young", 10),
         ]
@@ -177,7 +181,7 @@ function processMutation(card, change) {
     let split = change.split(" ");
     switch (split[0]) {
         case "TTT":
-            if (/^\#[0-9][0-9]$/.test(split[1])) {//ex: #01
+            if (regexIndex.test(split[1])) {//ex: #01
                 let index = split[1].substr(1) * 1;
                 let value = split[2].substr(1) * 1;
                 let bm = card.biomeModifiers[index];
@@ -225,9 +229,12 @@ function processMutation(card, change) {
             card.rest = Math.max(card.rest, 0);
             break;
         case "ABLTY":
-            let abilityname = split[1].replaceAll("_", " ");
-            if (card.abilities.find(a => a.name == abilityname)) { return; }
-            card.abilities.push(card.abilityPool.find(a => a.name == abilityname));
+            let ability = (regexIndex.test(split[1]))
+                ? card.abilityPool[split[1].substr(1) * 1]
+                : card.abilityPool.find((a) => a.name == split[1].replaceAll("_", " "));
+            //Add ability
+            if (card.abilities.find(a => a == ability)) { return; }
+            card.abilities.push(ability);
             break;
         default:
             console.error("Unknown mutation change instruction:", split[0]);
