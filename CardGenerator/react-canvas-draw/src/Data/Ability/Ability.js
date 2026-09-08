@@ -116,10 +116,10 @@ class Ability {
                 }
                 let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], true, (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".");
 
-                const lineType = line.atom.type;
-                const lineNextType = arr[i+1]?.atom.type;
+                const lineType = line.atom?.type;
+                const lineNextType = arr[i+1]?.atom?.type;
 
-                if (line.atom.type != LINETYPE_EFFECT && lineNextType && lineType != lineNextType){
+                if (lineType != LINETYPE_EFFECT && lineNextType && lineType != lineNextType){
                     segment += "\n";
                 }
                 

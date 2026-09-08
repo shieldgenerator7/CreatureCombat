@@ -124,7 +124,7 @@ function AbilityPanel({ ability, updateAbility }) {
                         })
                     }
                     {
-                        line.params.some(p => p.startsWith("specific")) &&
+                        line.params?.some(p => p.startsWith("specific")) &&
                         (j = Object.entries(line.atom?.params ?? {}).length) &&
                         <AbilityAtomOption
                             optionName={line.params.find(p => p.startsWith("specific")).replaceAll("-", " ")}

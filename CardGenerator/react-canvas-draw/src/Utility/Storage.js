@@ -45,8 +45,13 @@ class Storage {
         this.backwardsCompatifyStorage(this.storage);
         //
         this.storage.cardList.forEach(card => {
+            try {
             inflateCreature(card);
             backwardsCompatifyCreature(card);
+            }
+            catch (e) {
+                console.error("Cant load creature: ", card.name, e);
+            }
         });
         this.storage.deckList.forEach(deck => {
             inflateDeck(deck);

@@ -87,7 +87,7 @@ class AbilityLine {
             case LINETYPE_REQUIREMENT: symbol = "?"; break;
             case LINETYPE_EFFECT: symbol = ">"; break;
         }
-        let paramTexts = this.params.map(param => {
+        let paramTexts = this.params?.map(param => {
             //put string in quotes
             if (isString(param) && param.includes(" ")) {
                 return ensureQuotes(param);
