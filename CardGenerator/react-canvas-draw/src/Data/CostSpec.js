@@ -184,6 +184,9 @@ function defaultCostDict() {
         ),
 
         //costs
+        "mana": new AbilityCost(
+            (args, table, cost) => cost * (1 - (1 / (args.cost + 1)))
+        ),
         "exhaust": new AbilityCost(
             (args, table, cost) => cost * (1 - (1 / (args.cost + 1)))
         ),

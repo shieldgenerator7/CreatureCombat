@@ -296,6 +296,14 @@ export const abilityAtoms = [
     //costs
     [
         new AbilityAtom(
+            "mana",
+            "spend {cost} mana from this land",
+            LINETYPE_COST,
+            {
+                cost: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
             "exhaust",
             "reduce this creature's power by {cost}",
             LINETYPE_COST,
