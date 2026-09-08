@@ -75,7 +75,9 @@ class Ability {
         this.lineDisplayOptions[index] = displayOptions;
     }
     adjustEffectPower(incr) {
-        for (const paramline of this.params) {
+        for (const j in this.params) {
+            const paramline = this.params[j];
+            if (this.lines[j].type != LINETYPE_EFFECT) { continue; }
             for (const i in paramline) {
                 let param = paramline[i];
                 if (isNumber(param)) {
@@ -88,7 +90,9 @@ class Ability {
         }
     }
     setEffectPower(val) {
-        for (const paramline of this.params) {
+        for (const j in this.params) {
+            const paramline = this.params[j];
+            if (this.lines[j].type != LINETYPE_EFFECT) { continue; }
             for (const i in paramline) {
                 let param = paramline[i];
                 if (isNumber(param)) {
