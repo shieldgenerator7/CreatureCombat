@@ -74,6 +74,32 @@ class Ability {
         this.params[index] = params;
         this.lineDisplayOptions[index] = displayOptions;
     }
+    adjustEffectPower(incr) {
+        for (const paramline of this.params) {
+            for (const i in paramline) {
+                let param = paramline[i];
+                if (isNumber(param)) {
+                    param += incr;
+                    //Has to have at least 1 AP (ability power)
+                    param = Math.max(param, 1);
+                }
+                paramline[i] = param;
+            }
+        }
+    }
+    setEffectPower(val) {
+        for (const paramline of this.params) {
+            for (const i in paramline) {
+                let param = paramline[i];
+                if (isNumber(param)) {
+                    param = val;
+                    //Has to have at least 1 AP (ability power)
+                    param = Math.max(param, 1);
+                }
+                paramline[i] = param;
+            }
+        }
+    }
 
     get FullText() {
         let reminders = {};

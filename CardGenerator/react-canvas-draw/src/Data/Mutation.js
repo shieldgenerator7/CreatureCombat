@@ -154,7 +154,30 @@ export function createDefaultMutations() {
             new Mutation("ABLTY #02", 10),
             new Mutation("ABLTY Disguise_Young", 10),
             new Mutation("ABLTY Hide_Young", 10),
-        ]
+        ],
+        [
+            new Mutation("", 200),
+            new Mutation("ABLTY #01 VAL +1", 10),
+            new Mutation("ABLTY #01 VAL -1", 10),
+            new Mutation("ABLTY #01 VAL +2", 5),
+            new Mutation("ABLTY #01 VAL -2", 5),
+            new Mutation("ABLTY #01 VAL +3", 2),
+            new Mutation("ABLTY #01 VAL -3", 2),
+            new Mutation("ABLTY #01 VAL +4", 1),
+            new Mutation("ABLTY #01 VAL -4", 1),
+            new Mutation("ABLTY #01 VAL +5", 1),
+            new Mutation("ABLTY #02 VAL -5", 1),
+            new Mutation("ABLTY #02 VAL +1", 10),
+            new Mutation("ABLTY #02 VAL -1", 10),
+            new Mutation("ABLTY #02 VAL +2", 5),
+            new Mutation("ABLTY #02 VAL -2", 5),
+            new Mutation("ABLTY #02 VAL +3", 2),
+            new Mutation("ABLTY #02 VAL -3", 2),
+            new Mutation("ABLTY #02 VAL +4", 1),
+            new Mutation("ABLTY #02 VAL -4", 1),
+            new Mutation("ABLTY #02 VAL +5", 1),
+            new Mutation("ABLTY #02 VAL -5", 1),
+        ],
     ]
 }
 
@@ -232,9 +255,35 @@ function processMutation(card, change) {
             let ability = (regexIndex.test(split[1]))
                 ? card.abilityPool[split[1].substr(1) * 1 - 1]
                 : card.abilityPool.find((a) => a.name == split[1].replaceAll("_", " "));
+            if (!ability) { return; }
             //Add ability
+            if (split.length == 2) {
             if (card.abilities.find(a => a == ability)) { return; }
             card.abilities.push(ability);
+            }
+            else {
+                //Adjust ability effect power
+                switch (split[2]) {
+                    case "VAL":
+                        let operator = split[3][0];//get the operator from ex: +3
+                        let value = split[3].substr(1) * 1;
+                        switch (operator) {
+                            case "+":
+                                ability.adjustEffectPower(value);
+                                break;
+                            case "-":
+                                ability.adjustEffectPower(-1 * value);
+                                break;
+                            case "=":
+                                ability.setEffectPower(value);
+                                break;
+                            default: console.error("Unknown mutation change ability VAL operator:", split[2][0]);
+                        }
+                        break;
+                    default:
+                        console.error("Unknown mutation change ability instruction:", split[2]);
+                }
+            }
             break;
         default:
             console.error("Unknown mutation change instruction:", split[0]);
