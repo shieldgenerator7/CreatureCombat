@@ -4,8 +4,9 @@
 import React, { useRef, useEffect } from 'react';
 import { RESOLUTION, renderCard } from '../Utility/Render';
 import { generateCardSkin } from '../Data/DrawData';
-import { costSpec } from '../Data/CostSpec';
+import { costDisplay, costSpec } from '../Data/CostSpec';
 import { downloadFile } from '../Utility/Download';
+import { FIT_FILL, FIT_HEIGHT, FIT_WHOLE, FIT_WIDTH } from '../Data/Creature';
 
 const width = 2.5 * RESOLUTION;
 const height = 3.5 * RESOLUTION;
@@ -63,6 +64,18 @@ function Canvas({ card, useBaseCard, generateCard, autoDownload }) {
             }}>
                 Download .card File
             </button>
+            <div className='info'>
+                <p>{card.getNameText(true) || `[${[card.tags[0], "creature"].filter(a => a).join(" ")}]`} {costDisplay(costSpec.getTotalCost(card), false, true, false)}</p>
+                <p>Type: {card.tags.join(", ")}</p>
+                <p>Base Power: {card.basePower} {costDisplay(costSpec.basePowerFunc(card.basePower))}</p>
+                <p>Rest Cost: {card.rest} {costDisplay(costSpec.restFunc(card.rest), true, false)}</p>
+                <p>Biome Modifiers: {card.biomeModifiers.filter(bm=>bm.modifier != 0).length} {costDisplay(costSpec.biomeModifierAllFunc(card.biomeModifiers, card.basePower), true)}</p>
+                <p>Abilities: {card.abilities.length} {costDisplay(costSpec.abilityAllFunc(card.abilities))}</p>
+                <p>Flavor Text: {card.flavorText}</p>
+                <p>Art: {card.imageFileName ?? "Portrait"}</p>
+                <p>Art settings: fit {["whole", "fill", "width", "height"][card.imageFit]}, ({(card.imageOffset.x > 0) ? "+" : ""}{card.imageOffset.x}, {(card.imageOffset.y > 0) ? "+" : ""}{card.imageOffset.y}), x{ card.imageScale}</p>
+                {/* {FullTextHtml} */}
+            </div>
         </div>
     );
 }
