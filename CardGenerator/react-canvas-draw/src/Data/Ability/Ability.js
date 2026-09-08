@@ -39,6 +39,8 @@ class Ability {
         this.lines.forEach((l, i) => {
             this.lineDisplayOptions[i] ??= DISPLAY_LINE_FULL;
         });
+
+        this.manaCost ??= 0;
     }
 
     addLine(line) {
@@ -73,6 +75,8 @@ class Ability {
         this.lines[index] = line;
         this.params[index] = params;
         this.lineDisplayOptions[index] = displayOptions;
+
+        this.updateDNA();
     }
     adjustEffectPower(incr) {
         for (const j in this.params) {
@@ -146,7 +150,11 @@ class Ability {
     // Atom types in order: trigger, cost, requirement, effect
     //  */
     get TextByLineWithFormat() {
-        let processedLines = this.lines.map((line, i) => [
+        let processedLines = this.lines
+            //dont show mana cost in same spot as the others
+            .filter(line => line.type != LINETYPE_COST || line.atomName != "mana")
+            //
+            .map((line, i) => [
             this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),
             20,
             this.getLineFormat(line, this.params[i]),
@@ -310,6 +318,11 @@ class Ability {
         ${this.lines.map((line, i) =>
             line.getString()
         ).join("\n")}`;
+        
+        //mana cost
+        let manaindex = this.lines.findIndex(line => line.type == LINETYPE_COST && line.atomName == "mana");
+        this.manaCost = (manaindex >= 0) ? this.params[manaindex][0] : 0;
+        
         console.log("updateDNA_2", this.codeText);
     }
 }

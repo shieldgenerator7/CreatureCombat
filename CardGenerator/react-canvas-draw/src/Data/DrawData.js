@@ -16,6 +16,7 @@ import ui_penalty_src from "../Images/ui_penalty.png";
 import ui_rest_src from "../Images/ui_rest.png";
 import ui_cost_src from "../Images/ui_cost.png";
 import { FIT_FILL, FIT_WHOLE } from "./Creature";
+import symbol_magic_wyl_src from "../Images/symbol_wyl.png";
 import symbol_magic_deter_src from "../Images/symbol_deter.png";
 import symbol_magic_fohlo_src from "../Images/symbol_fohlo.png";
 import symbol_magic_firok_src from "../Images/symbol_firok.png";
@@ -27,6 +28,7 @@ let UI_BONUS;
 let UI_PENALTY;
 let UI_REST;
 let UI_COST;
+let SYMBOL_MAGIC_WYL = "wyl";
 let SYMBOL_MAGIC_DETER = "deter";
 let SYMBOL_MAGIC_FOHLO = "fohlo";
 let SYMBOL_MAGIC_FIROK = "firok";
@@ -34,6 +36,7 @@ let SYMBOL_MAGIC_ASAMA = "asama";
 let SYMBOL_MAGIC_IRFIG = "irfig";
 let SYMBOL_MAGIC_GARDA = "garda";
 export let SYMBOL_LIST = [
+    SYMBOL_MAGIC_WYL,
     SYMBOL_MAGIC_DETER,
     SYMBOL_MAGIC_FOHLO,
     SYMBOL_MAGIC_FIROK,
@@ -42,6 +45,7 @@ export let SYMBOL_LIST = [
     SYMBOL_MAGIC_GARDA,
 ];
 let SYMBOL_SRC_LIST = [
+    symbol_magic_wyl_src,
     symbol_magic_deter_src,
     symbol_magic_fohlo_src,
     symbol_magic_firok_src,
@@ -311,6 +315,8 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                     const textOffset = 70;
                     const symbol_x = 14;
                     const symbol_width = textSize * 1.75;
+                    const manaSymbolSize = textSize;
+                    const manaSymbolBuffer = manaSymbolSize * 0.25;
 
                     const abilityLines = ability.TextByLineWithFormat;
                     const lineYs = [];
@@ -363,6 +369,28 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             },
                             )
                         ),
+                        //Mana Cost
+                        new DrawLayer(
+                            DRAWLAYER_LAYERS,
+                            undefined,
+                            undefined,
+                            undefined,
+                            (card) => {
+                                let manaSymbols = [];
+                                for (let ci = 0; ci < ability.manaCost; ci++) {
+                                    manaSymbols.push(
+                                        new DrawLayer(
+                                            DRAWLAYER_IMAGE,
+                                            undefined,
+                                            new Vector2(startX + boxWidth - boxBuffer - ((manaSymbolSize + manaSymbolBuffer) * (ci+1)), startY + manaSymbolSize * 0.5),
+                                            new Vector2(manaSymbolSize, manaSymbolSize),
+                                            (card) => SYMBOL_MAP[SYMBOL_MAGIC_WYL],
+                                        )
+                                    );
+                                }
+                                return manaSymbols;
+                            }
+                        )
                     ];
                 });
             },

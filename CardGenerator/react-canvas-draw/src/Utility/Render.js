@@ -19,10 +19,14 @@ export function renderCard(card, canvas, drawData) {
     const height = canvas.height;
 
     //Add layers as needed
+    let whileLimit = 2;
+    while (drawData.some(layer => layer?.type == DRAWLAYER_LAYERS) && whileLimit > 0) {
     drawData = drawData.map(layer => {
         if (layer.type != DRAWLAYER_LAYERS) { return layer; }
         return layer.getInfo(card);
     }).flat(Infinity);
+        whileLimit--;
+    }
     //Process layers
     drawData.forEach(draw => {
         switch (draw.type) {
