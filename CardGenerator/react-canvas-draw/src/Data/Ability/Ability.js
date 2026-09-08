@@ -151,14 +151,19 @@ class Ability {
     //  */
     get TextByLineWithFormat() {
         let processedLines = this.lines
-            //dont show mana cost in same spot as the others
-            .filter(line => line.type != LINETYPE_COST || line.atomName != "mana")
-            //
-            .map((line, i) => [
+            .map((line, i) =>
+            //if not mana cost
+            (line.type != LINETYPE_COST || line.atomName != "mana")
+                //not mana cost: show
+                ? [
             this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),
             20,
             this.getLineFormat(line, this.params[i]),
-        ]);
+        ]
+                //mana cost: dont show (gets displayed separately)
+                : undefined
+        )
+            .filter(line => line);
         return [
             //name
             [this.name, 25, "#00D0FF"],
