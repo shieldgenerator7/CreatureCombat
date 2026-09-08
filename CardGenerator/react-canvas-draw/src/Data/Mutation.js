@@ -182,7 +182,7 @@ function processMutation(card, change) {
     switch (split[0]) {
         case "TTT":
             if (regexIndex.test(split[1])) {//ex: #01
-                let index = split[1].substr(1) * 1;
+                let index = split[1].substr(1) * 1 - 1;
                 let value = split[2].substr(1) * 1;
                 let bm = card.biomeModifiers[index];
                 if (!bm) {
@@ -230,7 +230,7 @@ function processMutation(card, change) {
             break;
         case "ABLTY":
             let ability = (regexIndex.test(split[1]))
-                ? card.abilityPool[split[1].substr(1) * 1]
+                ? card.abilityPool[split[1].substr(1) * 1 - 1]
                 : card.abilityPool.find((a) => a.name == split[1].replaceAll("_", " "));
             //Add ability
             if (card.abilities.find(a => a == ability)) { return; }
