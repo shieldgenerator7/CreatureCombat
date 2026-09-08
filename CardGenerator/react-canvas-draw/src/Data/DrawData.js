@@ -387,29 +387,17 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                                     mana1 -= 5;
                                     mana2++;
                                 }
-                                for (let ci = 0; ci < mana1; ci++) {
-                                    manaSymbols.push(
-                                        new DrawLayer(
-                                            DRAWLAYER_IMAGE,
-                                            undefined,
-                                            new Vector2(startX + boxWidth - boxBuffer - ((manaSymbolSize + manaSymbolBuffer) * (ci+1)), startY + manaSymbolSize * 0.5),
-                                            new Vector2(manaSymbolSize, manaSymbolSize),
-                                            (card) => SYMBOL_MAP[SYMBOL_MAGIC_WYL],
-                                        )
-                                    );
-                                }
-                                for (let ci = 0; ci < mana2; ci++) {
-                                    manaSymbols.push(
-                                        new DrawLayer(
-                                            DRAWLAYER_IMAGE,
-                                            undefined,
-                                            new Vector2(startX + boxWidth - boxBuffer - ((manaSymbolSize + manaSymbolBuffer) * (ci+1+mana1)), startY + manaSymbolSize * 0.5),
-                                            new Vector2(manaSymbolSize, manaSymbolSize),
-                                            (card) => SYMBOL_MAP[SYMBOL_MAGIC_WYL2],
-                                        )
-                                    );
-                                }
-                                return manaSymbols;
+                                manaSymbols.push(...Array(mana1).fill(SYMBOL_MAGIC_WYL));
+                                manaSymbols.push(...Array(mana2).fill(SYMBOL_MAGIC_WYL2));
+                                return manaSymbols.map((symbol, ci) => 
+                                    new DrawLayer(
+                                        DRAWLAYER_IMAGE,
+                                        undefined,
+                                        new Vector2(startX + boxWidth - boxBuffer - ((manaSymbolSize + manaSymbolBuffer) * (ci + 1)), startY + manaSymbolSize * 0.5),
+                                        new Vector2(manaSymbolSize, manaSymbolSize),
+                                        (card) => SYMBOL_MAP[symbol],
+                                    )
+                                );
                             }
                         )
                     ];
