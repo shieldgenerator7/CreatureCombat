@@ -1,4 +1,4 @@
-import { arraySum } from "../Utility/Utility";
+import { arraySum, isNumber } from "../Utility/Utility";
 import { BIOME_MOD_BONUS, BIOME_MOD_PENALTY } from "./BiomeModifier";
 
 
@@ -267,6 +267,9 @@ function processMutation(card, change) {
                     case "VAL":
                         let operator = split[3][0];//get the operator from ex: +3
                         let value = split[3].substr(1) * 1;
+                        //patch NaN bug
+                        if (!isNumber(value)) { value = 1; }
+                        //
                         switch (operator) {
                             case "+":
                                 ability.adjustEffectPower(value);

@@ -88,6 +88,10 @@ class Ability {
                     param += incr;
                     //Has to have at least 1 AP (ability power)
                     param = Math.max(param, 1);
+                    //patch NaN bug
+                    if (!isNumber(param)) {
+                        param = paramline[i];
+                    }
                 }
                 paramline[i] = param;
             }
