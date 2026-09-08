@@ -16,6 +16,7 @@ import ui_penalty_src from "../Images/ui_penalty.png";
 import ui_rest_src from "../Images/ui_rest.png";
 import ui_cost_src from "../Images/ui_cost.png";
 import { FIT_FILL, FIT_WHOLE } from "./Creature";
+//magic abilities
 import symbol_magic_wyl_src from "../Images/symbol_wyl.png";
 import symbol_magic_wyl_src2 from "../Images/symbol_wyl2.png";
 import symbol_magic_deter_src from "../Images/symbol_deter.png";
@@ -24,11 +25,14 @@ import symbol_magic_firok_src from "../Images/symbol_firok.png";
 import symbol_magic_asama_src from "../Images/symbol_asama.png";
 import symbol_magic_irfig_src from "../Images/symbol_irfig.png";
 import symbol_magic_garda_src from "../Images/symbol_garda.png";
+//physical abilities
+import symbol_magic_stamina_src from "../Images/symbol_stamina.png";
 
 let UI_BONUS;
 let UI_PENALTY;
 let UI_REST;
 let UI_COST;
+//magic abilities
 let SYMBOL_MAGIC_WYL = "wyl";
 let SYMBOL_MAGIC_WYL2 = "wyl2";
 let SYMBOL_MAGIC_DETER = "deter";
@@ -37,7 +41,10 @@ let SYMBOL_MAGIC_FIROK = "firok";
 let SYMBOL_MAGIC_ASAMA = "asama";
 let SYMBOL_MAGIC_IRFIG = "irfig";
 let SYMBOL_MAGIC_GARDA = "garda";
+//physical abilities
+let SYMBOL_MAGIC_STAMINA = "stamina";
 export let SYMBOL_LIST = [
+    //magic abilities
     SYMBOL_MAGIC_WYL,
     SYMBOL_MAGIC_WYL2,
     SYMBOL_MAGIC_DETER,
@@ -46,8 +53,11 @@ export let SYMBOL_LIST = [
     SYMBOL_MAGIC_ASAMA,
     SYMBOL_MAGIC_IRFIG,
     SYMBOL_MAGIC_GARDA,
+    //physical abilities
+    SYMBOL_MAGIC_STAMINA,
 ];
 let SYMBOL_SRC_LIST = [
+    //magic abilities
     symbol_magic_wyl_src,
     symbol_magic_wyl_src2,
     symbol_magic_deter_src,
@@ -56,9 +66,14 @@ let SYMBOL_SRC_LIST = [
     symbol_magic_asama_src,
     symbol_magic_irfig_src,
     symbol_magic_garda_src,
+    //physical abilities
+    symbol_magic_stamina_src,
 ];
 let SYMBOL_MAP;
 const SYMBOL_COLOR = "#00D0FF";
+const SYMBOL_COLOR_STAMINA = "#ffbd71";
+let SYMBOL_COLOR_MAP = {};
+SYMBOL_COLOR_MAP[SYMBOL_MAGIC_STAMINA] = SYMBOL_COLOR_STAMINA;
 
 /**
  * 
@@ -381,6 +396,8 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                             undefined,
                             (card) => {
                                 let manaSymbols = [];
+
+                                //mana cost
                                 let mana1 = ability.manaCost;
                                 let mana2 = 0;
                                 while (mana1 >= 5) {
@@ -389,6 +406,11 @@ export function generateCardSkin(width, height, margin, padding, textSize) {
                                 }
                                 manaSymbols.push(...Array(mana1).fill(SYMBOL_MAGIC_WYL));
                                 manaSymbols.push(...Array(mana2).fill(SYMBOL_MAGIC_WYL2));
+
+                                //stamina cost
+                                let stamina1 = ability.staminaCost ?? 2;
+                                manaSymbols.push(...Array(stamina1).fill(SYMBOL_MAGIC_STAMINA));
+
                                 return manaSymbols.map((symbol, ci) => 
                                     new DrawLayer(
                                         DRAWLAYER_IMAGE,
@@ -537,7 +559,7 @@ function loadUIImages() {
         let img = new Image();
         img.src = SYMBOL_SRC_LIST[i];
         img.onload = () => {
-            let c_src = colorSprite(img, SYMBOL_COLOR, canvas, ctx);
+            let c_src = colorSprite(img, SYMBOL_COLOR_MAP[symbol] ?? SYMBOL_COLOR, canvas, ctx);
             img.src = c_src;
             img.onload = () => { };
         }
