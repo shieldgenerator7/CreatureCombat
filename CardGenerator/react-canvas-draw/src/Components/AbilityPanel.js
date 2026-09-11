@@ -2,7 +2,7 @@
 
 import { abilityAtoms, abilityTokens } from "../Data/Ability/AbilityData";
 import SearchSelect from "./SearchSelect";
-import { LINETYPE_EFFECT, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/Ability/AbilityConstants";
+import { LINETYPE_EFFECT, LINETYPE_TRIGGER, TYPE_PARAM_NUMBER_FRACTION, TYPE_PARAM_NUMBER_WHOLE, TYPE_PARAM_STRING } from "../Data/Ability/AbilityConstants";
 import Counter from "./Counter";
 import { DISPLAY_LINE_KEYWORD_ONLY, DISPLAY_LINE_FULL, DISPLAY_LINE_KEYWORD_WITH_REMINDER } from "../Data/Ability/Ability";
 import AbilityLine from "../Data/Ability/AbilityLine";
@@ -60,7 +60,7 @@ function AbilityPanel({ ability, updateAbility }) {
                         }
                         {line.atomName != "choose" && (<span>{capitalizeFirstLetters(line.atomName, true)} </span>)}
                         {/* Line Point Cost */}
-                        {costDisplay(line.cachedCost, line.type != LINETYPE_EFFECT, line.type == LINETYPE_EFFECT)}
+                        {costDisplay(line.cachedCost, ![LINETYPE_EFFECT, LINETYPE_TRIGGER].includes(line.type), [LINETYPE_EFFECT, LINETYPE_TRIGGER].includes(line.type))}
                     </span>
 
                     <span>

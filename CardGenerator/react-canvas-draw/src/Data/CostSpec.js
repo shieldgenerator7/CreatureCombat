@@ -2,7 +2,7 @@
 
 import { arraySum, isNumber } from "../Utility/Utility";
 import AbilityCost from "./Ability/AbilityCost";
-import { LINETYPE_EFFECT, TYPE_PARAM_TEAM } from "./Ability/AbilityConstants";
+import { LINETYPE_EFFECT, LINETYPE_TRIGGER, TYPE_PARAM_TEAM } from "./Ability/AbilityConstants";
 import { abilityAtoms } from "./Ability/AbilityData";
 import Table from "./Table";
 
@@ -45,6 +45,13 @@ class CostSpec {
                 let lineCost = 0;
                 if (atom.type == LINETYPE_EFFECT) {
                     lineCost = this.getCost(atom.name, line.params) * this.abilityPointCostFactor;
+                }
+                else if (atom.type == LINETYPE_TRIGGER) {                    
+                    let discount = this.getDiscount(atom.name, cost, line.params);
+                    if (cost > 0 && !(discount > 0)) {
+                        console.error("invalid discount", discount, a.name);
+                    }
+                    lineCost = discount;
                 }
                 else {
                     let discount = this.getDiscount(atom.name, cost, line.params);
