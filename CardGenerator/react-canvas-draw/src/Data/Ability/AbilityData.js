@@ -56,17 +56,17 @@ function sortFunc(_a, _b) {
 export const abilityEffects = [
     new AbilityAtom(
         "attack-type-enemy",
-        "Choose a type. Deal X damage to all enemy Creatures of that type.",
+        "Choose a type. Deal X damage to all hostile Creatures of that type.",
         (x) => x * 1.5
     ),
     new AbilityAtom(//danger: exploitable! esp when only paired with exhaust cost
         "attack-lifesteal",
-        "Deal X damage to target Creature. Heal for the damage done.",
+        "Deal X damage to a Creature. Heal for the damage done.",
         (x) => x * 2
     ),
     new AbilityAtom(
         "duplicate",
-        "Create a duplicate of target Creature until the end of the round. At the end of the round, add X Rest counters to that Creature.",
+        "Create a short-lived duplicate of a Creature.",
         (x) => 5 - x * 1.5
     ),
     new AbilityAtom(
@@ -76,7 +76,7 @@ export const abilityEffects = [
     ),
     new AbilityAtom(
         "ward-any",
-        "Give target Creature Ward X.",
+        "Give a Creature Ward X.",
         (x) => x * 1.1
     ),
 ].sort(sortFunc);
@@ -85,19 +85,19 @@ export const abilityEffects = [
 export const abilityRequirements = [
     new AbilityAtom(
         "target-rest-count",
-        "Target Creature must have at least X Rest counters on it.",
+        "Selected Creature must have at least X Rest counters on it.",
         (x, c) => c - x * 2,
         "RX?"
     ),
     new AbilityAtom(
         "target-type-share",
-        "Target Creature must share at least X types with this Creature.",
+        "Selected Creature must share at least X types with this Creature.",
         (x, c) => c / Math.max(1, x + 1),
         "t-TX?"
     ),
     new AbilityAtom(
         "targeter-type-share",
-        "The targeter must share at least X types with this Creature.",
+        "The selecter must share at least X types with this Creature.",
         (x, c) => c / Math.max(1, x + 1),
         "tr-TX?"
     ),
@@ -329,7 +329,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "sacrifice",
-            "reduce the power of {count} target creatures you control to 0",
+            "down a friendly creature",
             LINETYPE_COST,
             {
                 count: TYPE_PARAM_NUMBER_WHOLE,
@@ -349,37 +349,37 @@ export const abilityAtoms = [
     [
         new AbilityAtom(
             "ambush",
-            "when an enemy creature enters the battlefield",
+            "when a hostile creature arrives",
             LINETYPE_TRIGGER,
             {}
         ),
         new AbilityAtom(
             "greeting",
-            "when another ally creature enters the battlefield",
+            "when another friendly creature arrives",
             LINETYPE_TRIGGER,
             {}
         ),
         new AbilityAtom(
             "battlecry",
-            "when this creature enters the battlefield",
+            "when this creature arrives",
             LINETYPE_TRIGGER,
             {}
         ),
         new AbilityAtom(
             "revenge",
-            "when this creature is reduced to 0 power",
+            "when this creature is downed",
             LINETYPE_TRIGGER,
             {}
         ),
         new AbilityAtom(
             "avenge",
-            "when another ally creature is reduced to 0 power",
+            "when another friendly creature is downed",
             LINETYPE_TRIGGER,
             {}
         ),
         new AbilityAtom(
             "targeted-by-ally",
-            "when this creature is targeted by another ally's ability",
+            "when this creature is chosen by a friendly ability",
             LINETYPE_TRIGGER,
             {},
             {
@@ -388,7 +388,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "targeted-by-enemy",
-            "when this creature is targeted by an enemy's ability",
+            "when this creature is targeted by a hostile ability",
             LINETYPE_TRIGGER,
             {},
             {
@@ -397,7 +397,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "intercept",
-            "when an ability targets another ally",
+            "when this creature blocks",
             LINETYPE_TRIGGER,
             {}
         ),
@@ -434,27 +434,25 @@ export const abilityAtoms = [
     [
         new AbilityAtom(
             "home",
-            "this creature must be in a home biome",
+            "this creature must be at a home landmark",
             LINETYPE_REQUIREMENT,
             {}
         ),
         new AbilityAtom(
             "once",
-            "this ability may only {actionWord} once per battle",
+            "this ability must not have activated yet this battle",
             LINETYPE_REQUIREMENT,
-            {
-                actionWord: ["activate", "trigger"],
-            }
+            {}
         ),
         new AbilityAtom(
             "channel",
-            "if this creature takes damage before this ability resolves, cancel the ability",
+            "this creature must not have taken damage since the beginning of the moment",
             LINETYPE_REQUIREMENT,
             {}
         ),
         new AbilityAtom(
             "social",
-            "this creature must have at least {count} allies that share a type with it, including itself",
+            "there must be at least {count} friendly creatures at this landmark that share a type with this creature",
             LINETYPE_REQUIREMENT,
             {
                 count: TYPE_PARAM_NUMBER_WHOLE,
@@ -462,7 +460,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "symbiotic",
-            "target creature must share at least {count} home biomes with this creature",
+            "selected creature must share at least {count} home biomes with this creature",
             LINETYPE_REQUIREMENT,
             {
                 count: TYPE_PARAM_NUMBER_WHOLE,
@@ -470,7 +468,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "slow",
-            "this ability cannot be used to react to another ability",
+            "this ability must not be reacting to another ability",
             LINETYPE_REQUIREMENT,
             {}
         ),
@@ -553,7 +551,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "powerup",
-            "gain {power} power",
+            "increase this creature's bonus power value by {power}",
             LINETYPE_EFFECT,
             {
                 power: TYPE_PARAM_NUMBER_WHOLE,
@@ -577,7 +575,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "stress",
-            "Increase {target}'s exhaust value by {rest}",
+            "increase {target}'s exhaust value by {rest}",
             LINETYPE_EFFECT,
             {
                 rest: TYPE_PARAM_NUMBER_WHOLE,
@@ -609,7 +607,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "ward",
-            "when an enemy creature targets this creature, they must pay Exhaust {cost}, or cancel their ability",
+            "when a hostile creature targets this creature, they must pay Exhaust {cost}",
             LINETYPE_EFFECT,
             {
                 cost: TYPE_PARAM_NUMBER_WHOLE,
@@ -641,7 +639,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "powerup-any",
-            "Give {target} {power} power",
+            "increase {target}'s bonus power value by {power}",
             LINETYPE_EFFECT,
             {
                 power: TYPE_PARAM_NUMBER_WHOLE,
@@ -660,7 +658,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "stun",
-            "cancel target activated ability of {target}",//
+            "cancel an activated ability",//
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
@@ -668,7 +666,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "suppress",
-            "triggered abilities of {target} get canceled automatically",
+            "cancel a triggered ability",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
@@ -676,7 +674,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "silence",
-            "activated abilities of {target} get canceled automatically",
+            "cancel an activated ability",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
@@ -684,7 +682,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "fear",
-            "return {target} to its owner's hand",
+            "return {target} to their hand",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
@@ -692,7 +690,7 @@ export const abilityAtoms = [
         ),
         new AbilityAtom(
             "redirect",
-            "change the target of target ability to {target}",
+            "change the target of an ability to {target}",
             LINETYPE_EFFECT,
             {
                 target: TYPE_PARAM_CREATURE,
