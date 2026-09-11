@@ -192,10 +192,10 @@ function defaultCostDict() {
 
         //costs
         "mana": new AbilityCost(
-            (args, table, cost) => cost * (1 - (1 / (args.cost + 1)))
+            (args, table, cost) => args.cost * Math.max(0.5,4 - cost/5)
         ),
         "stamina": new AbilityCost(
-            (args, table, cost) => cost * (1 - (1 / (args.cost + 1)))
+            (args, table, cost) => args.cost * Math.max(0.5,4 - cost/5)
         ),
         "exhaust": new AbilityCost(
             (args, table, cost) => cost * (1 - (1 / (args.cost + 1)))
@@ -215,19 +215,19 @@ function defaultCostDict() {
 
         //triggers
         "ambush": new AbilityCost(
-            (args, table, cost) => cost * 0.8
+            (args, table, cost) => cost * 0.2
         ),
         "greeting": new AbilityCost(
-            (args, table, cost) => cost * 0.8
+            (args, table, cost) => cost * 0.2
         ),
         "battlecry": new AbilityCost(
-            (args, table, cost) => cost * 0.9
+            (args, table, cost) => cost * 0.1
         ),
         "revenge": new AbilityCost(
-            (args, table, cost) => cost * 0.95
+            (args, table, cost) => cost * 0.05
         ),
         "avenge": new AbilityCost(
-            (args, table, cost) => cost * 0.9
+            (args, table, cost) => cost * 0.1
         ),
         "targeted-by-ally": new AbilityCost(
             (args, table, cost) => cost * 0.5
@@ -242,13 +242,13 @@ function defaultCostDict() {
             (args, table, cost) => cost * 0.5
         ),
         "other-takes-damage": new AbilityCost(
-            (args, table, cost) => cost * 0.3
+            (args, table, cost) => cost * 0.7
         ),
         "dawn": new AbilityCost(
-            (args, table, cost) => cost * 0.95
+            (args, table, cost) => cost * 0.05
         ),
         "dusk": new AbilityCost(
-            (args, table, cost) => cost * 0.95
+            (args, table, cost) => cost * 0.05
         ),
 
         //requirements
