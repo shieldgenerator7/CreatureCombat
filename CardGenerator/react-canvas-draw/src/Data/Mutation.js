@@ -161,6 +161,7 @@ export function createDefaultMutations() {
         [
             new Mutation("", 200),
             ...[1, 2, 3, 4, 5].map(n => [
+            //VAL
             new Mutation(`ABLTY #0${n} VAL +1`, 10),
             new Mutation(`ABLTY #0${n} VAL -1`, 10),
             new Mutation(`ABLTY #0${n} VAL +2`, 5),
@@ -171,6 +172,17 @@ export function createDefaultMutations() {
             new Mutation(`ABLTY #0${n} VAL -4`, 1),
             new Mutation(`ABLTY #0${n} VAL +5`, 1),
             new Mutation(`ABLTY #0${n} VAL -5`, 1),
+            //COST
+            new Mutation(`ABLTY #0${n} COST +1`, 10),
+            new Mutation(`ABLTY #0${n} COST -1`, 10),
+            new Mutation(`ABLTY #0${n} COST +2`, 5),
+            new Mutation(`ABLTY #0${n} COST -2`, 5),
+            new Mutation(`ABLTY #0${n} COST +3`, 2),
+            new Mutation(`ABLTY #0${n} COST -3`, 2),
+            new Mutation(`ABLTY #0${n} COST +4`, 1),
+            new Mutation(`ABLTY #0${n} COST -4`, 1),
+            new Mutation(`ABLTY #0${n} COST +5`, 1),
+            new Mutation(`ABLTY #0${n} COST -5`, 1),
             ]).flat(),
         ],
     ]
@@ -259,13 +271,13 @@ function processMutation(card, change) {
             }
             else {
                 //Adjust ability effect power
-                switch (split[2]) {
-                    case "VAL":
                         let operator = split[3][0];//get the operator from ex: +3
                         let value = split[3].substr(1) * 1;
                         //patch NaN bug
                         if (!isNumber(value)) { value = 1; }
                         //
+                switch (split[2]) {
+                    case "VAL":
                         switch (operator) {
                             case "+":
                                 ability.adjustEffectPower(value);
@@ -276,6 +288,20 @@ function processMutation(card, change) {
                             case "=":
                                 ability.setEffectPower(value);
                                 break;
+                            default: console.error("Unknown mutation change ability VAL operator:", split[2][0]);
+                        }
+                        break;
+                    case "COST":
+                        switch (operator) {
+                            case "+":
+                                ability.adjustCost(value);
+                                break;
+                            case "-":
+                                ability.adjustCost(-1 * value);
+                                break;
+                            case "=":
+                                // ability.setEffectPower(value);
+                                // break;
                             default: console.error("Unknown mutation change ability VAL operator:", split[2][0]);
                         }
                         break;

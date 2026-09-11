@@ -112,6 +112,25 @@ class Ability {
             }
         }
     }
+    adjustCost(incr) {
+        for (const j in this.params) {
+            const paramline = this.params[j];
+            if (this.lines[j].type != LINETYPE_COST) { continue; }
+            for (const i in paramline) {
+                let param = paramline[i];
+                if (isNumber(param)) {
+                    param += incr;
+                    //Has to have at least 1 cost
+                    param = Math.max(param, 1);
+                    //patch NaN bug
+                    if (!isNumber(param)) {
+                        param = paramline[i];
+                    }
+                }
+                paramline[i] = param;
+            }
+        }
+    }
 
     get FullText() {
         let reminders = {};
