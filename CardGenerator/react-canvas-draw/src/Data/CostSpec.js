@@ -208,40 +208,40 @@ function defaultCostDict() {
 
         //triggers
         "ambush": new AbilityCost(
-            (args, table, cost) => cost * 1.2
+            (args, table, cost) => cost * 0.8
         ),
         "greeting": new AbilityCost(
-            (args, table, cost) => cost * 1.2
+            (args, table, cost) => cost * 0.8
         ),
         "battlecry": new AbilityCost(
-            (args, table, cost) => cost * 1.1
+            (args, table, cost) => cost * 0.9
         ),
         "revenge": new AbilityCost(
-            (args, table, cost) => cost * 1.05
+            (args, table, cost) => cost * 0.95
         ),
         "avenge": new AbilityCost(
-            (args, table, cost) => cost * 1.1
+            (args, table, cost) => cost * 0.9
         ),
         "targeted-by-ally": new AbilityCost(
-            (args, table, cost) => cost * 1.5
+            (args, table, cost) => cost * 0.5
         ),
         "targeted-by-enemy": new AbilityCost(
-            (args, table, cost) => cost * 1.5
+            (args, table, cost) => cost * 0.5
         ),
         "intercept": new AbilityCost(
-            (args, table, cost) => cost * 1.5
+            (args, table, cost) => cost * 0.5
         ),
         "retaliate": new AbilityCost(
-            (args, table, cost) => cost * 1.5
+            (args, table, cost) => cost * 0.5
         ),
         "other-takes-damage": new AbilityCost(
-            (args, table, cost) => cost * 1.7
+            (args, table, cost) => cost * 0.3
         ),
         "dawn": new AbilityCost(
-            (args, table, cost) => cost * 1.05
+            (args, table, cost) => cost * 0.95
         ),
         "dusk": new AbilityCost(
-            (args, table, cost) => cost * 1.05
+            (args, table, cost) => cost * 0.95
         ),
 
         //requirements
