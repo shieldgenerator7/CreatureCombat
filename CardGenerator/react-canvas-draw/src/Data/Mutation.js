@@ -152,12 +152,15 @@ export function createDefaultMutations() {
             new Mutation("", 100),
             new Mutation("ABLTY #01", 10),
             new Mutation("ABLTY #02", 10),
+            new Mutation("ABLTY #03", 10),
+            new Mutation("ABLTY #04", 10),
+            new Mutation("ABLTY #05", 10),
             new Mutation("ABLTY Disguise_Young", 10),
             new Mutation("ABLTY Hide_Young", 10),
         ],
         [
             new Mutation("", 200),
-            ...[1, 2].map(n => [
+            ...[1, 2, 3, 4, 5].map(n => [
             new Mutation(`ABLTY #0${n} VAL +1`, 10),
             new Mutation(`ABLTY #0${n} VAL -1`, 10),
             new Mutation(`ABLTY #0${n} VAL +2`, 5),
