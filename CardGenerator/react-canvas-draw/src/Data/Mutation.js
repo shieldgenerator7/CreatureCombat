@@ -196,6 +196,7 @@ export function randomize(card, mutations) {
 }
 
 function processMutation(card, change) {
+    if (change.length == 0) { return; }
     let split = change.split(" ");
     switch (split[0]) {
         case "TTT":
@@ -284,6 +285,6 @@ function processMutation(card, change) {
             }
             break;
         default:
-            console.error("Unknown mutation change instruction:", split[0]);
+            console.error("Unknown mutation change instruction:", split[0], split, change);
     }
 }
