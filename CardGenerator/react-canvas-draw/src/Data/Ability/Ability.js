@@ -122,7 +122,7 @@ class Ability {
                     let name = this.getLineName(line, this.params[i]);
                     reminders[name] = reminder;
                 }
-                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], true, (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".");
+                let segment = this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i], true, (this.colonIndex == i) ? ":" : (this.colonIndex > i) ? "," : ".", false);
 
                 const lineType = line.atom?.type;
                 const lineNextType = arr[i+1]?.atom?.type;
@@ -176,7 +176,7 @@ class Ability {
     }
 
     //2026-08-27a: TODO: put these getLine...() methods in the AbilityLine class
-    getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL, capitalize = true, punctuation = true){
+    getLineProcessed(line, params=[], lineDisplayOption = DISPLAY_LINE_FULL, capitalize = true, punctuation = true, includeremindertext = true){
         //2026-08-23: copied from get FullText()
                 let atom = line.atom;
                 if (!atom) {
@@ -189,6 +189,11 @@ class Ability {
                         segment = atom.text.trim();
                         break;
                     case DISPLAY_LINE_KEYWORD_WITH_REMINDER:
+                        if (includeremindertext) {
+                            let reminder = this.getLineReminder(line, params, lineDisplayOption);
+                            segment = `*${linename}* _(${capitalizeFirstLetters(reminder, false)})_`;
+                            break;
+                        }
                     case DISPLAY_LINE_KEYWORD_ONLY: {
                         segment = `*${linename}*`;
                     } break;
