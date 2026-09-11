@@ -434,7 +434,7 @@ function defaultCostDict() {
                 //calc per 1 use
                 //assume 3v3
                 let targetMx = table.get(team, target) ?? 1;
-                return args.power * targetMx;
+                return 2 * targetMx;
             },
             attackTable
         ),
@@ -445,11 +445,28 @@ function defaultCostDict() {
                 //calc per 1 use
                 //assume 3v3
                 let targetMx = table.get(team, target) ?? 1;
-                return args.power * targetMx;
+                return 2 * targetMx;
             },
             attackTable
         ),
     };
+        //2026-09-10: TODO: make custom costs for each one of these
+    [
+        "retreat",
+        "morph", "morph-any", "morph-into-any", "morph-outof-any",
+        "adapt", "adapt-any"
+    ].forEach(ablty =>
+        costDict[ablty] = new AbilityCost(
+            (args, table) => {
+                let team = args[TYPE_PARAM_TEAM];
+                let target = args.target;
+                //calc per 1 use
+                //assume 3v3
+                let targetMx = table.get(team, target) ?? 1;
+                return 2 * targetMx;
+            },
+            attackTable
+        ));
     Object.entries(costDict).forEach(([key, value]) => {
         let atom = abilityAtoms.find(a => a.name == key);
         value.init(atom);
