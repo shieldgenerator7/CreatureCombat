@@ -341,6 +341,20 @@ function processMutation(card, change) {
                             default: console.error("Unknown mutation change ability VAL operator:", split[2][0]);
                         }
                         break;
+                    case "COST_S":
+                        switch (operator) {
+                            case "+":
+                                ability.adjustCost(value, "stamina");
+                                break;
+                            case "-":
+                                ability.adjustCost(-1 * value, "stamina");
+                                break;
+                            case "=":
+                                // ability.setEffectPower(value);
+                                // break;
+                            default: console.error("Unknown mutation change ability VAL operator:", split[2][0]);
+                        }
+                        break;
                     default:
                         console.error("Unknown mutation change ability instruction:", split[2]);
                 }

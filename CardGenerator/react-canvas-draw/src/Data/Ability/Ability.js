@@ -177,7 +177,7 @@ class Ability {
         let processedLines = this.lines
             .map((line, i) =>
             //if not mana cost
-            (line.type != LINETYPE_COST || !["mana","exhaust"].includes(line.atomName))
+            (line.type != LINETYPE_COST || !["mana","stamina"].includes(line.atomName))
                 //not mana cost: show
                 ? [
             this.getLineProcessed(line, this.params[i], this.lineDisplayOptions[i]),
@@ -358,7 +358,7 @@ class Ability {
         this.manaCost = (manaindex >= 0) ? this.params[manaindex][0] : 0;
 
         //stamina cost
-        let staminaindex = this.lines.findIndex(line => line.type == LINETYPE_COST && line.atomName == "exhaust");
+        let staminaindex = this.lines.findIndex(line => line.type == LINETYPE_COST && line.atomName == "stamina");
         this.staminaCost = (staminaindex >= 0) ? this.params[staminaindex][0] : 0;
         
         console.log("updateDNA_2", this.codeText);

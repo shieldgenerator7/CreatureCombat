@@ -304,6 +304,14 @@ export const abilityAtoms = [
             }
         ),
         new AbilityAtom(
+            "stamina",
+            "reduce this creature's stamina value by {cost}",
+            LINETYPE_COST,
+            {
+                cost: TYPE_PARAM_NUMBER_WHOLE,
+            }
+        ),
+        new AbilityAtom(
             "exhaust",
             "reduce this creature's power by {cost}",
             LINETYPE_COST,
