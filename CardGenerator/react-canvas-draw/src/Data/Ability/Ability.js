@@ -112,10 +112,11 @@ class Ability {
             }
         }
     }
-    adjustCost(incr) {
+    adjustCost(incr, costName) {
         for (const j in this.params) {
             const paramline = this.params[j];
             if (this.lines[j].type != LINETYPE_COST) { continue; }
+            if (costName && this.lines[j].name != costName) { continue; }
             for (const i in paramline) {
                 let param = paramline[i];
                 if (isNumber(param)) {

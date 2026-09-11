@@ -183,6 +183,28 @@ export function createDefaultMutations() {
             new Mutation(`ABLTY #0${n} COST -4`, 1),
             new Mutation(`ABLTY #0${n} COST +5`, 1),
             new Mutation(`ABLTY #0${n} COST -5`, 1),
+            //COST MANA
+            new Mutation(`ABLTY #0${n} COST_M +1`, 10),
+            new Mutation(`ABLTY #0${n} COST_M -1`, 10),
+            new Mutation(`ABLTY #0${n} COST_M +2`, 5),
+            new Mutation(`ABLTY #0${n} COST_M -2`, 5),
+            new Mutation(`ABLTY #0${n} COST_M +3`, 2),
+            new Mutation(`ABLTY #0${n} COST_M -3`, 2),
+            new Mutation(`ABLTY #0${n} COST_M +4`, 1),
+            new Mutation(`ABLTY #0${n} COST_M -4`, 1),
+            new Mutation(`ABLTY #0${n} COST_M +5`, 1),
+            new Mutation(`ABLTY #0${n} COST_M -5`, 1),
+            //COST STAMINA
+            new Mutation(`ABLTY #0${n} COST_S +1`, 10),
+            new Mutation(`ABLTY #0${n} COST_S -1`, 10),
+            new Mutation(`ABLTY #0${n} COST_S +2`, 5),
+            new Mutation(`ABLTY #0${n} COST_S -2`, 5),
+            new Mutation(`ABLTY #0${n} COST_S +3`, 2),
+            new Mutation(`ABLTY #0${n} COST_S -3`, 2),
+            new Mutation(`ABLTY #0${n} COST_S +4`, 1),
+            new Mutation(`ABLTY #0${n} COST_S -4`, 1),
+            new Mutation(`ABLTY #0${n} COST_S +5`, 1),
+            new Mutation(`ABLTY #0${n} COST_S -5`, 1),
             ]).flat(),
         ],
     ]
@@ -298,6 +320,20 @@ function processMutation(card, change) {
                                 break;
                             case "-":
                                 ability.adjustCost(-1 * value);
+                                break;
+                            case "=":
+                                // ability.setEffectPower(value);
+                                // break;
+                            default: console.error("Unknown mutation change ability VAL operator:", split[2][0]);
+                        }
+                        break;
+                    case "COST_M":
+                        switch (operator) {
+                            case "+":
+                                ability.adjustCost(value, "mana");
+                                break;
+                            case "-":
+                                ability.adjustCost(-1 * value, "mana");
                                 break;
                             case "=":
                                 // ability.setEffectPower(value);
