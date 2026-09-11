@@ -5,7 +5,7 @@ import { LINETYPE_TRIGGER, LINETYPE_COST, LINETYPE_EFFECT, LINETYPE_REQUIREMENT,
 import { abilityAtoms, findAtom, findToken, stringReplacements } from "./AbilityData";
 import AbilityLine from "./AbilityLine";
 
-const stringifyAbility = [
+export const stringifyAbility = [
     "name",
     "magicGenus",
     "codeText",

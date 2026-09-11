@@ -2,7 +2,7 @@
 
 import { getDateString, isImage } from "../Utility/Utility";
 import { VERSION } from "../Version";
-import Ability, { backwardsCompatifyAbility, inflateAbility } from "./Ability/Ability";
+import Ability, { backwardsCompatifyAbility, inflateAbility, stringifyAbility } from "./Ability/Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
 import Vector2, { inflateVector2 } from "./Vector2";
 
@@ -10,6 +10,42 @@ export const FIT_WHOLE = 0;
 export const FIT_FILL = 1;
 export const FIT_WIDTH = 2;
 export const FIT_HEIGHT = 3;
+
+export const stringifyCreature = [
+    "name",
+    "species",
+    "tags",
+    "imageURL",
+    "imageFit",
+    "imageOffset",
+    "x",
+    "y",
+    "imageScale",
+    "basePower",
+    "biomeModifiers",
+    "biome",
+    "modifier",
+    "rest",
+    "abilities",
+    "flavorText",
+
+    "id",
+    "variant",
+    "editorVersion",
+    "creationDate",
+]
+
+export const stringifyCreatureFunctional = [
+    "species",
+    "tags",
+    "basePower",
+    "biomeModifiers",
+    "biome",
+    "modifier",
+    "rest",
+    "abilities",
+    stringifyAbility,
+].flat();
 
 class Creature {
     constructor() {
