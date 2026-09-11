@@ -689,6 +689,14 @@ export const abilityAtoms = [
             },
         ),
         new AbilityAtom(
+            "retreat",
+            "return this creature to their hand",
+            LINETYPE_EFFECT,
+            {
+                target: TYPE_PARAM_CREATURE,
+            },
+        ),
+        new AbilityAtom(
             "redirect",
             "change the target of an ability to {target}",
             LINETYPE_EFFECT,
