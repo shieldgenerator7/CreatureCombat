@@ -40,6 +40,42 @@ Fight a creature: Your creature and another creature fight. The creatures with t
 
 Resolving the battle means tallying up the total power of all creatures for each player, and the player with the highest total power wins the landmark. This action is super slow.
 
+# Creature Personalities
+
+Each creature has a personality that also effects the gameplay. These are passives. Reminder: passives cannot be reacted to, and they proc when their condition is met. It is not illegal for a passive to not be proc’d when its condition occurs. Any player may point out a passive, in which case the passive must proc and be processed.
+
+-   Aggressive: Fight, Finale: If this Creature is the attacker, gain +1 power,
+-   Defensive: Fight, Finale: If this Creature is a defender, gain +1 power.
+-   Helpful: When helping a friendly Creature, increase the effect by 1.
+-   Skittish: Fight, Finale: Retreat.
+-   Determined: When this Creature’s ability gets canceled, it may Exert 1 (increase Exert value by 1) to uncancel it.
+-   Undying: It can still contribute its power total even when downed.
+-   Protective: Block: +1 power, briefly.
+-   Greedy: When this Creature casts a spell, it stores 1 mana.
+-   Curious: This Creature may use its action to reveal a hostile Creature from its hand.
+-   Sleepy: This Creature may use its action to sleep, Heal 1, Rest 1 (decrease Exert value by 1).
+-   Energetic: This Creature may cast two spells per moment, as long as both are Fast.
+-   Bloodthirsty: This Creature’s main action can only be Fight. Victory: Heal 1.
+-   Paranoid: Ambush: Gain +1 power, briefly. This Creature may use its reaction to fight the arriving Creature.
+-   Intimidating: Fight, Finale: Make a hostile Creature retreat.
+-   Sneaky: This Creature has Flanking.
+-   Bolstering: Finale: Other friendly Creatures gain +1 power, briefly.
+-   Timid: This Creature can’t take the Fight action.
+-   Coward: Block: -1 power, briefly.
+-   Docile: Fight: -1 power and +1 armor, briefly.
+-   Leader: Battlecry: Play a friendly Creature.
+-   Vengeful: Revenge, Avenge: Deal 1 damage to a hostile Creature.
+-   Controlling: Fight: Cancel a hostile ability.
+-   Quick: When this Creature activates an ability, it may Exert 1 to increase the ability’s speed by 1.
+-   Slow: When this Creature triggers an ability, decrease the ability's speed by 1.
+-   Socialite: Fight: Finale: Gain +1 power for each friendly Creature that shares a type with it, briefly.
+-   Persevering: Fight, Finale: Increase this Creature’s power by its damage value, briefly.
+-   Masochist: Whenever this Creature’s damage value changes, deal 1 damage to it.
+-   Sadist: Whenever this Creature deals damage to a Creature, deal 1 damage to that Creature.
+-   Scavenger: This Creature may fight a downed Creature. Victory: Heal 1, Power +1.
+-   Intellectual: Exert 1: Increase magic ability power by 1.
+-   Clever: This Creature ignores Ward costs.
+
 # Dictionary
 
 Here’s what these non-keywords words mean.
