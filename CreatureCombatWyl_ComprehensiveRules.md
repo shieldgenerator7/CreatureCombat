@@ -15,7 +15,9 @@
                 1.  Only triggering events listed on the ability can be used to trigger it.
             3.  Triggering an ability is optional.
             4.  If an ability has more than one trigger, you may activate it when at least one of its triggering event happens.
-            5.  Any player may trigger an ability when a trigger happens.
+            5.  Each player may trigger an ability when a trigger happens.
+            6.  Each player may trigger multiple abilities when a trigger happens.
+            7.  A player may only trigger an ability of their own creatures.
         4.  When an ability is activated, it gets put into the queue.
             1.  Requirements are not checked before the ability gets put in the queue.
             2.  If there is no queue, a moment is started, and the ability goes in the new moment’s queue.
