@@ -4,6 +4,7 @@ import { getDateString, isImage } from "../Utility/Utility";
 import { VERSION } from "../Version";
 import Ability, { backwardsCompatifyAbility, inflateAbility, stringifyAbility } from "./Ability/Ability";
 import BiomeModifier, { biomeList } from "./BiomeModifier";
+import { DNA } from "./DNA";
 import Vector2, { inflateVector2 } from "./Vector2";
 
 export const FIT_WHOLE = 0;
@@ -84,6 +85,10 @@ class Creature {
 
         //temp
         this.count = 1;//TODO: move this somewhere else
+        
+        
+        
+        new DNA();//TEST CODE for tying in the DNA
     }
 
     setTags(tags) {
