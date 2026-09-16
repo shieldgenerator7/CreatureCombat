@@ -128,7 +128,7 @@ function App() {
                     cardList={cardList}
                     setCardList={setCardList}
                     currentCard={card}
-                    setCard={setCard}
+                    setCard={(card) => { setCard(card); setCardGenerated(undefined); }}
                     updateCard={updateCard}
                     setPasteString={setPasteString}
                 ></CardListPanel>
