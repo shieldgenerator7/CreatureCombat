@@ -1,6 +1,6 @@
 
 
-// Adir Doe stats DNA: "AhBgSkXiVhRdbc"
+// Adir Doe stats DNA: "AhBgSkXiVhRdbchklhjg"
 
 const codeMap = {
     A: 0,
@@ -249,6 +249,25 @@ const mapCodonToInstruction = {
         data.incr("bm_Wasteland", mapCodonToValueInt[codon]);
     },
 
+    //Focus Power
+    CAA:(codon, data) => {        
+        data.incr("focus_Asama", mapCodonToValueInt[codon]);
+    },
+    CAT:(codon, data) => {        
+        data.incr("focus_Deter", mapCodonToValueInt[codon]);
+    },
+    CAC:(codon, data) => {        
+        data.incr("focus_Firok", mapCodonToValueInt[codon]);
+    },
+    CAG:(codon, data) => {        
+        data.incr("focus_Fohlo", mapCodonToValueInt[codon]);
+    },
+    CTA:(codon, data) => {        
+        data.incr("focus_Garda", mapCodonToValueInt[codon]);
+    },
+    CTT:(codon, data) => {        
+        data.incr("focus_Irfig", mapCodonToValueInt[codon]);
+    },
 }
 
 
