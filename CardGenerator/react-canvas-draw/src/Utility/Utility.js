@@ -313,6 +313,15 @@ function inflateObject(obj, prototype, delegates = []) {
 
 }
 
+export function reverseMap(map) {
+    let newmap = {};
+    for (const [k,v] of Object.entries(map)) {
+        // const v = map[k];
+        newmap[v] = k;
+    }
+    return newmap;
+}
+
 //2024-03-05: copied from https://stackoverflow.com/a/16599668/2336212
 export function getLines(ctx, text, maxWidth) {
     if (!text) { return []; }

@@ -2,6 +2,8 @@
 
 // Adir Doe stats DNA: "AhBgSkXiVhRdbchklhjg"
 
+import { reverseMap } from "../Utility/Utility";
+
 const codeMap = {
     A: 0,
     B: 1,
@@ -68,6 +70,8 @@ const codeMap = {
     "-": 62,
     "_": 63,
 };
+const mapCodonToCode = reverseMap(codeMap);
+window.mapCodonToCode = mapCodonToCode;
 
 const mapCodonToValue = {
     AAA: 0,
@@ -201,6 +205,9 @@ const mapCodonToValueInt = {
     GGC: 31,
     GGG: 32,
 }
+window.mapCodonToValueInt = mapCodonToValueInt;
+const mapValueIntToCodon = reverseMap(mapCodonToValueInt);
+window.mapValueIntToCodon = mapValueIntToCodon;
 
 const mapCodonToInstruction = {
     //base power
@@ -340,3 +347,44 @@ function displayCodeToNumberCode(code) {
     return arrCodon;
 }
 window.readDNA = readDNA;
+
+export function getDNAFromCreature(creature) {
+    const biomeMap = {
+        "Cloud": "TAA",
+        "Desert": "TAT",
+        "Forest": "TAC",
+        "Jungle": "TAG",
+        "Lake": "TTA",
+        "Mountain": "TTT",
+        "Ocean": "TTC",
+        "Plain": "TTG",
+        "Swamp": "TCA",
+        "Tundra": "TCT",
+        "Volcano": "TCC",
+        "Wasteland": "TCG",
+    }
+    let codonString = ""
+        //base power
+        + "AAA" + mapValueIntToCodon[creature.basePower]
+        //rest cost
+        + "AAT" + mapValueIntToCodon[creature.rest]
+        //biome mods
+        + creature.biomeModifiers.map(bm=>biomeMap[bm.biome]+mapValueIntToCodon[bm.modifier]).join("")
+        ;
+    
+    //
+    let codeString = "";
+    const map = {
+        A: "00",
+        T: "01",
+        C: "10",
+        G: "11",
+    }
+    for (let i = 0; i < codonString.length; i += 3){
+        let bin = map[codonString[i]] + map[codonString[i + 1]] + map[codonString[i + 2]];
+        let dec = parseInt(bin, 2);
+        codeString += mapCodonToCode[dec];
+    }
+    return codeString;
+}
+window.getdna = getDNAFromCreature;
