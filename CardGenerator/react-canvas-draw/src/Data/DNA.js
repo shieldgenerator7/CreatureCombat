@@ -1,5 +1,7 @@
 
 
+// Adir Doe stats DNA: "AhBgSkXiVhRdbc"
+
 const codeMap = {
     A: 0,
     B: 1,
@@ -203,7 +205,7 @@ const mapCodonToValueInt = {
 const mapCodonToInstruction = {
     //base power
     AAA: (codon, data) => {
-        data.incr("basePower", mapCodonToValue[codon]);
+        data.incr("basePower", mapCodonToValueInt[codon]);
     },
     //rest cost
     AAT: (codon, data) => {
