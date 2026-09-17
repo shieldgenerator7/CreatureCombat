@@ -7,6 +7,7 @@ import { generateCardSkin } from '../Data/DrawData';
 import { costDisplay, costSpec } from '../Data/CostSpec';
 import { downloadFile } from '../Utility/Download';
 import { FIT_FILL, FIT_HEIGHT, FIT_WHOLE, FIT_WIDTH } from '../Data/Creature';
+import { getDNAFromCreature } from '../Data/DNA';
 
 const width = 2.5 * RESOLUTION;
 const height = 3.5 * RESOLUTION;
@@ -65,6 +66,7 @@ function Canvas({ card, useBaseCard, generateCard, autoDownload }) {
                 Download .card File
             </button>
             <div className='info'>
+                <p>DNA: {getDNAFromCreature(card)}</p>
                 <p>{card.getNameText(true) || `[${[card.tags[0], "creature"].filter(a => a).join(" ")}]`} {costDisplay(costSpec.getTotalCost(card), false, true, false)}</p>
                 <p>Type: {card.tags.join(", ")}</p>
                 <p>Base Power: {card.basePower} {costDisplay(costSpec.basePowerFunc(card.basePower))}</p>
