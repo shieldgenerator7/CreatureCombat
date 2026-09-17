@@ -304,10 +304,10 @@ export function readDNA(code) {
             let valCodon = numberCode[i + 1];
             i++;
             instruction(valCodon, data);
-            console.log(codon, "-- codon processed");
+            console.log(codon, "-- codon instr processed");
         }
         else {
-            console.log(codon, "!! codon NOT found!");
+            console.log(codon, "!! codon instr NOT found!");
         }
     }
 
@@ -331,7 +331,6 @@ function displayCodeToNumberCode(code) {
         while (bin.length < 6) {
             bin = "0" + bin;
         }
-        console.log("bin", bin);
         let codon = "";
         for (let j = 0; j < 3*2; j+=2) {
             codon += mapBinToCodon[bin[j] + bin[j+1]];
